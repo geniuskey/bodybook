@@ -106,7 +106,7 @@
         <div class="stat"><span class="k">남는 열</span><span class="v" id="tb-o-s">—</span></div>
         <div class="stat"><span class="k">1시간 뒤 심부 체온</span><span class="v" id="tb-o-c">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 휴식, 22 °C. 생산 약 100 W 가운데 대부분이 복사·대류로 나간다. ② 달리기로 바꾼다. 생산이 약 800 W로 뛰고, 손실의 주인공이 증발로 바뀐다. ③ 달리기에서 기온을 38 °C, 습도를 90 %로 올린다. 복사·대류가 0 아래(주변에서 열이 들어옴)로 내려가고 증발도 막혀 저울이 왼쪽으로 크게 기운다. (BD.thermo 두 구획 모델을 60분 돌린 마지막 값. 휴식 100 W·옷 0.5 clo, 걷기 300 W, 달리기 804 W·옷 0.3 clo·바람 2.9 m/s. 복사와 대류는 열전달 계수 비율로 나눴다. 공기 중의 전도는 작아서 뺐다.)</div>
+      <div class="sim-note">해볼 것: ① 휴식, 22 °C. 생산 약 100 W 가운데 대부분이 복사·대류로 나간다. ② 달리기로 바꾼다. 생산이 약 800 W로 뛰고, 손실의 주인공이 증발로 바뀐다. ③ 달리기에서 기온을 38 °C, 습도를 90 %로 올린다. 복사·대류가 0 아래(주변에서 열이 들어옴)로 내려가고 증발도 막혀 저울이 왼쪽으로 크게 기운다. (BD.thermo 두 구획 모델을 60분 돌린 마지막 값. 휴식 100 W·옷 0.5 clo, 걷기 300 W, 달리기 804 W·옷 0.3 clo·바람 2.9 m/s. 복사와 대류는 열전달 계수 비율로 나눴다. 공기 중의 전도는 작아서 뺐다. 이 모델은 22 °C에서 얇은 옷으로 쉬어도 약 20 W를 떠는데, 실제로는 대개 옷이나 자세로 메운다.)</div>
     </div>
 
     <p>저울이 기울어 남는 열은 몸에 쌓인다. 몸의 열용량은 약 3.5 kJ/kg/°C, 다온(78 kg)이면 약 270 kJ로 체온이 1 °C 오른다. 100 W가 남으면 45분, 달릴 때처럼 800 W가 남으면 6분 만에 1 °C다. 그래서 몸은 남는 열을 거의 0으로 맞추도록 피부 혈류와 땀을 끊임없이 조절한다.</p>
@@ -186,7 +186,7 @@
         <path d="M298 140 C280 160 272 190 252 210" class="s-line" fill="none" marker-end="url(#th-ar2)"/>
         <path d="M138 238 C90 238 78 210 78 176" class="s-line" fill="none" marker-end="url(#th-ar2)"/>
         <text x="40" y="216" text-anchor="middle" class="lbl-dim">되먹임</text>
-        <text x="258" y="98" class="lbl-dim">명령(자율 신경)</text>
+        <text x="246" y="90" class="lbl-dim">명령(자율 신경)</text>
       </svg>
       <figcaption><b>체온의 음성 되먹임.</b> 감지기가 잰 온도를 시상하부가 설정점과 비교하고, 차이를 줄이는 쪽으로 효과기를 움직인다. 효과기가 바꾼 체온은 다시 감지기로 돌아간다. 열이 나면 이 고리는 그대로이고 설정점만 올라간다.</figcaption>
     </figure>
@@ -579,7 +579,7 @@
       text(ctx, core.toFixed(2) + " °C", c.X(cur) + (cur > 900 ? -10 : 10), c.Y(Math.min(41, core)) - 10, { align: cur > 900 ? "right" : "left", mono: true, size: 11.5, weight: 700, color: core >= 40 ? p.bad : heat });
       lay = { c: c, box: box };
       // 오른쪽(아래): 시간 기록
-      var b2 = narrow ? { x: 50, y: box.y + box.h + 62, w: w - 64, h: h - box.y - box.h - 128 } : { x: w * 0.6 + 40, y: 18, w: w * 0.4 - 52, h: h - 80 };
+      var b2 = narrow ? { x: 50, y: box.y + box.h + 62, w: w - 64, h: h - box.y - box.h - 148 } : { x: w * 0.6 + 40, y: 18, w: w * 0.4 - 52, h: h - 80 };
       var c2 = BB.chart(ctx, b2, { x: [0, 60], y: [36.5, 41], xLabel: "시간(분)", yTicks: [37, 38, 39, 40, 41], xTicks: [0, 20, 40, 60],
         series: [{ data: r.t.map(function (tt, i) { return [tt, r.core[i]]; }), color: heat, width: 2.4 }, { data: r.t.map(function (tt, i) { return [tt, 36.5 + r.sweat[i] * 2]; }), color: BB.color("water"), width: 1.6, dash: [4, 3] }] });
       text(ctx, "심부 체온(실선) · 땀 L/h(점선, ×2 + 36.5)", b2.x, b2.y - 4, { size: 10, color: p.dim });
@@ -589,7 +589,7 @@
       BB.stat("tm-o-c", core.toFixed(2) + "<small>°C</small>");
       BB.stat("tm-o-s", last(r, "sweat").toFixed(2) + "<small>L/h</small>");
       BB.stat("tm-o-e", Math.round(ev) + " / " + Math.round(em) + "<small>W</small>");
-    }, { get height() { return wOf("tm-cv") < 560 ? 580 : 360; } });
+    }, { get height() { return wOf("tm-cv") < 560 ? 600 : 360; } });
     BB.drag(cv.canvas, { move: function (x, y) { if (!lay || y > lay.box.y + lay.box.h + 20) return; cur = BB.clamp(Math.round((100 + (x - lay.box.x) / lay.box.w * 1100) / 25) * 25, 100, 1200); cv.redraw(); } });
   })();
 

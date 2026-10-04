@@ -581,8 +581,8 @@
       ctx.fillStyle = BB.alpha(BB.color("art"), 0.55);
       for (var k = 0; k < 7; k++) { var an = k * 0.9; ctx.beginPath(); ctx.arc(gx + Math.cos(an) * gr * 0.45, gy + Math.sin(an) * gr * 0.45, gr * 0.42, 0, Math.PI * 2); ctx.fill(); }
       arrow(ctx, gx - gr * 3, gy - gr * 1.5, gx - gr * 0.9, gy - gr * 0.6, BB.color("art"), 2.4);
-      text(ctx, "사구체", gx, gy + gr * 1.35 + 14, { align: "center", weight: 600, size: 11.5 });
-      text(ctx, "180 L/일", gx, gy + gr * 1.35 + 28, { align: "center", mono: true, color: water, size: 11 });
+      text(ctx, "사구체", gx, gy + gr * 1.35 + 22, { align: "center", weight: 600, size: 11.5 });
+      text(ctx, "180 L/일", gx, gy + gr * 1.35 + 36, { align: "center", mono: true, color: water, size: 11 });
       // 세관
       KEYS.forEach(function (key, i) {
         var s = SEG[i + 1], fl = (s.from + s.to) / 2, wd = 2.5 + 7 * Math.sqrt(fl / 180);
