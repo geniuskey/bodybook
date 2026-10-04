@@ -455,7 +455,7 @@
       var g = at(r, "g", cur + 10), ii = at(r, "i", cur + 10);
       ctx.fillStyle = GLU(); ctx.beginPath(); ctx.arc(X, c1.Y(g), 4.5, 0, Math.PI * 2); ctx.fill();
       ctx.fillStyle = INS(); ctx.beginPath(); ctx.arc(X, c2.Y(Math.min(ii, imax)), 4.5, 0, Math.PI * 2); ctx.fill();
-      var right = cur > 120;
+      var right = X > b1.x + b1.w * 0.55;
       txt(ctx, f0(cur) + "분: " + f0(g) + " mg/dL", X + (right ? -8 : 8), b1.y + b1.h - 10, { size: 11.5, mono: true, weight: 700, align: right ? "right" : "left" });
       txt(ctx, f0(ii) + " µU/mL", X + (right ? -8 : 8), c2.Y(Math.min(ii, imax)) - 8, { size: 11.5, mono: true, color: INS(), align: right ? "right" : "left" });
       handle(ctx, X, b2.y + b2.h, p.text, 6);
@@ -631,7 +631,8 @@
       // 걷기 막대
       var by = box.y + box.h + 26, x0 = c.X(w0), x1 = c.X(w0 + len);
       ctx.fillStyle = BB.alpha(BB.color("seg-musc"), 0.8); BB.rrect(ctx, x0, by, x1 - x0, 24, 6); ctx.fill();
-      txt(ctx, "걷기 " + len + "분", (x0 + x1) / 2, by + 16, { size: 11.5, weight: 700, color: BB.isDark() ? "#0b0d12" : "#fff", align: "center" });
+      if (x1 - x0 > 70) txt(ctx, "걷기 " + len + "분", (x0 + x1) / 2, by + 16, { size: 11.5, weight: 700, color: BB.isDark() ? "#0b0d12" : "#fff", align: "center" });
+      else txt(ctx, "걷기 " + len + "분", x1 + 12, by + 16, { size: 11.5, weight: 700, color: BB.color("seg-musc") });
       handle(ctx, x1, by + 12, BB.color("seg-musc"), 7);
       ctx.fillStyle = BB.alpha(BB.color("seg-musc"), 0.08); ctx.fillRect(x0, box.y, x1 - x0, box.h);
       ctx.strokeStyle = p.dim; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(c.X(0), box.y + 16); ctx.lineTo(c.X(0), box.y + box.h); ctx.stroke(); ctx.setLineDash([]);
@@ -674,7 +675,7 @@
       ctx.strokeStyle = p.grid; ctx.strokeRect(ib.x, ib.y, ib.w, ib.h);
       ctx.strokeStyle = INS(); ctx.lineWidth = 2; ctx.beginPath();
       r.t.forEach(function (tt, i) { var X = c.X(tt - 60), Y = ib.y + ib.h - Math.min(1, r.i[i] / imax) * ib.h; i ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }); ctx.stroke();
-      txt(ctx, "혈중 인슐린", ib.x + 4, ib.y + 12, { size: 10.5, color: INS() });
+      txt(ctx, "혈중 인슐린", ib.x + ib.w - 4, ib.y + 12, { size: 10.5, color: INS(), align: "right" });
       // 주사 표시(끌기): 위치 = 시각, 높이 = 양
       var X = c.X(tI), Yu = ib.y + ib.h - (u / 30) * (ib.h + box.h * 0.4);
       ctx.strokeStyle = INS(); ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(X, ib.y + ib.h); ctx.lineTo(X, Yu); ctx.stroke();
@@ -768,7 +769,7 @@
       var r = run(), narrow = w < 520;
       var MON = { text: "#e6edf7", dim: "#9aa6bf", grid: "rgba(255,255,255,.07)" };
       var tr = BB.trace(3), right = narrow ? 0 : 150;
-      var box = { x: 44, y: 18, w: w - 56 - right, h: h - (narrow ? 150 : 76) };
+      var box = { x: 44, y: 18, w: w - 56 - right, h: h - (narrow ? 190 : 76) };
       var X = function (t) { return box.x + t / 1440 * box.w; }, Y = function (g) { return box.y + box.h - (g - 40) / 260 * box.h; };
       // 목표 범위
       ctx.fillStyle = "rgba(80,200,120,.10)"; ctx.fillRect(box.x, Y(180), box.w, Y(70) - Y(180));
@@ -819,7 +820,7 @@
       BB.stat("dy-o-r", Math.round(tir * 100) + "<small>%</small>");
       BB.stat("dy-o-a", a1c.toFixed(1) + "<small>%</small>");
       BB.stat("dy-o-f", f0(fpg) + "<small>mg/dL · " + BD.glucoseClass(fpg).label + "</small>");
-    }, { get height() { return narrowOf("dy-cv", 520) ? 430 : 330; } });
+    }, { get height() { return narrowOf("dy-cv", 520) ? 480 : 330; } });
     BB.drag(cv.canvas, {
       start: function (x, y) { drag = null; if (!lay) return; lay.pts.forEach(function (q) { if (Math.hypot(x - q.x, y - q.y) < 16) drag = q.k; }); },
       move: function (x, y) {
@@ -866,7 +867,7 @@
         txt(ctx, "걷기", (x0 + x1) / 2, b1.y + b1.h - 9, { size: 11, weight: 700, color: BB.isDark() ? "#0b0d12" : "#fff", align: "center" });
       }
       var back = sit.back != null ? sit.back - 30 : null;
-      txt(ctx, "점심 탄수화물 " + getG() + " g" + (back ? " · 앉아 있으면 약 " + (back / 60).toFixed(1) + "시간 뒤 공복 수준" : ""), b1.x + 6, b1.y + 12, { size: 11, color: p.dim });
+      txt(ctx, "점심 탄수화물 " + getG() + " g" + (back && !narrow ? " · 앉아 있으면 약 " + (back / 60).toFixed(1) + "시간 뒤 공복 수준" : ""), b1.x + 6, b1.y + 12, { size: 11, color: p.dim });
       lay = { c1: c1, b1: b1 };
       // 아래: 대회 글리코겐
       var R = race(), top = b1.y + b1.h + 52;
@@ -883,7 +884,8 @@
         series: [{ data: pts, color: BB.color("carb"), width: 2.8, fill: BB.alpha(BB.color("carb"), 0.22) }] });
       ctx.strokeStyle = BB.color("seg-meta"); ctx.setLineDash([4, 3]); ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(b2.x, c2.Y(LIVER)); ctx.lineTo(b2.x + b2.w, c2.Y(LIVER)); ctx.stroke(); ctx.setLineDash([]);
       txt(ctx, "간 글리코겐 약 " + LIVER + " g", b2.x + b2.w - 4, c2.Y(LIVER) - 5, { size: 10.5, color: BB.color("seg-meta"), align: "right" });
-      txt(ctx, R.km + " km · " + R.kmh.toFixed(1) + " km/h · 약 " + f0(R.mins) + "분 · RER " + R.rer.toFixed(2) + " · 탄수화물 " + R.gpm.toFixed(1) + " g/min", b2.x + 6, b2.y - 8, { size: narrow ? 10.5 : 11.5, color: p.dim });
+      if (narrow) { txt(ctx, R.km + " km · " + R.kmh.toFixed(1) + " km/h · 약 " + f0(R.mins) + "분", b2.x, b2.y - 22, { size: 10.5, color: p.dim }); txt(ctx, "RER " + R.rer.toFixed(2) + " · 탄수화물 " + R.gpm.toFixed(1) + " g/min", b2.x, b2.y - 8, { size: 10.5, color: p.dim }); }
+      else txt(ctx, R.km + " km · " + R.kmh.toFixed(1) + " km/h · 약 " + f0(R.mins) + "분 · RER " + R.rer.toFixed(2) + " · 탄수화물 " + R.gpm.toFixed(1) + " g/min", b2.x + 6, b2.y - 8, { size: 11.5, color: p.dim });
       txt(ctx, "출발 " + f0(R.store) + " g", c2.X(0) + 6, c2.Y(R.store) + 16, { size: 11.5, weight: 700, color: BB.color("carb") });
       var X = c2.X(R.mins);
       ctx.strokeStyle = p.text; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(X, b2.y); ctx.lineTo(X, b2.y + b2.h); ctx.stroke();

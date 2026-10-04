@@ -436,7 +436,7 @@
       var bw = res.bw[d], ee = res.ee[d], ei = res.ei[d];
       var cFat = BB.color("fat"), cIn = BB.color("carb"), cOut = BB.color("heat");
       // 욕조
-      var tx = narrow ? w * 0.2 : w * 0.14, tw = narrow ? w * 0.6 : w * 0.34, ty = 80, th = narrow ? 170 : h - 110;
+      var tx = narrow ? w * 0.2 : w * 0.14, tw = narrow ? w * 0.6 : w * 0.34, ty = 80, th = narrow ? 170 : h - 132;
       var lo = 40, hi = 110, Yw = function (v) { return ty + th - (v - lo) / (hi - lo) * th; };
       ctx.strokeStyle = p.text; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx, ty + th); ctx.lineTo(tx + tw, ty + th); ctx.lineTo(tx + tw, ty); ctx.stroke();
       ctx.fillStyle = BB.alpha(cFat, 0.55); ctx.fillRect(tx + 2, Yw(bw), tw - 4, ty + th - Yw(bw) - 2);
@@ -461,7 +461,7 @@
       BD.flowDots(ctx, [[dx, ty + th - 6], [dx, ty + th + 34]], day * 3 * ee / 1000, { color: cOut, gap: 10, r: 2.5 });
       txt(ctx, "소비 " + kc(ee), dx + dw / 2 + 6, ty + th + 26, { size: 12, weight: 700, color: cOut });
       // 오른쪽: 시간 그래프
-      var box = narrow ? { x: 50, y: ty + th + 66, w: w - 64, h: h - (ty + th + 66) - 40 } : { x: w * 0.56, y: 24, w: w * 0.42 - 12, h: h - 66 };
+      var box = narrow ? { x: 50, y: ty + th + 66, w: w - 64, h: h - (ty + th + 66) - 40 } : { x: w * 0.62, y: 24, w: w * 0.36 - 12, h: h - 66 };
       var dd = res.day.length - 1;
       var c = BB.chart(ctx, box, { x: [0, 4], y: [50, 90], xLabel: "시간(년)", yLabel: "체중(kg)", series: [{ data: series(res, "bw", 7).map(function (q) { return [q[0] / 365, q[1]]; }), color: cFat, width: 2.4 }], hlines: [{ y: eq, color: p.ok }] });
       ctx.fillStyle = p.text; ctx.beginPath(); ctx.arc(c.X(d / 365), c.Y(bw), 5, 0, Math.PI * 2); ctx.fill();
