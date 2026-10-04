@@ -217,7 +217,7 @@
     </div>
     <p>실전에서는 굵은 선 위에 놓인 R파 하나를 찾고, 그다음 굵은 선마다 "300, 150, 100, 75, 60, 50"을 외며 다음 R파가 어디쯤 오는지 본다. 아래에서 직접 해 보자.</p>
 
-    <div class="sim" id="sim-rate" data-desc="6초짜리 심전도에서 R파 사이 칸을 세어 300 규칙·1500 규칙·6초 방법으로 심박수를 읽고, 불규칙한 리듬에서 어느 방법이 틀리는지 본다">
+    <div class="sim" id="sim-ecg-rate" data-desc="6초짜리 심전도에서 R파 사이 칸을 세어 300 규칙·1500 규칙·6초 방법으로 심박수를 읽고, 불규칙한 리듬에서 어느 방법이 틀리는지 본다">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>칸 세어 심박수 읽기</h3></div>
       <div class="sim-body side">
         <div class="sim-view"><canvas id="rt-cv"></canvas><span class="hint">빨간 캘리퍼를 다음 R파로 끈다</span></div>
@@ -1189,7 +1189,7 @@
           { label: "CO 어림", value: sim.co.toFixed(1), unit: "L/min", color: BB.trace(3), alarm: sim.co < 3.5 },
         ],
       });
-      if (vf) { ctx.fillStyle = "#ff4d5e"; ctx.font = BB.font(13, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("경보: 심실세동 · 맥박 없음", 12, h - 22); }
+      if (vf) { ctx.fillStyle = "#ff4d5e"; ctx.font = BB.font(13, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("경보: 심실세동 · 맥박 없음", 12, h / 2 + 24); }
     }, { get height() { return viewW("ar-cv") < 560 ? 280 : 300; } });
     BB.loop(document.getElementById("sim-arrhythmia"), function (dt) { t += dt; if (t > 74) t = key === "vf" ? 15 : 15 + W; cv.redraw(); });
     // 본문 숫자: 심방 수축을 뺐을 때 심박출량 감소(엔진 BD.heart)

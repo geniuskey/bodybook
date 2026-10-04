@@ -325,7 +325,7 @@
         <div class="stat"><span class="k">심박출량</span><span class="v" id="dr-o-co">—</span></div>
         <div class="stat"><span class="k">근육으로 가는 피</span><span class="v" id="dr-o-mu">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 강도를 0.6으로 올린다. 심박수가 몇십 초에 걸쳐 오르고 혈압 파형의 꼭대기가 높아지며 바닥은 오히려 조금 내려간다(근육 혈관이 열려서). ② "대회 순서 재생"을 누른다. 쉼 → 몸풀기 → 대회 속도 → 정리 운동 순서로, 심박수 추세가 Z2를 지나 대회 목표 161 근처까지 오르는 것을 본다. ③ 강도를 1로 두면 엔진의 대회 속도 설정(심박 168, 심박출량 약 18 L/min)에 닿는다. 계획보다 조금 빠른, Z4 들머리다. (강도 0 = BD.HEART_PRESETS.daon, 1 = run. 사이 값은 다섯 점을 엔진으로 돌려 보간했다. 심박수는 τ 약 30초로 목표를 따라간다. 심박 표류·체온 상승은 넣지 않았다.)</div>
+      <div class="sim-note">해볼 것: ① 강도를 0.6으로 올린다. 심박수가 몇십 초에 걸쳐 오르고 혈압 파형의 꼭대기가 높아지며 바닥은 오히려 조금 내려간다(근육 혈관이 열려서). ② "대회 순서 재생"을 누른다. 쉼 → 몸풀기 → 대회 속도 → 정리 운동 순서로, 심박수 추세가 Z2를 지나 대회 목표 161 근처까지 오르는 것을 본다. ③ 강도를 1로 두면 엔진의 대회 속도 설정(심박 168, 심박출량 약 18 L/min)에 닿는다. 계획보다 조금 빠른, Z4 들머리다. (강도 0 = BD.HEART_PRESETS.daon, 1 = run. 사이 값은 다섯 점을 엔진으로 돌려 보간했다. 말초 저항은 직선 대신 기하급수로 줄였다(근육 혈관은 낮은 강도에서 이미 크게 열린다. 직선으로 줄이면 중간 강도에서 확장기 혈압이 비현실적으로 오른다). 심박수는 τ 약 30초로 목표를 따라간다. 심박 표류·체온 상승은 넣지 않았다.)</div>
     </div>
 
     <p class="health-note">이 장의 수치와 시뮬레이터는 원리를 보여 주기 위한 교육용 모델입니다. 심박수 구간은 건강한 사람을 위한 일반적인 안내이며, 심장 질환이 있거나 심장 박동에 영향을 주는 약(예: 베타 차단제)을 먹는 사람은 숫자가 맞지 않을 수 있습니다. 운동을 새로 시작하기 전 걱정되는 증상이나 질환이 있으면 의료진과 상담하세요.</p>
@@ -907,8 +907,7 @@
   /* ---------------------------------------------------------- 9. 다온 달리기 모니터 */
   (function () {
     var XS = [0, 0.25, 0.5, 0.75, 1], pts = [], xEff = 0, tSim = 0, hist = [], beats = [], ph = 0, prog = null, cv = null;
-    var A = BD.HEART_PRESETS.daon, B = BD.HEART_PRESETS.run;
-    function oAt(x) { var L = function (a, b) { return a + (b - a) * x; }; return { hr: Math.round(L(72, 168)), emax: +L(2.8, 5.5).toFixed(3), vs: Math.round(L(440, 700)), rs: +L(1.15, 0.32).toFixed(3), tscale: +L(1, 0.8).toFixed(3), ca: +L(1.35, 0.8).toFixed(3), beats: 8 }; }
+        function oAt(x) { var L = function (a, b) { return a + (b - a) * x; }; return { hr: Math.round(L(72, 168)), emax: +L(2.8, 5.5).toFixed(3), vs: Math.round(L(440, 700)), rs: +(1.15 * Math.pow(0.32 / 1.15, Math.pow(x, 0.7))).toFixed(3), tscale: +L(1, 0.8).toFixed(3), ca: +L(1.35, 0.8).toFixed(3), beats: 8 }; }
     XS.forEach(function (x, i) { queue(function () { var r = run(oAt(x)); pts[i] = { x: x, sv: r.sv, co: r.co, sbp: r.sbp, dbp: r.dbp }; }); });
     function val(k, x) { var ok = pts.filter(Boolean); if (ok.length < 2) return { sv: 72, co: 5.2, sbp: 123, dbp: 85 }[k]; return BD.interp(ok.map(function (q) { return q.x; }), ok.map(function (q) { return q[k]; }), x); }
     var TPL = BD.ecg({ hr: 60, hrv: 0, resp: 0, noise: 0, duration: 5 }), TR = TPL.beats[2].r;

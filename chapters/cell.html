@@ -87,7 +87,7 @@
         <text x="420" y="202" text-anchor="middle" class="lbl-acc">2 K⁺</text>
         <circle cx="196" cy="70" r="5" class="f-art"/><circle cx="206" cy="78" r="5" class="f-art"/>
         <path d="M200 92 L200 190" class="s-line" marker-end="url(#ce-ar)"/>
-        <text x="200" y="208" text-anchor="middle" class="lbl-dim">O₂ 통과</text>
+        <text x="206" y="222" text-anchor="middle" class="lbl-dim">O₂ 통과</text>
       </svg>
       <figcaption><b>세포막과 그 위의 문들.</b> 기름 막(노랑)은 산소처럼 작은 분자만 그냥 통과시킨다. 이온은 통로로, 포도당은 운반체로 지나간다. 나트륨-칼륨 펌프는 ATP를 써서 농도 차이를 거슬러 Na⁺를 내보내고 K⁺를 들여온다. 그래서 세포 안은 K⁺가, 세포 밖은 Na⁺가 많다.</figcaption>
     </figure>
@@ -151,7 +151,7 @@
     <div class="sim" id="sim-ce-fick" data-desc="막의 두께를 직접 끌고 넓이와 농도 차를 바꿔 피크의 법칙으로 막을 건너는 양이 어떻게 변하는지 보고, 폐섬유증·폐기종·운동 상태를 비교한다">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>막을 건너는 양</h3></div>
       <div class="sim-body side">
-        <div class="sim-view"><canvas id="fk-cv"></canvas><span class="hint">막의 오른쪽 가장자리를 끌어 두께를 바꾼다</span></div>
+        <div class="sim-view"><canvas id="fk-cv"></canvas><span class="hint">막 가장자리를 끌어 두께 조절</span></div>
         <div class="sim-controls">
           <label class="ctrl"><span>넓이 <output id="fk-a-out"></output></span><input type="range" id="fk-a" min="10" max="120" step="1" value="70"></label>
           <label class="ctrl"><span>분압 차 <output id="fk-c-out"></output></span><input type="range" id="fk-c" min="5" max="100" step="1" value="60"></label>
@@ -304,7 +304,7 @@
         <div class="stat"><span class="k">세포 부피</span><span class="v" id="dn-o-v">—</span></div>
         <div class="stat"><span class="k">몸의 물 변화</span><span class="v" id="dn-o-w">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "다온의 대회"(58분, 땀 약 0.6 L, 맹물 0.5 L)는 나트륨이 거의 그대로다. ② "맹물 3 L"를 누른다. 땀보다 2.4 L 더 마시자 나트륨이 약 134 mmol/L까지 내려가고(저나트륨혈증의 문턱 135 아래) 세포가 약 3 % 붓는다. 소변으로 남는 물을 버리며 천천히 회복한다. ③ "항이뇨 호르몬이 계속 높다"를 켠다. 소변이 나오지 않아 약 133에 머문다. ④ "5시간 마라톤 + 7 L"는 나트륨이 130 mmol/L 근처로 떨어지고 세포가 5 % 넘게 붓는다. 같은 양을 경구 수분 보충액으로 바꾸면 훨씬 덜 떨어진다. (몸의 물 46.8 L(BD.tbw(78)), 시작 삼투 농도 290. 땀의 오스몰 = 2 × 나트륨. 혈장 나트륨 ≈ 140 × 삼투 농도/290, 세포 부피 BD.cellVolume. 대회 뒤 삼투 농도가 285 아래면 묽은 소변을 시간당 최대 0.9 L 버린다고 가정했다. 18장에서 콩팥과 함께 다시 다룬다.)</div>
+      <div class="sim-note">해볼 것: ① "다온의 대회"(58분, 땀 약 0.6 L, 맹물 0.5 L)는 나트륨이 거의 그대로다. ② "맹물 3 L"를 누른다. 땀보다 2.4 L 더 마시자 나트륨이 약 134 mmol/L까지 내려가고(저나트륨혈증의 문턱 135 아래) 세포가 약 3 % 붓는다. 소변으로 남는 물을 버리며 천천히 회복한다. ③ "항이뇨 호르몬이 계속 높다"를 켠다. 소변이 나오지 않아 약 133에 머문다. ④ "5시간 마라톤 + 7 L"는 나트륨이 130 mmol/L 근처로 떨어지고 세포가 5 % 넘게 붓는다. 같은 양을 경구 수분 보충액으로 바꾸면 훨씬 덜 떨어진다. (몸의 물 46.8 L(BD.tbw(78)), 시작 삼투 농도 290. 땀의 오스몰 = 2 × 나트륨. 혈장 나트륨 ≈ 140 × 삼투 농도/290, 세포 부피 BD.cellVolume(그림의 크기 변화는 과장했다). 대회 뒤 삼투 농도가 285 아래면 묽은 소변을 시간당 최대 0.9 L 버린다고 가정했다. 18장에서 콩팥과 함께 다시 다룬다.)</div>
     </div>
 
     <div class="casefile">
@@ -432,7 +432,7 @@
       ctx.fillStyle = p.text; ctx.font = BB.font(10.5, true); ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText("20 µm", bx + 10, by + S - 14);
       ctx.fillStyle = p.accent2; ctx.font = BB.font(11, true, 700); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("√(4Dt) = " + (R / sc).toFixed(1) + " µm", bx + S - 6, by + 6);
       // MSD 그래프
-      var box = narrow ? { x: 58, y: by + S + 22, w: w - 74, h: h - by - S - 82 } : { x: bx + S + 62, y: 16, w: w - bx - S - 78, h: h - 76 };
+      var box = narrow ? { x: 58, y: by + S + 22, w: w - 74, h: h - by - S - 96 } : { x: bx + S + 62, y: 16, w: w - bx - S - 78, h: h - 90 };
       var tmax = Math.max(0.05, t * 1.05), ymax = Math.max(100, 4 * D * tmax * 1.15);
       var c = BB.chart(ctx, box, { x: [0, tmax], y: [0, ymax], xLabel: "시간 t (s)", yLabel: "평균 제곱 변위 µm²", xFmt: function (v) { return v.toFixed(2); }, yFmt: function (v) { return v >= 1000 ? (v / 1000) + "k" : String(v); },
         series: [{ data: [[0, 0], [tmax, 4 * D * tmax]], color: p.accent2, width: 2 }] });
@@ -456,7 +456,7 @@
     var sp = BB.seg("tm-sp", function () { cv.redraw(); });
     var cv = BB.canvas("#tm-cv", function (ctx, w, h) {
       var p = P(), D = Number(sp()), narrow = w < 520, x = Math.pow(10, lx);
-      var box = { x: 66, y: 16, w: w - 82, h: h - 74 };
+      var box = { x: 66, y: 16, w: w - 82, h: h - 84 };
       var tf = function (v) { return v >= 3.15e7 ? (v / 3.15e7).toPrecision(1) + "년" : v >= 3600 ? (v / 3600).toPrecision(1) + "h" : v >= 1 ? v + "s" : v >= 1e-3 ? (v * 1e3) + "ms" : v >= 1e-6 ? (v * 1e6) + "µs" : (v * 1e9) + "ns"; };
       var xs = BD.logspace(1e-9, 1, 50);
       var c = BB.chart(ctx, box, { x: [1e-9, 1], y: [1e-10, 1e10], logX: true, logY: true, xLabel: "거리(로그 눈금)", yLabel: "확산 시간",
@@ -474,8 +474,10 @@
       var t = BD.diffTime(x, D), X = c.X(x), Y = c.Y(t);
       ctx.strokeStyle = BB.alpha(p.text, 0.5); ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(X, box.y + box.h); ctx.lineTo(X, Y); ctx.lineTo(box.x, Y); ctx.stroke(); ctx.setLineDash([]);
       handle(ctx, X, Y);
-      ctx.fillStyle = p.text; ctx.font = BB.font(13, true, 700); ctx.textAlign = X > box.x + box.w * 0.6 ? "right" : "left"; ctx.textBaseline = "bottom";
-      ctx.fillText(len(x) + " → " + dur(t), X + (ctx.textAlign === "right" ? -12 : 12), Y - 8);
+      ctx.font = BB.font(13, true, 700); ctx.textAlign = X > box.x + box.w * 0.6 ? "right" : "left"; ctx.textBaseline = "bottom";
+      var lt = len(x) + " → " + dur(t), lw = ctx.measureText(lt).width, lx0 = X + (ctx.textAlign === "right" ? -12 : 12);
+      ctx.fillStyle = BB.alpha(p.bg, 0.9); ctx.fillRect(ctx.textAlign === "right" ? lx0 - lw - 4 : lx0 - 4, Y - 26, lw + 8, 19);
+      ctx.fillStyle = p.text; ctx.fillText(lt, lx0, Y - 8);
       lay = c;
       var nm = MARK.reduce(function (b, m) { return Math.abs(Math.log10(m[0]) - lx) < Math.abs(Math.log10(b[0]) - lx) ? m : b; }, MARK[0]);
       BB.stat("tm-o-x", len(x)); BB.stat("tm-o-t", dur(t)); BB.stat("tm-o-n", nm[1]);
@@ -498,15 +500,15 @@
     document.querySelectorAll("#sim-ce-fick [data-p]").forEach(function (b) { b.addEventListener("click", function () { var q = INFO[b.dataset.p]; getA.set(q[0]); getC.set(q[1]); dx = q[2]; document.getElementById("fk-info").innerHTML = q[3]; cv.redraw(); }); });
     var cv = BB.canvas("#fk-cv", function (ctx, w, h) {
       var p = P(), A = getA(), dC = getC(), J = BD.fick(1, A, dC, dx), rel = J / J0 * 100;
-      var mx = w * 0.42, mw = 30 * dx / 0.5, mh = (h - 70) * BB.clamp(A / 120, 0.1, 1), my = 30 + ((h - 70) - mh) / 2;
+      var mx = w * 0.42, mw = 30 * dx / 0.5, mh = (h - 120) * BB.clamp(A / 120, 0.1, 1), my = 40 + ((h - 120) - mh) / 2;
       var o2 = BB.color("o2");
       // 양쪽 영역
-      ctx.fillStyle = BB.alpha(o2, 0.06 + 0.18 * BB.clamp((dC + 40) / 140, 0, 1)); ctx.fillRect(10, 26, mx - 10, h - 62);
-      ctx.fillStyle = BB.alpha(o2, 0.05); ctx.fillRect(mx + mw, 26, w - mx - mw - 10, h - 62);
+      ctx.fillStyle = BB.alpha(o2, 0.06 + 0.18 * BB.clamp((dC + 40) / 140, 0, 1)); ctx.fillRect(10, 26, mx - 10, h - 92);
+      ctx.fillStyle = BB.alpha(o2, 0.05); ctx.fillRect(mx + mw, 26, w - mx - mw - 10, h - 92);
       ctx.fillStyle = p.dim; ctx.font = BB.font(11.5, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
       ctx.fillText("폐포 공기 (높은 분압)", (10 + mx) / 2, 8); ctx.fillText("모세혈관 피 (낮은 분압)", (mx + mw + w - 10) / 2, 8);
       // 막(전체 높이 중 넓이에 비례하는 부분만 열림)
-      ctx.fillStyle = BB.alpha(BB.color("fat"), 0.25); ctx.fillRect(mx, 26, mw, h - 62);
+      ctx.fillStyle = BB.alpha(BB.color("fat"), 0.25); ctx.fillRect(mx, 26, mw, h - 92);
       ctx.fillStyle = BB.alpha(BB.color("fat"), 0.75); ctx.fillRect(mx, my, mw, mh);
       ctx.strokeStyle = BB.color("fat"); ctx.lineWidth = 1.2; ctx.strokeRect(mx, my, mw, mh);
       handle(ctx, mx + mw, my + mh / 2, p.accent, 7);
@@ -515,7 +517,7 @@
       // 입자
       parts.forEach(function (q) { var x = q.x, y = my + q.y * mh; ctx.fillStyle = o2; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, Math.PI * 2); ctx.fill(); });
       // 플럭스 막대
-      var bx = 20, by = h - 26, bw = w - 40;
+      var bx = 20, by = h - 44, bw = w * 0.5;
       ctx.fillStyle = p.surface; BB.rrect(ctx, bx, by, bw, 14, 6); ctx.fill();
       ctx.fillStyle = rel < 50 ? p.bad : p.accent; BB.rrect(ctx, bx, by, bw * BB.clamp(rel / 300, 0, 1), 14, 6); ctx.fill();
       ctx.strokeStyle = p.text; ctx.beginPath(); ctx.moveTo(bx + bw / 3, by - 3); ctx.lineTo(bx + bw / 3, by + 17); ctx.stroke();
@@ -709,7 +711,7 @@
       var Vm = BD.ghk(Pm, c), Ek = BD.nernst(1, ko, c.ki), Ena = BD.nernst(1, c.nao, c.nai), Ecl = BD.nernst(-1, c.clo, c.cli);
       var cols = { k: BB.color("ins"), na: p.warn, cl: BB.color("glu") };
       // 막대(투과도, 로그)
-      var bx0 = 30, bh = narrow ? 150 : h - 150, by0 = 30, bw = narrow ? 50 : 56, gap = narrow ? 30 : 40;
+      var bx0 = 34, bh = narrow ? 150 : h - 110, by0 = 34, bw = narrow ? 50 : 46, gap = narrow ? 30 : 24;
       var Yp = function (v) { return by0 + bh - (Math.log10(v) - LOG0) / (LOG1 - LOG0) * bh; };
       ctx.strokeStyle = p.grid; ctx.fillStyle = p.faint; ctx.font = BB.font(9.5, true); ctx.textAlign = "right"; ctx.textBaseline = "middle";
       [0.001, 0.01, 0.1, 1, 10].forEach(function (v) { ctx.beginPath(); ctx.moveTo(bx0, Yp(v)); ctx.lineTo(bx0 + 3 * (bw + gap) - gap, Yp(v)); ctx.stroke(); ctx.fillText(v < 1 ? String(v) : String(v), bx0 - 3, Yp(v)); });
@@ -725,34 +727,36 @@
       });
       ctx.fillStyle = p.dim; ctx.font = BB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText("상대 투과도(로그)", bx0, by0 - 8);
       // 전압 축
-      var ax = narrow ? 30 : bx0 + 3 * (bw + gap) + 30, aw = w - ax - 30, ay = narrow ? by0 + bh + 110 : h * 0.45;
+      var ax = narrow ? 30 : bx0 + 3 * (bw + gap) + 34, aw = w - ax - 34, ay = narrow ? by0 + bh + 130 : h * 0.52;
       var VX = function (v) { return ax + (v + 110) / 190 * aw; };
       ctx.strokeStyle = p.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ax + aw, ay); ctx.stroke();
       ctx.fillStyle = p.dim; ctx.font = BB.font(10, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
-      for (var v = -100; v <= 80; v += 20) { ctx.fillRect(VX(v) - 0.5, ay - 4, 1, 8); if (v % 40 === 0 || !narrow) ctx.fillText(v, VX(v), ay + 8); }
-      ctx.fillText("mV", ax + aw + 14, ay + 8);
-      ctx.fillStyle = BB.alpha(p.dim, 0.5); ctx.fillRect(VX(-55) - 0.5, ay - 40, 1, 40); ctx.font = BB.font(9.5); ctx.textBaseline = "bottom"; ctx.fillText("역치 약 −55", VX(-55), ay - 40);
-      // 평형 전위 표시 + 줄
+      for (var v = -100; v <= 80; v += 20) { ctx.fillRect(VX(v) - 0.5, ay - 4, 1, 8); if (v % 40 === 0) ctx.fillText(v, VX(v), ay + 6); }
+      ctx.textAlign = "right"; ctx.fillText("mV", ax + aw + 26, ay + 6);
+      ctx.strokeStyle = BB.alpha(p.dim, 0.6); ctx.setLineDash([2, 3]); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(VX(-55), ay); ctx.lineTo(VX(-55), ay - 44); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = p.dim; ctx.font = BB.font(9.5); ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText("역치 약 −55", VX(-55) + 3, ay - 36);
+      var pinY = ay - 22;
       [["k", Ek, "E_K"], ["na", Ena, "E_Na"], ["cl", Ecl, "E_Cl"]].forEach(function (e, i) {
         var x = VX(BB.clamp(e[1], -110, 80)), wgt = Pm[e[0]] * ({ k: c.ko + c.ki, na: c.nao + c.nai, cl: c.clo + c.cli })[e[0]];
-        ctx.fillStyle = cols[e[0]]; ctx.beginPath(); ctx.moveTo(x, ay + 26); ctx.lineTo(x - 6, ay + 36); ctx.lineTo(x + 6, ay + 36); ctx.closePath(); ctx.fill();
-        ctx.font = BB.font(10.5, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(e[2] + " " + e[1].toFixed(0), x, ay + 38 + (i === 2 ? 14 : 0));
-        // 줄(두께 ∝ 투과도·농도)
         var th = BB.clamp(1 + Math.log10(1 + wgt) * 2.2, 1, 9);
-        ctx.strokeStyle = BB.alpha(cols[e[0]], 0.8); ctx.lineWidth = th; ctx.beginPath(); ctx.moveTo(VX(Vm), ay - 16); ctx.lineTo(x, ay - 16 - (i - 1) * 10); ctx.stroke();
+        ctx.strokeStyle = BB.alpha(cols[e[0]], 0.8); ctx.lineWidth = th; ctx.beginPath(); ctx.moveTo(VX(Vm), pinY); ctx.lineTo(x, pinY - (i - 1) * 9); ctx.stroke();
+        ctx.fillStyle = cols[e[0]]; ctx.beginPath(); ctx.moveTo(x, ay + 22); ctx.lineTo(x - 6, ay + 32); ctx.lineTo(x + 6, ay + 32); ctx.closePath(); ctx.fill();
+        ctx.font = BB.font(10.5, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(e[2] + " " + e[1].toFixed(0), BB.clamp(x, ax + 24, ax + aw - 10), ay + 35 + (i === 2 ? 15 : 0));
       });
-      ctx.fillStyle = p.bg; ctx.strokeStyle = p.text; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(VX(Vm), ay - 16, 9, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = p.text; ctx.font = BB.font(narrow ? 17 : 20, true, 800); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
-      ctx.fillText("Vm " + (Vm > 0 ? "+" : "") + Vm.toFixed(1) + " mV", BB.clamp(VX(Vm), ax + 70, ax + aw - 70), ay - 34);
-      if (ko >= 6.5) { ctx.fillStyle = p.bad; ctx.font = BB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("고칼륨혈증: 막전위가 올라간다", ax, ay + 74); }
+      ctx.strokeStyle = p.text; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(VX(Vm), pinY); ctx.lineTo(VX(Vm), ay); ctx.stroke();
+      ctx.fillStyle = p.bg; ctx.strokeStyle = p.text; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(VX(Vm), pinY, 8, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = p.text; ctx.font = BB.font(narrow ? 17 : 20, true, 800); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("Vm " + (Vm > 0 ? "+" : "") + Vm.toFixed(1) + " mV", ax, ay - 66);
+      ctx.fillStyle = p.dim; ctx.font = BB.font(10.5); ctx.fillText("줄이 굵을수록 그 이온이 세게 당긴다", ax, ay - 50);
+      if (ko >= 6.5) { ctx.fillStyle = p.bad; ctx.font = BB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("고칼륨혈증: 막전위가 올라간다", ax, ay + 70); }
       lay = { Yp: Yp, barX: barX, bw: bw, by0: by0, bh: bh };
       BB.stat("gk-o-v", (Vm > 0 ? "+" : "") + Vm.toFixed(1) + "<small>mV</small>");
       BB.stat("gk-o-e", Ek.toFixed(0) + " / +" + Ena.toFixed(0) + " / " + Ecl.toFixed(0));
       BB.stat("gk-o-p", "1 : " + BB.fmt(Pm.na / Pm.k, 2) + " : " + BB.fmt(Pm.cl / Pm.k, 2));
-    }, { get height() { return narrowOf("gk-cv", 520) ? 470 : 330; } });
+    }, { get height() { return narrowOf("gk-cv", 520) ? 480 : 330; } });
     var dragK = null;
     BB.drag(cv.canvas, {
-      start: function (x) { dragK = null; if (!lay) return; Object.keys(lay.barX).forEach(function (k) { if (x > lay.barX[k] - 12 && x < lay.barX[k] + lay.bw + 12) dragK = k; }); },
+      start: function (x, y) { dragK = null; if (!lay || y > lay.by0 + lay.bh + 40) return; Object.keys(lay.barX).forEach(function (k) { if (x > lay.barX[k] - 12 && x < lay.barX[k] + lay.bw + 12) dragK = k; }); },
       move: function (x, y) { if (!lay || !dragK) return; var f = (lay.by0 + lay.bh - y) / lay.bh, lv = LOG0 + BB.clamp(f, 0, 1) * (LOG1 - LOG0); Pm[dragK] = Math.pow(10, lv); cv.redraw(); },
       end: function () { dragK = null; },
     });
