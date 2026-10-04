@@ -567,16 +567,16 @@
       var LX = function (hh) { return L.x + (Math.log10(hh) - lo) / (hi - lo) * L.w; };
       txt(ctx, "반감기 사다리(눌러서 고르기)", L.x, 16, { size: 11.5, weight: 700, color: p.text });
       ctx.strokeStyle = p.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(L.x, L.y + 18); ctx.lineTo(L.x + L.w, L.y + 18); ctx.stroke();
-      [[1 / 60, "1분"], [1, "1시간"], [24, "1일"], [24 * 7, "1주"]].forEach(function (tk) { var x = LX(tk[0]); ctx.beginPath(); ctx.moveTo(x, L.y + 14); ctx.lineTo(x, L.y + 22); ctx.stroke(); txt(ctx, tk[1], x, L.y + 50, { size: 10, align: "center", color: p.faint }); });
+      [[1 / 60, "1분"], [1, "1시간"], [24, "1일"], [24 * 7, "1주"]].forEach(function (tk) { var x = LX(tk[0]); ctx.beginPath(); ctx.moveTo(x, L.y + 14); ctx.lineTo(x, L.y + 22); ctx.stroke(); txt(ctx, tk[1], x, L.y + (narrow ? 78 : 52), { size: 10, align: "center", color: p.faint }); });
       var marks = [];
       H.forEach(function (hm, i) {
-        var x = LX(hm.half), on = i === sel, up = i % 2 === 0;
+        var x = LX(hm.half), on = i === sel, row = narrow ? [0, 1, 2, 0, 1, 2, 0][i] : (i % 2 ? 1 : 0);
         ctx.fillStyle = on ? p.accent : reg; ctx.beginPath(); ctx.arc(x, L.y + 18, on ? 7 : 5, 0, Math.PI * 2); ctx.fill();
-        txt(ctx, hm.name, x, up ? L.y + 6 : L.y + 36, { size: narrow ? 9.5 : 10.5, align: "center", color: on ? p.accent : p.dim, weight: on ? 700 : 400 });
+        txt(ctx, hm.name, x, [L.y + 6, L.y + 36, L.y + 64][row], { size: narrow ? 9.5 : 10.5, align: "center", color: on ? p.accent : p.dim, weight: on ? 700 : 400 });
         marks.push(x);
       });
       // 농도
-      var B = { x: 54, y: L.y + 92, w: w - 70, h: h - (L.y + 92) - 46 };
+      var B = { x: 54, y: L.y + 100, w: w - 70, h: h - (L.y + 100) - 46 };
       var tmax = 8 * th, ds = allDoses();
       var ts = BD.linspace(0, tmax, 400), cs = BD.pkBolus(ds, th, ts);
       var ymax = Math.max(1.2, Math.ceil(maxOf(cs) * 1.15 * 2) / 2);
@@ -587,7 +587,7 @@
         series: [{ data: data, color: p.accent, width: 2.6, fill: BB.alpha(p.accent, 0.1) }] });
       if (regEl.checked) { var cmax = 1 / (1 - Math.pow(0.5, getIv())); ctx.strokeStyle = BB.alpha(p.warn, 0.8); ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(B.x, c.Y(cmax)); ctx.lineTo(B.x + B.w, c.Y(cmax)); ctx.stroke(); ctx.setLineDash([]); txt(ctx, "정상 상태 최고 ×" + cmax.toFixed(2), B.x + 6, c.Y(cmax) - 5, { size: 11, color: p.warn, weight: 700 }); }
       ds.forEach(function (d) { ctx.fillStyle = reg; ctx.beginPath(); ctx.moveTo(c.X(d.t * u.f), B.y + B.h); ctx.lineTo(c.X(d.t * u.f) - 5, B.y + B.h + 8); ctx.lineTo(c.X(d.t * u.f) + 5, B.y + B.h + 8); ctx.fill(); });
-      txt(ctx, H[sel].name + " · " + H[sel].gland + " · 반감기 " + fmtDur(th), B.x + B.w - 4, B.y + 14, { size: 12, weight: 700, align: "right", color: p.accent });
+      txt(ctx, H[sel].name + " · " + H[sel].gland + " · 반감기 " + fmtDur(th), B.x + B.w, B.y - 8, { size: 12, weight: 700, align: "right", color: p.accent });
       lay = { L: L, marks: marks, B: B, tmax: tmax, th: th };
     }, hopt("hl-cv", 380, 400, 480));
     BB.drag(cv.canvas, {
