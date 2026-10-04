@@ -523,7 +523,7 @@
       var pts = []; for (var f = 3; f <= 50; f += 0.5) pts.push([f, leanMassFrac(f) * 100]);
       var c = BB.chart(ctx, box, { x: [0, 50], y: [0, 100], xLabel: "시작 지방량(kg)", yLabel: "빠진 무게 중 제지방(%)", series: [{ data: pts, color: BB.color("prot"), width: 2.8 }] });
       lay = c;
-      [[78 * 0.12, "체지방 12 %"], [78 * 0.24, "다온 24 %"], [78 * 0.4, "40 %"]].forEach(function (q) { var X = c.X(q[0]); ctx.strokeStyle = p.grid; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(X, box.y); ctx.lineTo(X, box.y + box.h); ctx.stroke(); ctx.setLineDash([]); txt(ctx, q[1], X + 3, box.y + 12, { size: 10.5, color: p.faint }); });
+      [[78 * 0.12, "체지방 12 %"], [78 * 0.24, "다온 24 %"], [78 * 0.4, "40 %"]].forEach(function (q, k) { var X = c.X(q[0]); ctx.strokeStyle = p.grid; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(X, box.y); ctx.lineTo(X, box.y + box.h); ctx.stroke(); ctx.setLineDash([]); txt(ctx, q[1], X + 3, box.y + 12 + (k % 2) * 14, { size: 10.5, color: p.faint }); });
       var fr = leanMassFrac(F), X = c.X(F), Y = c.Y(fr * 100);
       handle(ctx, X, Y, BB.color("prot"), 8);
       txt(ctx, Math.round(fr * 100) + "%", X + 12, Y - 8, { size: 13, weight: 700, mono: true });
@@ -617,10 +617,10 @@
       // 섭취선(끌기)
       ctx.strokeStyle = BB.color("carb"); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(box1.x, c1.Y(I)); ctx.lineTo(box1.x + box1.w, c1.Y(I)); ctx.stroke();
       handle(ctx, box1.x + box1.w * 0.82, c1.Y(I), BB.color("carb"), 8);
-      txt(ctx, "섭취 " + kc(I) + " kcal", box1.x + 8, c1.Y(I) + (I > 2900 ? 16 : -7), { size: 12, weight: 700, color: BB.color("carb") });
+      txt(ctx, "섭취 " + kc(I) + " kcal", box1.x + 8, c1.Y(I) + (r.ee[0] > I ? 17 : -7), { size: 12, weight: 700, color: BB.color("carb") });
       txt(ctx, "소비", box1.x + 8, c1.Y(r.ee[0]) + (r.ee[0] > I ? -6 : 16), { size: 11.5, weight: 600, color: BB.color("heat") });
       var ylo = Math.min(76, Math.floor(eq / 5) * 5 - 2), yhi = Math.max(80, Math.ceil(eq / 5) * 5 + 2);
-      var c2 = BB.chart(ctx, box2, { x: [0, 1095], y: [ylo, yhi], xTicks: [0, 182, 365, 547, 730, 912, 1095], xFmt: function (v) { return (v / 365).toFixed(1).replace(".0", "") + "년"; }, yLabel: "체중(kg)", xLabel: "시간",
+      var c2 = BB.chart(ctx, box2, { x: [0, 1095], y: [ylo, yhi], xTicks: [0, 182, 365, 547, 730, 912, 1095], xFmt: function (v) { return (v / 365).toFixed(1).replace(".0", "") + "년"; }, yLabel: "체중(kg)",
         hlines: [{ y: eq, color: p.ok, label: "새 평형 " + kg1(eq) + " kg" }], series: [{ data: series(r, "bw", 5), color: p.accent, width: 2.8 }] });
       // 63 % 시점
       var tgt = 78 + (eq - 78) * 0.632, td = -1;
@@ -636,7 +636,7 @@
       BB.stat("pl-o-e", kg1(eq) + "<small>kg</small>");
       BB.stat("pl-o-t", td > 0 ? Math.round(td / 30.4) + "<small>개월</small>" : "—");
       BB.stat("pl-o-k", isFinite(k) ? k.toFixed(0) + "<small>kcal/day</small>" : "—");
-    }, { aspect: 0.66, minHeight: 400, maxHeight: 480 });
+    }, { get height() { return narrowOf("pl-cv") ? 500 : 460; } });
     BB.drag(cv.canvas, {
       start: function (x, y) { drag = lay && Math.abs(y - lay.c1.Y(I)) < 22; },
       move: function (x, y) { if (!drag) return; var b = lay.box1, v = 1500 + (b.y + b.h - y) / b.h * 1800; I = Math.round(BB.clamp(v, 1500, 3300) / 20) * 20; cv.redraw(); },
@@ -696,7 +696,7 @@
       var r = cache[key];
       var box = { x: 52, y: 18, w: w - 104, h: h - 64 };
       var lo = Math.floor(Math.min.apply(null, r.bw) - 1);
-      var c = BB.chart(ctx, box, { x: [0, 730], y: [lo, 80], xTicks: [0, 91, 182, 365, 547, 730], xFmt: function (v) { return Math.round(v / 30.4) + "개월"; }, xLabel: "시간", yLabel: "체중(kg)", bands: [{ x0: 0, x1: T, color: BB.alpha(p.accent, 0.08) }],
+      var c = BB.chart(ctx, box, { x: [0, 730], y: [lo, 80], xTicks: [0, 182, 365, 547, 730], xFmt: function (v) { return Math.round(v / 30.4) + "개월"; }, xLabel: "시간", yLabel: "체중(kg)", bands: [{ x0: 0, x1: T, color: BB.alpha(p.accent, 0.08) }],
         hlines: [{ y: 78, color: p.faint, label: "시작 78 kg" }], series: [{ data: series(r, "bw", 3), color: p.accent, width: 2.8 }] });
       // 지방(오른쪽 축)
       var f0 = r.fat[0], fl0 = Math.min.apply(null, r.fat), fmax = Math.ceil(f0 + 1), fmin = Math.floor(fl0 - (fmax - fl0) * 1.2);

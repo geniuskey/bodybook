@@ -223,7 +223,7 @@
         <div class="stat"><span class="k">소리 사라짐 → 확장기</span><span class="v" id="cf-o-d">—</span></div>
         <div class="stat"><span class="k">실제 값과 차이</span><span class="v" id="cf-o-err">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "측정 시작"을 누르고 위쪽 커프 압력선(굵은 선)이 동맥압 파형의 꼭대기 아래로 내려가는 순간 첫 소리(노란 막대)가 나는 것을 본다. ② 소리가 마지막으로 들린 커프 압력이 확장기 혈압이다. 실제 값과 차이를 확인한다. ③ 속도를 초당 10 mmHg로 올려 다시 잰다. 박동과 박동 사이(약 0.8초)에 커프가 8 mmHg씩 내려가 버려 수축기를 낮게, 확장기도 낮게 읽기 쉽다. 그래서 초당 2~3 mmHg로 천천히 뺀다. (동맥압 파형은 윈드케셀 모양을 각 사람의 혈압에 맞춘 것. 소리 크기는 커프 압력이 두 혈압 사이 어디인지로 어림했다.)</div>
+      <div class="sim-note">해볼 것: ① "측정 시작"을 누르고 위쪽 커프 압력선(굵은 선)이 동맥압 파형의 꼭대기 아래로 내려가는 순간 첫 소리(노란 막대)가 나는 것을 본다. ② 소리가 마지막으로 들린 커프 압력이 확장기 혈압이다. 실제 값과 차이를 확인한다. ③ 속도를 초당 10 mmHg로 올려 다시 잰다. 박동과 박동 사이(약 0.8초)에 커프가 8 mmHg씩 내려가 버려 수축기는 낮게, 확장기는 높게 읽기 쉽다. 그래서 초당 2~3 mmHg로 천천히 뺀다. (동맥압 파형은 윈드케셀 모양을 각 사람의 혈압에 맞춘 것. 소리 크기는 커프 압력이 두 혈압 사이 어디인지로 어림했다.)</div>
     </div>
     <p>자동 혈압계는 소리 대신 커프 안 공기의 미세한 출렁임(진동)을 재서 계산한다. 어느 방식이든 한 번의 측정은 흔들린다. 진료실에서는 긴장해서 높게 나오기도 한다(백의 고혈압). 그래서 5분 쉬고 앉은 자세로, 팔을 심장 높이에 두고, 1~2분 간격으로 두 번 이상 재서 평균을 내고, 집에서도 아침저녁으로 재 보는 것이 권장된다.</p>
   </section>
@@ -465,7 +465,7 @@
     out();
     cv = BB.canvas("#r4-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560, art = BB.color("art");
-      var vw = narrow ? w - 24 : w * 0.6, vx = 12, cy = narrow ? 104 : h / 2, Rpx = narrow ? 64 : Math.min(84, h * 0.3);
+      var vw = narrow ? w - 24 : w * 0.52, vx = 12, cy = narrow ? 104 : h / 2, Rpx = narrow ? 64 : Math.min(84, h * 0.3);
       var rp = Rpx * rf;
       // 혈관 벽
       ctx.fillStyle = BB.alpha(art, 0.08); ctx.fillRect(vx, cy - rp, vw, 2 * rp);
@@ -473,7 +473,7 @@
       [cy - Rpx, cy + Rpx].forEach(function (y) { ctx.beginPath(); ctx.moveTo(vx, y); ctx.lineTo(vx + vw, y); ctx.stroke(); }); ctx.setLineDash([]);
       ctx.fillStyle = BB.alpha(BB.color("prot"), 0.45);
       ctx.fillRect(vx, cy - rp - 12, vw, 12); ctx.fillRect(vx, cy + rp, vw, 12);
-      txt(ctx, "점선: 처음 반지름", vx + 4, cy - Rpx - 8, { size: 10.5 });
+      txt(ctx, "점선: 처음 반지름", vx + vw - 4, cy - Rpx - 8, { size: 10.5, align: "right" });
       // 흐르는 피(포물선 속도)
       var vmax = Math.pow(rf, 2) * getDp() / 10;
       ctx.save(); ctx.beginPath(); ctx.rect(vx, cy - rp, vw, 2 * rp); ctx.clip();
@@ -495,7 +495,7 @@
       txt(ctx, "r = " + (R0 * rf * 10).toFixed(2) + " mm", hx + 14, cy - rp - 22, { size: 12, weight: 700, color: p.accent2 });
       lay = { hx: hx, cy: cy, Rpx: Rpx };
       // 오른쪽(아래): 흐름 vs 반지름
-      var box = narrow ? { x: 52, y: cy + Rpx + 56, w: w - 70, h: h - (cy + Rpx + 56) - 46 } : { x: w * 0.6 + 58, y: 22, w: w * 0.4 - 72, h: h - 70 };
+      var box = narrow ? { x: 52, y: cy + Rpx + 56, w: w - 70, h: h - (cy + Rpx + 56) - 64 } : { x: w * 0.52 + 70, y: 22, w: w * 0.48 - 84, h: h - 100 };
       var pts = []; for (var r = 0.3; r <= 1.25; r += 0.01) pts.push([r * 100, Math.pow(r, 4) * 100]);
       var lin = [[30, 30], [125, 125]];
       var c = BB.chart(ctx, box, { x: [30, 125], y: [0, 250], xLabel: "반지름(처음 = 100 %)", yLabel: "흐름(%)", xTicks: [50, 75, 100, 125], yTicks: [0, 50, 100, 150, 200, 250],
@@ -505,7 +505,7 @@
       txt(ctx, "비례(점선)", c.X(112), c.Y(130), { size: 10.5, align: "right" });
       txt(ctx, Math.round(Math.pow(rf, 4) * 100) + " %", c.X(rf * 100) + 9, c.Y(Math.pow(rf, 4) * 100) - 10, { size: 12, weight: 700, color: p.accent2 });
       if (rf < 0.6) txt(ctx, "흐름 " + Math.round(Math.pow(rf, 4) * 100) + " %: 조직이 굶는다", vx + 6, (narrow ? cy + Rpx + 30 : h - 16), { size: 12, weight: 700, color: p.bad });
-    }, { get height() { return viewW("r4-cv") < 560 ? 470 : 300; } });
+    }, { get height() { return viewW("r4-cv") < 560 ? 500 : 300; } });
     BB.drag(cv.canvas, {
       start: function (x, y) { dragging = lay && Math.abs(x - lay.hx) < 60 && y < lay.cy; },
       move: function (x, y) { if (!dragging) return; setR((lay.cy - y - 6) / lay.Rpx); },
@@ -710,9 +710,9 @@
       var p = P(), art = BB.color("art"), narrow = w < 560, T = res.T;
       var tc = t % T, i = Math.min(res.t.length - 1, Math.floor((tc / T) * res.t.length));
       // 왼쪽: 늘어나는 대동맥
-      var ax = narrow ? w / 2 : w * 0.16, ay = narrow ? 70 : h / 2, len = narrow ? w * 0.7 : 90;
+      var ax = narrow ? w / 2 : w * 0.16, ay = narrow ? 70 : h / 2, len = narrow ? w * 0.7 : 150;
       var c = cOf(getAge()), vol = c * (res.p[i] - 60);   // 늘어난 부피(mL)
-      var r0 = 16, rr = r0 + vol * 0.32;
+      var r0 = 14, rr = r0 + vol * 0.16;
       if (narrow) {
         ctx.fillStyle = BB.alpha(art, 0.25); ctx.strokeStyle = art; ctx.lineWidth = 3 + (1 - c / 2) * 5;
         BB.rrect(ctx, ax - len / 2, ay - rr, len, 2 * rr, rr); ctx.fill(); ctx.stroke();
@@ -791,7 +791,7 @@
       var p = P(), artc = BB.color("art"), narrow = w < 560, bp = WHO[who];
       var tEnd = (180 - Math.max(40, bp[1] - 25)) / getSp() + 1;
       // 팔 단면(커프 아래 동맥)
-      var ax = narrow ? 60 : 70, ay = 74, R = 46;
+      var ax = narrow ? 60 : 70, ay = 80, R = 46;
       var a = art(st.t), open = !st.run || st.done ? (st.cuff < bp[1] ? 1 : 0) : BB.clamp((a - st.cuff) / 12, 0, 1);
       if (!st.run) open = 1;
       ctx.fillStyle = BB.alpha(p.accent, 0.18); ctx.beginPath(); ctx.arc(ax, ay, R + 10, 0, Math.PI * 2); ctx.fill();
@@ -808,7 +808,7 @@
       var c = BB.chart(ctx, box, { x: [0, tEnd], y: [40, 190], xLabel: "시간(s)", yLabel: "압력(mmHg)", xFmt: function (v) { return fmt0(v); } });
       ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip();
       ctx.strokeStyle = BB.alpha(artc, 0.85); ctx.lineWidth = 1.2; ctx.beginPath();
-      var tNow = st.run ? st.t : tEnd;
+      var tNow = st.run ? st.t : 0;
       for (var x = 0; x <= tNow; x += 0.02) { var y = c.Y(art(x)); x ? ctx.lineTo(c.X(x), y) : ctx.moveTo(c.X(x), y); } ctx.stroke();
       ctx.strokeStyle = p.accent; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(c.X(0), c.Y(180)); ctx.lineTo(c.X(st.t), c.Y(st.cuff)); ctx.stroke();
       if (st.run) handle(ctx, c.X(st.t), c.Y(st.cuff), p.accent, 5);
@@ -817,6 +817,7 @@
       if (st.first != null) { txt(ctx, "첫 소리 " + fmt0(st.first), box.x + box.w - 4, c.Y(st.first) - 8, { align: "right", size: 11, weight: 700, color: p.warn }); }
       if (st.done) txt(ctx, "마지막 소리 " + fmt0(st.last), box.x + box.w - 4, c.Y(st.last) + 10, { align: "right", size: 11, weight: 700, color: p.warn });
       txt(ctx, "굵은 선: 커프 압력 · 가는 선: 동맥압(실제 " + bp[0] + "/" + bp[1] + ")", box.x + 6, box.y + 8, { size: 10.5 });
+      if (!st.run) txt(ctx, narrow ? "\"측정 시작\"을 누른다" : "\"측정 시작\"을 누르면 커프를 180까지 부풀린 뒤 공기를 뺀다", box.x + box.w / 2, box.y + box.h / 2, { align: "center", size: 12.5, weight: 700, color: p.text });
       // 소리 막대
       var sb = { x: box.x, y: box.y + box.h + 44, w: box.w, h: narrow ? 40 : 44 };
       ctx.strokeStyle = p.grid; ctx.beginPath(); ctx.moveTo(sb.x, sb.y + sb.h / 2); ctx.lineTo(sb.x + sb.w, sb.y + sb.h / 2); ctx.stroke();
@@ -850,7 +851,7 @@
     out();
     cv = BB.canvas("#bc-cv", function (ctx, w, h) {
       var p = P();
-      var box = { x: 54, y: 16, w: w - 70, h: h - 62 };
+      var box = { x: 54, y: 16, w: w - 70, h: h - 72 };
       var X = function (d) { return box.x + ((d - 40) / 80) * box.w; }, Y = function (s) { return box.y + box.h - ((s - 80) / 120) * box.h; };
       var colOf = function (c) { return c.key === "normal" ? BB.alpha(p.ok, 0.22) : c.key === "elev" ? BB.alpha(p.warn, 0.14) : c.key === "pre" ? BB.alpha(p.warn, 0.32) : c.key === "h1" ? BB.alpha(p.bad, 0.2) : c.key === "h2" ? BB.alpha(p.bad, 0.36) : c.key === "crisis" ? BB.alpha(p.bad, 0.55) : BB.alpha(p.accent, 0.18); };
       for (var d = 40; d < 120; d += 1) for (var s = 80; s < 200; s += 1) {
@@ -905,8 +906,8 @@
     out();
     cv = BB.canvas("#hs-cv", function (ctx, w, h) {
       var p = P(), v = vals(), narrow = w < 560, art = BB.color("art"), ven = BB.color("ven");
-      var H = narrow ? Math.min(h * 0.62, 250) : Math.min(h * 0.82, 300);
-      var pivX = narrow ? w * 0.38 : w * 0.34, pivY = narrow ? h * 0.42 : h * 0.4;
+      var H = narrow ? Math.min(h * 0.5, w * 0.62) : Math.min(h * 0.82, 300);
+      var pivX = narrow ? w * 0.36 : w * 0.34, pivY = narrow ? h * 0.36 : h * 0.4;
       var ang = (getA() * Math.PI) / 180;   // 0 = 누움(머리 왼쪽), 90 = 섬
       var u = H / 100;
       // 회전: 몸 좌표(위→아래 = 머리→발)를 화면으로
@@ -927,28 +928,37 @@
       var hp = pt(-4); handle(ctx, hp[0], hp[1], p.accent, 9);
       lay = { pivX: pivX, pivY: pivY };
       // 압력 글자
-      function tag(q, lines, col, dx) {
-        var x = q[0] + dx, y = q[1];
+      function tag(q, lines, col, dx, dy) {
+        var x = q[0] + dx, y = q[1] + (dy || 0);
         ctx.font = BB.font(11.5, false, 700);
         var tw = Math.max.apply(null, lines.map(function (s) { return ctx.measureText(s).width; })) + 10;
         x = BB.clamp(x, 4, w - tw - 4); y = BB.clamp(y, 18, h - 20 * lines.length);
         ctx.fillStyle = BB.alpha(p.bg, 0.88); BB.rrect(ctx, x, y - 10, tw, 16 * lines.length + 4, 5); ctx.fill();
         lines.forEach(function (s, i) { txt(ctx, s, x + 5, y + i * 16, { size: 11.5, weight: 700, color: i === 0 ? col : p.dim }); });
       }
-      tag(head, ["뇌 " + fmt0(v.head) + " mmHg", "심장보다 " + fmt0(46 * v.s) + " cm 위"], v.head < 65 ? p.bad : art, 20);
-      tag(heart, ["심장 93 mmHg", "기준 높이"], art, 26);
-      tag(foot, ["발 동맥 " + fmt0(v.foot), "발 정맥 " + fmt0(v.vfoot)], art, narrow ? -110 : 24);
+      tag(head, ["뇌 " + fmt0(v.head) + " mmHg", "심장보다 " + fmt0(46 * v.s) + " cm 위"], v.head < 65 ? p.bad : art, -40, -58);
+      tag(heart, ["심장 93 mmHg", "기준 높이"], art, 16, 40);
+      tag(foot, ["발 동맥 " + fmt0(v.foot), "발 정맥 " + fmt0(v.vfoot)], art, narrow ? -70 : 24, narrow ? 34 : 0);
       // 피 기둥 막대(오른쪽)
-      var bx = narrow ? w - 64 : w - 120, by0 = 30, bh = h - 70;
+      if (narrow) {
+        var hb = { x: 54, y: h - 104, w: w - 74 }, BX = function (mm) { return hb.x + (mm / 200) * hb.w; };
+        [[v.head, art, "뇌"], [93, art, "심장"], [v.foot, art, "발 동맥"], [v.vfoot, ven, "발 정맥"]].forEach(function (b, i) {
+          var y = hb.y + i * 20; ctx.fillStyle = BB.alpha(b[1], 0.6); ctx.fillRect(hb.x, y, BX(b[0]) - hb.x, 13);
+          txt(ctx, b[2], hb.x - 6, y + 7, { align: "right", size: 10.5 }); txt(ctx, fmt0(b[0]), BX(b[0]) + 4, y + 7, { size: 10.5, mono: true, color: p.text });
+        });
+        txt(ctx, "mmHg(0~200)", hb.x + hb.w, hb.y - 10, { align: "right", size: 10 });
+      } else {
+      var bg = narrow ? 18 : 26, bw2 = narrow ? 14 : 20, bx = narrow ? w - 80 : w - 130, by0 = 30, bh = h - 96;
       var Yb = function (mm) { return by0 + bh - (mm / 200) * bh; };
-      ctx.strokeStyle = p.grid; [0, 50, 100, 150, 200].forEach(function (mm) { ctx.beginPath(); ctx.moveTo(bx, Yb(mm)); ctx.lineTo(bx + 52, Yb(mm)); ctx.stroke(); txt(ctx, String(mm), bx - 4, Yb(mm), { align: "right", size: 9.5, mono: true }); });
+      ctx.strokeStyle = p.grid; [0, 50, 100, 150, 200].forEach(function (mm) { ctx.beginPath(); ctx.moveTo(bx, Yb(mm)); ctx.lineTo(bx + 4 * bg + 2, Yb(mm)); ctx.stroke(); txt(ctx, String(mm), bx - 4, Yb(mm), { align: "right", size: 9.5, mono: true }); });
       [[v.head, art, "뇌"], [93, art, "심장"], [v.foot, art, "발A"], [v.vfoot, ven, "발V"]].forEach(function (b, i) {
-        var x = bx + 2 + i * 13; ctx.fillStyle = BB.alpha(b[1], i === 3 ? 0.7 : 0.45 + 0.15 * i); ctx.fillRect(x, Yb(b[0]), 10, Yb(0) - Yb(b[0]));
-        txt(ctx, b[2], x + 5, Yb(0) + 10, { align: "center", size: 9, color: p.dim });
+        var x = bx + 4 + i * bg; ctx.fillStyle = BB.alpha(b[1], i === 3 ? 0.7 : 0.45 + 0.15 * i); ctx.fillRect(x, Yb(b[0]), bw2, Yb(0) - Yb(b[0]));
+        txt(ctx, b[2], x + bw2 / 2, Yb(0) + 10, { align: "center", size: 9, color: p.dim });
       });
-      txt(ctx, "mmHg", bx + 26, by0 - 12, { align: "center", size: 10 });
-      if (v.head < 62) txt(ctx, "반사가 없다면 뇌로 가는 압력이 모자란다", 12, h - 12, { size: 12, weight: 700, color: p.bad });
-    }, { get height() { return viewW("hs-cv") < 560 ? 420 : 380; } });
+      txt(ctx, "mmHg", bx + 2 * bg, by0 - 12, { align: "center", size: 10 });
+      }
+      if (v.head < 62) txt(ctx, "반사가 없다면 뇌로 가는 압력이 모자란다", 12, narrow ? 14 : h - 12, { size: 12, weight: 700, color: p.bad });
+    }, { get height() { return viewW("hs-cv") < 560 ? 470 : 380; } });
     BB.drag(cv.canvas, {
       start: function (x, y) { dragging = !!lay; },
       move: function (x, y) { if (!dragging) return; var a = Math.atan2(lay.pivY - y, lay.pivX - x) * 180 / Math.PI; getA.set(Math.round(BB.clamp(a, 0, 90))); },
@@ -1009,7 +1019,7 @@
       txt(ctx, "림프관 → 정맥으로", tx + tw - 44, ly - 12, { align: "right", size: 10.5, color: p.ok });
       if (fluid > 8) txt(ctx, "부종: 조직에 물이 고인다", tx + tw / 2, ty + 12, { align: "center", size: 12.5, weight: 700, color: p.bad });
       // 아래: 압력 그래프
-      var box = { x: 50, y: ty + th + 34, w: w - 66, h: h - (ty + th + 34) - 46 };
+      var box = { x: 50, y: ty + th + 34, w: w - 66, h: h - (ty + th + 34) - 72 };
       var c = BB.chart(ctx, box, { x: [0, 1], y: [0, 45], xTicks: [], yLabel: "mmHg", xLabel: "모세혈관을 따라(동맥 쪽 → 정맥 쪽)",
         series: [{ data: [[0, res.sig * (res.pic - res.pii)], [1, res.sig * (res.pic - res.pii)]], color: p.accent, width: 2.4 }, { data: [[0, pa], [1, pv]], color: art, width: 2.8 }] });
       // 여과/재흡수 칠하기

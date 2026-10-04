@@ -86,7 +86,7 @@
     <div class="sim" id="ex-energy" data-desc="전력 운동의 시간을 끌어 인산크레아틴, 해당 과정, 산화 과정이 매 순간 얼마나 ATP를 대는지와, 운동 시간에 따라 유산소 비율이 어떻게 바뀌는지 본다">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>전력 운동의 에너지 내역</h3></div>
       <div class="sim-body">
-        <div class="sim-view"><canvas id="en-cv"></canvas><span class="hint">세로선을 좌우로 끈다</span></div>
+        <div class="sim-view"><canvas id="en-cv"></canvas></div>
       </div>
       <div class="map-legend"><span><i style="background:var(--heat)"></i>인산크레아틴</span><span><i style="background:var(--carb)"></i>해당 과정</span><span><i style="background:var(--accent-2)"></i>산화 과정</span></div>
       <div class="sim-readout">
@@ -95,7 +95,7 @@
         <div class="stat"><span class="k">유산소 비율(실험 요약)</span><span class="v" id="en-o-a">—</span></div>
         <div class="stat"><span class="k">총 공급 속도(처음 대비)</span><span class="v" id="en-o-p">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 세로선을 10초에 둔다. 100 m 달리기다. 인산크레아틴이 절반 넘게 댄다. ② 60초(400 m)로 옮긴다. 해당 과정이 가장 크고 산화도 이미 3분의 1을 넘는다. ③ 끝(180초)까지 끈다. 총 공급 속도가 처음의 절반 아래로 떨어진다. 오래 달릴수록 느려지는 이유다. 아래 작은 그래프는 여러 실험을 요약한 유산소 비율 곡선으로, 약 75초에서 유산소와 무산소가 반반이 된다. (교육용 모델 BD.energySystems, BD.aerobicShare. 정규화된 ATP 공급 속도이며 실제 값은 사람과 근육마다 다르다.)</div>
+      <div class="sim-note">해볼 것: ① 왼쪽 그래프의 세로선을 끌어 10초에 둔다. 100 m 달리기다. 인산크레아틴이 절반 넘게 댄다. ② 60초(400 m)로 옮긴다. 해당 과정이 가장 크고 산화도 이미 3분의 1을 넘는다. ③ 끝(180초)까지 끈다. 총 공급 속도가 처음의 절반 아래로 떨어진다. 오래 달릴수록 느려지는 이유다. 아래 작은 그래프는 여러 실험을 요약한 유산소 비율 곡선으로, 약 75초에서 유산소와 무산소가 반반이 된다. (교육용 모델 BD.energySystems, BD.aerobicShare. 정규화된 ATP 공급 속도이며 실제 값은 사람과 근육마다 다르다.)</div>
     </div>
 
     <p>유산소와 무산소가 반반이 되는 지점은 약 1분 남짓이다. 흔히 생각하는 것보다 훨씬 이르다. 800 m 달리기(약 2분)도 이미 절반 넘게 유산소이고, 다온이 뛸 10 km(약 58분)는 98 % 가까이 유산소다. 그러니 10 km 기록을 정하는 것은 산소를 얼마나 들이고(VO2max), 그중 얼마를 젖산이 쌓이지 않는 선에서 쓸 수 있느냐(젖산 역치)다.</p>
@@ -159,26 +159,26 @@
     <figure class="diagram">
       <svg viewBox="0 0 480 240" role="img" aria-label="산소가 폐에서 근육까지 가는 사슬과 쉴 때와 최대 운동 때의 숫자">
         <defs><marker id="ex-ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <rect x="10" y="40" width="100" height="70" rx="12" class="f-surface"/>
-        <text x="60" y="68" text-anchor="middle" class="lbl-b">폐</text>
-        <text x="60" y="90" text-anchor="middle" class="lbl-dim">환기 6 → 100 L/min</text>
-        <rect x="140" y="40" width="100" height="70" rx="12" class="f-art-soft"/>
-        <text x="190" y="68" text-anchor="middle" class="lbl-b">심장</text>
-        <text x="190" y="90" text-anchor="middle" class="lbl-dim">5.2 → 20 L/min</text>
-        <rect x="270" y="40" width="100" height="70" rx="12" class="f-art-soft"/>
-        <text x="320" y="68" text-anchor="middle" class="lbl-b">근육 모세혈관</text>
-        <text x="320" y="90" text-anchor="middle" class="lbl-dim">뽑아 쓰는 산소</text>
-        <rect x="390" y="40" width="80" height="70" rx="12" class="f-ven-soft"/>
-        <text x="430" y="68" text-anchor="middle" class="lbl-b">미토콘드리아</text>
-        <text x="430" y="90" text-anchor="middle" class="lbl-dim">태운다</text>
-        <path d="M110 75 L136 75" class="s-art" marker-end="url(#ex-ar2)"/>
-        <path d="M240 75 L266 75" class="s-art" marker-end="url(#ex-ar2)"/>
-        <path d="M370 75 L386 75" class="s-ven" marker-end="url(#ex-ar2)"/>
+        <rect x="6" y="40" width="104" height="70" rx="12" class="f-surface"/>
+        <text x="58" y="68" text-anchor="middle" class="lbl-b">폐</text>
+        <text x="58" y="92" text-anchor="middle" class="lbl-dim">환기 ×17</text>
+        <rect x="128" y="40" width="104" height="70" rx="12" class="f-art-soft"/>
+        <text x="180" y="68" text-anchor="middle" class="lbl-b">심장</text>
+        <text x="180" y="92" text-anchor="middle" class="lbl-dim">박출 ×3.8</text>
+        <rect x="250" y="40" width="104" height="70" rx="12" class="f-art-soft"/>
+        <text x="302" y="68" text-anchor="middle" class="lbl-b">모세혈관</text>
+        <text x="302" y="92" text-anchor="middle" class="lbl-dim">추출 ×3</text>
+        <rect x="372" y="40" width="104" height="70" rx="12" class="f-ven-soft"/>
+        <text x="424" y="68" text-anchor="middle" class="lbl-b">근육 세포</text>
+        <text x="424" y="92" text-anchor="middle" class="lbl-dim">산소를 태움</text>
+        <path d="M110 75 L124 75" class="s-art" marker-end="url(#ex-ar2)"/>
+        <path d="M232 75 L246 75" class="s-art" marker-end="url(#ex-ar2)"/>
+        <path d="M354 75 L368 75" class="s-ven" marker-end="url(#ex-ar2)"/>
         <text x="20" y="150" class="lbl">쉴 때</text>
-        <text x="110" y="150" class="t-mono lbl">72 bpm × 72 mL × 5 mL/dL ≈ 0.26 L/min</text>
+        <text x="110" y="150" class="lbl">72 × 72 mL × 5 mL/dL ≈ 0.26 L/min</text>
         <text x="20" y="180" class="lbl-acc">최대 운동</text>
-        <text x="110" y="180" class="t-mono lbl-acc">184 bpm × 110 mL × 15 mL/dL ≈ 3.0 L/min</text>
-        <text x="20" y="214" class="lbl-dim">심박수 2.6배 × 박출량 1.5배 × 산소 추출 3배 ≈ 11배</text>
+        <text x="110" y="180" class="lbl-acc">184 × 110 mL × 15 mL/dL ≈ 3.0 L/min</text>
+        <text x="20" y="214" class="lbl-dim">심박수 2.6배 × 박출량 1.5배 × 추출 3배 ≈ 11배</text>
       </svg>
       <figcaption><b>산소의 사슬.</b> 쉴 때와 최대 운동 때 다온의 산소 섭취는 약 11배 차이가 난다. 심박수와 박출량(<a href="heart.html">4장</a>, <a href="flow.html">7장</a>)이 피를 더 보내고, 근육이 피에서 산소를 더 많이 뽑아 쓴다. 건강한 사람에게 VO2max의 한계는 대개 폐가 아니라 심장이 보낼 수 있는 피의 양이다.</figcaption>
     </figure>
@@ -466,7 +466,7 @@
       }
       ctx.fillStyle = BB.alpha(p.bg, 0.45); ctx.fillRect(c.X(D), box.y, box.x + box.w - c.X(D), box.h);
       ctx.restore();
-      txt(ctx, "인산크레아틴", c.X(3), c.Y(0.85), { color: p.text, size: 11.5, weight: 700 });
+      txt(ctx, "← 인산크레아틴", c.X(9), c.Y(0.98), { color: p.text, size: 11.5, weight: 700 });
       txt(ctx, "해당 과정", c.X(40), c.Y(0.55), { color: p.text, size: 11.5, weight: 700 });
       txt(ctx, "산화 과정", c.X(120), c.Y(0.2), { color: p.text, size: 11.5, weight: 700 });
       ctx.strokeStyle = p.text; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(c.X(D), box.y); ctx.lineTo(c.X(D), box.y + box.h); ctx.stroke();
@@ -477,8 +477,8 @@
       tot = a.pcr + a.gly + a.ox;
       var sh = [a.pcr / tot, a.gly / tot, a.ox / tot];
       // 비율 막대
-      var bx = c.X(D) + 10, bw = 16;
-      if (bx + bw + 90 > box.x + box.w) bx = c.X(D) - 10 - bw - 90;
+      var bx = box.x + box.w - 112, bw = 16;
+      ctx.fillStyle = BB.alpha(p.bg, 0.85); BB.rrect(ctx, bx - 8, box.y + 8, 120, box.h * 0.5 + 30, 8); ctx.fill(); ctx.strokeStyle = p.border; ctx.lineWidth = 1; ctx.stroke();
       var by = box.y + 24, bh = box.h * 0.5, yy = by;
       [[sh[0], c0.pcr], [sh[1], c0.gly], [sh[2], c0.ox]].forEach(function (s) { ctx.fillStyle = s[1]; ctx.fillRect(bx, yy, bw, bh * s[0]); yy += bh * s[0]; });
       ctx.strokeStyle = p.text; ctx.lineWidth = 1; ctx.strokeRect(bx, by, bw, bh);
@@ -559,7 +559,7 @@
       txt(ctx, "시간(초)  ·  ATP 저장량은 전력 질주 약 2초분", box.x + box.w / 2, box.y + box.h + 30, { align: "center", size: 11.5 });
       ctx.fillStyle = heat; ctx.beginPath(); ctx.arc(c.X(data.t[idx]), c.Y(data.pcr[idx]), 5, 0, Math.PI * 2); ctx.fill();
       // 아래: 질주별 평균 파워 막대
-      var b2 = { x: 52, y: h * 0.58 + 26, w: w - 68, h: h * 0.42 - 56 };
+      var b2 = { x: 52, y: h * 0.58 + 44, w: w - 68, h: h * 0.42 - 74 };
       var first = data.sprints[0];
       var done = 0; for (var q = 0, acc = 0; q < data.sprints.length; q++) { var tEnd = getS() * (q + 1) + getR() * q; if (t >= tEnd) done = q + 1; }
       BB.bars(ctx, b2, { labels: data.sprints.map(function (_, k) { return (k + 1) + "회"; }), y: [0, 1.1], yFmt: function (v) { return Math.round(v * 100) + "%"; },
@@ -591,7 +591,7 @@
     calc();
     cv = BB.canvas("#kn-cv", function (ctx, w, h) {
       var p = P(), r = res[getWho()], o = res[getWho() === "pre" ? "post" : "pre"];
-      var box = { x: 54, y: 18, w: w - 70, h: h - 62 };
+      var box = { x: 54, y: 18, w: w - 70, h: h - (w < 520 ? 100 : 84) };
       var c = BB.chart(ctx, box, { x: [0, 900], y: [0, 50], xLabel: "시간(초) · 60초에 시작, 420초에 멈춤", yLabel: "산소 섭취(mL/kg/min)", xTicks: [0, 60, 180, 300, 420, 540, 660, 780, 900],
         hlines: [{ y: r.W.vo2max, color: p.bad, label: "VO2max " + r.W.vo2max }, { y: r.ltv, color: p.warn, label: "젖산 역치" }] });
       ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip();
@@ -647,7 +647,7 @@
     cv = BB.canvas("#rp-cv", function (ctx, w, h) {
       var pts = test.pts, n = pts.length, idx = Math.min(n - 1, Math.floor((t / test.tEnd) * (n - 1))), ans = document.getElementById("rp-ans").checked;
       var G = { text: "#e6e9f0", dim: "#9aa6bf", grid: "rgba(255,255,255,0.08)" };
-      var L = 52, R = w - (w < 520 ? 56 : 78), top = 30, bottom = h - 34;
+      var L = 52, R = w - (w < 520 ? 56 : 78), top = 50, bottom = h - 34;
       var rows = [
         { k: "vo2", name: "VO2", unit: "mL/kg/min", lo: 0, hi: 50, col: BB.trace(3), f: function (q) { return q.s.vo2; } },
         { k: "hr", name: "심박", unit: "bpm", lo: 60, hi: 200, col: BB.trace(1), f: function (q) { return q.s.hr; } },
@@ -688,7 +688,7 @@
       var mx = X(kmhToT(mark) - 0.5);
       ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(mx, top); ctx.lineTo(mx, bottom); ctx.stroke();
       ctx.fillStyle = "#0b0d12"; ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2.2; ctx.beginPath(); ctx.arc(mx, bottom + 2, 8, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-      txt(ctx, "검사 " + mmss(pts[idx].t) + " · " + pts[idx].kmh.toFixed(1) + " km/h", L, 14, { color: G.text, size: 12, weight: 700, base: "middle" });
+      txt(ctx, "검사 " + mmss(pts[idx].t) + " · " + pts[idx].kmh.toFixed(1) + " km/h", 12, 14, { color: G.text, size: 12, weight: 700, base: "middle" });
       if (idx >= n - 1) txt(ctx, "탈진: 검사 종료", R, 14, { color: "#ff6b6b", size: 12, weight: 700, align: "right", base: "middle" });
       lay = { X: X, L: L, R: R };
       var mk = Math.max(0, Math.min(n - 1, Math.round((kmhToT(mark) - 0.5) / 0.05)));
@@ -710,14 +710,14 @@
     var MARKS = [[38, 0.6, "다온 지금"], [43, 0.68, "다온 12주"], [50, 0.75, "꾸준한 시민 러너"], [70, 0.85, "엘리트"]];
     var cv = BB.canvas("#rc-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 600;
-      var pad = narrow ? { x: 50, y: 22, w: w - 66, h: h * 0.46 - 60 } : { x: 54, y: 22, w: w * 0.42 - 70, h: h - 64 };
+      var pad = narrow ? { x: 50, y: 22, w: w - 66, h: h * 0.46 - 60 } : { x: 54, y: 22, w: w * 0.42 - 70, h: h - 80 };
       var c = BB.chart(ctx, pad, { x: [0.5, 0.9], y: [30, 75], xLabel: "젖산 역치(VO2max의 비율)", yLabel: "VO2max(mL/kg/min)", xFmt: function (q) { return Math.round(q * 100) + "%"; } });
       MARKS.forEach(function (m) { ctx.fillStyle = p.dim; ctx.beginPath(); ctx.arc(c.X(m[1]), c.Y(m[0]), 4, 0, Math.PI * 2); ctx.fill(); txt(ctx, m[2], c.X(m[1]) + (m[1] > 0.8 ? -7 : 7), c.Y(m[0]) + (m[0] < 40 ? -8 : 4), { size: 10.5, align: m[1] > 0.8 ? "right" : "left", base: "middle" }); });
       ctx.strokeStyle = BB.alpha(p.accent, 0.4); ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(c.X(0.6), c.Y(38)); ctx.lineTo(c.X(0.68), c.Y(43)); ctx.stroke(); ctx.setLineDash([]);
       handle(ctx, c.X(lt), c.Y(v), 9, p.accent);
       lay = c;
       // 막대: 페이스(분/km)
-      var b2 = narrow ? { x: 50, y: h * 0.46 + 22, w: w - 66, h: h * 0.54 - 64 } : { x: w * 0.42 + 50, y: 22, w: w * 0.58 - 66, h: h - 64 };
+      var b2 = narrow ? { x: 50, y: h * 0.46 + 22, w: w - 66, h: h * 0.54 - 80 } : { x: w * 0.42 + 50, y: 22, w: w * 0.58 - 66, h: h - 80 };
       var A = DIST.map(function (d) { return BD.raceTime(v, d[0]); }), B = DIST.map(function (d) { return realTime(v, lt, d[0]); });
       var paceA = A.map(function (tm, i) { return tm / DIST[i][0]; }), paceB = B.map(function (tm, i) { return tm / DIST[i][0]; });
       var ymax = Math.max(8, Math.ceil(Math.max.apply(null, paceB) + 0.5));
@@ -728,10 +728,10 @@
         ctx.fillStyle = BB.alpha(p.dim, 0.35); ctx.fillRect(cx - bw - 2, c2.Y(paceA[i]), bw, c2.Y(0) - c2.Y(paceA[i]));
         ctx.fillStyle = p.accent; ctx.fillRect(cx + 2, c2.Y(paceB[i]), bw, c2.Y(0) - c2.Y(paceB[i]));
         txt(ctx, d[1], cx, b2.y + b2.h + 16, { align: "center", size: 11.5, color: p.text, weight: 600 });
-        txt(ctx, hms(A[i]), cx - bw / 2 - 2, c2.Y(paceA[i]) - 4, { align: "center", size: narrow ? 9.5 : 10.5, mono: true });
-        txt(ctx, hms(B[i]), cx + bw / 2 + 2, c2.Y(paceB[i]) - 16, { align: "center", size: narrow ? 9.5 : 10.5, mono: true, color: p.accent, weight: 700 });
+        if (!narrow) txt(ctx, hms(A[i]), cx - bw / 2 - 2, c2.Y(paceA[i]) - 4, { align: "center", size: 10, mono: true });
+        txt(ctx, hms(B[i]), cx + (narrow ? 0 : bw / 2 + 2), c2.Y(paceB[i]) - (narrow ? 5 : 16), { align: "center", size: narrow ? 10 : 10.5, mono: true, color: p.accent, weight: 700 });
       });
-      txt(ctx, "막대 위 숫자 = 기록. 회색 VO2max만 · 빨강 역치 반영", b2.x, b2.y - 8, { size: 11 });
+      txt(ctx, narrow ? "숫자 = 역치 반영 기록 · 회색 VO2max만" : "막대 위 숫자 = 기록. 회색 VO2max만 · 빨강 역치 반영", b2.x, b2.y - 8, { size: 11 });
       var f10 = Math.min(BD.danielsFrac(B[1]), BD.danielsFrac(B[1]) - BD.danielsFrac(60) + lt + ((1 - lt) / Math.LN10) * Math.log(3));
       BB.stat("rc-o-in", v.toFixed(0) + " · " + Math.round(lt * 100) + "%");
       BB.stat("rc-o-a", mmss(A[1]));
@@ -748,7 +748,7 @@
     var getWho = BB.seg("fu-who", function () { cv.redraw(); });
     cv = BB.canvas("#fu-cv", function (ctx, w, h) {
       var p = P(), W = WHO[getWho()], fatC = BB.color("fat"), carbC = BB.color("carb");
-      var box = { x: 56, y: 22, w: w - 72, h: h - 66 };
+      var box = { x: 56, y: 22, w: w - 72, h: h - (w < 520 ? 100 : 84) };
       var c = BB.chart(ctx, box, { x: [0.25, 1.0], y: [0, 18], xLabel: "운동 강도(% VO2max)", yLabel: "에너지 소비(kcal/min)", xFmt: function (q) { return Math.round(q * 100) + "%"; } });
       var xs = []; for (var q = 0.25; q <= 1.0001; q += 0.01) xs.push(q);
       var A = xs.map(function (q) { return at(q, W); });
@@ -791,7 +791,7 @@
     cv = BB.canvas("#zn-cv", function (ctx, w, h) {
       var p = P(), hrR = getR(), hrM = BD.hrMax(getA()), narrow = w < 520;
       // 위: 구간 띠
-      var x0 = 16, x1 = w - 16, y = 34, bh = 26;
+      var x0 = 16, x1 = w - 16, y = 50, bh = 26;
       var HX = function (hr) { return x0 + ((hr - 60) / (200 - 60)) * (x1 - x0); };
       txt(ctx, "심박 구간(카르보넨) · 최대 " + Math.round(hrM) + " bpm", x0, 16, { color: p.text, size: 12, weight: 700, base: "middle" });
       BD.HR_ZONES.forEach(function (z, i) {
@@ -806,7 +806,7 @@
       txt(ctx, "역치 " + Math.round(ltHr), HX(ltHr), y - 7, { color: p.text, align: "center", size: 10.5, weight: 700 });
       txt(ctx, "안정 " + hrR, HX(hrR), y + bh / 2, { align: "center", base: "middle", size: 10.5 });
       // 아래: 주간 배분 막대
-      var box = { x: 54, y: y + bh + 48, w: w - 70, h: h - (y + bh + 48) - 40 };
+      var box = { x: 54, y: y + bh + 48, w: w - 70, h: h - (y + bh + 48) - 58 };
       var tot = mins.reduce(function (s, m) { return s + m; }, 0);
       var c = BB.bars(ctx, box, { labels: ["Z1", "Z2", "Z3", "Z4", "Z5"], y: [0, 200], yLabel: "한 주의 시간(분)", stacks: [{ label: "분", color: function (i) { return zc(i); }, data: mins }], valueFmt: function (v) { return Math.round(v) + "분"; } });
       mins.forEach(function (m, i) { handle(ctx, c.X(i), c.Y(m), 6, zc(i)); });
@@ -820,7 +820,7 @@
       BB.stat("zn-o-e", Math.round(easy * 100) + "<small>%</small>");
       BB.stat("zn-o-l", load + "<small>점</small>");
       BB.stat("zn-o-lt", Math.round(ltHr) + "<small>bpm</small>");
-    }, { get height() { return wOf("zn-cv") < 520 ? 400 : 380; } });
+    }, { get height() { return wOf("zn-cv") < 520 ? 420 : 390; } });
     BB.drag(cv.canvas, {
       start: function (x) { if (!lay) return; var best = 1e9; dragI = -1; for (var i = 0; i < 5; i++) { var d = Math.abs(lay.X(i) - x); if (d < best) { best = d; dragI = i; } } if (best > lay.bw) dragI = -1; },
       move: function (x, y) { if (!lay || dragI < 0) return; if (y < lay.box.y - 30) return; var v = BB.clamp((1 - (y - lay.box.y) / lay.box.h) * 200, 0, 200); mins[dragI] = Math.round(v / 5) * 5; cv.redraw(); },
@@ -833,7 +833,7 @@
     var V = [
       { k: "plasma", name: "혈장량", on: 1, off: 1.5, max: 0.12, unit: "%", col: function () { return BB.color("water"); } },
       { k: "sv", name: "1회 박출량", on: 3, off: 2.5, max: 0.12, unit: "%", col: function () { return BB.color("art"); } },
-      { k: "mito", name: "미토콘드리아 효소", on: 4, off: 2.5, max: 0.4, unit: "%", col: function () { return BB.color("seg-musc"); } },
+      { k: "mito", name: "미토콘드리아", on: 4, off: 2.5, max: 0.4, unit: "%", col: function () { return BB.color("seg-musc"); } },
       { k: "cap", name: "모세혈관 밀도", on: 7, off: 10, max: 0.2, unit: "%", col: function () { return BB.color("nerve"); } },
       { k: "vo2", name: "VO2max", on: 5, off: 3.5, max: 0.13, unit: "%", col: function () { return P().accent2; } },
       { k: "lt", name: "젖산 역치", on: 5, off: 3, max: 0.08, unit: "pt", col: function () { return P().warn; } },
@@ -842,7 +842,7 @@
     function val(o, wk) { if (wk <= stop) return 1 - Math.exp(-wk / o.on); var a = 1 - Math.exp(-stop / o.on); return a * Math.exp(-(wk - stop) / o.off); }
     var cv = BB.canvas("#ad-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560;
-      var box = { x: 54, y: 30, w: w - (narrow ? 70 : 170), h: h - 74 };
+      var box = { x: 54, y: 30, w: w - (narrow ? 70 : 178), h: h - (narrow ? 134 : 90) };
       var c = BB.chart(ctx, box, { x: [0, TMAX], y: [0, 1.05], xLabel: "주", yLabel: "얻을 수 있는 변화의 몇 %", yTicks: [0, 0.5, 1], yFmt: function (v) { return Math.round(v * 100) + "%"; },
         bands: [{ x0: 0, x1: stop, color: BB.alpha(p.ok, 0.07) }],
         series: V.map(function (o) { var d = []; for (var wk = 0; wk <= TMAX; wk += 0.25) d.push([wk, val(o, wk)]); return { data: d, color: o.col(), width: 2.4 }; }) });
@@ -856,7 +856,7 @@
       if (!narrow) {
         V.forEach(function (o, i) { var yy = box.y + 8 + i * 22; ctx.fillStyle = o.col(); ctx.fillRect(box.x + box.w + 14, yy - 5, 12, 10); txt(ctx, o.name, box.x + box.w + 30, yy, { color: p.text, size: 11, base: "middle" }); });
       } else {
-        V.forEach(function (o, i) { var xx = box.x + (i % 3) * (box.w / 3), yy = h - 22 + Math.floor(i / 3) * 14 - 14; ctx.fillStyle = o.col(); ctx.fillRect(xx, yy - 4, 9, 8); txt(ctx, o.name, xx + 12, yy, { size: 10, base: "middle" }); });
+        V.forEach(function (o, i) { var xx = box.x + (i % 3) * (box.w / 3), yy = h - 52 + Math.floor(i / 3) * 15; ctx.fillStyle = o.col(); ctx.fillRect(xx, yy - 4, 9, 8); txt(ctx, o.name, xx + 12, yy, { size: 10, base: "middle" }); });
       }
       lay = c;
       var vo = V[4], mi = V[2];
@@ -865,7 +865,7 @@
       BB.stat("ad-o-r", (38 * (1 + vo.max * val(vo, stop + 8))).toFixed(1) + "<small>mL/kg/min</small>");
       BB.stat("ad-o-m", "+" + Math.round(mi.max * val(mi, stop + 8) * 100) + "<small>% (끝날 때 +" + Math.round(mi.max * val(mi, stop) * 100) + "%)</small>");
       document.getElementById("ad-info").innerHTML = "<h4>" + stop + "주 훈련이 끝난 날</h4><p>" + V.map(function (o) { var v = o.max * val(o, stop); return o.name + " " + (o.unit === "pt" ? "+" + (v * 100).toFixed(1) + "%p" : "+" + Math.round(v * 100) + "%"); }).join(" · ") + "</p>";
-    }, { get height() { return wOf("ad-cv") < 560 ? 380 : 340; } });
+    }, { get height() { return wOf("ad-cv") < 560 ? 410 : 340; } });
     BB.drag(cv.canvas, { move: function (x) { if (!lay) return; stop = Math.round(BB.clamp(((x - lay.box.x) / lay.box.w) * TMAX, 1, 22)); cv.redraw(); } });
   })();
 
@@ -889,7 +889,7 @@
       var b = BD.banister(daily(wk)), days = [];
       for (var i = 0; i < 84; i++) days.push(predict(b.fitness[i], b.fatigue[i]));
       var warn = [];
-      for (var j = 0; j < 12; j++) { var prev = j ? wk[j - 1] : 60; if (wk[j] > prev * 1.3 && wk[j] - prev > 20) warn.push(j); }
+      for (var j = 0; j < 12; j++) { var prev = Math.max(j ? wk[j - 1] : 80, j > 1 ? wk[j - 2] : 80); if (wk[j] > prev * 1.3 && wk[j] - prev > 20) warn.push(j); }
       res = { b: b, days: days, race: days[83], warn: warn };
       if (cv) cv.redraw();
     }
@@ -904,10 +904,10 @@
         stacks: [{ label: "분", color: function (i) { return res.warn.indexOf(i) >= 0 ? p.bad : i === 11 ? p.ok : p.accent2; }, data: wk }], valueFmt: narrow ? null : function (v) { return Math.round(v); } });
       wk.forEach(function (m, i) { handle(ctx, c1.X(i), c1.Y(m), narrow ? 5 : 6, res.warn.indexOf(i) >= 0 ? p.bad : p.text); });
       txt(ctx, "주별 달리기 시간(주 4일) · 초록 = 대회 주", b1.x, b1.y - 14, { color: p.text, size: 11.5, weight: 700 });
-      if (res.warn.length) txt(ctx, "앞 주보다 30 % 넘게 늘린 주: 부상 위험", b1.x + b1.w, b1.y - 14, { color: p.bad, align: "right", size: 11, weight: 700 });
+      if (res.warn.length) txt(ctx, narrow ? "30 % 넘게 늘린 주: 부상 위험" : "최근 2주보다 30 % 넘게 늘린 주: 부상 위험", b1.x + b1.w, b1.y - 14, { color: p.bad, align: "right", size: 11, weight: 700 });
       lay = c1;
       // 아래: 체력·피로·컨디션
-      var b2 = { x: 50, y: h * 0.36 + 34, w: w - 64, h: h * 0.64 - 80 };
+      var b2 = { x: 50, y: h * 0.36 + 34, w: w - 64, h: h * 0.64 - (narrow ? 112 : 98) };
       var b = res.b, fmax = Math.max(1200, Math.max.apply(null, b.fitness) * 1.1, Math.max.apply(null, b.fatigue) * 1.1);
       var day = function (arr) { return arr.map(function (v, i) { return [i + 1, v]; }); };
       var series = [{ data: day(b.fatigue), color: p.bad, width: 1.6 }, { data: day(b.fitness), color: p.accent2, width: 2.4 }, { data: day(b.perf), color: p.text, width: 2.2 }];
