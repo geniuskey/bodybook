@@ -221,7 +221,7 @@
       <div class="sim-body side">
         <div class="sim-view"><canvas id="ba-cv"></canvas></div>
         <div class="sim-controls">
-          <label class="ctrl"><span>일차 장애</span><select id="ba-k"><option value="macid">대사성 산증(설사, 당뇨병성 케톤산증, 격한 운동)</option><option value="racid">호흡성 산증(호흡 억제, 만성 폐쇄성 폐질환)</option><option value="malk">대사성 알칼리증(구토, 이뇨제)</option><option value="ralk">호흡성 알칼리증(과호흡, 고지대)</option></select></label>
+          <label class="ctrl"><span>일차 장애</span><select id="ba-k"><option value="macid">대사성 산증</option><option value="racid">호흡성 산증</option><option value="malk">대사성 알칼리증</option><option value="ralk">호흡성 알칼리증</option></select></label>
           <label class="ctrl"><span>정도 <output id="ba-s-out"></output></span><input type="range" id="ba-s" min="0.1" max="1" step="0.05" value="0.6"></label>
           <label class="ctrl"><span>보상 진행 <output id="ba-c-out"></output></span><input type="range" id="ba-c" min="0" max="1" step="0.05" value="0"></label>
         </div>
@@ -246,14 +246,14 @@
       <div class="sim-body">
         <div class="sim-view"><canvas id="bv-cv"></canvas><span class="hint">세로 커서를 좌우로 끈다</span></div>
       </div>
-      <div class="map-legend"><span><i style="background:var(--accent)"></i>분당 환기량</span><span><i style="background:var(--o2)"></i>VO2</span><span><i style="background:var(--co2)"></i>VCO2</span><span><i style="background:var(--warn)"></i>젖산</span><span><i style="background:var(--ok)"></i>HCO₃⁻</span></div>
+      <div class="map-legend"><span><i style="background:var(--accent)"></i>분당 환기량</span><span><i style="background:var(--text-faint)"></i>VO2에 비례하는 환기</span><span><i style="background:var(--co2)"></i>VCO2(오른쪽 축)</span><span><i style="background:var(--warn)"></i>젖산</span><span><i style="background:var(--ok)"></i>HCO₃⁻</span></div>
       <div class="sim-readout">
         <div class="stat"><span class="k">강도(최대 대비)</span><span class="v" id="bv-o-x">—</span></div>
         <div class="stat"><span class="k">VO2 · VCO2</span><span class="v" id="bv-o-v">—</span></div>
         <div class="stat"><span class="k">분당 환기량</span><span class="v" id="bv-o-ve">—</span></div>
         <div class="stat"><span class="k">젖산 · HCO₃⁻ · pH</span><span class="v" id="bv-o-a">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 커서를 0에서 오른쪽으로 끌며 분당 환기량(파랑)이 점선(산소 섭취에 비례하는 환기)을 따라가다 약 60 % 근처에서 위로 벗어나는 지점을 찾는다. 젖산이 2 mmol/L를 넘는 곳과 겹친다. ② 다온의 대회 강도(약 79 %)에 커서를 둔다. 젖산 약 4 mmol/L, HCO₃⁻ 약 21, PaCO2를 조금 낮춰 pH는 아직 7.40 근처다. ③ 100 %까지 끈다. 젖산 약 11 mmol/L, HCO₃⁻ 약 14로 떨어지고, 숨을 몰아쉬어도 pH가 7.25 근처로 내려간다. (VO2·젖산·호흡 교환율은 BD.steady(다온 VO2max 38, 젖산 역치 60 %). 젖산 1 mmol/L가 HCO₃⁻ 1 mEq/L를 소모하고, 그만큼 VCO2가 더해진다고 두었다. PaCO2는 젖산이 2 mmol/L를 넘으면 낮아지기 시작하고, 분당 환기량 = 0.863 × VCO2 / (PaCO2 × (1 − 사강 비율)).)</div>
+      <div class="sim-note">해볼 것: ① 커서를 0에서 오른쪽으로 끌며 분당 환기량(굵은 선)이 점선(산소 섭취에 비례하는 환기)을 따라가다 약 60 % 근처에서 위로 벗어나는 지점을 찾는다. 젖산이 2 mmol/L를 넘는 곳과 겹친다. ② 다온의 대회 강도(약 79 %)에 커서를 둔다. 젖산 약 4 mmol/L, HCO₃⁻ 약 21, PaCO2를 조금 낮춰 pH는 아직 7.40 근처다. ③ 100 %까지 끈다. 젖산 약 11 mmol/L, HCO₃⁻ 약 14로 떨어지고, 숨을 몰아쉬어도 pH가 7.25 근처로 내려간다. (VO2·젖산·호흡 교환율은 BD.steady(다온 VO2max 38, 젖산 역치 60 %). 젖산 1 mmol/L가 HCO₃⁻ 1 mEq/L를 소모하고, 그만큼 VCO2가 더해진다고 두었다. PaCO2는 젖산이 2 mmol/L를 넘으면 낮아지기 시작하고, 분당 환기량 = 0.863 × VCO2 / (PaCO2 × (1 − 사강 비율)).)</div>
     </div>
     <p>환기 역치는 숨소리로도 느낄 수 있다. 그 아래에서는 달리며 짧은 문장으로 말할 수 있지만, 위로 넘어가면 숨이 차서 말이 끊긴다. 지구력 훈련은 이 역치를 오른쪽으로 민다. 같은 속도에서 젖산이 덜 쌓이고, 숨도 덜 거칠어진다.</p>
   </section>
@@ -595,7 +595,7 @@
       txt(ctx, "의식 소실 위험 60 %", r0.x + r0.w - 4, r0.Y(60) - 2, MON.bad, 10.5, "right", "bottom", 600);
       txt(ctx, "한계점", r3.x + r3.w - 4, r3.Y(1) - 2, MON.dim, 10.5, "right", "bottom");
       // 시간 축
-      for (var s = 0; s <= T1; s += 20) txt(ctx, s + " s", r0.X(s), h - 6, MON.dim, 10, "center", "bottom", 400, true);
+      for (var s = 0; s <= T1; s += 20) txt(ctx, s + " s", r0.X(s), h - 6, MON.dim, 10, s === 0 ? "left" : "center", "bottom", 400, true);
       // 결말
       if (out) {
         ctx.fillStyle = "rgba(255,92,108,0.16)"; ctx.fillRect(r0.X(blackout), 2, r0.x + r0.w - r0.X(blackout), h - 26);
@@ -687,8 +687,10 @@
       arrow(ctx, A[0], A[1], S[0], S[1], p.ok, 2.6, 10);
       ctx.fillStyle = p.ok; ctx.beginPath(); ctx.arc(N[0], N[1], 4, 0, Math.PI * 2); ctx.fill();
       handle(ctx, S[0], S[1], p.text, 7);
-      txt(ctx, "일차 변화", (N[0] + A[0]) / 2 + 6, (N[1] + A[1]) / 2 - 4, p.bad, 11.5, "left", "bottom", 700);
-      if (getC() > 0.05) txt(ctx, "보상", (A[0] + S[0]) / 2 + 6, (A[1] + S[1]) / 2 + 4, p.ok, 11.5, "left", "top", 700);
+      var lx = box.x + box.w - 120, ly = box.y + 28;
+      ctx.fillStyle = BB.alpha(p.bg, 0.85); ctx.fillRect(lx - 6, ly - 6, 120, 44);
+      arrow(ctx, lx, ly + 4, lx + 26, ly + 4, p.bad, 2.4, 8); txt(ctx, "일차 변화", lx + 32, ly + 4, p.bad, 11.5, "left", "middle", 700);
+      arrow(ctx, lx, ly + 24, lx + 26, ly + 24, p.ok, 2.4, 8); txt(ctx, "보상", lx + 32, ly + 24, p.ok, 11.5, "left", "middle", 700);
       txt(ctx, "pH " + st.ph.toFixed(2), S[0] + 10, S[1] + 8, p.text, 12.5, "left", "top", 700);
       txt(ctx, "점선 끝: 보상이 다 끝났을 때", box.x + box.w - 4, box.y + box.h - 6, p.faint, 10.5, "right", "bottom");
     }, { aspect: 0.62, minHeight: 300, maxHeight: 420 });
@@ -722,13 +724,12 @@
         series: [
           { data: XS.map(function (q) { return [q.x, q.vo2 * slope]; }), color: BB.alpha(p.dim, 0.7), width: 1.4, dash: [5, 4] },
           { data: XS.map(function (q) { return [q.x, q.ve]; }), color: p.accent, width: 2.8 },
-          { data: XS.map(function (q) { return [q.x, q.vo2 * 25]; }), color: o2, width: 1.8 },
           { data: XS.map(function (q) { return [q.x, q.vco2 * 25]; }), color: co2, width: 1.8 },
         ] });
-      txt(ctx, "분당 환기량 L/min · VO2·VCO2 (×25)", top.x + 4, top.y + 2, p.dim, 11, "left", "top", 600);
+      txt(ctx, "분당 환기량 L/min · 점선: VO2에 비례하는 환기", top.x + 4, top.y + 2, p.dim, 11, "left", "top", 600);
       // 오른쪽 축: L/min of gas
       [0, 1, 2, 3, 4].forEach(function (v) { var y = c1.Y(v * 25); if (y >= top.y - 1) txt(ctx, String(v), top.x + top.w + 6, y, p.faint, 10, "left", "middle", 400, true); });
-      txt(ctx, "VO2 L/min", top.x + top.w + 6, top.y - 4, p.faint, 10, "left", "bottom");
+      txt(ctx, "VCO2 L/min", top.x + top.w + 6, top.y - 4, p.co2 || BB.color("co2"), 10, "left", "bottom");
       txt(ctx, "환기 역치", c1.X(0.6) + 4, top.y + 18, p.warn, 11, "left", "top", 700);
       var c2 = BB.chart(ctx, bot, { x: [0, 1.05], y: [0, 28], xLabel: "운동 강도(최대 산소 섭취량 대비)", xTicks: [0, 0.2, 0.4, 0.6, 0.79, 1.0], xFmt: function (v) { return Math.round(v * 100) + "%"; }, yTicks: [0, 8, 16, 24],
         hlines: [{ y: 2, color: BB.alpha(p.warn, 0.6) }],
@@ -851,7 +852,7 @@
           { label: "PaCO2", value: f0(st.P), unit: "mmHg", color: BB.trace(3) },
           { label: "지연", value: String(getD()), unit: "s", color: BB.trace(1) },
         ] });
-      for (var s = Math.ceil(t0 / 60) * 60; s <= t1; s += 60) { var x = 6 + (s - t0) / 240 * (w - Math.max(96, Math.min(150, w * 0.24)) - 14); txt(ctx, Math.round(s / 60) + " min", x, h - 5, MON.dim, 10, "center", "bottom", 400, true); }
+      for (var s = Math.ceil(t0 / 60) * 60; s <= t1; s += 60) { var x = 6 + (s - t0) / 240 * (w - Math.max(96, Math.min(150, w * 0.24)) - 14); txt(ctx, Math.round(s / 60) + " min", Math.max(x, 22), h - 5, MON.dim, 10, "center", "bottom", 400, true); }
       BB.stat("bs-o-ve", f1(st.ve) + "<small>L/min</small>");
       BB.stat("bs-o-c", f1(st.P) + "<small>mmHg</small>");
       BB.stat("bs-o-st", '<span class="' + (state === "안정" ? "ok-t" : state === "관찰 중" ? "" : "bad-t") + '">' + state + "</span>");
@@ -914,7 +915,7 @@
       if (!narrow) txt(ctx, "스퍼트", (xs0 + xs1) / 2, h - 26, "#ffbe50", 10, "center", "bottom", 600);
       ctx.strokeStyle = "rgba(255,92,108,0.5)"; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(rp.x, rp.Y(7.35)); ctx.lineTo(rp.x + rp.w, rp.Y(7.35)); ctx.stroke(); ctx.setLineDash([]);
       txt(ctx, "7.35", rp.x + rp.w - 4, rp.Y(7.35) - 2, MON.bad, 10, "right", "bottom", 600, true);
-      for (var s = 0; s <= T1; s += 10) txt(ctx, s + "분", r.X(s), h - 5, MON.dim, 10, "center", "bottom", 400, true);
+      for (var s = 0; s <= T1; s += 10) txt(ctx, s + "분", r.X(s), h - 5, MON.dim, 10, s === 0 ? "left" : "center", "bottom", 400, true);
       BB.stat("dn-o-t", f1(tc) + "<small>분</small>");
       BB.stat("dn-o-l", f1(a.L) + "<small>mmol/L</small>");
       BB.stat("dn-o-h", f1(a.h) + " · " + f0(a.pc));
