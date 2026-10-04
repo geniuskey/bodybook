@@ -904,7 +904,7 @@
       o.emax = +(on("dn-con") ? lerp(2.8, 5.5, x) : 2.8).toFixed(2);
       o.tscale = +(on("dn-con") ? lerp(1, 0.8, x) : 1).toFixed(3);
       o.vs = Math.round(on("dn-ven") ? lerp(440, 700, x) : 440);
-      o.rs = +(on("dn-vas") ? lerp(1.15, 0.32, x) : 1.15).toFixed(3);
+      o.rs = +(on("dn-vas") ? 1.15 * Math.pow(0.32 / 1.15, Math.pow(x, 0.7)) : 1.15).toFixed(3);   // 혈관 확장은 기하급수적으로
       o.ca = +(on("dn-vas") ? lerp(1.35, 0.8, x) : 1.35).toFixed(3);
       res = run(o);
       BB.stat("dn-o-hr", o.hr + "<small>bpm</small>");
