@@ -581,8 +581,8 @@
         var x3 = c.X(lb + 0.04 + 0.08); if (x3 < box.x + box.w - 30) txt(ctx, "3기(K⁺)", x3 + 6, c.Y(-10), { color: p.dim, size: 10.5 });
       }
       // 시간 눈금(1초 막대)
-      ctx.strokeStyle = p.dim; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(box.x + box.w - box.w / WIN, box.y + box.h + 12); ctx.lineTo(box.x + box.w, box.y + box.h + 12); ctx.stroke();
-      txt(ctx, "1초", box.x + box.w - box.w / WIN / 2, box.y + box.h + 24, { align: "center", size: 11 });
+      ctx.strokeStyle = p.dim; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(box.x, box.y + box.h + 12); ctx.lineTo(box.x + box.w / WIN, box.y + box.h + 12); ctx.stroke();
+      txt(ctx, "1초", box.x + box.w / WIN / 2, box.y + box.h + 24, { align: "center", size: 11 });
       // 큰 숫자
       var col = sa.hr < 40 || sa.hr > 170 ? p.bad : p.text;
       if (narrow) { txt(ctx, fmt0(sa.hr) + " bpm", w - 12, 14, { align: "right", size: 18, mono: true, weight: 700, color: col }); }
@@ -660,8 +660,8 @@
     }
     cv = BB.canvas("#cd-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560;
-      var s = narrow ? Math.min(w * 0.24, 92) : Math.min(h * 0.27, w * 0.15);
-      var hx = narrow ? w * 0.56 : w * 0.24, hy = narrow ? 30 + 1.55 * s : h * 0.5 + 0.1 * s;
+      var s = narrow ? Math.min(w * 0.24, 92) : Math.min(h * 0.27, w * 0.13);
+      var hx = narrow ? w * 0.56 : 1.25 * s + 74, hy = narrow ? 30 + 1.55 * s : h * 0.5 + 0.1 * s;
       var st = state(t);
       BD.heartDiagram(ctx, hx, hy, s, { lv: 0.6, rv: 0.6, la: 0.7, ra: 0.7, active: st.vent ? "ventricles" : st.atria ? "atria" : null, wave: st.wave, labels: true });
       var nerve = BB.color("tr-4");
@@ -690,7 +690,7 @@
       // 파 이름(이번 화면의 P, QRS)
       ctx.save(); ctx.beginPath(); ctx.rect(eb.x, eb.y - 20, eb.w, eb.h + 20); ctx.clip();
       e.ps.forEach(function (pc) { var x = pc - k0 - off; if (x > 0 && x < sw) txt(ctx, "P", pp.X(x), eb.y - 9, { align: "center", color: p.accent, size: 11, weight: 700 }); });
-      e.beats.forEach(function (b) { var x = b.r - k0 - off; if (x > 0 && x < sw) txt(ctx, b.wide ? "QRS(넓음)" : "QRS", pp.X(x), eb.y - 9, { align: "center", color: p.accent2, size: 11, weight: 700 }); });
+      e.beats.forEach(function (b) { var x = b.r - k0 - off; if (x > 0.08 && x < sw) txt(ctx, b.wide ? "QRS(넓음)" : "QRS", pp.X(x), eb.y - 9, { align: "center", color: p.accent2, size: 11, weight: 700 }); });
       ctx.restore();
       txt(ctx, "심전도(유도 II 비슷한 모양) · 화면 3초", eb.x, eb.y + eb.h + 14, { size: 11 });
       txt(ctx, st.text, narrow ? 12 : 12, 16, { size: 13, weight: 700, color: nerve === "" ? p.text : p.text });
@@ -774,7 +774,7 @@
       var lx = BB.clamp((xa + xb) / 2 - tw / 2, box.x + 2, box.x + box.w - tw - 2);
       ctx.fillStyle = BB.alpha(p.bg, 0.9); ctx.fillRect(lx, ym - 22, tw, 18);
       txt(ctx, lbl, lx + 5, ym - 13, { size: 12, weight: 700, color: col });
-      txt(ctx, "작은 칸 0.04 s · 큰 칸 0.2 s · 세로 큰 칸 0.5 mV", box.x, h - 10, { size: 10.5 });
+      if (w >= 560) txt(ctx, "작은 칸 0.04 s · 큰 칸 0.2 s · 세로 큰 칸 0.5 mV", box.x, h - 10, { size: 10.5 });
     }, { get height() { var w = viewW("cp-cv"); var dur = BB.clamp(w / 360, 1.25, 2.2); var pxs = (w - 28) / Math.max(dur, 60 / 72 + 0.62); return Math.round(BB.clamp(pxs * 0.4 * 2 + 76, 250, 420)); } });
     BB.drag(cv.canvas, {
       start: function (x, y) {
@@ -820,19 +820,19 @@
     document.getElementById("rt-show").addEventListener("click", function () { reveal = !reveal; this.textContent = reveal ? "정답 숨기기" : "정답 보기"; out(); });
     build();
     cv = BB.canvas("#rt-cv", function (ctx, w, h) {
-      var p = P(), narrow = w < 560, rows = narrow ? 2 : 1, per = DUR / rows;
+      var p = P(), rows = 2, per = DUR / rows;
       var rowH = (h - 20) / rows, boxes = [];
       for (var k = 0; k < rows; k++) {
-        var box = { x: 12, y: 26 + k * rowH, w: w - 24, h: rowH - 34 };
+        var box = { x: 12, y: 40 + k * rowH, w: w - 24, h: rowH - 44 };
         var pp = paper(ctx, box, k * per, (k + 1) * per, -0.4, 1.4);
         boxes.push({ box: box, pp: pp, t0: k * per, t1: (k + 1) * per });
         trace(ctx, function (s) { return e.v(s + shift); }, pp.X, pp.Y, k * per, (k + 1) * per, p.text, 1.6, 700);
         // 300-150-100 눈금
         if (k === 0) [300, 150, 100, 75, 60, 50, 43].forEach(function (lab, j) {
           var s = R0 + 0.2 * (j + 1); if (s > per) return;
-          txt(ctx, String(lab), pp.X(s), box.y - 9, { align: "center", size: 10.5, mono: true, weight: 600, color: p.bad });
+          txt(ctx, String(lab), pp.X(s), box.y - 8, { align: "center", size: w < 420 ? 9.5 : 10.5, mono: true, weight: 600, color: p.bad });
         });
-        if (k === 0) txt(ctx, "R", pp.X(R0), box.y - 9, { align: "center", size: 11, weight: 700, color: p.accent });
+        if (k === 0) txt(ctx, "R", pp.X(R0), box.y - 8, { align: "center", size: 11, weight: 700, color: p.accent });
         // 정답: R파 표시
         if (reveal) e.beats.forEach(function (b) { var s = b.r - shift; if (s >= k * per && s < (k + 1) * per) { ctx.fillStyle = p.ok; ctx.beginPath(); ctx.arc(pp.X(s), pp.Y(1.3), 3.5, 0, Math.PI * 2); ctx.fill(); } });
       }
@@ -842,17 +842,17 @@
         var rb = boxes[Math.min(rows - 1, Math.floor(s / per))]; if (!rb) return;
         var x = rb.pp.X(s), col = i ? p.bad : p.accent;
         ctx.strokeStyle = col; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(x, rb.box.y); ctx.lineTo(x, rb.box.y + rb.box.h + 4); ctx.stroke();
-        if (i) handle(ctx, x, rb.box.y + rb.box.h + 12, col, 7);
+        if (i) handle(ctx, x, rb.box.y + rb.box.h + 11, col, 7);
       });
       var d = c1 - R0;
       var lbl = "R–R " + fmt0(d * 1000) + " ms = 큰 칸 " + (d / 0.2).toFixed(1) + " = 작은 칸 " + (d / 0.04).toFixed(0);
       txt(ctx, lbl, 12, 10, { size: 12, weight: 700, color: p.text });
-      txt(ctx, "6초", w - 12, 10, { align: "right", size: 11 });
-    }, { get height() { return viewW("rt-cv") < 560 ? 300 : 210; } });
+      txt(ctx, "3초 × 2줄 = 6초", w - 12, 10, { align: "right", size: 11 });
+    }, { get height() { return viewW("rt-cv") < 560 ? 320 : 380; } });
     BB.drag(cv.canvas, {
       move: function (x, y) {
         if (!lay) return;
-        var rb = lay[0]; for (var k = 0; k < lay.length; k++) if (y >= lay[k].box.y - 20) rb = lay[k];
+        var rb = lay[0]; for (var k = 0; k < lay.length; k++) if (y >= lay[k].box.y - 30) rb = lay[k];
         c1 = BB.clamp(rb.pp.T(x), R0 + 0.1, DUR); out();
       },
     });
@@ -914,8 +914,7 @@
         ctx.strokeStyle = BB.alpha(col, 0.35); ctx.setLineDash([3, 3]); ctx.lineWidth = 1;
         var nx = -uy, ny = ux, dd = (cx + v[0] * sc - mx) * nx + (cy + v[1] * sc - my) * ny;
         ctx.beginPath(); ctx.moveTo(cx + v[0] * sc, cy + v[1] * sc); ctx.lineTo(cx + v[0] * sc - nx * dd, cy + v[1] * sc - ny * dd); ctx.stroke(); ctx.setLineDash([]);
-        var off = i === 0 ? [0, -14] : i === 1 ? [-16, 4] : [16, 4];
-        txt(ctx, L.n + " +", sd[1][0] + (i === 0 ? -26 : i === 1 ? -22 : 14), sd[1][1] + (i === 0 ? 14 : -8), { size: 11, weight: 700, color: col, align: "center" });
+                var ox = mx - cx, oy = my - cy, ol = Math.hypot(ox, oy) || 1; txt(ctx, L.n, mx + (ox / ol) * 16, my + (oy / ol) * 16, { size: 12, weight: 700, color: col, align: "center" });
       });
       // 벡터 화살표
       var tx = cx + v[0] * sc, ty = cy + v[1] * sc, art = BB.color("art");
@@ -987,7 +986,7 @@
       BD.monitor(ctx, eb, { t: [t - 6, t], traces: [{ label: "ECG II", color: tr1, data: function (q) { return e.v(q); }, range: [-0.5, 1.4] }] });
       // 2) 타코그램
       var tw = narrow ? w - 20 : w * 0.66;
-      var box = { x: 50, y: eb.y + eb.h + 22, w: tw - 60, h: narrow ? 150 : h - eb.h - 62 };
+      var box = { x: 56, y: eb.y + eb.h + 22, w: tw - 60, h: narrow ? 150 : h - eb.h - 62 };
       var hrs = [], lo = 1e9, hi = 0;
       for (var i = 1; i < e.beats.length; i++) { var b = e.beats[i]; if (b.r > t - 40 && b.r <= t) { var hh = 60 / (b.r - e.beats[i - 1].r); hrs.push([b.r, hh]); lo = Math.min(lo, hh); hi = Math.max(hi, hh); } }
       var mid = st.hr, span = Math.max(8, (hi - lo) * 0.7 + 4);
@@ -1165,7 +1164,7 @@
       BB.stat("ar-o-co", "<span class='" + (co < 4 ? "bad-t" : "") + "'>" + co.toFixed(1) + "</span><small>L/min</small>");
       BB.stat("ar-o-map", (key === "vf" ? "↓ 0으로" : fmt0(mapv)) + "<small>mmHg</small>");
       document.getElementById("ar-info").innerHTML = INFO[key];
-      t = 15;
+      t = key === "vf" ? 15 : 15 + W;
     }
     document.getElementById("ar-sel").addEventListener("change", function () { key = this.value; build(); });
     build();
@@ -1192,7 +1191,7 @@
       });
       if (vf) { ctx.fillStyle = "#ff4d5e"; ctx.font = BB.font(13, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("경보: 심실세동 · 맥박 없음", 12, h - 22); }
     }, { get height() { return viewW("ar-cv") < 560 ? 280 : 300; } });
-    BB.loop(document.getElementById("sim-arrhythmia"), function (dt) { t += dt; if (t > 74) t = 15; cv.redraw(); });
+    BB.loop(document.getElementById("sim-arrhythmia"), function (dt) { t += dt; if (t > 74) t = key === "vf" ? 15 : 15 + W; cv.redraw(); });
     // 본문 숫자: 심방 수축을 뺐을 때 심박출량 감소(엔진 BD.heart)
     setTimeout(function () {
       var a = BD.heart({ hr: 72, rs: 1.15 }), b = BD.heart({ hr: 72, rs: 1.15, atrial: 0 });
@@ -1240,7 +1239,7 @@
         traces: [{ label: "ECG II · " + W.w + "주", color: BB.trace(1), data: function (q) { return W.e.v(q); }, range: [-0.5, 1.4] }],
         numerics: [{ label: "HR", value: fmt0(W.hr), unit: "bpm", color: BB.trace(1) }, { label: "RMSSD", value: fmt0(W.rmssd), unit: "ms", color: BB.trace(3) }],
       });
-      var box = { x: 50, y: mh + 40, w: w - 104, h: h - mh - 84 };
+      var box = { x: 50, y: mh + 40, w: w - 104, h: h - mh - 100 };
       var c = BB.chart(ctx, box, { x: [0, 16], y: [55, 80], xLabel: "훈련 주", yLabel: "안정 심박수(bpm)", xTicks: [0, 2, 4, 6, 8, 10, 12, 14, 16], yTicks: [55, 60, 65, 70, 75, 80],
         bands: [{ x0: 12, x1: 16, color: BB.alpha(stopMode ? p.warn : p.ok, 0.08) }],
         series: [{ data: weeks.map(function (q) { return [q.w, q.hr]; }), color: p.accent, width: 2.6 }] });

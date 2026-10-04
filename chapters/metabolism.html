@@ -65,12 +65,12 @@
         <text x="66" y="96" text-anchor="middle" class="lbl-b">지방</text>
         <rect x="14" y="126" width="104" height="38" rx="9" class="f-prot"/>
         <text x="66" y="150" text-anchor="middle" class="lbl-b">단백질</text>
-        <text x="66" y="184" text-anchor="middle" class="lbl-dim">4 · 9 · 4 kcal/g</text>
+        <text x="14" y="206" class="lbl-dim">4 · 9 · 4 kcal/g</text>
         <path d="M118 37 C160 37 160 80 190 86" class="s-line" marker-end="url(#mt-ar)"/>
         <path d="M118 91 L188 91" class="s-line" marker-end="url(#mt-ar)"/>
         <path d="M118 145 C160 145 160 102 190 96" class="s-line" marker-end="url(#mt-ar)"/>
         <text x="152" y="30" text-anchor="middle" class="lbl-dim">해당 과정</text>
-        <text x="152" y="176" text-anchor="middle" class="lbl-dim">아미노산 분해</text>
+        <text x="168" y="186" text-anchor="middle" class="lbl-dim">아미노산 분해</text>
         <rect x="192" y="72" width="88" height="38" rx="9" class="f-surface"/>
         <text x="236" y="96" text-anchor="middle" class="lbl">아세틸 CoA</text>
         <circle cx="236" cy="168" r="38" class="f-acc-soft"/>
@@ -109,11 +109,11 @@
           <label class="ctrl"><span>ATP에 담기는 비율 <output id="fl-c-out"></output></span><input type="range" id="fl-c" min="30" max="55" step="1" value="40"></label>
         </div>
       </div>
-      <div class="map-legend"><span><i style="background:var(--carb)"></i>음식의 에너지</span><span><i style="background:var(--accent)"></i>ATP</span><span><i style="background:var(--ok)"></i>바깥 일</span><span><i style="background:var(--heat)"></i>열</span></div>
+      <div class="map-legend"><span><i style="background:var(--carb)"></i>음식의 에너지(흡수 전)</span><span><i style="background:var(--accent)"></i>ATP</span><span><i style="background:var(--ok)"></i>바깥 일</span><span><i style="background:var(--heat)"></i>열</span></div>
       <div class="sim-readout">
         <div class="stat"><span class="k">바깥 일</span><span class="v" id="fl-o-w">—</span></div>
         <div class="stat"><span class="k">결국 열이 되는 몫</span><span class="v" id="fl-o-h">—</span></div>
-        <div class="stat"><span class="k">그 열로 데우는 물 1 L</span><span class="v" id="fl-o-t">—</span></div>
+        <div class="stat"><span class="k">그 열로 데우는 물 10 L</span><span class="v" id="fl-o-t">—</span></div>
       </div>
       <div class="sim-note">해볼 것: ① "쉴 때"를 고른다. 바깥 일이 0이므로 ATP에 담겼던 에너지까지 전부 열이 된다. 가만히 있는 몸은 100 W 남짓의 난로다. ② "운동할 때"에서 효율을 22 %에 둔다. 달리기·자전거에서 사람 근육의 전체 효율은 약 20~25 %다. ③ 효율을 40 %까지 민다. ATP에 담긴 몫을 넘어설 수 없으니 그 위는 불가능한 영역이다(빨간 표시). (흡수율 95 %로 고정한 교육용 그림이다. 바깥 일은 흡수한 에너지에 대한 비율로 셌다.)</div>
     </div>
@@ -141,7 +141,7 @@
           <label class="ctrl"><span>체지방률 <output id="bm-bf-out"></output></span><input type="range" id="bm-bf" min="6" max="50" step="1" value="24"></label>
         </div>
       </div>
-      <div class="map-legend"><span><i style="background:var(--accent)"></i>미플린-세인트 조르</span><span><i style="background:var(--accent-2)"></i>해리스-베네딕트</span><span><i style="background:var(--prot)"></i>캐치-맥아들(제지방량)</span><span><i style="background:var(--text-faint)"></i>클라이버 70·W<sup>0.75</sup></span></div>
+      <div class="map-legend"><span><i style="background:var(--accent)"></i>미플린-세인트 조르</span><span><i style="background:var(--accent-2)"></i>해리스-베네딕트</span><span><i style="background:var(--ok)"></i>캐치-맥아들(제지방량)</span><span><i style="background:var(--text-faint)"></i>클라이버 70·W<sup>0.75</sup></span></div>
       <div class="sim-readout">
         <div class="stat"><span class="k">미플린</span><span class="v" id="bm-o-m">—</span></div>
         <div class="stat"><span class="k">해리스-베네딕트</span><span class="v" id="bm-o-h">—</span></div>
@@ -252,7 +252,7 @@
         <div class="stat"><span class="k">한 끼 에너지</span><span class="v" id="mc-o-e">—</span></div>
         <div class="stat"><span class="k">열 효과</span><span class="v" id="mc-o-t">—</span></div>
         <div class="stat"><span class="k">열 효과 비율</span><span class="v" id="mc-o-p">—</span></div>
-        <div class="stat"><span class="k">에너지 구성</span><span class="v" id="mc-o-s" style="font-size:14px">—</span></div>
+        <div class="stat"><span class="k">탄·지·단·알 에너지 몫</span><span class="v" id="mc-o-s" style="font-size:14px">—</span></div>
       </div>
       <div class="sim-note">해볼 것: ① 다온의 점심(탄수화물 90 g, 지방 20 g, 단백질 30 g)은 약 660 kcal, 열 효과는 약 61 kcal(약 9 %). ② 단백질을 100 g으로 올리고 탄수화물을 줄여 같은 에너지로 맞춘다. 열 효과가 크게 는다. 단백질이 포만감과 함께 "덜 남는" 영양소인 이유 가운데 하나다. ③ 지방만 많은 식사는 열 효과가 3 % 안쪽이다. (영양소별 열 효과는 교과서 대표값의 가운데를 썼다. 실제로는 식사량, 나이, 개인에 따라 다르다.)</div>
     </div>
@@ -308,7 +308,7 @@
         <div class="stat"><span class="k">이 속도로 하루면</span><span class="v" id="at-o-d">—</span></div>
         <div class="stat"><span class="k">몸속 ATP 한 바퀴</span><span class="v" id="at-o-c">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "사무 작업"에서 하루 환산 약 40 kg을 본다. 다온 몸무게의 절반쯤이다. ATP를 거쳐 가는 비율을 50 %로 올리면 50 kg을 넘는다. ② "대회 속도"를 누른다. 고리가 빨라지고 몸속 ATP 전체가 약 20초 만에 한 바퀴 돈다. 근육 안의 ATP만 따지면 몇 초다. 그래서 근육에는 크레아틴인산이라는 예비 충전지가 있다(<a href="exercise.html">12장</a>). ③ 계수기는 이 화면을 연 뒤 다온의 몸이 다시 만든 ATP의 양이다. (몸속 ATP 100 g, ATP 1몰 507 g, 세포 안 분해 에너지 12 kcal/mol로 어림했다.)</div>
+      <div class="sim-note">해볼 것: ① "사무 작업"에서 하루 환산 약 40 kg을 본다. 다온 몸무게의 절반쯤이다. ATP를 거쳐 가는 비율을 50 %로 올리면 50 kg을 넘는다. ② "대회 속도"를 누른다. 고리가 빨라지고 몸속 ATP 전체가 약 30초 만에 한 바퀴 돈다. 근육 안의 ATP만 따지면 몇 초다. 그래서 근육에는 크레아틴인산이라는 예비 충전지가 있다(<a href="exercise.html">12장</a>). ③ 계수기는 이 화면을 연 뒤 다온의 몸이 다시 만든 ATP의 양이다. (몸속 ATP 100 g, ATP 1몰 507 g, 세포 안 분해 에너지 12 kcal/mol로 어림했다.)</div>
     </div>
   </section>
 
@@ -361,7 +361,7 @@
           <label class="ctrl"><span>키 <output id="lg-h-out"></output></span><input type="range" id="lg-h" min="145" max="200" step="1" value="175"></label>
           <label class="ctrl"><span>몸무게 <output id="lg-kg-out"></output></span><input type="range" id="lg-kg" min="40" max="130" step="1" value="78"></label>
           <div class="ctrl"><span>기초대사량 공식</span><div class="seg" id="lg-f"><button data-value="mifflin" class="on">미플린</button><button data-value="harris">해리스</button><button data-value="katch">캐치</button></div></div>
-          <label class="ctrl"><span>하루 섭취 <output id="lg-in-out"></output></span><input type="range" id="lg-in" min="1200" max="4000" step="10" value="2392"></label>
+          <label class="ctrl"><span>하루 섭취 <output id="lg-in-out"></output></span><input type="range" id="lg-in" min="1200" max="4000" step="2" value="2392"></label>
           <label class="ctrl"><span>고른 구간의 활동</span><select id="lg-act"></select></label>
           <div class="btn-row"><button class="btn" id="lg-split">고른 구간 둘로 나누기</button></div>
           <label class="check"><input type="checkbox" id="lg-std"> 표준 MET(1 kcal/kg/h)로 계산</label>
@@ -467,6 +467,7 @@
   var DA = BD.DAON;
   function fmt0(x) { return Math.round(x).toString(); }
   function kc(x) { return Math.round(x).toLocaleString("en-US"); }
+  function onCol() { return BB.isDark() ? "#0b0d12" : "#fff"; }
   function narrowOf(id, lim) { var el = document.getElementById(id); return el.parentElement.clientWidth < (lim || 560); }
   function txt(ctx, s, x, y, o) {
     o = o || {};
@@ -491,8 +492,8 @@
     }
     cv = BB.canvas("#fl-cv", function (ctx, w, h) {
       var p = P(), r = calc(), narrow = w < 520;
-      var top = narrow ? 58 : 46, H = h - top - (narrow ? 64 : 50), k = H / 100;
-      var cols = narrow ? [0.05, 0.33, 0.6, 0.86] : [0.06, 0.33, 0.6, 0.86], nw = 12;
+      var top = narrow ? 58 : 46, H = h - top - (narrow ? 84 : 76), k = H / 100;
+      var cols = narrow ? [0.04, 0.3, 0.56, 0.78] : [0.05, 0.31, 0.57, 0.8], nw = 12;
       var X = cols.map(function (c) { return c * w; });
       var cCarb = BB.color("carb"), cHeat = BB.color("heat"), cAtp = p.accent, cWork = p.ok;
       // 노드: [x, y, height, color]
@@ -524,18 +525,20 @@
       function node(n, col, label, val, side) {
         if (n.h <= 0.2) return;
         ctx.fillStyle = col; ctx.fillRect(n.x, n.y, nw, Math.max(2, n.h));
-        var lx = side === "r" ? n.x - 6 : n.x + nw + 6, al = side === "r" ? "right" : "left";
-        if (side === "top") { lx = n.x; al = "left"; txt(ctx, label, lx, n.y - 20, { size: 11.5, color: p.dim }); txt(ctx, val, lx, n.y - 6, { size: 12.5, weight: 700, mono: true }); return; }
-        txt(ctx, label, lx, n.y + Math.min(n.h, 40) / 2 - 2, { size: 11.5, color: p.dim, align: al });
-        txt(ctx, val, lx, n.y + Math.min(n.h, 40) / 2 + 13, { size: 12.5, weight: 700, mono: true, align: al });
+        if (side === "top") { txt(ctx, label, n.x, n.y - 20, { size: 11.5, color: p.dim }); txt(ctx, val, n.x, n.y - 6, { size: 12.5, weight: 700, mono: true }); return; }
+        var lx = side === "in" ? n.x - 8 : n.x + nw + 6, al = side === "in" ? "right" : "left", cy = n.y + Math.min(n.h, 44) / 2;
+        ctx.font = BB.font(11.5); var tw = Math.max(ctx.measureText(label).width, 30);
+        ctx.fillStyle = BB.alpha(p.bg, 0.85); BB.rrect(ctx, al === "right" ? lx - tw - 4 : lx - 4, cy - 14, tw + 8, 32, 5); ctx.fill();
+        txt(ctx, label, lx, cy - 1, { size: 11.5, color: p.dim, align: al });
+        txt(ctx, val, lx, cy + 13, { size: 12.5, weight: 700, mono: true, align: al });
       }
       node(food, cCarb, "음식", "100 kcal", "top");
       node(abs, cCarb, "흡수", fmt0(r.abs), "top");
-      txt(ctx, "대변 " + r.loss, loss.x + nw + 4, loss.y + loss.h + 12, { size: 11, color: p.faint });
+      txt(ctx, "대변 " + r.loss, loss.x + nw + 4, loss.y + loss.h / 2 + 4, { size: 11, color: p.faint });
       node(atp, cAtp, "ATP", fmt0(r.atp), "top");
-      node(heat1, cHeat, "열(호흡)", fmt0(r.heat1), narrow ? "r" : "r");
-      if (r.work > 0.2) node(work, cWork, "바깥 일", fmt0(r.work), "r");
-      node(heat, cHeat, "결국 열", fmt0(r.heat), "r");
+      node(heat1, cHeat, "열(호흡)", fmt0(r.heat1), "in");
+      if (r.work > 0.2) node(work, cWork, "바깥 일", fmt0(r.work), "out");
+      node(heat, cHeat, "결국 열", fmt0(r.heat), "out");
       // 큰 결론
       var msg = mode() === "rest" ? "쉬는 몸: 흡수한 에너지의 100 %가 열" : "바깥 일 " + fmt0(r.work) + " kcal, 나머지 " + fmt0(r.heat) + " kcal는 열";
       txt(ctx, msg, 12, h - (narrow ? 34 : 16), { size: narrow ? 12 : 13, weight: 700, color: mode() === "rest" ? cHeat : p.text });
@@ -543,7 +546,7 @@
       else if (r.eff > 0.26) txt(ctx, "사람 근육의 실제 효율(약 25 %)보다 높다", 12, h - (narrow ? 14 : 34), { size: 12, weight: 600, color: p.warn });
       BB.stat("fl-o-w", fmt0(r.work) + "<small>kcal</small>");
       BB.stat("fl-o-h", fmt0(r.heat) + "<small>kcal</small>");
-      BB.stat("fl-o-t", "+" + fmt0(r.heat) + "<small>°C</small>");
+      BB.stat("fl-o-t", "+" + (r.heat / 10).toFixed(1) + "<small>°C</small>");
     }, { get height() { return narrowOf("fl-cv", 520) ? 380 : 330; } });
     BB.loop(document.getElementById("sim-mt-flow"), function (dt) { t += dt; cv.redraw(); });
   })();
@@ -563,7 +566,7 @@
     cv = BB.canvas("#bm-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 480;
       var box = { x: 58, y: 18, w: w - 74, h: h - 64 };
-      var series = [["m", p.accent], ["h", p.accent2], ["k", BB.color("prot")], ["kl", p.faint]].map(function (s) {
+      var series = [["m", p.accent], ["h", p.accent2], ["k", p.ok], ["kl", p.faint]].map(function (s) {
         var d = []; for (var x = 40; x <= 130; x += 2) d.push([x, vals(x)[s[0]]]);
         return { data: d, color: s[1], width: s[0] === "kl" ? 1.6 : 2.4, dash: s[0] === "kl" ? [5, 4] : null };
       });
@@ -575,11 +578,11 @@
       ctx.strokeStyle = p.bad; ctx.lineWidth = 2; var bx = X + (kg > 112 ? -12 : 12);
       ctx.beginPath(); ctx.moveTo(bx, c.Y(lo)); ctx.lineTo(bx, c.Y(hi)); ctx.stroke();
       [lo, hi].forEach(function (q) { ctx.beginPath(); ctx.moveTo(bx - 4, c.Y(q)); ctx.lineTo(bx + 4, c.Y(q)); ctx.stroke(); });
-      [[v.m, p.accent], [v.h, p.accent2], [v.k, BB.color("prot")]].forEach(function (d) { ctx.fillStyle = d[1]; ctx.beginPath(); ctx.arc(X, c.Y(d[0]), 4.5, 0, Math.PI * 2); ctx.fill(); });
+      [[v.m, p.accent], [v.h, p.accent2], [v.k, p.ok]].forEach(function (d) { ctx.fillStyle = d[1]; ctx.beginPath(); ctx.arc(X, c.Y(d[0]), 4.5, 0, Math.PI * 2); ctx.fill(); });
       var right = kg > 100;
       txt(ctx, "차이 " + kc(hi - lo) + " kcal (" + Math.round((hi - lo) / v.m * 100) + "%)", bx + (right ? -8 : 8), c.Y((lo + hi) / 2) + 4, { size: 12, weight: 700, color: p.bad, align: right ? "right" : "left" });
       // 다온 표시
-      if (sex() === "m" && getA() === 34 && getH() === 175) { var dx = c.X(78); ctx.fillStyle = p.dim; ctx.beginPath(); ctx.arc(dx, c.Y(BD.bmr(78, 175, 34)), 3, 0, Math.PI * 2); ctx.fill(); txt(ctx, "다온", dx - 4, c.Y(BD.bmr(78, 175, 34)) - 8, { size: 11, color: p.dim, align: "right" }); }
+      if (sex() === "m" && getA() === 34 && getH() === 175) { var dx = c.X(78); ctx.fillStyle = p.dim; ctx.beginPath(); ctx.arc(dx, c.Y(BD.bmr(78, 175, 34)), 3, 0, Math.PI * 2); ctx.fill(); txt(ctx, "다온", dx - 8, c.Y(BD.bmr(78, 175, 34)) + 18, { size: 11, color: p.dim, align: "right" }); }
       handle(ctx, X, box.y + box.h, p.text, 8);
       txt(ctx, fmt0(kg) + " kg", X, box.y + box.h - 14, { size: 12, weight: 700, mono: true, align: "center" });
       txt(ctx, "클라이버 " + kc(v.kl), box.x + box.w - 4, c.Y(BD.kleiber(128)) - 6, { size: 11, color: p.faint, align: "right" });
@@ -625,7 +628,7 @@
         org.forEach(function (o, i) {
           var ww = rw * getter(o) / sum; ctx.fillStyle = BB.color(COL[o.key]); ctx.globalAlpha = sel >= 0 && sel !== i ? 0.35 : 1;
           ctx.fillRect(x, y, Math.max(0, ww - 1), 22); ctx.globalAlpha = 1;
-          if (ww > 30) txt(ctx, Math.round(getter(o) / sum * 100) + "%", x + ww / 2, y + 15, { size: 10.5, mono: true, weight: 600, color: "#fff", align: "center" });
+          if (ww > 30) txt(ctx, Math.round(getter(o) / sum * 100) + "%", x + ww / 2, y + 15, { size: 10.5, mono: true, weight: 600, color: onCol(), align: "center" });
           x += ww;
         });
       }
@@ -696,8 +699,7 @@
         if (narrow) txt(ctx, r.m.name + " · " + r.m.met + " MET · " + r.min + "분", lx, y - 6, { size: 11.5, color: p.dim });
         else { txt(ctx, r.m.name, lx, y + 7, { size: 12 }); txt(ctx, r.m.met + " MET", lx, y + 21, { size: 10.5, mono: true, color: p.faint }); }
         var ww = bw * r.min / MAXM;
-        ctx.fillStyle = BB.alpha(col, 0.25); ctx.fillRect(bx, y, ww, 18);
-        ctx.fillStyle = col; ctx.fillRect(bx, y, ww * Math.min(1, (r.m.met) / 12), 18);
+        ctx.fillStyle = BB.alpha(col, 0.7); ctx.fillRect(bx, y, ww, 18);
         handle(ctx, bx + ww, y + 9, col, 7);
         if (!narrow) txt(ctx, r.min + "분", bx + ww + 12, y + 14, { size: 11, mono: true, color: p.dim });
         txt(ctx, fmt0(e) + " kcal", w - 34, y + 14, { size: 12.5, mono: true, weight: 700, align: "right" });
@@ -707,14 +709,14 @@
         lay.rows.push({ i: i, y: y + 9, bx: bx, bw: bw, del: [xx, yy] });
       });
       if (!rows.length) txt(ctx, "오른쪽에서 활동을 골라 더한다", w / 2, y0 + 40, { size: 13, color: p.faint, align: "center" });
-      var yb = h - 30;
+      var yb = h - (narrow ? 50 : 30);
       ctx.strokeStyle = p.border; ctx.beginPath(); ctx.moveTo(14, yb - 18); ctx.lineTo(w - 14, yb - 18); ctx.stroke();
       txt(ctx, "합계 " + kc(sum) + " kcal", 14, yb, { size: 14, weight: 700 });
-      txt(ctx, "밥 한 공기(약 300 kcal) " + (sum / 300).toFixed(1) + "그릇", w - 14, yb, { size: 12, color: p.dim, align: "right" });
+      txt(ctx, "밥 한 공기(약 300 kcal) " + (sum / 300).toFixed(1) + "그릇", narrow ? 14 : w - 14, narrow ? yb + 18 : yb, { size: 12, color: p.dim, align: narrow ? "left" : "right" });
       BB.stat("me-o-t", kc(sum) + "<small>kcal</small>");
       BB.stat("me-o-n", kc(net) + "<small>kcal</small>");
       BB.stat("me-o-mh", mh.toFixed(1));
-    }, { get height() { var n = narrowOf("me-cv", 480); return 100 + Math.max(1, rows.length) * (n ? 52 : 40) + (n ? 10 : 0); } });
+    }, { get height() { var n = narrowOf("me-cv", 480); return 100 + Math.max(1, rows.length) * (n ? 52 : 40) + (n ? 40 : 0); } });
     BB.drag(cv.canvas, {
       start: function (x, y) {
         drag = null; if (!lay) return;
@@ -738,7 +740,7 @@
     cv = BB.canvas("#ca-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 520;
       var side = narrow ? 0 : 160;
-      var box = { x: 54, y: 16, w: w - side - 70, h: narrow ? h - 170 : h - 58 };
+      var box = { x: 54, y: 16, w: w - side - 70, h: narrow ? h - 260 : h - 58 };
       var c = BB.chart(ctx, box, { x: [0, 3.2], y: [0, 3.2], xLabel: "산소 소비 VO₂ (L/min)", yLabel: "CO₂ 배출 VCO₂ (L/min)" });
       lay = c;
       // 영역
@@ -792,7 +794,7 @@
       BB.stat("ca-o-d", kc(E * 1440) + "<small>kcal/day</small>");
       BB.stat("ca-o-r", rer.toFixed(2));
       BB.stat("ca-o-f", bad ? "—" : Math.round(cf * 100) + " : " + Math.round((1 - cf) * 100));
-    }, { get height() { return narrowOf("ca-cv", 520) ? 470 : 330; } });
+    }, { get height() { return narrowOf("ca-cv", 520) ? 540 : 330; } });
     BB.drag(cv.canvas, { move: function (x, y) { if (!lay) return; var b = lay.box; pt = [BB.clamp((x - b.x) / b.w * 3.2, 0.15, 3.2), BB.clamp((b.y + b.h - y) / b.h * 3.2, 0.1, 3.2)]; cv.redraw(); } });
     BB.loop(document.getElementById("sim-mt-calor"), function (dt) { t += dt; if (gas.checked) cv.redraw(); });
   })();
@@ -827,7 +829,7 @@
         var x = rx;
         vals.forEach(function (v, i) { var ww = rw * v / scale; ctx.fillStyle = BB.color(M[i].col); ctx.fillRect(x, y, ww, 24); x += ww; });
         ctx.strokeStyle = p.border; ctx.strokeRect(rx, y, rw, 24);
-        txt(ctx, sumTxt, Math.min(x + 6, rx + rw - 4), y + 17, { size: 12.5, mono: true, weight: 700, align: x + 80 > rx + rw ? "right" : "left", color: x + 80 > rx + rw ? "#fff" : p.text });
+        var inside = x + 80 > rx + rw; txt(ctx, sumTxt, inside ? x - 6 : x + 6, y + 17, { size: 12.5, mono: true, weight: 700, align: inside ? "right" : "left", color: inside ? "#fff" : p.text });
       }
       stack(ry + 12, kcal, "한 끼 에너지(kcal, 막대 끝 " + maxK + ")", maxK, kc(tot) + " kcal");
       stack(ry + 74, tefs, "소화·흡수에 쓰이는 열 효과(막대 끝 150)", 150, fmt0(tef) + " kcal");
@@ -843,8 +845,8 @@
       BB.stat("mc-o-e", kc(tot) + "<small>kcal</small>");
       BB.stat("mc-o-t", fmt0(tef) + "<small>kcal</small>");
       BB.stat("mc-o-p", tot > 0 ? (tef / tot * 100).toFixed(1) + "<small>%</small>" : "—");
-      BB.stat("mc-o-s", tot > 0 ? M.map(function (m, i) { return Math.round(kcal[i] / tot * 100); }).join(" · ") + "<small>% 탄·지·단·알</small>" : "—");
-    }, { get height() { return narrowOf("mc-cv") ? 520 : 300; } });
+      BB.stat("mc-o-s", tot > 0 ? M.map(function (m, i) { return Math.round(kcal[i] / tot * 100); }).join("·") + "<small>%</small>" : "—");
+    }, { get height() { return narrowOf("mc-cv") ? 550 : 300; } });
     BB.drag(cv.canvas, {
       start: function (x) { drag = null; if (!lay) return; lay.forEach(function (l) { if (Math.abs(x - l.cx) < Math.max(24, l.bw / 2 + 8)) drag = l; }); },
       move: function (x, y) { if (!drag) return; drag.m.g = Math.round(BB.clamp((drag.top + drag.gh - y) / drag.gh * 200, 0, drag.m.max) / 5) * 5; cv.redraw(); },
@@ -865,7 +867,7 @@
       return { E: E, fat: E * ff, carb: E * (1 - ff), ff: ff, rer: s.rer };
     }
     cv = BB.canvas("#fu-cv", function (ctx, w, h) {
-      var p = P(), box = { x: 52, y: 18, w: w - 104, h: h - 64 };
+      var p = P(), box = { x: 52, y: 18, w: w - 112, h: h - 64 };
       var xs = []; for (var x = 0.2; x <= 1.0001; x += 0.01) xs.push(x);
       var pts = xs.map(function (x) { var a = at(x); return [x * 100, a]; });
       var ymax = Math.max(16, Math.ceil(pts[pts.length - 1][1].E / 4) * 4 + 2);
@@ -883,7 +885,7 @@
       pts.forEach(function (q, i) { var X = c.X(q[0]), Y = Yf(q[1].ff); i ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }); ctx.stroke(); ctx.setLineDash([]);
       ctx.strokeStyle = p.axis; ctx.beginPath(); ctx.moveTo(box.x + box.w, box.y); ctx.lineTo(box.x + box.w, box.y + box.h); ctx.stroke();
       [0, 0.25, 0.5, 0.75, 1].forEach(function (f) { txt(ctx, Math.round(f * 100) + "%", box.x + box.w + 6, Yf(f) + 4, { size: 10.5, mono: true, color: BB.color("fat") }); });
-      ctx.save(); ctx.translate(w - 10, box.y + box.h / 2); ctx.rotate(-Math.PI / 2); txt(ctx, "지방 비율", 0, 0, { size: 11.5, color: BB.color("fat"), align: "center" }); ctx.restore();
+      ctx.save(); ctx.translate(w - 7, box.y + box.h / 2); ctx.rotate(-Math.PI / 2); txt(ctx, "지방 비율", 0, 0, { size: 11.5, color: BB.color("fat"), align: "center" }); ctx.restore();
       txt(ctx, "지방의 양이 가장 많은 강도 " + Math.round(fatMax[0]) + "%", c.X(fatMax[0]), box.y + 14, { size: 11, color: BB.color("fat"), align: fatMax[0] > 60 ? "right" : "center", weight: 600 });
       // 대회 속도 표시
       var rp = BD.racePlan(getVm(), getLt()).frac * 100;
@@ -1021,7 +1023,7 @@
         if (i === sel) { ctx.strokeStyle = p.text; ctx.lineWidth = 2.5; ctx.strokeRect(x0 + 1, tl.y + 1, x1 - x0 - 2, tl.h - 2); }
         var nm = METS[s.a].name.replace(/\(.*\)/, "");
         ctx.font = BB.font(10.5, false, 600);
-        if (ctx.measureText(nm).width < x1 - x0 - 6) txt(ctx, nm, (x0 + x1) / 2, tl.y + tl.h / 2 + 4, { size: 10.5, weight: 600, color: "#fff", align: "center" });
+        if (ctx.measureText(nm).width < x1 - x0 - 6) txt(ctx, nm, (x0 + x1) / 2, tl.y + tl.h / 2 + 4, { size: 10.5, weight: 600, color: onCol(), align: "center" });
       });
       // 경계 손잡이
       for (var i = 1; i < segs.length; i++) { var bx = tl.x + tl.w * segs[i].t0 / 24; ctx.fillStyle = p.bg; ctx.strokeStyle = p.text; ctx.lineWidth = 1.6; BB.rrect(ctx, bx - 3, tl.y - 4, 6, tl.h + 8, 3); ctx.fill(); ctx.stroke(); }
@@ -1056,6 +1058,7 @@
       var base = BD.sum(prof.map(function (q) { return q.base; })) * 24 / prof.length;
       var act = BD.sum(prof.map(function (q) { return q.act; })) * 24 / prof.length;
       var tef = tefTotal(), tot = base + act + tef, pal = tot / B, bal = getIn() - tot;
+      base = B; act = tot - B - tef;   // 장부에서는 기초대사를 공식 값 그대로 두고, 잠잘 때 낮아지는 몫은 활동 칸에서 뺀다
       // 도넛
       var R = narrow ? Math.min(70, w * 0.2) : Math.min(76, (w * 0.36 - 30) / 2.2);
       var dcx = narrow ? w * 0.27 : w * 0.64 + (w * 0.36) / 2, dcy = narrow ? box.y + box.h + 46 + R : cy0 + R + 4;
@@ -1069,7 +1072,7 @@
       BB.stat("lg-o-t", kc(tot) + "<small>kcal</small>");
       BB.stat("lg-o-p", pal.toFixed(2));
       BB.stat("lg-o-d", (bal >= 0 ? "+" : "−") + kc(Math.abs(bal)) + "<small>kcal</small>");
-    }, { get height() { return narrowOf("lg-cv") ? 520 : 400; } });
+    }, { get height() { return narrowOf("lg-cv") ? 520 : 620; } });
     function tAt(x) { return BB.clamp((x - lay.tl.x) / lay.tl.w * 24, 0, 24); }
     BB.drag(cv.canvas, {
       start: function (x, y) {

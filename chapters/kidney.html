@@ -68,16 +68,16 @@
         <rect x="10" y="114" width="460" height="196" rx="10" class="f-warn-soft"/>
         <text x="460" y="30" text-anchor="end" class="lbl-dim">피질(겉질)</text>
         <text x="460" y="134" text-anchor="end" class="lbl-dim">속질</text>
-        <text x="460" y="298" text-anchor="end" class="lbl-dim">깊을수록 진하다</text>
-        <path d="M30 52 L70 52" class="s-art" marker-end="url(#kd-ar)"/>
-        <text x="30" y="44" class="lbl-dim">들세동맥</text>
+        <text x="372" y="298" text-anchor="end" class="lbl-dim">깊을수록 진하다</text>
+        <path d="M14 52 L64 52" class="s-art" marker-end="url(#kd-ar)"/>
+        <text x="14" y="40" class="lbl-dim">들세동맥</text>
         <circle cx="96" cy="58" r="24" class="f-art-soft"/>
         <circle cx="96" cy="58" r="30" fill="none" class="s-line"/>
         <path d="M110 34 C130 18 150 22 160 28" class="s-art" marker-end="url(#kd-ar)"/>
-        <text x="150" y="20" class="lbl-dim">날세동맥</text>
+        <text x="168" y="32" class="lbl-dim">날세동맥</text>
         <text x="96" y="104" text-anchor="middle" class="lbl-b">사구체</text>
         <path d="M120 72 C150 70 160 46 186 52 C210 58 196 84 220 86 C238 88 236 102 224 112" class="s-acc" fill="none"/>
-        <text x="196" y="40" text-anchor="middle" class="lbl">근위 세관</text>
+        <text x="172" y="134" text-anchor="middle" class="lbl">근위 세관</text>
         <path d="M224 112 L224 280 C224 296 250 296 250 280 L250 104" class="s-acc2" fill="none"/>
         <text x="216" y="200" text-anchor="end" class="lbl">하행각</text>
         <text x="258" y="200" class="lbl">상행각</text>
@@ -228,7 +228,7 @@
       <div class="map-legend"><span><i style="background:var(--text-dim)"></i>여과량</span><span><i style="background:var(--ok)"></i>재흡수량</span><span><i style="background:var(--glu)"></i>소변으로 배설</span></div>
       <div class="sim-readout">
         <div class="stat"><span class="k">혈당</span><span class="v" id="kgl-o-p">—</span></div>
-        <div class="stat"><span class="k">여과 / 재흡수</span><span class="v" id="kgl-o-f">—</span></div>
+        <div class="stat"><span class="k">여과 / 재흡수(mg/min)</span><span class="v" id="kgl-o-f">—</span></div>
         <div class="stat"><span class="k">소변 포도당</span><span class="v" id="kgl-o-e">—</span></div>
         <div class="stat"><span class="k">하루로 치면</span><span class="v" id="kgl-o-d">—</span></div>
       </div>
@@ -333,10 +333,11 @@
         <text x="447" y="104" text-anchor="middle" class="lbl-b">혈장</text>
         <text x="447" y="126" text-anchor="middle" class="lbl">4 L</text>
         <path d="M314 210 L464 210" class="s-acc2"/>
-        <text x="389" y="230" text-anchor="middle" class="lbl">세포 외액 약 16 L(⅓) · Na⁺가 많다</text>
+        <text x="389" y="232" text-anchor="middle" class="lbl">세포 외액 약 16 L(⅓)</text>
+        <text x="370" y="146" text-anchor="middle" class="lbl-dim">Na⁺가 많다</text>
         <path d="M20 26 L464 26" class="s-line"/>
         <text x="242" y="18" text-anchor="middle" class="lbl-dim">몸의 물 약 47 L(다온 78 kg × 0.6)</text>
-        <text x="312" y="210" text-anchor="middle" class="lbl-dim">세포막</text>
+        <text x="306" y="214" text-anchor="end" class="lbl-dim">세포막</text>
         <text x="428" y="230" text-anchor="end" class="lbl-dim"></text>
       </svg>
       <figcaption><b>60-40-20.</b> 몸무게의 60 %가 물, 40 %가 세포 내액, 20 %가 세포 외액이라는 어림셈이다. 세포막은 물은 쉽게 통과시키지만 나트륨은 펌프가 밖으로 퍼내므로, 세포 밖 나트륨의 양이 세포 외액의 부피를 정한다. 물은 두 구획의 삼투압이 같아질 때까지 움직인다.</figcaption>
@@ -359,7 +360,7 @@
           <label class="ctrl"><span>양 <output id="kp-v-out"></output></span><input type="range" id="kp-v" min="0" max="4" step="0.1" value="2"></label>
         </div>
       </div>
-      <div class="map-legend"><span><i style="background:var(--water)"></i>세포 내액</span><span><i style="background:var(--accent)"></i>사이질액</span><span><i style="background:var(--art)"></i>혈장</span><span><i style="background:var(--text-faint)"></i>처음 크기(점선)</span></div>
+      <div class="map-legend"><span><i style="background:var(--water)"></i>세포 내액</span><span><i style="background:var(--seg-reg)"></i>사이질액</span><span><i style="background:var(--art)"></i>혈장</span><span><i style="background:var(--text-faint)"></i>처음 크기(점선)</span></div>
       <div class="sim-readout">
         <div class="stat"><span class="k">혈장 삼투압</span><span class="v" id="kp-o-p">—</span></div>
         <div class="stat"><span class="k">혈장 나트륨</span><span class="v" id="kp-o-n">—</span></div>
@@ -395,7 +396,7 @@
         <div class="stat"><span class="k">5시간 소변</span><span class="v" id="kr-o-u">—</span></div>
         <div class="stat"><span class="k">몸의 물 변화(끝)</span><span class="v" id="kr-o-w">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 처음 설정(24 °C, 대회 중 0.4 L, 뒤에 0.6 L). 결승선에서 나트륨이 조금 오르고 ADH가 두 배 남짓 늘어 소변이 준다. 몸이 물을 아끼는 정상 반응이다. ② 기온을 32 °C로 올리고 물을 0으로 둔다. 땀이 1 L를 넘고 목마름이 강해진다. ③ 대회 중 2 L, 결승 뒤 4 L의 맹물을 마신다. 잃은 것보다 5 L 넘게 마셔 소변이 최대치로 나와도 따라가지 못하고, 나트륨이 135 아래(빨간 경보)로 떨어진다. 같은 양을 이온 음료로 바꾸면 덜 떨어지지만 여전히 위험 범위다. (땀은 BD.thermo(58분, 습도 60 %, 약 804 W)로 계산하고, 체액은 BD.waterBalance로 돌렸다. 마시는 물은 급수대 4곳과 결승 뒤 4번에 나눠 마신다. 운동이 ADH를 늘리고 콩팥 혈류를 줄이는 효과는 넣지 않았다. 실제로는 그 때문에 저나트륨혈증이 더 쉽게 온다.)</div>
+      <div class="sim-note">해볼 것: ① 처음 설정(24 °C, 대회 중 0.4 L, 뒤에 0.6 L). 결승선에서 나트륨이 조금 오르고 ADH가 약 1.1에서 2.0 pg/mL로 두 배 가까이 늘어 소변이 준다. 몸이 물을 아끼는 정상 반응이다. ② 기온을 32 °C로 올리고 물을 0으로 둔다. 땀이 1 L를 넘고 목마름이 강해진다. ③ 대회 중 2 L, 결승 뒤 4 L의 맹물을 마신다. 잃은 것보다 5 L 넘게 마셔 소변이 최대치로 나와도 따라가지 못하고, 나트륨이 135 아래(빨간 경보)로 떨어진다. 같은 양을 이온 음료로 바꾸면 덜 떨어지지만 여전히 위험 범위다. (땀은 BD.thermo(58분, 습도 60 %, 약 804 W)로 계산하고, 체액은 BD.waterBalance로 돌렸다. 마시는 물은 급수대 4곳과 결승 뒤 4번에 나눠 마신다. 운동이 ADH를 늘리고 콩팥 혈류를 줄이는 효과는 넣지 않았다. 실제로는 그 때문에 저나트륨혈증이 더 쉽게 온다.)</div>
     </div>
 
     <div class="callout warn">
@@ -558,15 +559,15 @@
     };
     var KEYS = ["pt", "desc", "asc", "dct", "cd"];
     var cv = BB.canvas("#kn-cv", function (ctx, w, h) {
-      var p = P(), a = cur(), narrow = w < 560;
+      var p = P(), a = cur(), narrow = w < 700;
       var water = BB.color("water"), yel = BB.color("fat");
-      var NB = narrow ? { x: 8, y: 8, w: w - 16, h: h * 0.62 } : { x: 8, y: 8, w: w * 0.6, h: h - 16 };
+      var NB = narrow ? { x: 8, y: 8, w: w - 16, h: h * 0.6 } : { x: 8, y: 8, w: w * 0.6, h: h - 16 };
       var X = function (u) { return NB.x + u * NB.w; }, Y = function (v) { return NB.y + v * NB.h; };
       // 피질·속질 배경
       var yc = Y(0.38);
       ctx.fillStyle = BB.alpha(p.text, 0.035); BB.rrect(ctx, NB.x, NB.y, NB.w, yc - NB.y, 8); ctx.fill();
       var g = ctx.createLinearGradient(0, yc, 0, NB.y + NB.h);
-      g.addColorStop(0, BB.alpha(yel, 0.06)); g.addColorStop(1, BB.alpha(yel, a.tip > 900 ? 0.4 : 0.2));
+      g.addColorStop(0, BB.alpha(yel, 0.06)); g.addColorStop(1, BB.alpha(yel, (a.tip > 900 ? 0.4 : 0.2) * (BB.isDark() ? 0.55 : 1)));
       ctx.fillStyle = g; BB.rrect(ctx, NB.x, yc, NB.w, NB.y + NB.h - yc, 8); ctx.fill();
       text(ctx, "피질 약 300", NB.x + NB.w - 6, NB.y + 14, { align: "right", color: p.dim, size: 10.5 });
       text(ctx, "속질", NB.x + NB.w - 6, yc + 14, { align: "right", color: p.dim, size: 10.5 });
@@ -584,7 +585,7 @@
       text(ctx, "180 L/일", gx, gy + gr * 1.35 + 28, { align: "center", mono: true, color: water, size: 11 });
       // 세관
       KEYS.forEach(function (key, i) {
-        var s = SEG[i + 1], fl = (s.from + s.to) / 2, wd = 3 + 10 * Math.sqrt(fl / 180);
+        var s = SEG[i + 1], fl = (s.from + s.to) / 2, wd = 2.5 + 7 * Math.sqrt(fl / 180);
         strokePoly(ctx, px[key], sel === i + 1 ? BB.alpha(p.accent, 0.55) : BB.alpha(p.text, 0.16), wd + 6);
         var osmMid = key === "pt" ? 290 : key === "desc" ? (290 + a.tip) / 2 : key === "asc" ? (a.tip + 100) / 2 : key === "dct" ? 90 : (90 + a.osm) / 2;
         strokePoly(ctx, px[key], mix(water, yel, (osmMid - 50) / 1150), wd);
@@ -615,14 +616,14 @@
         text(ctx, lbl, q[0] + dx + (dx < 0 ? -3 : dx > 0 ? 3 : 0), q[1] + dy + (dy < 0 ? -3 : 12), { align: dx < 0 ? "right" : dx > 0 ? "left" : "center", size: 10, color: ret });
       }
       if (!narrow || w > 330) {
-        back(1, 0.62, -22, 8, "65 %");
+        back(1, 0.6, -20, 0, "65 %");
         back(2, 0.3, -24, 0, "물");
         back(3, 0.35, 24, 0, "NaCl");
         back(4, 0.45, 0, -16, "NaCl");
         back(5, 0.55, -24, 0, adh() === "none" ? "물 조금" : "물");
       }
       // 장부(오른쪽 또는 아래)
-      var TB = narrow ? { x: 10, y: NB.y + NB.h + 14, w: w - 20, h: h - NB.h - 30 } : { x: NB.x + NB.w + 18, y: 14, w: w - NB.w - 34, h: h - 28 };
+      var TB = narrow ? { x: 10, y: NB.y + NB.h + 14, w: w - 20, h: h - NB.h - 52 } : { x: NB.x + NB.w + 18, y: 14, w: w - NB.w - 34, h: h - 28 };
       text(ctx, "구간을 지난 뒤 남은 양(L/일)", TB.x, TB.y + 10, { weight: 700, size: 12 });
       var rows = SEG.length, rh = (TB.h - 22) / rows;
       lay = { NB: NB, px: px, gx: gx, gy: gy, gr: gr, TB: TB, rh: rh };
@@ -636,7 +637,7 @@
         text(ctx, q, bx + Math.max(1.5, bw * s.to / 180) + 4 > bx + bw - 30 ? bx + bw - 4 : bx + Math.max(1.5, bw * s.to / 180) + 4, ry + rh * 0.41, { base: "middle", mono: true, size: 10.5, align: bx + bw * s.to / 180 + 4 > bx + bw - 30 ? "right" : "left", color: bx + bw * s.to / 180 + 4 > bx + bw - 30 ? p.bg : p.text });
         if (s.re) text(ctx, s.re, bx, ry + rh * 0.62 + 10, { size: 9.5, color: p.dim });
       });
-    }, { get height() { return wOf("kn-cv") < 560 ? 600 : 400; } });
+    }, { get height() { return wOf("kn-cv") < 560 ? 680 : 640; } });
     function pick(x, y) {
       if (!lay) return -1;
       if (Math.hypot(x - lay.gx, y - lay.gy) < lay.gr * 1.6) return 0;
@@ -707,8 +708,8 @@
       }
       vessel(ax0, ax1, yv, hA); vessel(ex0, ex1, yv, hE);
       // 타래로 이어지는 짧은 관
-      ctx.strokeStyle = BB.alpha(art, 0.75); ctx.lineWidth = 2 * Math.min(hA, base); ctx.beginPath(); ctx.moveTo(ax1, yv); ctx.lineTo(cx - R * 0.2, cy - R * 0.45); ctx.stroke();
-      ctx.lineWidth = 2 * Math.min(hE, base); ctx.beginPath(); ctx.moveTo(ex0, yv); ctx.lineTo(cx + R * 0.2, cy - R * 0.45); ctx.stroke();
+      ctx.strokeStyle = BB.alpha(art, 0.75); ctx.lineCap = "round"; ctx.lineWidth = 1.1 * Math.min(hA, base); ctx.beginPath(); ctx.moveTo(ax1, yv); ctx.quadraticCurveTo(cx - R * 0.15, yv, cx - R * 0.12, cy - R * 0.5); ctx.stroke();
+      ctx.lineWidth = 1.1 * Math.min(hE, base); ctx.beginPath(); ctx.moveTo(ex0, yv); ctx.quadraticCurveTo(cx + R * 0.15, yv, cx + R * 0.12, cy - R * 0.5); ctx.stroke();
       BD.flowDots(ctx, [[ax0, yv], [ax1, yv]], t * (10 + res.rbf * 0.045), { color: p.bg, gap: 14, r: Math.min(2.6, hA * 0.5) });
       BD.flowDots(ctx, [[ex0, yv], [ex1, yv]], t * (10 + (res.rbf - res.gfr) * 0.045), { color: p.bg, gap: 14, r: Math.min(2.6, hE * 0.5) });
       // 손잡이
@@ -718,12 +719,11 @@
       text(ctx, "저항 ×" + st.ra.toFixed(2), hax, yv + Math.max(hA, base) + 32, { align: "center", mono: true, size: 10.5, color: p.dim });
       text(ctx, "날세동맥", hex, yv + Math.max(hE, base) + 18, { align: "center", weight: 600, size: 11.5 });
       text(ctx, "저항 ×" + st.re.toFixed(2), hex, yv + Math.max(hE, base) + 32, { align: "center", mono: true, size: 10.5, color: p.dim });
-      text(ctx, "P", cx - 10, cy + R * 0.66, { align: "center", weight: 700, size: 12, color: art });
-      text(ctx, res.pgc.toFixed(0) + " mmHg", cx + 6, cy + R * 0.66, { align: "left", mono: true, size: 11, color: art });
+      text(ctx, "사구체 압력 " + res.pgc.toFixed(0) + " mmHg", cx - R * 0.2, cy + R + 18, { align: "center", weight: 700, size: 11, color: art });
       text(ctx, "보먼 주머니", cx - R - 4, cy + R * 0.2, { align: "right", size: 10.5, color: p.dim });
       lay = { hax: hax, hex: hex, yv: yv, base: base };
       // 줄다리기 막대
-      var BA = narrow ? { x: 46, y: GA.h + 26, w: w - 60, h: h - GA.h - 66 } : { x: GA.w + 46, y: 30, w: w - GA.w - 60, h: h - 76 };
+      var BA = narrow ? { x: 46, y: GA.h + 26, w: w - 60, h: h - GA.h - 90 } : { x: GA.w + 46, y: 30, w: w - GA.w - 60, h: h - 100 };
       var Yp = function (v) { return BA.y + BA.h - (v / 80) * BA.h; };
       ctx.strokeStyle = p.grid; ctx.lineWidth = 1; ctx.font = BB.font(10, true); ctx.fillStyle = p.dim; ctx.textAlign = "right"; ctx.textBaseline = "middle";
       [0, 20, 40, 60, 80].forEach(function (v) { ctx.beginPath(); ctx.moveTo(BA.x, Yp(v)); ctx.lineTo(BA.x + BA.w, Yp(v)); ctx.stroke(); ctx.fillText(v, BA.x - 5, Yp(v)); });
@@ -796,7 +796,7 @@
       if (r.gfr / 1.24 > 300) text(ctx, "여과율 " + Math.round(r.gfr / 1.24) + " % ↑", c.X(cur) + (cur > 150 ? -8 : 8), box.y + 30, { align: cur > 150 ? "right" : "left", size: 11, weight: 700, color: p.bad });
       if (r.gfr < 40) text(ctx, r.gfr < 1 ? "여과 멈춤" : "여과율 급감", c.X(cur) + 8, c.Y(30), { size: 11.5, weight: 700, color: p.bad });
       // 들세동맥 단면
-      var A = narrow ? { cx: w * 0.5, cy: box.y + box.h + 50 + (h - box.y - box.h - 50) / 2, R: Math.min(56, (h - box.y - box.h - 90) / 2) } : { cx: w * 0.86, cy: h * 0.48, R: Math.min(w * 0.1, 64) };
+      var A = narrow ? { cx: w * 0.5, cy: box.y + box.h + 40 + (h - box.y - box.h - 70) / 2, R: Math.min(50, (h - box.y - box.h - 120) / 2) } : { cx: w * 0.86, cy: h * 0.48, R: Math.min(w * 0.1, 64) };
       var rel = Math.pow(0.0345 / r.ra, 0.25);
       var lumen = A.R * 0.55 * BB.clamp(rel, 0.4, 1.4), wall = A.R * 0.95;
       ctx.fillStyle = BB.alpha(BB.color("prot"), 0.3); ctx.beginPath(); ctx.arc(A.cx, A.cy, Math.max(wall, lumen + 6), 0, Math.PI * 2); ctx.fill();
@@ -811,7 +811,7 @@
       BB.stat("ka-o-b", fmt0(r.rbf) + "<small>mL/min</small>");
       BB.stat("ka-o-g", fmt0(r.gfr) + "<small>mL/min</small>");
       BB.stat("ka-o-r", "×" + (r.ra / 0.0345).toFixed(2));
-    }, { get height() { return wOf("ka-cv") < 560 ? 520 : 340; } });
+    }, { get height() { return wOf("ka-cv") < 560 ? 560 : 340; } });
     BB.drag(cv.canvas, { move: function (x) { if (!lay) return; var v = 40 + (x - lay.box.x) / lay.box.w * 160; cur = BB.clamp(Math.round(v / 2) * 2, 40, 200); cv.redraw(); } });
   })();
 
@@ -825,7 +825,7 @@
       urea: { name: "요소", c: 65, P: 15, U: 975, V: 1, info: "<h4>요소: 반만 버린다</h4><p>단백질이 분해되며 생기는 질소 노폐물. 걸러진 것의 약 절반을 되찾는다. 되찾은 요소는 속질의 농도 기울기를 거드는 데 쓰인다. 청소율은 GFR의 약 절반.</p>" },
     };
     var sub = BB.seg("kc-sub", function () { upd(); });
-    var gfr = 120, lay = null, t = 0, urineDots = 0;
+    var gfr = 125, lay = null, t = 0, urineDots = 0;
     function upd() {
       var s = SUB[sub()];
       document.getElementById("kc-info").innerHTML = s.info;
@@ -839,12 +839,12 @@
       // 위: 혈장 컨베이어
       var top = { x: 10, y: 10, w: w - 20, h: (narrow ? 0.5 : 0.52) * h - 10 };
       var rows = 5, cell = Math.min((top.h - 70) / rows, 22), colW = cell + 3;
-      var ky0 = top.y + 28, kx0 = top.x + top.w * 0.42, kx1 = top.x + top.w * 0.58;
+      var ky0 = top.y + 44, kx0 = top.x + top.w * 0.42, kx1 = top.x + top.w * 0.58;
       text(ctx, "1분 동안 콩팥을 지나는 혈장 약 650 mL (한 칸 = 10 mL)", top.x, top.y + 12, { size: 11.5, weight: 700 });
       // 콩팥 상자
       ctx.fillStyle = BB.alpha(BB.color("seg-reg"), 0.14); BB.rrect(ctx, kx0, ky0 - 6, kx1 - kx0, rows * colW + 12, 10); ctx.fill();
       ctx.strokeStyle = BB.alpha(BB.color("seg-reg"), 0.6); ctx.lineWidth = 1.5; ctx.stroke();
-      text(ctx, "콩팥", (kx0 + kx1) / 2, ky0 - 10, { align: "center", size: 11.5, weight: 700, color: BB.color("seg-reg") });
+      text(ctx, "콩팥", (kx0 + kx1) / 2, ky0 + rows * colW + 20, { align: "center", size: 11.5, weight: 700, color: BB.color("seg-reg") });
       var nClean = s.c / 10, speed = 26, off = (t * speed) % (colW * 13);
       ctx.save(); ctx.beginPath(); ctx.rect(top.x, ky0 - 2, top.w, rows * colW + 4); ctx.clip();
       var nCols = Math.ceil(top.w / colW) + 14;
@@ -868,28 +868,29 @@
       arrow(ctx, top.x + top.w - 46, ky0 + rows * colW + 16, top.x + top.w - 4, ky0 + rows * colW + 16, BB.color("ven"), 1.6);
       text(ctx, "콩팥 정맥", top.x + top.w - 50, ky0 + rows * colW + 20, { size: 10.5, color: p.dim, align: "right" });
       // 소변 방울
-      var ux = (kx0 + kx1) / 2, uy = ky0 + rows * colW + 30;
+      var ux = (kx0 + kx1) / 2, uy = ky0 + rows * colW + 40;
       ctx.fillStyle = BB.alpha(BB.color("fat"), 0.45); ctx.beginPath(); ctx.moveTo(ux, uy - 8); ctx.quadraticCurveTo(ux + 11, uy + 6, ux, uy + 14); ctx.quadraticCurveTo(ux - 11, uy + 6, ux, uy - 8); ctx.fill();
       text(ctx, "소변 1 mL", ux, uy + 28, { align: "center", size: 10.5, color: p.dim });
-      text(ctx, "깨끗해진 혈장 " + fmt0(s.c) + " mL = " + (nClean % 1 ? nClean.toFixed(1) : nClean) + "칸", top.x + top.w, top.y + 12 + (narrow ? 0 : 0), { align: "right", size: 11.5, weight: 700, color: s.c > 0 ? p.ok : p.dim, base: "alphabetic" });
+      text(ctx, "깨끗해진 혈장 " + fmt0(s.c) + " mL = " + (nClean % 1 ? nClean.toFixed(1) : nClean) + "칸", top.x, top.y + 30, { align: "left", size: 11.5, weight: 700, color: s.c > 0 ? p.ok : p.dim, base: "alphabetic" });
       if (narrow) { /* 좁으면 제목과 겹치지 않게 아래로 */ }
       // 아래: 크레아티닌 쌍곡선
-      var by = top.y + top.h + 30;
-      var box = { x: 52, y: by + 10, w: w - 68, h: h - by - 58 };
+      var by = uy + 50;
+      var box = { x: 52, y: by + 10, w: w - 68, h: h - by - 92 };
       var c = BB.chart(ctx, box, { x: [0, 150], y: [0, 8], xLabel: "실제 여과율(mL/min)", yLabel: "혈중 크레아티닌(mg/dL)",
         bands: [{ x0: 0, x1: 15, color: BB.alpha(p.bad, 0.16) }, { x0: 15, x1: 30, color: BB.alpha(p.bad, 0.09) }, { x0: 30, x1: 60, color: BB.alpha(p.warn, 0.09) }],
         series: [{ data: BD.linspace(8, 150, 120).map(function (g) { return [g, 100 / g]; }), color: p.accent, width: 2.4 }],
-        hlines: [{ y: 1.2, color: p.faint, label: "정상 상한 어림 1.2" }] });
+        hlines: [{ y: 1.2, color: p.faint }] });
+      text(ctx, "정상 상한 어림 1.2", c.X(1), c.Y(1.2) - 4, { size: 10, color: p.dim });
       text(ctx, "혈중 크레아티닌 = 생성량 ÷ 청소율", box.x + box.w - 4, box.y - 4, { align: "right", size: 11, weight: 700 });
       [[7.5, "5단계"], [22.5, "4"], [45, "3"]].forEach(function (q) { text(ctx, q[1], c.X(q[0]), box.y + box.h - 6, { align: "center", size: 10, color: p.bad }); });
       var pc = 100 / gfr;
       handle(ctx, c.X(gfr), c.Y(Math.min(8, pc)), p.accent, 7);
       ctx.strokeStyle = BB.alpha(p.accent, 0.5); ctx.setLineDash([3, 3]); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(box.x, c.Y(Math.min(8, pc))); ctx.lineTo(c.X(gfr), c.Y(Math.min(8, pc))); ctx.lineTo(c.X(gfr), box.y + box.h); ctx.stroke(); ctx.setLineDash([]);
-      text(ctx, pc.toFixed(2) + " mg/dL", c.X(gfr) + 10, c.Y(Math.min(8, pc)) - 8, { mono: true, size: 11, weight: 700, color: p.accent, align: gfr > 110 ? "right" : "left" });
+      text(ctx, pc.toFixed(2) + " mg/dL", c.X(gfr) + (gfr > 110 ? -10 : 10), c.Y(Math.min(8, pc)) - 24, { mono: true, size: 11, weight: 700, color: p.accent, align: gfr > 110 ? "right" : "left" });
       lay = { box: box };
       BB.stat("kc-o-p", pc.toFixed(2) + "<small>mg/dL</small>");
       BB.stat("kc-o-e", fmt0(ckd(pc, 34)) + "<small>mL/min/1.73m²</small>");
-    }, { get height() { return wOf("kc-cv") < 560 ? 560 : 500; } });
+    }, { get height() { return wOf("kc-cv") < 560 ? 580 : 540; } });
     BB.drag(cv.canvas, { move: function (x, y) { if (!lay || y < lay.box.y - 20) return; gfr = BB.clamp(Math.round((x - lay.box.x) / lay.box.w * 150), 10, 150); cv.redraw(); } });
     BB.loop(document.getElementById("sim-kd-clear"), function (dt) { t += dt; cv.redraw(); });
   })();
@@ -901,7 +902,7 @@
     var getG = BB.range("kgl-g", function (v) { return v + " mL/min"; }, function () { cv.redraw(); });
     var cv = BB.canvas("#kgl-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560, tm = 375 * Number(tmF()), sd = 70 * Number(tmF()), g = getG();
-      var box = { x: 56, y: 18, w: w - 72, h: h - 64 };
+      var box = { x: 56, y: 18, w: w - 72, h: h - 84 };
       var xs = BD.linspace(0, 600, 151), R = xs.map(function (x) { return BD.renalGlucose(x, { gfr: g, tm: tm, sd: sd }); });
       var c = BB.chart(ctx, box, { x: [0, 600], y: [0, 800], xLabel: "혈당(mg/dL)", yLabel: "포도당(mg/min)",
         bands: [{ x0: 70, x1: 140, color: BB.alpha(p.ok, 0.07) }],
@@ -911,11 +912,11 @@
           { data: xs.map(function (x, i) { return [x, R[i].reabsorbed]; }), color: p.ok, width: 2.8 },
           { data: xs.map(function (x, i) { return [x, R[i].excreted]; }), color: BB.color("glu"), width: 2.8 },
         ] });
-      text(ctx, "정상 혈당", c.X(105), box.y + box.h - 8, { align: "center", size: 10.5, color: p.ok });
+      text(ctx, "정상 혈당", c.X(105), box.y + box.h + 34, { align: "center", size: 10.5, color: p.ok });
       // 역치 찾기: 배설 > 1 mg/min
       var thr = null; for (var i = 0; i < xs.length; i++) if (R[i].excreted > 1) { thr = xs[i]; break; }
       if (thr != null) { ctx.strokeStyle = BB.alpha(BB.color("glu"), 0.7); ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(c.X(thr), box.y); ctx.lineTo(c.X(thr), box.y + box.h); ctx.stroke(); ctx.setLineDash([]);
-        text(ctx, "새기 시작 약 " + Math.round(thr), c.X(thr) + 4, box.y + 30, { size: 10.5, color: BB.color("glu"), weight: 600 }); }
+        text(ctx, "새기 시작 약 " + Math.round(thr), c.X(thr) + 4, box.y + box.h - 40, { size: 10.5, color: BB.color("glu"), weight: 600 }); }
       var r = BD.renalGlucose(cur, { gfr: g, tm: tm, sd: sd });
       ctx.strokeStyle = p.text; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(c.X(cur), box.y); ctx.lineTo(c.X(cur), box.y + box.h); ctx.stroke();
       handle(ctx, c.X(cur), c.Y(r.filtered), p.dim, 5.5); handle(ctx, c.X(cur), c.Y(r.reabsorbed), p.ok, 6); handle(ctx, c.X(cur), c.Y(r.excreted), BB.color("glu"), 6);
@@ -933,11 +934,11 @@
       text(ctx, nOn >= avail ? "모두 찼다 → 넘친 것은 소변으로" : "남는 운반체가 있다", ix, iy + 42, { size: 10.5, color: nOn >= avail ? BB.color("glu") : p.dim, weight: nOn >= avail ? 700 : 400 });
       lay = { c: c, box: box };
       BB.stat("kgl-o-p", fmt0(cur) + "<small>mg/dL</small>");
-      BB.stat("kgl-o-f", fmt0(r.filtered) + " / " + fmt0(r.reabsorbed) + "<small>mg/min</small>");
+      BB.stat("kgl-o-f", fmt0(r.filtered) + "/" + fmt0(r.reabsorbed));
       BB.stat("kgl-o-e", r.excreted < 1 ? r.excreted.toFixed(2) : fmt0(r.excreted), "");
       BB.stat("kgl-o-e", (r.excreted < 1 ? r.excreted.toFixed(2) : fmt0(r.excreted)) + "<small>mg/min</small>");
       BB.stat("kgl-o-d", (r.excreted * 1440 / 1000).toFixed(r.excreted * 1.44 < 10 ? 1 : 0) + "<small>g/일</small>");
-    }, { aspect: 0.62, minHeight: 330, maxHeight: 440 });
+    }, { aspect: 0.66, minHeight: 380, maxHeight: 440 });
     BB.drag(cv.canvas, { move: function (x) { if (!lay) return; cur = BB.clamp(Math.round((x - lay.box.x) / lay.box.w * 600 / 5) * 5, 0, 600); cv.redraw(); } });
   })();
 
@@ -968,13 +969,15 @@
     }
     var cv = null;
     reset();
+    for (var k0 = 0; k0 < 6; k0++) { flow(); pump(); steps++; }
+    stat();
     var autoBtn = document.getElementById("kcc-auto");
     autoBtn.addEventListener("click", function () { auto = !auto; autoBtn.textContent = auto ? "멈춤" : "자동"; });
     document.getElementById("kcc-step").addEventListener("click", step);
     document.getElementById("kcc-re").addEventListener("click", function () { auto = false; autoBtn.textContent = "자동"; reset(); });
     cv = BB.canvas("#kcc-cv", function (ctx, w, h) {
       var p = P(), N = D.length, yel = BB.color("fat"), water = BB.color("water");
-      var top = 30, bot = h - 46, ch = (bot - top) / N;
+      var top = 34, bot = h - 46, ch = (bot - top) / N;
       var cw = Math.min(70, w * 0.17), gapX = Math.min(70, w * 0.16);
       var xD = w * 0.5 - gapX / 2 - cw, xA = w * 0.5 + gapX / 2, xI = xA + cw + 14;
       var colOf = function (v) { return mix(water, yel, (v - 50) / 1250); };
@@ -993,7 +996,7 @@
       function cellBox(x, y, v, hl) {
         ctx.fillStyle = colOf(v); BB.rrect(ctx, x, y + 2, cw, ch - 4, 6); ctx.fill();
         ctx.strokeStyle = hl ? p.accent : BB.alpha(p.text, 0.3); ctx.lineWidth = hl ? 2 : 1; ctx.stroke();
-        text(ctx, fmt0(v), x + cw / 2, y + ch / 2, { align: "center", base: "middle", mono: true, size: Math.min(13, ch * 0.32), weight: 700, color: v > 700 ? "#3a2a00" : p.text });
+        text(ctx, fmt0(v), x + cw / 2, y + ch / 2, { align: "center", base: "middle", mono: true, size: Math.min(13, ch * 0.32), weight: 700, color: BB.isDark() ? p.bg : p.text });
       }
       var off = flowing ? f * ch : 0;
       for (var j = 0; j < N; j++) { cellBox(xD, top + j * ch + off, showD[j]); cellBox(xA, top + j * ch - off, showA[j]); }
@@ -1002,10 +1005,10 @@
       // 머리핀 연결
       ctx.strokeStyle = BB.alpha(p.text, 0.4); ctx.lineWidth = 2;
       ctx.beginPath(); ctx.moveTo(xD + cw / 2, bot); ctx.quadraticCurveTo(w / 2, bot + 30, xA + cw / 2, bot); ctx.stroke();
-      arrow(ctx, xD + cw / 2, 4, xD + cw / 2, top - 4, water, 1.6);
-      arrow(ctx, xA + cw / 2, top - 4, xA + cw / 2, 4, water, 1.6);
-      text(ctx, "하행각(물만 통과)", xD + cw / 2 - 12, 14, { align: "right", size: 11, weight: 600 });
-      text(ctx, "상행각(소금 퍼냄)", xA + cw / 2 + 12, 14, { align: "left", size: 11, weight: 600 });
+      text(ctx, "하행각 ↓", xD + cw / 2, 12, { align: "center", size: 11.5, weight: 700 });
+      text(ctx, "물만 통과", xD + cw / 2, 26, { align: "center", size: 10, color: p.dim });
+      text(ctx, "상행각 ↑", xA + cw / 2, 12, { align: "center", size: 11.5, weight: 700 });
+      text(ctx, "소금 퍼냄", xA + cw / 2, 26, { align: "center", size: 10, color: p.dim });
       // 퍼내기 화살표
       if (anim && anim.ph === "pump") {
         for (var q = 1; q < N; q++) { var yy = top + q * ch + ch / 2; arrow(ctx, xA - 2, yy, xD + cw + 4, yy, BB.alpha(p.ok, 1 - f * 0.6), 2.2); }
@@ -1014,11 +1017,6 @@
         text(ctx, "흐르기: 액체가 한 칸씩 이동", w / 2, bot + 28, { align: "center", size: 11.5, weight: 700, color: water });
       } else {
         text(ctx, steps === 0 ? "\"한 걸음\"을 누른다" : "바닥 " + fmt0(D[N - 1]) + " mOsm/kg", w / 2, bot + 28, { align: "center", size: 11.5, weight: 700, color: p.text });
-      }
-      // 기울기 막대(오른쪽)
-      if (xI + 30 < w - 70 || w > 420) {
-        var gx = Math.min(w - 40, xI + 20);
-        if (w <= 420) return;
       }
     }, { get height() { return wOf("kcc-cv") < 560 ? 440 : 400; } });
     BB.loop(document.getElementById("sim-kd-cc"), function (dt) {
@@ -1054,18 +1052,19 @@
       if (vd >= 0.1) text(ctx, "혈액량 " + Math.round(vd * 100) + " % 감소: 곡선이 위로", box.x + 8, box.y + 34, { size: 11, color: p.bad, weight: 600 });
       // 오른쪽: 계기판 + 소변 컵
       var R = narrow ? { x: 10, y: box.y + box.h + 52, w: w - 20, h: h - box.y - box.h - 60 } : { x: w * 0.6 + 6, y: 14, w: w * 0.4 - 16, h: h - 28 };
-      var gr = Math.min(R.w * 0.22, R.h * 0.32, 70), gcx = R.x + (narrow ? R.w * 0.27 : R.w * 0.5), gcy = R.y + gr + 22;
-      BD.gauge(ctx, gcx, gcy, gr, uo, { min: 50, max: 1200, zones: [{ to: 300, color: BB.alpha(BB.color("water"), 0.6) }, { to: 800, color: BB.alpha(BB.color("fat"), 0.55) }, { to: 1200, color: BB.alpha(BB.color("glu"), 0.75) }], label: "소변 삼투압", text: fmt0(uo) });
+      var gr = Math.min(R.w * (narrow ? 0.22 : 0.3), R.h * 0.3, 72), gcx = R.x + (narrow ? R.w * 0.27 : R.w * 0.5), gcy = R.y + gr + 22;
+      BD.gauge(ctx, gcx, gcy, gr, uo, { min: 50, max: 1200, zones: [{ to: 300, color: BB.alpha(BB.color("water"), 0.6) }, { to: 800, color: BB.alpha(BB.color("fat"), 0.55) }, { to: 1200, color: BB.alpha(BB.color("glu"), 0.75) }], label: "소변 삼투압" });
+      text(ctx, fmt0(uo) + " mOsm/kg", gcx, gcy + 42, { align: "center", mono: true, size: 15, weight: 700 });
       text(ctx, "50", gcx - gr, gcy + 14, { align: "center", size: 9.5, color: p.dim, mono: true }); text(ctx, "1200", gcx + gr, gcy + 14, { align: "center", size: 9.5, color: p.dim, mono: true });
       // 컵
-      var cupH = narrow ? R.h - 30 : R.h - (gcy - R.y) - gr * 0.3 - 60, cupW = Math.min(90, R.w * 0.32);
-      var cx0 = narrow ? R.x + R.w * 0.66 : R.x + R.w / 2 - cupW / 2, cy0 = narrow ? R.y + 16 : gcy + 46;
+      var cupH = narrow ? R.h - 66 : R.h - (gcy - R.y) - 116, cupW = Math.min(90, R.w * 0.3);
+      var cx0 = narrow ? R.x + R.w * 0.6 : R.x + R.w / 2 - cupW / 2, cy0 = narrow ? R.y + 26 : gcy + 92;
       var fill = BB.clamp(vol / 18, 0.02, 1);
       ctx.fillStyle = mix(BB.color("water"), BB.color("fat"), (uo - 50) / 900); ctx.globalAlpha = 0.25 + 0.6 * BB.clamp((uo - 50) / 1150, 0, 1);
       ctx.fillRect(cx0 + 3, cy0 + cupH - cupH * fill, cupW - 6, cupH * fill); ctx.globalAlpha = 1;
       ctx.strokeStyle = p.dim; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(cx0, cy0); ctx.lineTo(cx0 + 3, cy0 + cupH); ctx.lineTo(cx0 + cupW - 3, cy0 + cupH); ctx.lineTo(cx0 + cupW, cy0); ctx.stroke();
       [1.5, 6, 12, 18].forEach(function (v) { var yy = cy0 + cupH - cupH * v / 18; ctx.strokeStyle = BB.alpha(p.dim, 0.5); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx0 + cupW - 10, yy); ctx.lineTo(cx0 + cupW, yy); ctx.stroke(); text(ctx, v + " L", cx0 + cupW + 4, yy, { base: "middle", size: 9.5, mono: true, color: p.dim }); });
-      text(ctx, "하루 소변 " + (vol < 2 ? vol.toFixed(2) : vol.toFixed(1)) + " L", cx0 + cupW / 2, cy0 - 6, { align: "center", size: 11, weight: 700 });
+      text(ctx, "하루 소변 " + (vol < 2 ? vol.toFixed(2) : vol.toFixed(1)) + " L", cx0 + cupW / 2, cy0 - 14, { align: "center", size: 11, weight: 700 });
       lay = { c: c, box: box };
       BB.stat("kh-o-p", cur.toFixed(1) + "<small>mOsm/kg</small>");
       BB.stat("kh-o-a", a.toFixed(1) + "<small>pg/mL</small>");
@@ -1092,10 +1091,10 @@
       var p = P(), s = SC[sc.value], L = 54, R = w - 14, reg = BB.color("seg-reg"), water = BB.color("water");
       var n = res.t.length, X = function (t) { return L + (t / 240) * (R - L); };
       var rows = [{ k: "posm", lo: 270, hi: 300, col: p.accent, lab: "혈장 삼투압", unit: "mOsm/kg", ticks: [275, 287, 300] }, { k: "adh", lo: 0, hi: 5, col: reg, lab: "ADH", unit: "pg/mL", ticks: [0, 2.5, 5] }, { k: "urine", lo: 0, hi: 14, col: water, lab: "소변량", unit: "mL/min", ticks: [0, 6, 12] }];
-      var top = 22, gap = 14, rh = (h - top - 36 - gap * 2) / 3;
+      var top = 22, gap = 14, rh = (h - top - 58 - gap * 2) / 3;
       // 사건 띠
-      s.sweat.forEach(function (sw) { ctx.fillStyle = BB.alpha(BB.color("heat"), 0.12); ctx.fillRect(X(sw.t0), top - 4, X(sw.t1) - X(sw.t0), h - top - 32); text(ctx, "땀", X((sw.t0 + sw.t1) / 2), top - 8, { align: "center", size: 10.5, color: BB.color("heat"), weight: 700 }); });
-      s.drinks.forEach(function (d) { ctx.strokeStyle = water; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(d.t), top - 4); ctx.lineTo(X(d.t), h - 36); ctx.stroke(); text(ctx, d.na ? "식염수" : "물 " + (d.ml / 1000) + " L", X(d.t) + 4, top - 8, { size: 10.5, color: water, weight: 700 }); });
+      s.sweat.forEach(function (sw) { ctx.fillStyle = BB.alpha(BB.color("heat"), 0.12); ctx.fillRect(X(sw.t0), top - 4, X(sw.t1) - X(sw.t0), h - top - 54); text(ctx, "땀", X((sw.t0 + sw.t1) / 2), top - 8, { align: "center", size: 10.5, color: BB.color("heat"), weight: 700 }); });
+      s.drinks.forEach(function (d) { ctx.strokeStyle = water; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(d.t), top - 4); ctx.lineTo(X(d.t), h - 58); ctx.stroke(); text(ctx, d.na ? "식염수" : "물 " + (d.ml / 1000) + " L", X(d.t) + 4, top - 8, { size: 10.5, color: water, weight: 700 }); });
       var ys = [];
       rows.forEach(function (r, k) {
         var y0 = top + k * (rh + gap), Y = function (v) { return y0 + rh - ((v - r.lo) / (r.hi - r.lo)) * rh; };
@@ -1107,23 +1106,23 @@
         ctx.strokeStyle = r.col; ctx.lineWidth = 2.4; ctx.beginPath();
         for (var i = 0; i < n; i++) { var x = X(res.t[i]), y = Y(res[r.k][i]); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
         ctx.stroke(); ctx.restore();
-        text(ctx, r.lab + " (" + r.unit + ")", L + 6, y0 + 11, { size: 10.5, weight: 700, color: r.col });
+        text(ctx, r.lab + " (" + r.unit + ")", R - 4, y0 + 11, { align: "right", size: 10.5, weight: 700, color: r.col });
       });
       // 목마름 표시
       var thr = res.thirst;
       for (var i2 = 1; i2 < n; i2++) if (thr[i2] > 0.05) { ctx.fillStyle = BB.alpha(p.warn, 0.5 * thr[i2]); ctx.fillRect(X(res.t[i2 - 1]), top + rh - 4, X(res.t[i2]) - X(res.t[i2 - 1]) + 0.5, 4); }
       // 봉우리
       var im = 0; for (var j = 0; j < n; j++) if (res.urine[j] > res.urine[im]) im = j;
-      if (res.urine[im] > 3) { text(ctx, "봉우리 " + res.urine[im].toFixed(1) + " mL/min (" + Math.round(res.t[im] - (s.drinks[0] ? s.drinks[0].t : 0)) + "분 뒤)", X(res.t[im]) + 6, ys[2](res.urine[im]) + 2, { size: 10.5, weight: 700, color: water }); }
+      if (res.urine[im] > 3) { text(ctx, "봉우리 " + res.urine[im].toFixed(1) + " mL/min (" + Math.round(res.t[im] - (s.drinks[0] ? s.drinks[0].t : 0)) + "분 뒤)", X(res.t[im]) + 8, ys[2](res.urine[im]) + 22, { size: 10.5, weight: 700, color: water }); }
       // 시간축
       ctx.font = BB.font(10, true); ctx.fillStyle = p.dim; ctx.textAlign = "center"; ctx.textBaseline = "top";
-      [0, 60, 120, 180, 240].forEach(function (t) { ctx.fillText(t / 60 + "h", X(t), h - 32); });
-      text(ctx, "시간", (L + R) / 2, h - 6, { align: "center", size: 11, color: p.dim });
+      [0, 60, 120, 180, 240].forEach(function (t) { ctx.fillText(t / 60 + "h", X(t), h - 54); });
+      text(ctx, "시간", L, h - 28, { align: "left", size: 11, color: p.dim });
       // 커서
       var ci = Math.min(n - 1, Math.round(cur / 2));
-      ctx.strokeStyle = p.text; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(X(cur), top - 4); ctx.lineTo(X(cur), h - 36); ctx.stroke();
+      ctx.strokeStyle = p.text; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(X(cur), top - 4); ctx.lineTo(X(cur), h - 58); ctx.stroke();
       [[res.posm[ci], 0, p.accent], [res.adh[ci], 1, reg], [res.urine[ci], 2, water]].forEach(function (d) { ctx.fillStyle = d[2]; ctx.beginPath(); ctx.arc(X(cur), ys[d[1]](d[0]), 4.5, 0, Math.PI * 2); ctx.fill(); });
-      handle(ctx, X(cur), h - 44, p.text, 6);
+      handle(ctx, X(cur), h - 64, p.text, 6);
       lay = { L: L, R: R };
       BB.stat("kw-o-t", Math.floor(cur / 60) + ":" + ("0" + (cur % 60)).slice(-2));
       BB.stat("kw-o-p", res.posm[ci].toFixed(1) + " · " + res.na[ci].toFixed(1) + (res.thirst[ci] > 0.05 ? "<small> 목마름</small>" : ""));
@@ -1161,7 +1160,7 @@
       var full = TBW + 4.5, L = 12, Rr = w - 12, top = 46, bh = narrow ? h - 150 : h - 120;
       var sc = (Rr - L - 16) / full;
       var x = L;
-      var parts = [["icf", "세포 내액", water, ICF0], ["isf", "사이질액", p.accent, ECF0 * 0.75], ["pl", "혈장", art, ECF0 * 0.25]];
+      var parts = [["icf", "세포 내액", water, ICF0], ["isf", "사이질액", BB.color("seg-reg"), ECF0 * 0.75], ["pl", "혈장", art, ECF0 * 0.25]];
       text(ctx, "막대의 길이 = 부피(L)", L, 16, { size: 11, color: p.dim });
       parts.forEach(function (q, i) {
         var v = show[q[0]], wv = v * sc, w0 = q[3] * sc;
@@ -1173,8 +1172,8 @@
           text(ctx, q[1], lx, top + bh / 2 - 8, { align: "center", weight: 700, size: 12 });
           text(ctx, v.toFixed(1) + " L", lx, top + bh / 2 + 10, { align: "center", mono: true, size: 11.5 });
         } else {
-          text(ctx, q[1], lx, top + bh + 22 + (i === 2 ? 14 : 0), { align: "center", weight: 700, size: 11, color: q[2] });
-          text(ctx, v.toFixed(1) + " L", lx, top + bh / 2, { align: "center", base: "middle", mono: true, size: 10.5 });
+          text(ctx, q[1], lx, top + bh + 20, { align: "center", weight: 700, size: 11, color: q[2] });
+          text(ctx, v.toFixed(1) + " L", lx, top + bh + 34, { align: "center", mono: true, size: 10.5 });
         }
         // 세포 그림: 세포 내액 상자 안 세포의 크기
         if (q[0] === "icf") {
@@ -1189,7 +1188,7 @@
       // 물 이동 화살표
       var dI = show.icf - ICF0;
       if (Math.abs(dI) > 0.15) {
-        var ax = L + show.icf * sc + 3, ay = top + bh + 40;
+        var ax = L + show.icf * sc + 3, ay = top + bh + 52;
         if (dI > 0) arrow(ctx, ax + 40, ay, ax - 40, ay, water, 2.4); else arrow(ctx, ax - 40, ay, ax + 40, ay, water, 2.4);
         text(ctx, dI > 0 ? "물이 세포 안으로 → 세포가 붓는다" : "물이 세포 밖으로 → 세포가 쪼그라든다", Math.min(Math.max(ax, 130), w - 130), ay + 22, { align: "center", size: 11, weight: 700, color: target && target.na < 135 ? p.bad : p.text });
       }
@@ -1207,7 +1206,7 @@
 
   /* ---------------------------------------------------------- 10. 다온의 대회 날 */
   (function () {
-    var res, sweatL = 0.6, playT = 0, lay = null, thirstMax = 0;
+    var res, sweatL = 0.6, playT = 300, lay = null, thirstMax = 0;
     var getTa = BB.range("kr-ta", function (v) { return v + " °C"; }, BB.debounce(calc, 60));
     var getD1 = BB.range("kr-d1", function (v) { return v.toFixed(1) + " L"; }, BB.debounce(calc, 60));
     var getD2 = BB.range("kr-d2", function (v) { return v.toFixed(1) + " L"; }, BB.debounce(calc, 60));
@@ -1227,7 +1226,7 @@
       BB.stat("kr-o-u", fmt0(res.cumUrine[res.cumUrine.length - 1]) + "<small>mL</small>");
       var dw = res.tbw[res.tbw.length - 1] - BD.tbw(78);
       BB.stat("kr-o-w", (dw >= 0 ? "+" : "") + dw.toFixed(2) + "<small>L</small>");
-      playT = 0;
+      playT = 300;
     }
     calc();
     document.getElementById("kr-go").addEventListener("click", function () { playT = 0; });
@@ -1270,7 +1269,7 @@
       ctx.fillStyle = "rgba(255,169,77,0.85)"; ctx.font = BB.font(10, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
       var last = mon.rows[mon.rows.length - 1];
       ctx.fillText("대회 58분", (last.X(30) + last.X(88)) / 2, last.y + last.h - 2);
-      ctx.fillStyle = "#8a96a8"; ctx.textAlign = "left"; [0, 60, 120, 180, 240].forEach(function (t) { if (!narrow || t % 120 === 0) ctx.fillText(t / 60 + "h", last.X(t) + 2, last.y + last.h - 2); });
+      ctx.fillStyle = "#8a96a8"; ctx.textAlign = "left"; [0, 120, 180, 240].forEach(function (t) { if (!narrow || t % 120 === 0) ctx.fillText(t / 60 + "h", last.X(t) + 2, last.y + last.h - 2); });
       ctx.restore();
     }, { get height() { return wOf("kr-cv") < 520 ? 470 : 420; } });
     BB.loop(document.getElementById("sim-kd-race"), function (dt) { if (playT < 300) { playT += dt * 24; } cv.redraw(); });

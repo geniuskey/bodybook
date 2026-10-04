@@ -268,7 +268,7 @@
         <div class="stat"><span class="k">95 % 참고 범위</span><span class="v" id="rg-o-r">—</span></div>
         <div class="stat"><span class="k">하나 이상 범위 밖일 확률</span><span class="v" id="rg-o-any">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 안정 심박수를 52로 끈다. 통계로 정한 범위 밖이지만, 지구력 선수에게는 건강한 값이다. ② 검사 항목 수를 20으로 둔다. 모두 건강한 항목이어도 하나 이상 범위 밖으로 나올 확률이 약 64 %다. ③ 공복 혈당을 고른다. 진료 기준선(100, 126 mg/dL)은 건강한 사람의 분포가 아니라 "나중에 병이 생길 위험"으로 정했다. 통계 범위와 진료 기준은 다르다. (건강한 성인 집단을 정규 분포로 어림한 교육용 그림이다. 평균·표준편차는 대표값이며 실제 검사실 범위는 나이·성별·장비에 따라 다르다. 항목들은 서로 독립이라고 가정했다.)</div>
+      <div class="sim-note">해볼 것: ① 안정 심박수 52에 놓인 점을 본다. 흔히 쓰는 진료 범위(60~100) 밖이지만 건강한 사람 분포로는 5번째 백분위쯤이고, 지구력 선수에게는 흔한 값이다. 45까지 끌면 통계 범위 밖으로도 나간다. ② 검사 항목 수를 20으로 둔다. 모두 건강한 항목이어도 하나 이상 범위 밖으로 나올 확률이 약 64 %다. ③ 공복 혈당을 고른다. 진료 기준선(100, 126 mg/dL)은 건강한 사람의 분포가 아니라 "나중에 병이 생길 위험"으로 정했다. 통계 범위와 진료 기준은 다르다. (건강한 성인 집단을 정규 분포로 어림한 교육용 그림이다. 평균·표준편차는 대표값이며 실제 검사실 범위는 나이·성별·장비에 따라 다르다. 항목들은 서로 독립이라고 가정했다.)</div>
     </div>
 
     <p>참고 범위에는 두 종류가 있다는 것을 기억하자. 하나는 건강한 사람의 분포에서 나온 <b>통계 범위</b>(심박수, 대부분의 혈액 검사), 다른 하나는 그 값 이상에서 병의 위험이 커진다는 연구로 정한 <b>진료 기준</b>(혈압, 공복 혈당, 콜레스테롤)이다. 진료 기준은 학회와 시기에 따라 다르고, 새 연구가 나오면 바뀐다. 이 책은 국내 진료 지침에서 흔히 쓰는 경계값을 쓰되, 그때마다 이 점을 밝힌다.</p>
@@ -493,7 +493,21 @@
       var bx = narrow ? w / 2 : Math.min(w * 0.27, 190);
       var organs = {};
       Object.keys(ORG).forEach(function (k) { organs[k] = orgColor(k); });
-      pos = BD.body(ctx, bx, top, bodyH, { organs: organs, labels: true, alpha: 0.5 });
+      pos = BD.body(ctx, bx, top, bodyH, { organs: organs, labels: false, alpha: 0.5 });
+      var u = bodyH / 100, labs = { l: [], r: [] };
+      Object.keys(pos).forEach(function (k) { if (!organs[k]) return; var q = pos[k]; var right = k === "skin" || (q.x >= bx - 0.5 && k !== "muscle"); (right ? labs.r : labs.l).push({ k: k, x: q.x + (k === "skin" ? q.rx : 0), y: q.y + (k === "muscle" ? -4 * u : 0), rx: k === "skin" ? 0 : q.rx }); });
+      ["l", "r"].forEach(function (side) {
+        var arr = labs[side].sort(function (a, b) { return a.y - b.y; }), last = -1e9;
+        arr.forEach(function (L) { L.ly = Math.max(L.y, last + 14); last = L.ly; });
+        var lx = side === "r" ? bx + 19 * u : bx - 19 * u;
+        arr.forEach(function (L) {
+          var on = L.k === sel;
+          ctx.strokeStyle = BB.alpha(p.dim, 0.7); ctx.lineWidth = 0.8; ctx.beginPath();
+          ctx.moveTo(L.x + (side === "r" ? L.rx * 0.6 : -L.rx * 0.6), L.y); ctx.lineTo(lx + (side === "r" ? -8 : 8), L.ly); ctx.lineTo(lx + (side === "r" ? -3 : 3), L.ly); ctx.stroke();
+          ctx.fillStyle = on ? p.accent : p.text; ctx.font = BB.font(11.5, false, on ? 800 : 600); ctx.textAlign = side === "r" ? "left" : "right"; ctx.textBaseline = "middle";
+          ctx.fillText(NAMES[L.k], lx, L.ly);
+        });
+      });
       // 선택 강조
       var sp = pos[sel];
       if (sp) {
@@ -523,13 +537,14 @@
           var f = r.val(q) / r.tot, sw = f * gw;
           var on = q.k === selSeg;
           var col = q.k === "rest" ? p.faint : q.k === "fat" ? BB.color("fat") : BB.segColor({ brain: "reg", heart: "circ", kidneys: "reg", liver: "meta", muscle: "musc", skin: "reg" }[q.k]);
-          ctx.fillStyle = BB.alpha(col, on ? 0.95 : 0.28);
+          ctx.fillStyle = BB.alpha(col, on ? 0.95 : 0.4);
           ctx.fillRect(x, y, Math.max(0.5, sw - 1), bh);
           if (on) { ctx.strokeStyle = p.text; ctx.lineWidth = 2; ctx.strokeRect(x, y, Math.max(1, sw - 1), bh); }
           if (sw > 30 || on) {
             ctx.fillStyle = on ? p.text : p.dim; ctx.font = BB.font(on ? 12 : 10.5, true, on ? 700 : 400); ctx.textAlign = "center"; ctx.textBaseline = "top";
             var lx = BB.clamp(x + sw / 2, gx + 16, gx + gw - 16);
             ctx.fillText(Math.round(f * 100) + "%", lx, y + bh + 3);
+            if (sw > 52) { ctx.fillStyle = on ? "#fff" : p.text; ctx.font = BB.font(10.5, false, 600); ctx.textBaseline = "middle"; ctx.fillText(q.k === "rest" ? "나머지" : q.name, x + sw / 2, y + bh / 2); }
           }
           x += sw;
         });
@@ -708,27 +723,27 @@
       ctx.fillStyle = BB.color("water"); ctx.font = BB.font(10.5); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("어림 규칙 " + (sex() === "f" ? "50" : "60") + "%", BB.clamp(rx, bx + 50, bx + bw - 120), by - 7);
       lay = { bx: bx, bw: bw, by: by, bh: bh };
       // 2) 물의 세 칸(탱크)
-      var ty = by + bh + 44, tH = h - ty - 40;
+      var ty = by + bh + 44, tH = h - ty - 44;
       ctx.fillStyle = p.text; ctx.font = BB.font(13, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
       ctx.fillText("몸의 물 " + c.water.toFixed(1) + " L는 어디에 있나", bx, ty);
       var maxW = 60; // L 기준 눈금(가장 큰 물에서도 칸 높이 비례 유지)
       var tanks = [
-        { k: "세포 안(ICF)", v: c.icf, sub: "2/3 · K⁺가 많다", col: BB.color("water") },
-        { k: "사이질액", v: c.isf, sub: "세포 사이 · 4/5", col: BB.color("water") },
-        { k: "혈장", v: c.plasma, sub: "혈관 안 · 1/5", col: BB.color("art") },
+        { k: "세포 안(ICF)", v: c.icf, sub: "몸의 물 2/3 · K⁺가 많다", col: BB.color("water") },
+        { k: "사이질액", v: c.isf, sub: "세포 밖의 4/5", col: BB.color("water") },
+        { k: "혈장", v: c.plasma, sub: "1/5", col: BB.color("art") },
       ];
       var totW = tanks.reduce(function (s, t) { return s + t.v; }, 0);
       var gap = 10, avail = bw - gap * 2, tx = bx;
-      ctx.fillStyle = p.dim; ctx.font = BB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "bottom";
-      var icfw = avail * c.icf / totW;
-      ctx.fillText("세포 밖(ECF) " + c.ecf.toFixed(1) + " L · Na⁺가 많다", bx + bw, ty);
+      var icfw = Math.min(avail * c.icf / totW, avail - 2 * (narrow ? 70 : 80));
       tanks.forEach(function (t, i) {
-        var tw = Math.max(narrow ? 46 : 60, avail * t.v / totW);
-        if (i === 2) tw = bx + bw - tx;
-        if (i === 1) tw = Math.min(tw, bx + bw - tx - (narrow ? 50 : 64) - gap);
-        var y0 = ty + 10, hh = tH;
+        var tw = i === 0 ? icfw : i === 1 ? Math.max(narrow ? 70 : 80, (avail - icfw) * 0.8) : bx + bw - tx;
+        var y0 = ty + 26, hh = tH - 16;
+        if (i === 1) {
+          ctx.strokeStyle = p.dim; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(tx, ty + 20); ctx.lineTo(tx, ty + 14); ctx.lineTo(bx + bw, ty + 14); ctx.lineTo(bx + bw, ty + 20); ctx.stroke();
+          ctx.fillStyle = p.dim; ctx.font = BB.font(10.5); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+          ctx.fillText("세포 밖 " + c.ecf.toFixed(1) + " L · Na⁺", (tx + bx + bw) / 2, ty + 12);
+        }
         ctx.strokeStyle = p.border; ctx.lineWidth = 1.5; BB.rrect(ctx, tx, y0, tw, hh, 8); ctx.stroke();
-        var fill = Math.min(1, t.v / (c.kg * 0.5)) * 0.9 + 0.08;
         var lvl = hh * Math.min(0.95, 0.35 + 0.6 * (c.water / maxW));
         ctx.fillStyle = BB.alpha(t.col, 0.3); BB.rrect(ctx, tx + 2, y0 + hh - lvl, tw - 4, lvl - 2, 6); ctx.fill();
         // 물결
@@ -736,14 +751,13 @@
         for (var xx = tx + 3; xx <= tx + tw - 3; xx += 3) { var yy = y0 + hh - lvl + Math.sin(xx / 7) * 1.5; xx === tx + 3 ? ctx.moveTo(xx, yy) : ctx.lineTo(xx, yy); } ctx.stroke();
         ctx.fillStyle = p.text; ctx.font = BB.font(narrow ? 11 : 12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
         ctx.fillText(t.k, tx + tw / 2, y0 + 8);
-        ctx.font = BB.font(narrow ? 15 : 18, true, 700); ctx.fillStyle = t.col; ctx.textBaseline = "middle";
+        ctx.font = BB.font(narrow ? 13 : 18, true, 700); ctx.fillStyle = t.col; ctx.textBaseline = "middle";
         ctx.fillText(t.v.toFixed(1) + " L", tx + tw / 2, y0 + hh * 0.6);
-        ctx.fillStyle = p.dim; ctx.font = BB.font(10.5); ctx.textBaseline = "top"; ctx.fillText(t.sub, tx + tw / 2, y0 + hh + 6);
-        if (fill < 0) ctx.fill();
+        ctx.fillStyle = p.dim; ctx.font = BB.font(10); ctx.textBaseline = "bottom"; if (tw > 90 || i === 0) ctx.fillText(t.sub, tx + tw / 2, y0 + hh - 6);
         tx += tw + gap;
       });
       // 세포 경계(세포막) 표시
-      var mx = bx + Math.max(narrow ? 46 : 60, icfw) + gap / 2;
+      var mx = bx + icfw + gap / 2;
       ctx.strokeStyle = BB.color("prot"); ctx.lineWidth = 2.5; ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.moveTo(mx, ty + 6); ctx.lineTo(mx, ty + 14 + tH); ctx.stroke(); ctx.setLineDash([]);
     }, { get height() { return narrowOf("cp-cv", 520) ? 360 : 330; } });
     upd();
@@ -776,11 +790,11 @@
       if (narrow) {
         b1 = { x: 58, y: 14, w: w - 74, h: 190 };
         b2 = { x: 58, y: 264, w: w - 74, h: 160 };
-        lifeBox = { x: 16, y: 482, w: w - 32, h: h - 492 };
+        lifeBox = { x: 16, y: 482, w: w - 32, h: h - 516 };
       } else {
         b1 = { x: 64, y: 14, w: w / 2 - 84, h: 230 };
         b2 = { x: w / 2 + 52, y: 14, w: w / 2 - 68, h: 230 };
-        lifeBox = { x: 16, y: 312, w: w - 32, h: h - 322 };
+        lifeBox = { x: 16, y: 312, w: w - 32, h: h - 340 };
       }
       var xr = [0.001, 10000], xf = function (v) { return v >= 1000 ? (v / 1000) + "t" : v >= 1 ? v + "kg" : (v * 1000) + "g"; };
       var line = BD.logspace(0.001, 10000, 60);
@@ -789,9 +803,9 @@
       c2 = BB.chart(ctx, b2, { x: xr, y: [10, 2000], logX: true, logY: true, xFmt: xf, xLabel: "몸무게(로그 눈금)", yLabel: "심박수 bpm",
         series: [{ data: line.map(function (m) { return [m, HRf(m)]; }), color: BB.color("art"), width: 2.6 }] });
       ctx.font = BB.font(11); ctx.textBaseline = "bottom";
-      ctx.fillStyle = p.accent; ctx.textAlign = "left"; ctx.fillText("기울기 3/4", c1.X(0.02), c1.Y(BD.kleiber(0.02)) - 8);
-      ctx.fillStyle = p.dim; ctx.fillText("몸무게에 정비례(기울기 1)", c1.X(0.002), c1.Y(70 * 0.002) + 22);
-      ctx.fillStyle = BB.color("art"); ctx.fillText("기울기 −1/4", c2.X(0.005), c2.Y(HRf(0.005) * 0.55));
+      ctx.fillStyle = p.accent; ctx.textAlign = "left"; ctx.fillText("기울기 3/4", c1.X(200), c1.Y(BD.kleiber(200) / 8));
+      ctx.fillStyle = p.dim; ctx.textAlign = "right"; ctx.fillText("점선: 몸무게에 정비례(기울기 1)", b1.x + b1.w - 4, b1.y + b1.h - 4); ctx.textAlign = "left";
+      ctx.fillStyle = BB.color("art"); ctx.fillText("기울기 −1/4", c2.X(0.04), c2.Y(HRf(0.04) * 0.45));
       // 동물 점
       ANIMALS.forEach(function (a, i) {
         [[c1, BD.kleiber(a.m)], [c2, a.hr]].forEach(function (cc, j) {
@@ -901,7 +915,7 @@
         ctx.fillText(anox ? "확산만으로는 부족: 순환이 필요" : "확산만으로 충분", px, py + 42);
       }
       // 아래: 로그 자
-      var rx = 20, rw = w - 40, ry = h - 50;
+      var rx = 20, rw = w - 40, ry = h - (narrow ? 60 : 50);
       ctx.strokeStyle = p.axis; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(rx, ry); ctx.lineTo(rx + rw, ry); ctx.stroke();
       var X = function (l) { return rx + (l - LMIN) / (LMAX - LMIN) * rw; };
       // 확산 가능 구간 띠
@@ -911,10 +925,10 @@
       var labs = { "-9": "1 nm", "-6": "1 µm", "-3": "1 mm", "0": "1 m" };
       for (var e = LMIN; e <= LMAX; e++) { ctx.strokeStyle = p.axis; ctx.beginPath(); ctx.moveTo(X(e), ry - 4); ctx.lineTo(X(e), ry + 4); ctx.stroke(); if (labs[e]) ctx.fillText(labs[e], X(e), ry + 9); }
       ctx.font = BB.font(9.5); ctx.textBaseline = "bottom";
-      MARK.forEach(function (m, k) { if (narrow && k % 2) return; var xx = X(Math.log10(m[0])); ctx.fillStyle = p.faint; ctx.fillRect(xx - 0.5, ry - 10, 1, 4); ctx.fillText(m[1], BB.clamp(xx, rx + 26, rx + rw - 26), ry - 10 - (k % 2) * 11); });
+      MARK.forEach(function (m, k) { if (narrow && k % 2) return; var row = narrow ? (k / 2) % 2 : k % 2; var xx = X(Math.log10(m[0])); ctx.fillStyle = p.faint; ctx.fillRect(xx - 0.5, ry - 10, 1, 4); ctx.fillText(m[1], BB.clamp(xx, rx + 26, rx + rw - 26), ry - 10 - row * 11); });
       var hx = X(lr);
       ctx.fillStyle = p.bg; ctx.strokeStyle = p.accent; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(hx, ry, 8, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = p.dim; ctx.font = BB.font(10.5); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("반지름(로그 눈금) · 초록: 확산으로 충분", rx, ry + 24);
+      ctx.fillStyle = p.dim; ctx.font = BB.font(10.5); ctx.textAlign = "left"; ctx.textBaseline = "top"; if (!narrow) ctx.fillText("반지름(로그 눈금) · 초록: 확산으로 충분", rx, ry + 24);
       lay = { X: X, rx: rx, rw: rw, ry: ry };
       BB.stat("zm-o-r", len(r));
       BB.stat("zm-o-sv", BB.fmt(3 / r / 1000, 3) + "<small>/mm</small>");
@@ -938,12 +952,12 @@
       kidney: { n: "콩팥", seg: "reg", wx: 0.86, wy: 0.48, nx: 0.84, ny: 0.55, ch: "kidney.html", info: "달리는 동안 콩팥으로 가는 피가 줄고, 항이뇨 호르몬이 늘어 소변을 아낀다. 땀으로 잃는 물을 덜 버리는 쪽으로 돕는다." },
     };
     var EDGES = [
-      { a: "brain", b: "muscle", c: "nerve", t: function (x) { return "운동 명령"; }, q: function (x) { return 0.2 + x; } },
+      { a: "brain", b: "muscle", c: "nerve", t: function (x) { return "운동 명령"; }, q: function (x) { return 0.2 + x; }, bend: 0.5 },
       { a: "brain", b: "heart", c: "nerve", t: function (x) { return "교감 신경 · 심박 " + fmt0(72 + 96 * x); }, q: function (x) { return 0.2 + x; } },
       { a: "brain", b: "lungs", c: "nerve", t: function (x) { return "호흡 " + fmt0(7 + 60 * x) + " L/min"; }, q: function (x) { return 0.2 + x; } },
       { a: "brain", b: "hormone", c: "nerve", t: function (x) { return "부신 자극"; }, q: function (x) { return 0.1 + x; } },
-      { a: "hormone", b: "liver", c: "nerve", t: function (x) { return "아드레날린·글루카곤"; }, q: function (x) { return 0.1 + x; }, bend: 0.0 },
-      { a: "hormone", b: "kidney", c: "nerve", t: function (x) { return "항이뇨 호르몬"; }, q: function (x) { return 0.1 + 0.8 * x; } },
+      { a: "hormone", b: "liver", c: "nerve", t: function (x) { return "아드레날린"; }, q: function (x) { return 0.1 + x; }, bend: -0.3, lp: 0.1 },
+      { a: "hormone", b: "kidney", c: "nerve", t: function (x) { return "항이뇨 호르몬"; }, q: function (x) { return 0.1 + 0.8 * x; }, lp: 0.8 },
       { a: "lungs", b: "heart", c: "o2", t: function (x) { return "O₂ " + (0.27 + 2.07 * x).toFixed(1) + " L/min"; }, q: function (x) { return 0.27 + 2.07 * x; } },
       { a: "heart", b: "muscle", c: "o2", t: function (x) { return "피 " + (0.9 + 14.6 * x).toFixed(1) + " L/min"; }, q: function (x) { return 1 + 14 * x; } },
       { a: "muscle", b: "lungs", c: "co2", t: function (x) { return "CO₂ " + (0.22 + 1.89 * x).toFixed(1) + " L/min"; }, q: function (x) { return 0.22 + 1.89 * x; }, bend: -0.18 },
@@ -978,7 +992,7 @@
         ctx.fillStyle = BB.alpha(col, on ? 0.95 : 0.15); ctx.beginPath(); ctx.moveTo(e1[0], e1[1]); ctx.lineTo(e1[0] - 9 * Math.cos(ang - 0.4), e1[1] - 9 * Math.sin(ang - 0.4)); ctx.lineTo(e1[0] - 9 * Math.cos(ang + 0.4), e1[1] - 9 * Math.sin(ang + 0.4)); ctx.closePath(); ctx.fill();
         if (on) BD.flowDots(ctx, pts, ph * (14 + 26 * Math.min(1, qv / 4)), { color: col, gap: 16, r: 2.2 });
         if (on && (sel || !narrow)) {
-          var mid = pts[Math.floor(pts.length / 2)], lab = e.t(x);
+          var mid = pts[Math.floor(pts.length * (e.lp || 0.5))], lab = e.t(x);
           ctx.font = BB.font(10.5, false, 600); var tw = ctx.measureText(lab).width;
           ctx.fillStyle = BB.alpha(p.bg, 0.88); BB.rrect(ctx, mid[0] - tw / 2 - 4, mid[1] - 8, tw + 8, 16, 4); ctx.fill();
           ctx.fillStyle = col; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(lab, mid[0], mid[1]);
@@ -992,7 +1006,7 @@
         ctx.fillStyle = on ? "#fff" : p.text; ctx.font = BB.font(narrow ? 11.5 : 12.5, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
         ctx.fillText(n.n, c[0], c[1]);
       });
-      if (!sel && narrow) { ctx.fillStyle = p.dim; ctx.font = BB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText("계통을 누르면 흐름의 숫자가 나온다", 10, h - 6); }
+      if (!sel && narrow) { ctx.fillStyle = p.dim; ctx.font = BB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("계통을 누르면 흐름의 숫자가 나온다", 8, 6); }
       lay = { nw: nw, nh: nh };
     }, { get height() { return narrowOf("gr-cv", 520) ? 520 : 440; } });
     BB.drag(cv.canvas, { start: function (x, y) {
@@ -1010,7 +1024,7 @@
   /* ---------------------------------------------------------- 7. 참고 범위 */
   (function () {
     var VARS = {
-      hr: { name: "안정 심박수", unit: "bpm", mu: 70, sd: 11, lo: 30, hi: 110, v: 52, dig: 0, clin: [{ x: 60, t: "60" }, { x: 100, t: "100" }], clinName: "흔히 쓰는 진료 범위 60~100" },
+      hr: { name: "안정 심박수", unit: "bpm", mu: 70, sd: 11, lo: 30, hi: 110, v: 52, dig: 0, clin: [{ x: 60, t: "진료 범위 60" }, { x: 100, t: "100" }], clinName: "흔히 쓰는 진료 범위 60~100" },
       glu: { name: "공복 혈당", unit: "mg/dL", mu: 90, sd: 8, lo: 60, hi: 135, v: 98, dig: 0, clin: [{ x: 100, t: "100 공복혈당장애" }, { x: 126, t: "126 당뇨병" }], clinName: "진료 기준(위험으로 정한 선)" },
       temp: { name: "체온(입안)", unit: "°C", mu: 36.8, sd: 0.35, lo: 35.6, hi: 38.2, v: 37.3, dig: 1, clin: [{ x: 37.5, t: "37.5" }], clinName: "흔히 열로 보는 선" },
     };
@@ -1057,8 +1071,10 @@
       ctx.strokeStyle = p.text; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(vx, Y(pdf(v))); ctx.lineTo(vx, Y(0)); ctx.stroke();
       ctx.fillStyle = p.bg; ctx.strokeStyle = p.accent; ctx.lineWidth = 2.6; ctx.beginPath(); ctx.arc(vx, Y(pdf(v)), 7, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
       var pct = 0.5 * (1 + BB.erf((v - V.mu) / (V.sd * Math.SQRT2)));
-      ctx.fillStyle = p.text; ctx.font = BB.font(12.5, true, 700); ctx.textAlign = vx > box.x + box.w * 0.7 ? "right" : "left"; ctx.textBaseline = "bottom";
-      ctx.fillText(v.toFixed(V.dig) + " " + V.unit + " · " + Math.round(pct * 100) + "번째 백분위", vx + (ctx.textAlign === "right" ? -10 : 10), Y(pdf(v)) - 6);
+      ctx.font = BB.font(12.5, true, 700); ctx.textAlign = vx > box.x + box.w * 0.7 ? "right" : "left"; ctx.textBaseline = "bottom";
+      var vl = v.toFixed(V.dig) + " " + V.unit + " · " + Math.round(pct * 100) + "번째 백분위", vw = ctx.measureText(vl).width, vxx = vx + (ctx.textAlign === "right" ? -10 : 10);
+      ctx.fillStyle = BB.alpha(p.bg, 0.85); ctx.fillRect(ctx.textAlign === "right" ? vxx - vw - 3 : vxx - 3, Y(pdf(v)) - 22, vw + 6, 18);
+      ctx.fillStyle = p.text; ctx.fillText(v.toFixed(V.dig) + " " + V.unit + " · " + Math.round(pct * 100) + "번째 백분위", vx + (ctx.textAlign === "right" ? -10 : 10), Y(pdf(v)) - 6);
       // 아래: 여러 항목 확률 막대
       var n = getN(), any = 1 - Math.pow(0.95, n), gy = h - (narrow ? 92 : 74), gw = w - 44;
       ctx.fillStyle = p.text; ctx.font = BB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
@@ -1106,13 +1122,14 @@
     cv = BB.canvas("#dn-cv", function (ctx, w, h) {
       var p = P(), o = me(), r = calc(o), narrow = w < 560;
       // 실루엣 두 개(같은 눈금)
-      var sw = narrow ? w : w * 0.34, base = narrow ? 230 : h - 26, scale = (base - 34) / 200;  // px per cm
+      var sw = narrow ? w : w * 0.34, base = narrow ? 230 : h - 26;
+      var wD = Math.sqrt(daon.bmi / 22), wM = Math.sqrt(r.bmi / 22);
+      var scale = Math.min((base - 34) / 200, sw * 0.4 / (68 * Math.max(wD, wM)));  // px per cm
       var hD = D0.height * scale, hM = o.cm * scale;
-      var xD = sw * 0.3, xM = sw * 0.72;
+      var xD = sw * 0.28, xM = sw * 0.72;
       // 눈금선
       ctx.strokeStyle = p.grid; ctx.fillStyle = p.faint; ctx.font = BB.font(9.5, true); ctx.textAlign = "left"; ctx.textBaseline = "middle";
       [100, 150, 200].forEach(function (c) { var y = base - c * scale; ctx.beginPath(); ctx.moveTo(6, y); ctx.lineTo(sw - 6, y); ctx.stroke(); ctx.fillText(c + "", 6, y - 6); });
-      var wD = Math.sqrt(daon.bmi / 22), wM = Math.sqrt(r.bmi / 22);
       ctx.save(); ctx.translate(xD, 0); ctx.scale(wD, 1); BD.body(ctx, 0, base - hD, hD, { fill: BB.alpha(p.accent2, 0.15), stroke: BB.alpha(p.accent2, 0.7) }); ctx.restore();
       ctx.save(); ctx.translate(xM, 0); ctx.scale(wM, 1); BD.body(ctx, 0, base - hM, hM, { fill: BB.alpha(p.accent, 0.18), stroke: p.accent }); ctx.restore();
       ctx.strokeStyle = p.axis; ctx.beginPath(); ctx.moveTo(6, base); ctx.lineTo(sw - 6, base); ctx.stroke();
@@ -1124,6 +1141,11 @@
       ctx.fillStyle = p.accent; ctx.fillText(o.cm + "cm·" + o.kg + "kg", xM, base - hM - 4);
       // 오른쪽(아래): 비교 막대
       var gx = narrow ? 14 : sw + 16, gy = narrow ? base + 34 : 14, gw = w - gx - 14;
+      ctx.strokeStyle = p.accent2; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(gx + 4, gy + 1); ctx.lineTo(gx + 4, gy + 13); ctx.stroke();
+      ctx.fillStyle = p.dim; ctx.font = BB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText("다온", gx + 10, gy + 7);
+      ctx.fillStyle = p.accent; ctx.beginPath(); ctx.moveTo(gx + 52, gy + 3); ctx.lineTo(gx + 47, gy + 11); ctx.lineTo(gx + 57, gy + 11); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = p.dim; ctx.fillText("나", gx + 62, gy + 7);
+      gy += 20;
       var M = [
         { k: "BMI", u: "kg/m²", me: r.bmi, d: daon.bmi, max: 40, dig: 1, bands: [[18.5, "warn"], [23, "ok"], [25, "warn"], [30, "bad"], [40, "bad"]] },
         { k: "체표면적", u: "m²", me: r.bsa, d: daon.bsa, max: 2.8, dig: 2 },
@@ -1150,7 +1172,6 @@
         if (m.k !== "BMI") { ctx.fillStyle = BB.alpha(p.accent, 0.55); ctx.fillRect(gx, by, Xm - gx, bh); }
         ctx.strokeStyle = p.accent2; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(Xd, by - 4); ctx.lineTo(Xd, by + bh + 4); ctx.stroke();
         ctx.fillStyle = p.accent; ctx.beginPath(); ctx.moveTo(Xm, by + bh + 1); ctx.lineTo(Xm - 5, by + bh + 8); ctx.lineTo(Xm + 5, by + bh + 8); ctx.closePath(); ctx.fill();
-        if (i === 0) { ctx.fillStyle = p.accent2; ctx.font = BB.font(10.5); ctx.textAlign = Xd > gx + gw - 60 ? "right" : "left"; ctx.textBaseline = "bottom"; ctx.fillText("다온 " + m.d.toFixed(1), Xd + (ctx.textAlign === "right" ? -4 : 4), by - 1); }
       });
       ctx.fillStyle = p.dim; ctx.font = BB.font(10.5); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
     }, { get height() { return narrowOf("dn-cv") ? 640 : 440; } });

@@ -32,6 +32,7 @@
 <!--head:end-->
 <style>
   .rt-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 18px 0; }
+  .sim-view:has(> .hint) { padding-bottom: 26px; }
   .rt-chips span { font-size: 12.5px; padding: 2px 9px; border-radius: 999px; background: var(--surface); color: var(--text-dim); border: 1px solid var(--border); }
 </style>
 </head>
@@ -174,7 +175,7 @@
     <div class="sim" id="sim-nv-refr" data-desc="두 번째 자극을 끌어 첫 자극과의 간격과 세기를 바꾸며, 아무리 세게 줘도 안 되는 절대 불응기와 더 센 자극이 필요한 상대 불응기를 찾는다">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>두 번째 자극은 언제 통하는가</h3></div>
       <div class="sim-body">
-        <div class="sim-view"><canvas id="rf-cv"></canvas><span class="hint">두 번째 자극(손잡이)이나 오른쪽 그래프 위의 점을 끈다</span></div>
+        <div class="sim-view"><canvas id="rf-cv"></canvas><span class="hint">두 번째 자극이나 오른쪽 점을 끈다</span></div>
       </div>
       <div class="map-legend"><span><i style="background:var(--bad)"></i>절대 불응기</span><span><i style="background:var(--warn)"></i>상대 불응기</span><span><i style="background:var(--nerve)"></i>막전위</span></div>
       <div class="sim-readout">
@@ -210,7 +211,7 @@
         <div class="stat"><span class="k">스파이크 꼭대기</span><span class="v" id="fi-o-pk">—</span></div>
         <div class="stat"><span class="k">상태</span><span class="v" id="fi-o-st" style="font-family:var(--font);font-size:16px">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 점을 오른쪽으로 끈다. 문턱 전류(약 7) 아래에서는 0이다가 넘는 순간 약 60 Hz로 뛰어오르고, 더 세게 할수록 빈도가 오른다. ② 전류를 80 넘게 올린다. 막이 계속 탈분극된 채 나트륨 통로가 닫혀 오히려 발화가 멈춘다(탈분극 차단). ③ TTX를 70 % 넘게 올린다. 복어 독처럼 나트륨 통로가 막혀 어떤 전류로도 발화하지 않는다. ④ 온도를 올리면 문이 빨리 움직여 빈도가 오르지만 너무 높으면(약 28 °C 이상, 이 오징어 모델에서) 스파이크가 무너진다. (호지킨-헉슬리 모델. TEA로 칼륨 통로를 많이 막으면 자극 없이도 저절로 발화한다. 모델의 시작 상태를 안정시키려고 자극 전에 30 ms를 먼저 돌렸다.)</div>
+      <div class="sim-note">해볼 것: ① 점을 오른쪽으로 끈다. 문턱 전류(약 7) 아래에서는 0이다가 넘는 순간 약 60 Hz로 뛰어오르고, 더 세게 할수록 빈도가 오른다. ② 전류를 70 넘게 올린다. 막이 계속 탈분극된 채 나트륨 통로가 닫혀 오히려 발화가 멈춘다(탈분극 차단). ③ TTX를 70 % 넘게 올린다. 복어 독처럼 나트륨 통로가 막혀 어떤 전류로도 발화하지 않는다. ④ 온도를 올리면 문이 빨리 움직여 빈도가 오르지만 너무 높으면(약 28 °C 이상, 이 오징어 모델에서) 스파이크가 무너진다. (호지킨-헉슬리 모델. TEA로 칼륨 통로를 많이 막으면 자극 없이도 저절로 발화한다. 모델의 시작 상태를 안정시키려고 자극 전에 30 ms를 먼저 돌렸다.)</div>
     </div>
 
     <div class="callout warn">
@@ -270,7 +271,7 @@
     <div class="sim" id="sim-nv-syn" data-desc="세 흥분성 시냅스와 한 억제성 시냅스의 입력 시점을 눌러 더하고 끌어 옮기며, 시간 합산·공간 합산·억제가 막전위를 역치로 미는지 본다">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>시간 합산, 공간 합산, 억제</h3></div>
       <div class="sim-body side">
-        <div class="sim-view"><canvas id="sy-cv"></canvas><span class="hint">줄을 눌러 입력 추가 · 점을 끌어 이동 · 눌러서 삭제</span></div>
+        <div class="sim-view"><canvas id="sy-cv"></canvas><span class="hint">줄을 눌러 추가 · 끌어 이동 · 눌러 삭제</span></div>
         <div class="sim-controls">
           <div class="seg" id="sy-pre"><button data-value="time" class="on">시간 합산</button><button data-value="space">공간 합산</button><button data-value="inh">억제</button><button data-value="none">비우기</button></div>
           <label class="ctrl"><span>억제 시냅스 세기 <output id="sy-iw-out"></output></span><input type="range" id="sy-iw" min="0" max="2" step="0.1" value="1"></label>
@@ -294,7 +295,7 @@
     <div class="sim" id="sim-nv-reflex" data-desc="무릎을 두드려 근방추 → 감각 신경 → 척수 시냅스 → 운동 신경 → 근육으로 이어지는 무릎 반사를 느린 화면으로 따라가며 각 구간에 걸리는 밀리초를 잰다">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>무릎 반사를 밀리초로 쪼개기</h3></div>
       <div class="sim-body side">
-        <div class="sim-view"><canvas id="rx-cv"></canvas><span class="hint">무릎을 누르면 두드린다</span></div>
+        <div class="sim-view"><canvas id="rx-cv"></canvas><span class="hint">무릎(빨간 손잡이)을 누른다</span></div>
         <div class="sim-controls">
           <label class="ctrl"><span>키 <output id="rx-h-out"></output></span><input type="range" id="rx-h" min="150" max="200" step="1" value="175"></label>
           <label class="ctrl"><span>신경 전도 속도 <output id="rx-v-out"></output></span><input type="range" id="rx-v" min="0.2" max="1.2" step="0.05" value="1"></label>
@@ -386,7 +387,7 @@
     <div class="sim" id="sim-nv-react" data-big data-desc="출발 신호부터 다리가 힘을 내기까지 약 0.2초를 소리 전파, 귀와 청각 경로, 뇌의 판단, 운동 신경(다리까지 약 1 m), 근육으로 쪼개 보고 자기 반응 시간도 직접 잰다">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>출발 신호에서 첫발까지</h3></div>
       <div class="sim-body side">
-        <div class="sim-view"><canvas id="rt-cv"></canvas><span class="hint">"내 반응 재기"를 누른 뒤 불이 초록으로 바뀌면 화면을 누른다</span></div>
+        <div class="sim-view"><canvas id="rt-cv"></canvas><span class="hint">초록 불이 켜지면 화면을 누른다</span></div>
         <div class="sim-controls">
           <div class="seg" id="rt-sig"><button data-value="sound" class="on">소리 신호</button><button data-value="light">빛 신호</button></div>
           <label class="ctrl"><span>신호까지 거리 <output id="rt-dist-out"></output></span><input type="range" id="rt-dist" min="0" max="60" step="1" value="10"></label>
@@ -580,6 +581,7 @@
       while (st.hist.length && st.hist[0][0] < st.t - 4.6) st.hist.shift();
       while (st.fires.length && st.fires[0] < st.t - 4) st.fires.shift();
     }
+    for (var pre = 0; pre < 280; pre++) step(1 / 60);
     var cv = BB.canvas("#nr-cv", function (ctx, w, h) {
       var p = P(), nv = NV(), g = geo(w, h), my = myEl.checked, U = g.U, cy = g.cy;
       lay = g;
@@ -634,7 +636,8 @@
       // 이름표
       var fs = g.narrow ? 10 : 11.5;
       txt(ctx, "가지돌기", g.tips[1][0], g.tips[1][1] - 10, { size: fs, align: "left" });
-      txt(ctx, "세포체", g.sx, cy + g.R + 14, { size: fs, align: "center" });
+      ctx.font = BB.font(fs); var sw = ctx.measureText("세포체").width + 8; ctx.fillStyle = BB.alpha(p.bg, 0.85); ctx.fillRect(g.sx + 4, cy + g.R + 2, sw, fs + 6);
+      txt(ctx, "세포체", g.sx + 8, cy + g.R + fs + 4, { size: fs });
       txt(ctx, "축삭 언덕", g.hx1, cy - g.R - 6, { size: fs, align: "center" });
       txt(ctx, my ? "축삭(수초로 싸임)" : "축삭(수초 없음)", (g.hx1 + g.ax1) / 2, cy - 0.55 * U - 6, { size: fs, align: "center" });
       if (my) txt(ctx, "결절", g.nodes[2], cy + 0.42 * U + 12, { size: fs, align: "center", color: p.warn });
@@ -723,11 +726,11 @@
       var a = getA(), d = getD();
       var s = BB.chart(ctx, sb, { x: [0, 30], y: [0, 40], yTicks: [0, 20, 40], xLabel: "시간(ms)",
         series: [{ data: [[0, 0], [2, 0], [2, a], [2 + d, a], [2 + d, 0], [30, 0]], color: p.accent, width: 2.2, fill: BB.alpha(p.accent, 0.15) }] });
-      txt(ctx, "자극 µA/cm²", sb.x - 46, sb.y - 4, { size: 10.5, color: p.accent });
+      txt(ctx, "자극 µA/cm²", sb.x + 6, sb.y + 10, { size: 10.5, color: p.accent });
       handle(ctx, s.X(2 + d), s.Y(a), p.accent, 7);
       // 계단 그래프
       if (sweepRes) {
-        txt(ctx, "자극 세기 → 꼭대기 전위(전부 아니면 전무)", ib.x - 40, ib.y - 12, { size: 11.5, weight: 700, color: p.text });
+        txt(ctx, "자극 세기 → 꼭대기 전위", ib.x - 40, ib.y - 12, { size: 11.5, weight: 700, color: p.text });
         var ci = BB.chart(ctx, ib, { x: [0, 40], y: [-70, 60], xLabel: "자극 세기(µA/cm²)", yLabel: "꼭대기(mV)", yTicks: [-60, -30, 0, 30, 60],
           vlines: sweepRes.thr != null ? [{ x: sweepRes.thr, color: p.warn, label: "역치 " + sweepRes.thr.toFixed(1) }] : [],
           series: [{ data: sweepRes.pk, color: nv, width: 2.4 }] });
@@ -797,8 +800,8 @@
       var cb = narrow ? { x: 10, y: 6, w: w - 20, h: 210 } : { x: w * 0.64, y: 10, w: w * 0.36 - 12, h: h - 20 };
       var L = 56, R = narrow ? w - 14 : w * 0.62 - 10, top = narrow ? 232 : 14;
       var hh = (h - top - 46);
-      var rows = [{ y: top, h: hh * 0.42 }, { y: 0, h: hh * 0.26 }, { y: 0, h: hh * 0.26 }];
-      rows[1].y = rows[0].y + rows[0].h + hh * 0.03; rows[2].y = rows[1].y + rows[1].h + hh * 0.03;
+      var rows = [{ y: top, h: hh * 0.4 }, { y: 0, h: hh * 0.26 }, { y: 0, h: hh * 0.27 }];
+      rows[1].y = rows[0].y + rows[0].h + hh * 0.04; rows[2].y = rows[1].y + rows[1].h + hh * 0.03;
       var X = function (t) { return L + t / 12 * (R - L); };
       lay = { L: L, R: R };
       var i = idxOf(res.t, tc);
@@ -806,9 +809,8 @@
       txt(ctx, "막전위 mV", L + 6, rows[0].y + 12, { size: 11, color: nv, weight: 600 });
       var c2 = BB.chart(ctx, { x: L, y: rows[1].y, w: R - L, h: rows[1].h }, { x: [0, 12], y: [0, 1], xTicks: [], yTicks: [0, 0.5, 1], series: [{ data: pts(res.t, res.m), color: p.warn, width: 2 }, { data: pts(res.t, res.h), color: p.bad, width: 2 }, { data: pts(res.t, res.n), color: p.accent2, width: 2 }] });
       txt(ctx, "문 열림 확률  m  h  n", L + 6, rows[1].y + 12, { size: 11, color: p.dim, weight: 600 });
-      var c3 = BB.chart(ctx, { x: L, y: rows[2].y, w: R - L, h: rows[2].h }, { x: [0, 12], y: [-iMax * 1.05, iMax * 1.05], yTicks: [0], xLabel: "시간(ms)", series: [{ data: pts(res.t, res.ina), color: p.warn, width: 2, fill: BB.alpha(p.warn, 0.18) }, { data: pts(res.t, res.ik), color: p.accent2, width: 2, fill: BB.alpha(p.accent2, 0.15) }] });
+      var c3 = BB.chart(ctx, { x: L, y: rows[2].y, w: R - L, h: rows[2].h }, { x: [0, 12], y: [-iMax * 1.05, iMax * 1.05], yTicks: [0], xTicks: [0, 2, 4, 6, 8, 10, 12], xLabel: "시간(ms)", series: [{ data: pts(res.t, res.ina), color: p.warn, width: 2, fill: BB.alpha(p.warn, 0.18) }, { data: pts(res.t, res.ik), color: p.accent2, width: 2, fill: BB.alpha(p.accent2, 0.15) }] });
       txt(ctx, "전류: 위 = 밖으로(K⁺), 아래 = 안으로(Na⁺)", L + 6, rows[2].y + 12, { size: 11, color: p.dim, weight: 600 });
-      [0, 2, 4, 6, 8, 10, 12].forEach(function (t) { txt(ctx, String(t), X(t), rows[2].y + rows[2].h + 16, { size: 10.5, mono: true, align: "center" }); });
       // 커서
       var cx = X(res.t[i]);
       ctx.strokeStyle = p.text; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(cx, top); ctx.lineTo(cx, rows[2].y + rows[2].h); ctx.stroke();
@@ -865,7 +867,7 @@
     function fires2(d, a) { var r = BD.hh({ I: twoPulse(d, a), tstop: 2 + d + 12, every: 50 }); return r.spikes.length >= 2; }
     function compute(k) {
       if (k === 0) { var lo0 = 2, hi0 = 20; for (var it0 = 0; it0 < 10; it0++) { var m0 = (lo0 + hi0) / 2; var r0 = BD.hh({ I: function (t) { return t >= 2 && t < 3 ? m0 : 0; }, tstop: 15, every: 50 }); if (r0.spikes.length) hi0 = m0; else lo0 = m0; } base = hi0; }
-      if (k >= DT.length) { if (cv) cv.redraw(); return; }
+      if (k >= DT.length) { BB.stat("rf-o-zone", zone(gap)); if (cv) cv.redraw(); return; }
       var d = DT[k], val = null;
       if (fires2(d, 300)) {
         var lo = 1, hi = 300;
@@ -1209,47 +1211,49 @@
     function poly(ctx, path, col, wd, dash) { ctx.strokeStyle = col; ctx.lineWidth = wd; ctx.setLineDash(dash || []); ctx.beginPath(); path.forEach(function (q, i) { i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); }); ctx.stroke(); ctx.setLineDash([]); }
     cv = BB.canvas("#rx-cv", function (ctx, w, h) {
       var p = P(), nv = NV(), S = stages(), narrow = w < 520, musc = BB.color("seg-musc");
-      var A = narrow ? { x: 0, y: 0, w: w, h: 250 } : { x: 0, y: 0, w: w * 0.52, h: h };
-      var u = Math.min(A.w / 10, A.h / 6.4);
-      var sc = [A.x + 1.6 * u, A.y + 1.25 * u];               // 척수 단면
-      var hip = [A.x + 2.2 * u, A.y + 3.6 * u], knee = [A.x + 7.4 * u, A.y + 3.6 * u];
+      var A = narrow ? { x: 0, y: 0, w: w, h: 260 } : { x: 0, y: 0, w: w * 0.52, h: h };
+      var u = Math.min(A.w / 9.6, A.h / 7.6), oy = A.y + (A.h - 7.4 * u) / 2, ox = A.x + (A.w - 9.4 * u) / 2;
+      var sc = [ox + 2.6 * u, oy + 1.2 * u];               // 척수 단면
+      var hip = [ox + 0.6 * u, oy + 4.4 * u], knee = [ox + 7.4 * u, oy + 4.4 * u];
       var t = tA < 0 ? 999 : tA;
       var kick = 0;
       if (tA >= 0 && t > S.total) kick = Math.sin(Math.min(1, (t - S.total) / 60) * Math.PI) * 0.6;
-      var ang = kick, shinL = 2.4 * u, foot = [knee[0] + Math.sin(ang) * shinL, knee[1] + Math.cos(ang) * shinL];
+      var ang = kick, shinL = 2.7 * u, foot = [knee[0] + Math.sin(ang) * shinL, knee[1] + Math.cos(ang) * shinL];
       // 척수 단면(나비 모양 회색질)
       ctx.fillStyle = BB.alpha(p.text, 0.08); ctx.strokeStyle = BB.alpha(p.text, 0.4); ctx.lineWidth = 1.2;
       ctx.beginPath(); ctx.ellipse(sc[0], sc[1], 0.95 * u, 0.75 * u, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
       ctx.fillStyle = BB.alpha(nv, 0.25); ctx.beginPath(); ctx.ellipse(sc[0] - 0.3 * u, sc[1], 0.22 * u, 0.5 * u, 0.4, 0, Math.PI * 2); ctx.ellipse(sc[0] + 0.3 * u, sc[1], 0.22 * u, 0.5 * u, -0.4, 0, Math.PI * 2); ctx.fill();
-      txt(ctx, "척수(허리)", sc[0], sc[1] - 0.85 * u - 4, { size: 11, align: "center" });
+      txt(ctx, "척수(허리)", sc[0] + 1.05 * u, sc[1] - 0.45 * u, { size: 11 });
       // 다리
       ctx.lineCap = "round";
       ctx.strokeStyle = BB.alpha(p.text, 0.18); ctx.lineWidth = 0.9 * u; ctx.beginPath(); ctx.moveTo(hip[0], hip[1]); ctx.lineTo(knee[0], knee[1]); ctx.stroke();
       ctx.lineWidth = 0.6 * u; ctx.beginPath(); ctx.moveTo(knee[0], knee[1]); ctx.lineTo(foot[0], foot[1]); ctx.stroke();
       var contracting = tA >= 0 && t > S.s[5].t0 && t < S.total + 80;
-      ctx.fillStyle = BB.alpha(musc, contracting ? 0.75 : 0.35); ctx.beginPath(); ctx.ellipse((hip[0] + knee[0]) / 2, hip[1] - 0.33 * u, 2.3 * u * (contracting ? 0.94 : 1), 0.3 * u * (contracting ? 1.25 : 1), 0, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = BB.alpha(p.accent2, 0.25); ctx.beginPath(); ctx.ellipse((hip[0] + knee[0]) / 2, hip[1] + 0.35 * u, 2.2 * u, 0.24 * u, 0, 0, Math.PI * 2); ctx.fill();
-      txt(ctx, "대퇴사두근", (hip[0] + knee[0]) / 2, hip[1] - 0.8 * u, { size: 11, align: "center", color: musc, weight: 600 });
-      txt(ctx, "햄스트링", (hip[0] + knee[0]) / 2, hip[1] + 0.95 * u, { size: 10.5, align: "center", color: p.accent2 });
+      var mid = (hip[0] + knee[0]) / 2 + 0.3 * u;
+      ctx.fillStyle = BB.alpha(musc, contracting ? 0.75 : 0.35); ctx.beginPath(); ctx.ellipse(mid, hip[1] - 0.25 * u, 2.6 * u * (contracting ? 0.94 : 1), 0.3 * u * (contracting ? 1.25 : 1), 0, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = BB.alpha(p.accent2, 0.3); ctx.beginPath(); ctx.ellipse(mid, hip[1] + 0.27 * u, 2.5 * u, 0.22 * u, 0, 0, Math.PI * 2); ctx.fill();
+      txt(ctx, "대퇴사두근", mid + 1.15 * u, hip[1] - 0.62 * u, { size: 11, color: musc, weight: 700 });
+      txt(ctx, "햄스트링", mid + 0.9 * u, hip[1] + 0.95 * u, { size: 10.5, align: "center", color: p.accent2, weight: 600 });
       // 망치
       var hamT = tA >= 0 && t < 3 ? 0 : 1;
       var hm = [knee[0] + 0.55 * u + hamT * 0.5 * u, knee[1] + 0.55 * u];
-      ctx.strokeStyle = p.dim; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(hm[0], hm[1]); ctx.lineTo(hm[0] + 1.0 * u, hm[1] + 0.5 * u); ctx.stroke();
+      ctx.strokeStyle = p.dim; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(hm[0], hm[1]); ctx.lineTo(hm[0] + 0.9 * u, hm[1] + 0.5 * u); ctx.stroke();
       ctx.fillStyle = p.bad; BB.rrect(ctx, hm[0] - 0.15 * u, hm[1] - 0.25 * u, 0.4 * u, 0.5 * u, 4); ctx.fill();
       handle(ctx, knee[0], knee[1] + 0.3 * u, p.bad, 6);
-      txt(ctx, "무릎(눌러서 두드리기)", knee[0] + 0.2 * u, knee[1] - 0.6 * u, { size: 10.5, align: "center" });
+      txt(ctx, "무릎", knee[0] + 0.5 * u, knee[1] - 0.25 * u, { size: 11, color: p.bad, weight: 700 });
       // 신경 경로
-      var spindle = [(hip[0] + knee[0]) / 2 + 0.8 * u, hip[1] - 0.33 * u];
-      var drg = [sc[0] - 1.25 * u, sc[1] - 0.35 * u];
-      var sens = [spindle, [spindle[0] - 0.2 * u, hip[1] - 1.1 * u], [hip[0] + 0.2 * u, hip[1] - 1.5 * u], [drg[0], drg[1] + 0.9 * u], drg, [sc[0] - 0.55 * u, sc[1] - 0.2 * u], [sc[0] + 0.25 * u, sc[1] + 0.3 * u]];
-      var mot = [[sc[0] + 0.3 * u, sc[1] + 0.35 * u], [sc[0] + 0.85 * u, sc[1] + 0.85 * u], [hip[0] + 0.8 * u, hip[1] - 1.0 * u], [(hip[0] + knee[0]) / 2 - 0.4 * u, hip[1] - 0.45 * u]];
-      var inh = [[sc[0] + 0.1 * u, sc[1] + 0.35 * u], [sc[0] + 0.25 * u, sc[1] + 1.4 * u], [hip[0] + 0.3 * u, hip[1] + 0.2 * u], [(hip[0] + knee[0]) / 2 - 0.6 * u, hip[1] + 0.35 * u]];
-      poly(ctx, sens, BB.alpha(p.ok, 0.8), 2.2);
-      poly(ctx, mot, BB.alpha(p.accent, 0.8), 2.2);
-      poly(ctx, inh, BB.alpha(p.accent2, 0.7), 1.6, [4, 3]);
+      var spindle = [mid + 1.0 * u, hip[1] - 0.25 * u];
+      var drg = [sc[0] - 1.35 * u, sc[1] - 0.1 * u];
+      var sens = [spindle, [spindle[0], hip[1] - 1.75 * u], [drg[0], hip[1] - 1.75 * u], drg, [sc[0] - 0.55 * u, sc[1] - 0.15 * u], [sc[0] + 0.25 * u, sc[1] + 0.3 * u]];
+      var mot = [[sc[0] + 0.3 * u, sc[1] + 0.35 * u], [sc[0] + 1.3 * u, sc[1] + 0.9 * u], [sc[0] + 1.3 * u, hip[1] - 1.1 * u], [mid - 0.6 * u, hip[1] - 0.45 * u]];
+      var inh = [[sc[0] + 0.05 * u, sc[1] + 0.4 * u], [sc[0] - 0.3 * u, sc[1] + 1.2 * u], [sc[0] - 0.3 * u, hip[1] + 0.27 * u], [mid - 0.6 * u, hip[1] + 0.27 * u]];
+      poly(ctx, sens, BB.alpha(p.ok, 0.85), 2.2);
+      poly(ctx, mot, BB.alpha(p.accent, 0.85), 2.2);
+      poly(ctx, inh, BB.alpha(p.accent2, 0.75), 1.6, [4, 3]);
       ctx.fillStyle = p.ok; ctx.beginPath(); ctx.arc(drg[0], drg[1], 4.5, 0, Math.PI * 2); ctx.fill();
-      txt(ctx, "감각", sens[2][0] + 4, sens[2][1] - 6, { size: 10.5, color: p.ok, weight: 600 });
-      txt(ctx, "운동", mot[2][0] + 8, mot[2][1] + 12, { size: 10.5, color: p.accent, weight: 600 });
+      txt(ctx, "감각 신경 Ia", (spindle[0] + sc[0] + 1.3 * u) / 2, hip[1] - 1.75 * u - 6, { size: 10.5, color: p.ok, weight: 600, align: "center" });
+      txt(ctx, "운동 신경 α", sc[0] + 1.42 * u, sc[1] + 1.25 * u, { size: 10.5, color: p.accent, weight: 600 });
+      txt(ctx, "억제", sc[0] - 0.4 * u, sc[1] + 1.8 * u, { size: 10, color: p.accent2, align: "right" });
       ctx.strokeStyle = p.warn; ctx.lineWidth = 2; ctx.beginPath(); for (var z = 0; z < 5; z++) { var zx = spindle[0] - 8 + z * 4; ctx.lineTo(zx, spindle[1] + (z % 2 ? -3 : 3)); } ctx.stroke();
       // 신호 점
       if (tA >= 0) {
@@ -1262,7 +1266,7 @@
       }
       lay = { knee: knee, u: u };
       // 시간표(간트)
-      var G = narrow ? { x: 14, y: A.h + 18, w: w - 28, h: h - A.h - 30 } : { x: w * 0.54, y: 26, w: w * 0.46 - 14, h: h - 40 };
+      var G = narrow ? { x: 14, y: A.h + 18, w: w - 28, h: h - A.h - 60 } : { x: w * 0.54, y: 26, w: w * 0.46 - 14, h: h - 40 };
       var tmax = Math.max(30, Math.ceil((S.total + 4) / 10) * 10);
       txt(ctx, "반사 시간표(ms)", G.x, G.y - 8, { size: 12, weight: 700, color: p.text });
       var rowH = Math.min(36, (G.h - 30) / 6), gx0 = G.x, gx1 = G.x + G.w - 6;
@@ -1279,7 +1283,7 @@
       if (tA >= 0) { var cx = GX(Math.min(t, tmax)); ctx.strokeStyle = p.text; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(cx, G.y + 6); ctx.lineTo(cx, axY); ctx.stroke(); }
       txt(ctx, "합계 " + S.total.toFixed(1) + " ms", gx1, axY + 30, { size: 12.5, weight: 700, align: "right", color: getV() < 0.5 ? p.bad : p.accent });
       if (getV() < 0.5) txt(ctx, "신경이 느려 반사가 늦다", gx0, axY + 30, { size: 11.5, weight: 700, color: p.bad });
-    }, hopt("rx-cv", 360, 520, 520));
+    }, hopt("rx-cv", 360, 580, 520));
     BB.drag(cv.canvas, { start: function (x, y) { if (!lay) return; if (Math.hypot(x - lay.knee[0], y - lay.knee[1]) < 1.2 * lay.u) tap(); } });
     BB.loop(document.getElementById("sim-nv-reflex"), function (dt) { if (running) { tA += dt * 40; if (tA > stages().total + 140) running = false; } cv.redraw(); });
   })();
@@ -1435,23 +1439,28 @@
     cv = BB.canvas("#rt-cv", function (ctx, w, h) {
       var p = P(), S = stages(), nv = NV(), narrow = w < 520;
       // 1) 쌓인 시간 막대
-      var bx = 16, bw = w - 32, by = 34, bh = 26, tmax = Math.max(300, Math.ceil((S.total + 20) / 50) * 50);
+      var bx = 16, bw = w - 32, by = 28, bh = 26, tmax = Math.max(300, Math.ceil((S.total + 20) / 50) * 50);
       var BX = function (v) { return bx + v / tmax * bw; };
-      txt(ctx, "신호부터 근육 힘까지 " + Math.round(S.total) + " ms", bx, 18, { size: 12.5, weight: 700, color: p.text });
+      txt(ctx, "신호부터 근육 힘까지 " + Math.round(S.total) + " ms", bx, 16, { size: 12.5, weight: 700, color: p.text });
       var t = tA < 0 ? S.total + 999 : tA;
-      S.s.forEach(function (q, i) {
+      for (var tk = 0; tk <= tmax; tk += 50) { ctx.strokeStyle = p.grid; ctx.beginPath(); ctx.moveTo(BX(tk), by + bh); ctx.lineTo(BX(tk), by + bh + 4); ctx.stroke(); txt(ctx, tk + "", BX(tk), by + bh + 13, { size: 9.5, mono: true, align: tk === 0 ? "left" : tk === tmax ? "right" : "center", color: p.faint }); }
+      var rowEnd = [-1e9, -1e9, -1e9];
+      ctx.font = BB.font(narrow ? 10 : 11, false, 600);
+      S.s.forEach(function (q) {
         var on = tA >= 0 && t >= q.t0 && t < q.t1;
         ctx.fillStyle = BB.alpha(q.col, on ? 0.95 : 0.6); ctx.fillRect(BX(q.t0), by, Math.max(1, BX(q.t1) - BX(q.t0)), bh);
         var mid = (BX(q.t0) + BX(q.t1)) / 2, wd = BX(q.t1) - BX(q.t0);
         if (wd > 34) txt(ctx, Math.round(q.d) + "", mid, by + bh / 2 + 4, { size: 11, mono: true, weight: 700, align: "center", color: p.bg });
-        var ly = by + bh + 14 + (i % 2) * 14;
-        if (wd > 2) txt(ctx, q.short, mid, ly, { size: narrow ? 10 : 11, align: "center", color: on ? p.text : q.col, weight: on ? 700 : 600 });
+        ctx.font = BB.font(narrow ? 10 : 11, false, 600);
+        var tw = ctx.measureText(q.short).width, x0 = BB.clamp(mid - tw / 2, bx, bx + bw - tw), r = 0;
+        while (r < 2 && rowEnd[r] > x0 - 6) r++;
+        rowEnd[r] = x0 + tw;
+        if (wd > 0.5) txt(ctx, q.short, x0, by + bh + 28 + r * 13, { size: narrow ? 10 : 11, color: on ? p.text : q.col, weight: on ? 700 : 600 });
       });
-      for (var tk = 0; tk <= tmax; tk += 50) { ctx.strokeStyle = p.grid; ctx.beginPath(); ctx.moveTo(BX(tk), by - 4); ctx.lineTo(BX(tk), by); ctx.stroke(); txt(ctx, tk + "", BX(tk), by - 6, { size: 9.5, mono: true, align: "center", color: p.faint }); }
       if (tA >= 0 && t <= tmax) { ctx.strokeStyle = p.text; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(BX(Math.min(t, S.total)), by - 6); ctx.lineTo(BX(Math.min(t, S.total)), by + bh + 4); ctx.stroke(); }
       // 2) 몸 그림과 경로
-      var top2 = by + bh + 44;
-      var area = narrow ? { x: 0, y: top2, w: w, h: 250 } : { x: 0, y: top2, w: w * 0.56, h: h - top2 - 8 };
+      var top2 = by + bh + 62;
+      var area = narrow ? { x: 0, y: top2, w: w, h: 230 } : { x: 0, y: top2, w: w * 0.56, h: h - top2 - 8 };
       var H = area.h * 0.96, cx = area.x + area.w * 0.58;
       var musc = BB.color("seg-musc");
       var mon = tA >= 0 && t >= S.s[5].t0;
@@ -1478,7 +1487,7 @@
         if (t >= S.total) txt(ctx, "첫발!", leg[0] + 3 * u, leg[1] + 14 * u, { size: 14, weight: 800, color: musc });
       }
       // 3) 내 반응 재기 패널
-      var T = narrow ? { x: 12, y: area.y + area.h + 8, w: w - 24, h: h - (area.y + area.h + 8) - 10 } : { x: w * 0.58, y: top2, w: w * 0.42 - 14, h: h - top2 - 10 };
+      var T = narrow ? { x: 12, y: area.y + area.h + 8, w: w - 24, h: h - (area.y + area.h + 8) - 6 } : { x: w * 0.58, y: top2, w: w * 0.42 - 14, h: h - top2 - 10 };
       ctx.fillStyle = BB.alpha(p.surface, 0.9); ctx.strokeStyle = p.border; ctx.lineWidth = 1; BB.rrect(ctx, T.x, T.y, T.w, T.h, 10); ctx.fill(); ctx.stroke();
       txt(ctx, "내 반응 재기", T.x + 12, T.y + 20, { size: 12, weight: 700, color: p.text });
       var lc = [T.x + T.w / 2, T.y + T.h * 0.42], LR = Math.min(T.w, T.h) * 0.2;
@@ -1491,7 +1500,7 @@
       txt(ctx, rs ? "최근: " + rs + " ms" : "기록 없음", lc[0], lc[1] + LR + 40, { size: 11, mono: true, align: "center" });
       txt(ctx, "모델의 다온(소리, 10 m): 약 " + Math.round(198) + " ms", lc[0], T.y + T.h - 12, { size: 10.5, align: "center" });
       lay = { T: T };
-    }, hopt("rt-cv", 440, 640, 520));
+    }, hopt("rt-cv", 450, 590, 520));
     BB.drag(cv.canvas, {
       start: function () {
         if (test.st === "wait") { test.st = "idle"; test.msg = "너무 일찍 눌렀다(부정 출발)"; cv.redraw(); }

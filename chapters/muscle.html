@@ -77,7 +77,7 @@
     <p>골격근을 현미경으로 보면 가로 줄무늬가 보여 <span class="term">가로무늬근</span><span class="en">(Striated muscle)</span>이라 부른다. 줄무늬의 정체가 근절이다. 근절은 두 종류의 단백질 실이 엇갈려 겹친 구조다. 굵은 실은 <span class="term">미오신</span><span class="en">(Myosin)</span>, 가는 실은 <span class="term">액틴</span><span class="en">(Actin)</span>이다. 가는 실은 양 끝의 <span class="term">Z선</span><span class="en">(Z-line)</span>에 박혀 있고, 굵은 실은 가운데 <span class="term">M선</span><span class="en">(M-line)</span>에 묶여 있다.</p>
 
     <figure class="diagram">
-      <svg viewBox="0 0 480 270" role="img" aria-label="근절의 띠: Z선, I띠, A띠, H대, M선과 굵은 필라멘트·가는 필라멘트의 배치">
+      <svg viewBox="0 0 500 270" role="img" aria-label="근절의 띠: Z선, I띠, A띠, H대, M선과 굵은 필라멘트·가는 필라멘트의 배치">
         <rect x="40" y="40" width="400" height="120" rx="8" class="f-surface"/>
         <line x1="60" y1="46" x2="60" y2="154" class="s-line" stroke-width="4"/>
         <line x1="420" y1="46" x2="420" y2="154" class="s-line" stroke-width="4"/>
@@ -213,7 +213,7 @@
     <div class="sim" id="mu-sum" data-desc="자극 빈도를 1 Hz에서 100 Hz까지 올리며 단일 연축이 가중, 불완전 강축, 완전 강축으로 바뀌는 것을 빠른 섬유와 느린 섬유에서 비교한다">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>자극 빈도와 강축</h3></div>
       <div class="sim-body side">
-        <div class="sim-view"><canvas id="sm-cv"></canvas><span class="hint">오른쪽 곡선 위를 끌어도 된다</span></div>
+        <div class="sim-view"><canvas id="sm-cv"></canvas></div>
         <div class="sim-controls">
           <label class="ctrl"><span>자극 빈도 <output id="sm-f-out"></output></span><input type="range" id="sm-f" min="1" max="100" step="1" value="8"></label>
           <div class="seg" id="sm-type"><button data-value="fast" class="on">빠른 섬유</button><button data-value="slow">느린 섬유</button></div>
@@ -224,7 +224,7 @@
         <div class="stat"><span class="k">연축의 몇 배</span><span class="v" id="sm-o-x">—</span></div>
         <div class="stat"><span class="k">모양</span><span class="v" id="sm-o-k" style="font-family:var(--font);font-size:15px">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 빈도를 2 → 10 → 25 → 60 Hz로 올리며 연축이 따로 → 가중 → 불완전 강축 → 완전 강축으로 바뀌는 것을 본다. ② 같은 20 Hz에서 빠른 섬유와 느린 섬유를 비교한다. 느린 섬유는 한 번의 연축이 길어 낮은 빈도에서 이미 매끈하게 합쳐진다. ③ 오른쪽 그래프에서 최고 힘이 빈도에 따라 S자로 오르는 것을 본다. 강축은 연축의 약 3배다. (자극 0.6초, 피로 없음. BD.twitchTrain 교육용 모델)</div>
+      <div class="sim-note">해볼 것: ① 빈도를 2 → 10 → 25 → 60 Hz로 올리며 연축이 따로 → 가중 → 불완전 강축 → 완전 강축으로 바뀌는 것을 본다. ② 같은 20 Hz에서 빠른 섬유와 느린 섬유를 비교한다. 느린 섬유는 한 번의 연축이 길어 낮은 빈도에서 이미 매끈하게 합쳐진다. ③ 오른쪽 그래프(끌어서 빈도를 고를 수도 있다)에서 최고 힘이 빈도에 따라 S자로 오르는 것을 본다. 강축은 연축의 약 3배다. (자극 0.6초, 피로 없음. BD.twitchTrain 교육용 모델)</div>
     </div>
 
     <p>실제 운동 신경은 보통 초당 8~50번 발화한다. 단일 연축은 쓸모가 거의 없고, 우리가 쓰는 힘은 거의 모두 불완전·완전 강축이다. 강축이 연축보다 센 이유는 칼슘이 오래 높게 유지되어 결합 자리가 계속 드러나 있고, 근육 안의 탄성 성분(힘줄 등)이 다 늘어날 시간이 있기 때문이다.</p>
@@ -316,7 +316,7 @@
     <div class="sim" id="mu-mu" data-desc="중추 명령을 올리며 60개 운동 단위가 작은 것부터 차례로 켜지고 발화율이 빨라지는 것을 보고, 동원과 발화율이 각각 힘에 얼마나 보태는지 비교한다">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>운동 단위 60개의 동원</h3></div>
       <div class="sim-body side">
-        <div class="sim-view"><canvas id="mn-cv"></canvas><span class="hint">아래 그래프를 좌우로 끌어도 된다</span></div>
+        <div class="sim-view"><canvas id="mn-cv"></canvas></div>
         <div class="sim-controls">
           <label class="ctrl"><span>중추 명령(노력) <output id="mn-d-out"></output></span><input type="range" id="mn-d" min="0" max="1" step="0.01" value="0.2"></label>
           <label class="ctrl"><span>깜박임 속도 <output id="mn-s-out"></output></span><input type="range" id="mn-s" min="0.05" max="1" step="0.05" value="0.25"></label>
@@ -329,7 +329,7 @@
         <div class="stat"><span class="k">첫 단위 발화율</span><span class="v" id="mn-o-r">—</span></div>
         <div class="stat"><span class="k">가장 큰 켜진 단위</span><span class="v" id="mn-o-b">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 명령을 0에서 천천히 올린다. 작은 빨간 단위(제1형)부터 켜지고, 큰 노란 단위(제2x형)는 명령이 0.4를 넘어야 켜지기 시작한다. ② 명령 0.7 이상에서는 모든 단위가 이미 켜져 있다. 그 위로 힘을 더 올리는 것은 발화율뿐이다. ③ 아래 그래프에서 점선(발화율을 8 Hz로 고정한 경우)과 실선의 차이가 발화율 조절의 몫이다. (60개 단위, 동원 역치는 지수 분포로 60배 범위, 큰 단위일수록 힘이 크다. BD.motorUnits 교육용 모델)</div>
+      <div class="sim-note">해볼 것: ① 명령을 0에서 천천히 올린다. 작은 빨간 단위(제1형)부터 켜지고, 큰 노란 단위(제2x형)는 명령이 0.4를 넘어야 켜지기 시작한다. ② 명령 0.7 이상에서는 모든 단위가 이미 켜져 있다. 그 위로 힘을 더 올리는 것은 발화율뿐이다. ③ 아래 그래프(끌어서 명령을 바꿀 수도 있다)에서 점선(발화율을 8 Hz로 고정한 경우)과 실선의 차이가 발화율 조절의 몫이다. (60개 단위, 동원 역치는 지수 분포로 60배 범위, 큰 단위일수록 힘이 크다. BD.motorUnits 교육용 모델)</div>
     </div>
 
     <p>크기 원리 덕분에 신경계는 단위 하나하나를 고를 필요가 없다. "얼마나 세게"라는 한 가지 명령만 보내면 알맞은 단위가 알맞은 순서로 켜진다. 약한 힘을 섬세하게 조절할 때는 작은 단위가 하나씩 더해지니 힘이 조금씩 늘고, 큰 힘이 필요할 때는 큰 단위가 한꺼번에 큰 몫을 더한다. 힘이 커질수록 힘 조절의 눈금도 커지는 셈이다.</p>
@@ -363,7 +363,7 @@
         <div class="stat"><span class="k">근육 전체 힘(처음 대비)</span><span class="v" id="fb-o-f">—</span></div>
         <div class="stat"><span class="k">남은 힘 I / IIa / IIx</span><span class="v" id="fb-o-c">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 기본 상태(제1형 50 %)에서 2분을 돌린다. 노란 제2x형은 1분 안에 힘의 대부분을 잃고, 빨간 제1형은 거의 그대로다. ② 비율을 0.8(지구력 선수형)과 0.2(단거리 선수형)로 바꿔 오른쪽 그래프를 비교한다. 처음 힘은 단거리형이 세고, 2분 뒤 남은 힘은 지구력형이 많다. ③ "계속 최대 수축"으로 바꾼다. 쉬는 틈이 없어 모든 유형이 훨씬 빨리 지친다. (교육용 모델: 수축 중에는 유형별 속도로 힘이 줄고 쉬는 동안 회복한다. 제2형 중 60 %를 2a형, 40 %를 2x형으로 두었다.)</div>
+      <div class="sim-note">해볼 것: ① 기본 상태(제1형 50 %)에서 2분을 돌린다. 노란 제2x형은 1분 만에 힘의 절반 넘게 잃고, 빨간 제1형은 거의 그대로다. ② 비율을 0.8(지구력 선수형)과 0.2(단거리 선수형)로 바꿔 오른쪽 그래프를 비교한다. 처음 힘은 단거리형이 세고, 2분 뒤 남은 힘은 지구력형이 많다. ③ "계속 최대 수축"으로 바꾼다. 쉬는 틈이 없어 모든 유형이 훨씬 빨리 지친다. (교육용 모델: 수축 중에는 유형별 속도로 힘이 줄고 쉬는 동안 회복한다. 제2형 중 60 %를 2a형, 40 %를 2x형으로 두었다.)</div>
     </div>
 
     <p>운동 중 근육이 지치는 이유는 한 가지가 아니다. 짧고 센 운동에서는 인산크레아틴이 바닥나고 무기 인산이 쌓여 교차다리와 칼슘 방출이 방해받는다. 오래 하는 운동에서는 근육 글리코겐이 줄어든다. 중추 신경계가 명령을 줄이는 것(중추 피로)도 한몫한다. 다음 장(<a href="exercise.html">12장</a>)에서 에너지 쪽에서 다시 본다.</p>
@@ -647,7 +647,7 @@
       return BB.fmt(m * 1e9, 2) + " nm";
     }
     var cv = BB.canvas("#zm-cv", function (ctx, w, h) {
-      var p = P(), top = 34, bot = 56, W = w, H = h - top - bot, cx = w / 2, cy = top + H / 2;
+      var p = P(), top = 34, bot = 74, W = w, H = h - top - bot, cx = w / 2, cy = top + H / 2;
       var i = Math.min(4, Math.floor(z)), f = z - i;
       if (z >= 5) { i = 5; f = 0; }
       ctx.save(); ctx.beginPath(); ctx.rect(0, top, w, H); ctx.clip();
@@ -677,7 +677,7 @@
       });
       // 아래: 로그 눈금자(1 m ~ 1 nm)
       var fov = fovAt(Math.min(z, 4.999)); if (z >= 5) fov = LV[5].fov;
-      var rx0 = 20, rx1 = w - 20, ry = h - 30;
+      var rx0 = 20, rx1 = w - 20, ry = h - 50;
       var RX = function (m) { return rx0 + ((0 - Math.log10(m)) / 9) * (rx1 - rx0); };
       ctx.strokeStyle = p.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(rx0, ry); ctx.lineTo(rx1, ry); ctx.stroke();
       [[1, "1 m"], [1e-2, "1 cm"], [1e-3, "1 mm"], [1e-6, "1 µm"], [1e-9, "1 nm"]].forEach(function (t) {
@@ -715,7 +715,7 @@
   (function () {
     var sl = 2.6, playing = false, t = 0, lay = null, ph = 0;
     var cv = BB.canvas("#sl-cv", function (ctx, w, h) {
-      var p = P(), k = Math.min(110, (w - 40) / 3.9), cx = w / 2, cy = 30 + (h * 0.5) / 2, hh = h * 0.22;
+      var p = P(), k = Math.min(160, (w - 40) / 3.9), cx = w / 2, cy = 56 + (h * 0.42) / 2, hh = h * 0.2;
       var r = drawSarc(ctx, cx, cy, k, sl, hh, { phase: ph });
       handle(ctx, r.zr, cy - hh - 10, 8, p.accent); handle(ctx, r.zl, cy - hh - 10, 6, p.dim);
       lay = { cx: cx, k: k, cy: cy, hh: hh };
@@ -760,6 +760,7 @@
       { name: "결합", ang: -35, att: true, nuc: "ADP·Pi", info: "<h4>④ 액틴에 붙는다</h4><p>장전된 머리가 다음 액틴 분자에 붙는다. 칼슘이 트로포닌에 붙어 트로포미오신이 비켜나 있을 때만 가능하다.</p>" },
       { name: "힘내기", ang: 35, att: true, nuc: "ADP", info: "<h4>⑤ 힘내기(파워 스트로크)</h4><p>무기 인산이 떨어지는 순간 머리가 고개를 꺾어 액틴을 M선 쪽으로 약 10 nm 당긴다. 이어 ADP가 떨어지면 다시 ① 경직 결합이다.</p>" },
     ];
+    var SHORT = ["경직 결합", "ATP·분리", "장전", "결합", "힘내기"];
     var st = 0, prev = 0, a = 1, shift = 0, shiftFrom = 0, moved = 0, used = 0, playing = true, timer = 0, msg = "";
     var chips = document.getElementById("cy-chips");
     chips.innerHTML = ST.map(function (s, i) { return "<span>" + (i + 1) + " " + s.name + "</span>"; }).join("");
@@ -781,7 +782,7 @@
     document.getElementById("cy-info").innerHTML = ST[0].info;
     var cv = BB.canvas("#cy-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560;
-      var SW = narrow ? w : w * 0.6, SH = narrow ? h * 0.56 : h;
+      var SW = narrow ? w : w * 0.55, SH = narrow ? h * 0.56 : h;
       var nm = Math.max(2.4, SW / 110);   // px per nm
       var ay = SH * 0.3, my = SH * 0.8, act = p.accent2, myo = BB.color("prot");
       var e = a < 1 ? (1 - Math.cos(Math.PI * a)) / 2 : 1;
@@ -835,7 +836,7 @@
       if (st === 4) { ctx.strokeStyle = p.accent; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(hx - 20, ay - sp - 4); ctx.lineTo(hx - 20 + 10 * nm * e, ay - sp - 4); ctx.stroke(); txt(ctx, "10 nm", hx - 20 + 5 * nm, ay - sp - 10, { color: p.accent, align: "center", size: 11, weight: 700, mono: true }); }
       if (msg) { ctx.fillStyle = BB.alpha(p.bad, 0.12); ctx.fillRect(0, SH - 24, SW, 24); txt(ctx, msg, SW / 2, SH - 12, { color: p.bad, align: "center", base: "middle", size: 12, weight: 700 }); }
       // 주기 고리
-      var rcx = narrow ? w / 2 : w * 0.8, rcy = narrow ? SH + (h - SH) / 2 : h / 2, R = narrow ? Math.min(w * 0.3, (h - SH) * 0.36) : Math.min(w * 0.13, h * 0.32);
+      var rcx = narrow ? w / 2 : w * 0.77, rcy = narrow ? SH + (h - SH) / 2 : h / 2, R = narrow ? Math.min(w * 0.24, (h - SH) * 0.34) : Math.min(w * 0.1, h * 0.3);
       ctx.strokeStyle = p.border; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(rcx, rcy, R, 0, Math.PI * 2); ctx.stroke();
       ST.forEach(function (s, k) {
         var th = -Math.PI / 2 + (k * 2 * Math.PI) / 5, x = rcx + Math.cos(th) * R, y = rcy + Math.sin(th) * R;
@@ -843,7 +844,7 @@
         ctx.beginPath(); ctx.arc(x, y, 12, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
         txt(ctx, String(k + 1), x, y + 0.5, { color: k === st ? "#fff" : p.text, align: "center", base: "middle", size: 11.5, mono: true, weight: 700 });
         var lx = rcx + Math.cos(th) * (R + 20), ly = rcy + Math.sin(th) * (R + 20);
-        txt(ctx, s.name, lx, ly, { color: k === st ? p.text : p.dim, align: Math.cos(th) > 0.2 ? "left" : Math.cos(th) < -0.2 ? "right" : "center", base: "middle", size: 11, weight: k === st ? 700 : 400 });
+        txt(ctx, SHORT[k], lx, ly, { color: k === st ? p.text : p.dim, align: Math.cos(th) > 0.2 ? "left" : Math.cos(th) < -0.2 ? "right" : "center", base: "middle", size: 11, weight: k === st ? 700 : 400 });
       });
       txt(ctx, "ATP 1개", rcx, rcy - 6, { align: "center", size: 11, color: p.ok, weight: 700 });
       txt(ctx, "= 1바퀴", rcx, rcy + 9, { align: "center", size: 11 });
@@ -907,7 +908,7 @@
       var sl = 2.5 - 0.35 * f, kk = Math.min(60, w / 9);
       for (var j = -1; j <= 1; j++) drawSarc(ctx, cx + j * 2.5 * kk, sh * 0.9, kk, sl, 8, { phase: tms * 0.2 });
       // 아래 그래프
-      var box = { x: 50, y: sh + 22, w: w - 66, h: h - sh - 60 };
+      var box = { x: 50, y: sh + 34, w: w - 66, h: h - sh - 80 };
       var c2 = BB.chart(ctx, box, { x: [0, T], y: [0, 1.1], xLabel: "자극 뒤 시간(ms)", yTicks: [0, 0.5, 1], yFmt: function (v) { return v.toFixed(1); } });
       var sCa = [], sF = [], sV = [];
       for (var q = 0; q < res.t.length; q++) { var tt = res.t[q] * 1000; if (tt > T) break; sCa.push([tt, res.ca[q]]); sF.push([tt, res.f[q]]); }
@@ -915,9 +916,9 @@
       ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip();
       [[sV, nerveC, 1.8], [sCa, caC, 2.2], [sF, p.accent, 2.6]].forEach(function (s) { ctx.strokeStyle = s[1]; ctx.lineWidth = s[2]; ctx.beginPath(); s[0].forEach(function (pt, k) { k ? ctx.lineTo(c2.X(pt[0]), c2.Y(pt[1])) : ctx.moveTo(c2.X(pt[0]), c2.Y(pt[1])); }); ctx.stroke(); });
       ctx.restore();
-      txt(ctx, "정규화(최대 = 1)", box.x + 4, box.y + 10, { size: 11 });
-      txt(ctx, "막전위", c2.X(6), box.y + 26, { color: nerveC, size: 11, weight: 600 });
-      txt(ctx, "칼슘", c2.X(T * 0.12), c2.Y(0.95), { color: caC, size: 11, weight: 600 });
+      txt(ctx, "정규화(최대 = 1)", box.x, box.y - 8, { size: 11 });
+      txt(ctx, "막전위", c2.X(6) + 6, box.y + 30, { color: nerveC, size: 11, weight: 600 });
+      txt(ctx, "칼슘", c2.X(T * 0.22) + 4, c2.Y(at(res.ca, T * 0.22)) - 4, { color: caC, size: 11, weight: 600 });
       txt(ctx, "힘", c2.X(res.tPeak * 1000 - 3) + 8, c2.Y(res.peak) - 6, { color: p.accent, size: 11, weight: 600 });
       if (tms >= 0 && tms <= T) { ctx.strokeStyle = p.text; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(c2.X(tms), box.y); ctx.lineTo(c2.X(tms), box.y + box.h); ctx.stroke(); }
       BB.stat("ec-o-t", Math.max(0, tms).toFixed(1) + "<small>ms</small>");
@@ -949,8 +950,7 @@
       var f = getF(), lo = 1e9, hi = 0;
       for (var i = 0; i < res.t.length; i++) if (res.t[i] > 0.45 && res.t[i] < 0.65) { lo = Math.min(lo, res.f[i]); hi = Math.max(hi, res.f[i]); }
       var rip = (hi - lo) / Math.max(hi, 1e-6);
-      var tw = getT() === "slow" ? 0.25 : 0.12;
-      if (1 / f > tw * 2.2) return ["연축이 따로", p0().dim];
+      if (lo < 0.04 * hi) return ["연축이 따로", p0().dim];
       if (rip > 0.35) return ["가중", p0().warn];
       if (rip > 0.04) return ["불완전 강축", p0().accent2];
       return ["완전 강축", p0().ok];
@@ -958,7 +958,7 @@
     function p0() { return P(); }
     cv = BB.canvas("#sm-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560;
-      var box = narrow ? { x: 46, y: 16, w: w - 60, h: h * 0.5 - 40 } : { x: 50, y: 16, w: w * 0.62 - 62, h: h - 58 };
+      var box = narrow ? { x: 58, y: 16, w: w - 72, h: h * 0.5 - 40 } : { x: 60, y: 16, w: w * 0.62 - 72, h: h - 58 };
       var c = BB.chart(ctx, box, { x: [0, 1000], y: [0, 1.1], xLabel: "시간(ms)", yLabel: "힘(최대 강축 = 1)", yTicks: [0, 0.36, 0.5, 1], yFmt: function (v) { return v.toFixed(2); },
         hlines: [{ y: twitch[getT()], color: p.faint, label: "" }],
         series: [{ data: res.t.map(function (t, i) { return [t * 1000, res.ca[i] * 0.5]; }).filter(function (_, i) { return i % 3 === 0; }), color: BB.alpha(p.warn, 0.55), width: 1.2 },
@@ -989,7 +989,7 @@
     var sl = 2.6, lay = null;
     var cv = BB.canvas("#lt-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 600;
-      var box = narrow ? { x: 50, y: h * 0.36 + 10, w: w - 66, h: h * 0.64 - 56 } : { x: 54, y: 16, w: w * 0.6 - 70, h: h - 58 };
+      var box = narrow ? { x: 50, y: h * 0.36 + 10, w: w - 66, h: h * 0.64 - 80 } : { x: 54, y: 16, w: w * 0.6 - 70, h: h - 58 };
       var A = [], Pp = [], T = [];
       for (var s = 1.2; s <= 4.0001; s += 0.02) { var a = BD.lengthTension(s), pp = BD.passiveTension(s); A.push([s, a]); Pp.push([s, pp]); T.push([s, a + pp]); }
       var c = BB.chart(ctx, box, { x: [1.2, 4.0], y: [0, 1.6], xLabel: "근절 길이(µm)", yLabel: "장력(최대 능동 = 1)", yTicks: [0, 0.5, 1, 1.5],
@@ -1024,7 +1024,7 @@
     var v = 0.3, lay = null, pos = 0.5;
     var cv = BB.canvas("#fv-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 600;
-      var box = narrow ? { x: 50, y: 16, w: w - 66, h: h * 0.62 - 50 } : { x: 54, y: 16, w: w * 0.7 - 80, h: h - 58 };
+      var box = narrow ? { x: 50, y: 16, w: w - 92, h: h * 0.62 - 50 } : { x: 54, y: 16, w: w * 0.7 - 80, h: h - 58 };
       var F = [], Pw = [];
       for (var x = -0.5; x <= 1.0001; x += 0.01) { var f = BD.forceAtV(x); F.push([x, f]); if (x >= 0) Pw.push([x, x * f * 10]); }
       var c = BB.chart(ctx, box, { x: [-0.5, 1], y: [0, 1.7], xLabel: "속도 v/vmax (← 늘어남 · 짧아짐 →)", yLabel: "힘 F/F₀", yTicks: [0, 0.5, 1, 1.5],
@@ -1045,14 +1045,25 @@
       // 장면: 도르래와 추
       var sx = narrow ? 20 : w * 0.7 + 10, sy = narrow ? h * 0.62 + 6 : 20, sw = narrow ? w - 40 : w * 0.3 - 30, shh = narrow ? h * 0.38 - 20 : h - 50;
       ctx.fillStyle = BB.alpha(p.surface, 0.7); BB.rrect(ctx, sx, sy, sw, shh, 10); ctx.fill();
-      var mx = sx + sw * 0.32, top = sy + 26, bottom = sy + shh - 16, span = bottom - top - 70;
-      var yb = top + 30 + span * (1 - pos);
-      var size = 18 + 26 * Math.min(1.6, f0) / 1.6;
-      ctx.strokeStyle = p.dim; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(mx, top); ctx.lineTo(mx, yb); ctx.stroke();
-      ctx.fillStyle = BB.color("seg-musc"); BB.rrect(ctx, mx - 7, top, 14, Math.max(16, (yb - top) * 0.55), 7); ctx.fill();
-      ctx.fillStyle = p.text; BB.rrect(ctx, mx - size / 2, yb, size, size * 0.8, 5); ctx.fill();
-      txt(ctx, "근육", mx + 12, top + 12, { size: 11 });
-      txt(ctx, "무게 ∝ 힘", mx + size / 2 + 6, yb + size * 0.4, { size: 11, base: "middle" });
+      var mx = sx + sw * 0.4, top = sy + 30, size = 26 + 40 * Math.min(1.6, f0) / 1.6, span = shh - 90 - size;
+      var yb = top + 40 + span * (1 - pos);
+      ctx.fillStyle = p.dim; ctx.fillRect(sx + 14, top - 8, sw - 28, 6);
+      for (var hx = sx + 18; hx < sx + sw - 16; hx += 10) { ctx.strokeStyle = p.faint; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(hx, top - 8); ctx.lineTo(hx - 6, top - 14); ctx.stroke(); }
+      var mlen = (yb - top) * 0.7, mw = 10 + 14 * Math.min(1.6, f0) / 1.6;
+      ctx.fillStyle = BB.alpha(BB.color("seg-musc"), 0.85); ctx.beginPath(); ctx.ellipse(mx, top + mlen / 2, mw / 2 + 4, mlen / 2, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = BB.color("seg-musc"); ctx.lineWidth = 1;
+      for (var q = -2; q <= 2; q++) { ctx.beginPath(); ctx.moveTo(mx + q * mw * 0.15, top + 4); ctx.lineTo(mx + q * mw * 0.15, top + mlen - 4); ctx.stroke(); }
+      ctx.strokeStyle = p.dim; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(mx, top + mlen); ctx.lineTo(mx, yb); ctx.stroke();
+      ctx.fillStyle = p.text; BB.rrect(ctx, mx - size / 2, yb, size, size * 0.8, 6); ctx.fill();
+      txt(ctx, Math.round(f0 * 100) + "%", mx, yb + size * 0.4, { color: p.bg, align: "center", base: "middle", size: 11.5, mono: true, weight: 700 });
+      txt(ctx, "근육", mx + mw / 2 + 8, top + mlen / 2, { size: 11, base: "middle" });
+      txt(ctx, "추(무게 = 힘)", mx + size / 2 + 8, yb + size * 0.4, { size: 11, base: "middle" });
+      if (Math.abs(v) > 0.005) {
+        var ax = sx + 22, ay0 = yb + size * 0.4, al = Math.min(60, 18 + Math.abs(v) * 70), dir = v > 0 ? -1 : 1;
+        ctx.strokeStyle = v > 0 ? p.accent : p.accent2; ctx.fillStyle = ctx.strokeStyle; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(ax, ay0 - dir * al / 2); ctx.lineTo(ax, ay0 + dir * al / 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(ax, ay0 + dir * (al / 2 + 8)); ctx.lineTo(ax - 6, ay0 + dir * al / 2); ctx.lineTo(ax + 6, ay0 + dir * al / 2); ctx.closePath(); ctx.fill();
+      }
       var kindTxt = v > 0.005 ? "단축성: 들어 올림" : v < -0.005 ? "신장성: 버티며 내려감" : "등척성: 멈춰 버팀";
       txt(ctx, kindTxt, sx + 10, sy + shh - 6, { color: v < -0.005 ? p.accent2 : v > 0.005 ? p.accent : p.dim, size: 11.5, weight: 700 });
       var pw = v * f0;
@@ -1091,7 +1102,7 @@
         ctx.fillStyle = u.on ? BB.alpha(col, 0.25 + 0.75 * flash[i]) : "transparent";
         ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
       });
-      var box = { x: 50, y: gh + 18, w: w - 66, h: h - gh - 58 };
+      var box = { x: 60, y: gh + 18, w: w - 76, h: h - gh - 58 };
       var c = BB.chart(ctx, box, { x: [0, 1], y: [0, 1], xLabel: "중추 명령", yLabel: "힘", yTicks: [0, 0.5, 1], xFmt: function (v) { return Math.round(v * 100) + "%"; }, yFmt: function (v) { return Math.round(v * 100) + "%"; },
         series: [{ data: rec, color: p.dim, width: 1.6, dash: [5, 3] }, { data: curve, color: p.accent, width: 2.6 }] });
       txt(ctx, "실선: 동원 + 발화율 · 점선: 발화율 8 Hz 고정", box.x + 6, box.y + 4, { size: 11, base: "top" });
@@ -1140,13 +1151,14 @@
     calc();
     cv = BB.canvas("#fb-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560, n = data.t.length, idx = Math.min(n - 1, Math.round((t / 120) * (n - 1)));
-      var b1 = narrow ? { x: 46, y: 16, w: w - 60, h: h * 0.5 - 50 } : { x: 50, y: 16, w: w * 0.5 - 66, h: h - 58 };
+      var b1 = narrow ? { x: 58, y: 30, w: w - 72, h: h * 0.5 - 64 } : { x: 60, y: 30, w: w * 0.5 - 76, h: h - 72 };
       var cut = function (arr) { return data.t.slice(0, idx + 1).map(function (tt, i) { return [tt, arr[i]]; }); };
       var c1 = BB.chart(ctx, b1, { x: [0, 120], y: [0, 1.05], xLabel: "시간(s)", yLabel: "남은 힘(처음 = 1)", yTicks: [0, 0.5, 1],
-        series: [{ data: cut(data.IIx), color: TC("IIx"), width: 2.4 }, { data: cut(data.IIa), color: TC("IIa"), width: 2.4 }, { data: cut(data.I), color: TC("I"), width: 2.6 }] });
-      txt(ctx, "섬유 유형별", b1.x + 6, b1.y + 4, { size: 11, base: "top" });
-      [["I", "제1형"], ["IIa", "제2a형"], ["IIx", "제2x형"]].forEach(function (q) { var y = c1.Y(data[q[0]][idx]); txt(ctx, q[1], c1.X(data.t[idx]) + 5, Math.max(b1.y + 20, y) , { color: TC(q[0]), size: 11, weight: 700, base: "middle" }); });
-      var b2 = narrow ? { x: 46, y: h * 0.5 + 16, w: w - 60, h: h * 0.5 - 58 } : { x: w * 0.5 + 46, y: 16, w: w * 0.5 - 62, h: h - 58 };
+        series: [{ data: data.t.map(function (tt, i) { return [tt, data.IIx[i]]; }), color: BB.alpha(TC("IIx"), 0.25), width: 1.4 }, { data: data.t.map(function (tt, i) { return [tt, data.IIa[i]]; }), color: BB.alpha(TC("IIa"), 0.25), width: 1.4 }, { data: cut(data.IIx), color: TC("IIx"), width: 2.4 }, { data: cut(data.IIa), color: TC("IIa"), width: 2.4 }, { data: cut(data.I), color: TC("I"), width: 2.6 }] });
+      txt(ctx, "섬유 유형별 남은 힘", b1.x, b1.y - 18, { size: 11, base: "top" });
+      var labs = [["I", "제1형"], ["IIa", "제2a형"], ["IIx", "제2x형"]].map(function (q) { return [q, c1.Y(data[q[0]][idx])]; }).sort(function (a, b) { return a[1] - b[1]; });
+      var lastY = -1e9; labs.forEach(function (L) { var y = Math.max(L[1], lastY + 14); lastY = y; txt(ctx, L[0][1], Math.min(c1.X(data.t[idx]) + 6, b1.x + b1.w - 40), y, { color: TC(L[0][0]), size: 11, weight: 700, base: "middle" }); });
+      var b2 = narrow ? { x: 58, y: h * 0.5 + 30, w: w - 72, h: h * 0.5 - 72 } : { x: w * 0.5 + 56, y: 30, w: w * 0.5 - 72, h: h - 72 };
       var ymax = 3.4;
       var c2 = BB.chart(ctx, b2, { x: [0, 120], y: [0, ymax], xLabel: "시간(s)", yLabel: "근육 전체 힘(상대)", yTicks: [0, 1, 2, 3] });
       // 누적 면적
@@ -1157,9 +1169,9 @@
         ctx.lineTo(c2.X(data.t[idx]), c2.Y(0)); ctx.closePath(); ctx.fillStyle = BB.alpha(TC(["I", "IIa", "IIx"][lev]), 0.7); ctx.fill();
       });
       ctx.restore();
-      txt(ctx, "근육 전체(유형별로 쌓음)", b2.x + 6, b2.y + 4, { size: 11, base: "top" });
+      txt(ctx, "근육 전체(유형별로 쌓음)", b2.x, b2.y - 18, { size: 11, base: "top" });
       var now = data.tot[idx][0] + data.tot[idx][1] + data.tot[idx][2];
-      txt(ctx, "처음 " + data.f0.toFixed(2) + " → 지금 " + now.toFixed(2), b2.x + b2.w - 4, b2.y + 20, { color: p.text, align: "right", size: 11.5, weight: 700, base: "top" });
+      txt(ctx, "처음 " + data.f0.toFixed(2) + " → 지금 " + now.toFixed(2), b2.x + b2.w - 4, b2.y + 4, { color: p.text, align: "right", size: 11.5, weight: 700, base: "top" });
       BB.stat("fb-o-t", Math.round(data.t[idx]) + "<small>s</small>");
       BB.stat("fb-o-f", Math.round((now / data.f0) * 100) + "<small>%</small>");
       BB.stat("fb-o-c", [data.I[idx], data.IIa[idx], data.IIx[idx]].map(function (x) { return Math.round(x * 100); }).join(" / ") + "<small>%</small>");
@@ -1233,7 +1245,7 @@
       txt(ctx, o.n + " / 60 단위", ccx, ccy - R0 - 10, { color: p.text, align: "center", size: 13, weight: 700 });
       // 그래프
       var gx = narrow ? 46 : ccx + R0 * 1.12 + 56, gw = narrow ? w - 60 : w - gx - 16;
-      var gy = narrow ? ccy + R0 + 40 : 16, gh = narrow ? h - gy - 110 : h - 120;
+      var gy = narrow ? ccy + R0 + 56 : 34, gh = narrow ? h - gy - 110 : h - 138;
       var box = { x: gx, y: gy, w: gw, h: gh };
       var c = BB.chart(ctx, box, { x: [0, data.km], y: [0, 1.05], xLabel: "", yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: function (v) { return Math.round(v * 100) + "%"; }, xFmt: function (v) { return v + " km"; },
         series: [
@@ -1244,13 +1256,13 @@
           { data: pts.map(function (q) { return [q.x, q.fr]; }), color: p.faint, width: 1.2, dash: [2, 3] },
           { data: pts.map(function (q) { return [q.x, q.f]; }), color: p.text, width: 2.4 },
         ] });
-      txt(ctx, "검정: 낸 힘 · 파랑: 중추 명령 · 점선: 유형별 남은 힘", box.x + 4, box.y + 4, { size: 11, base: "top" });
+      txt(ctx, narrow ? "검정 낸 힘 · 파랑 명령 · 점선 남은 힘" : "검정: 낸 힘 · 파랑: 중추 명령 · 점선: 유형별 남은 힘", box.x, box.y - 18, { size: 11, base: "top" });
       ctx.strokeStyle = p.accent; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(c.X(o.x), box.y); ctx.lineTo(c.X(o.x), box.y + box.h); ctx.stroke();
       // 코스 막대
       var by = box.y + box.h + 30, bx0 = box.x, bx1 = box.x + box.w;
       ctx.fillStyle = BB.alpha(p.text, 0.08); BB.rrect(ctx, bx0, by, bx1 - bx0, 14, 7); ctx.fill();
       ctx.fillStyle = BB.alpha(p.accent, 0.5); BB.rrect(ctx, bx0, by, (bx1 - bx0) * pos, 14, 7); ctx.fill();
-      if (data.km === 10) { ctx.fillStyle = BB.alpha(p.bad, 0.35); ctx.fillRect(c.X(9.6), by, c.X(10) - c.X(9.6), 14); txt(ctx, "스퍼트", c.X(9.8), by + 28, { color: p.bad, align: "center", size: 11, weight: 700 }); }
+      if (data.km === 10) { ctx.fillStyle = BB.alpha(p.bad, 0.35); ctx.fillRect(c.X(9.6), by, c.X(10) - c.X(9.6), 14); txt(ctx, "스퍼트 →", c.X(9.6) - 4, box.y + box.h - 8, { color: p.bad, align: "right", size: 11, weight: 700 }); }
       handle(ctx, bx0 + (bx1 - bx0) * pos, by + 7, 9, p.accent);
       txt(ctx, "출발", bx0, by + 28, { size: 11 }); txt(ctx, "결승 " + data.km + " km", bx1, by + 28, { align: "right", size: 11 });
       lay = { bx0: bx0, bx1: bx1, by: by, box: box };

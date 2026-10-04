@@ -448,6 +448,7 @@
     var EVC = { run: "#69db7c", stop: "#7f8aa3", eat: "#ffd43b", drink: "#74c0fc", alt: "#b197fc", heat: "#ff922b", bleed: "#ff6b6b", fluid: "#66d9e8" };
     var S, segTh, gluRes, hpaRes, dirtyGlu, dirtyHpa, paused = false, lastUi = 0;
     var wave = WaveGen(6);
+    wave.advance(0.1, 72, 123, 78, 13); for (var wi = 0; wi < 60; wi++) wave.advance(0.1, 72, 123, 78, 13);
     var getPace = BB.range("vm-pace", function (v) { return v.toFixed(1) + " km/h"; });
     var getSpeed = BB.seg("vm-speed");
     function reset() {
@@ -616,8 +617,8 @@
       ctx.fillStyle = MON.dim; ctx.font = BB.font(10.5); ctx.textAlign = "left"; ctx.textBaseline = "top";
       var wl = win >= 3600 ? (win / 3600) + "시간" : (win / 60) + "분";
       ctx.fillText("추세: 지난 " + wl + " · " + clock(420 + S.t / 60) + "  " + (ALTS[S.altI] ? ALTS[S.altI].toLocaleString() + " m · " : "") + WEATHER[S.wI].k, 8, top);
-      var gx = 34, gw = (w - gx - 12 - 28) / 2, gh = (h - top - 26 - 10) / 2;
-      var boxes = [{ x: gx, y: top + 18, w: gw, h: gh }, { x: gx + gw + 28, y: top + 18, w: gw, h: gh }, { x: gx, y: top + 26 + gh, w: gw, h: gh }, { x: gx + gw + 28, y: top + 26 + gh, w: gw, h: gh }];
+      var gx = 34, gw = (w - gx - 12 - 28) / 2, gh = (h - top - 18 - 24 - 8) / 2;
+      var boxes = [{ x: gx, y: top + 18, w: gw, h: gh }, { x: gx + gw + 28, y: top + 18, w: gw, h: gh }, { x: gx, y: top + 42 + gh, w: gw, h: gh }, { x: gx + gw + 28, y: top + 42 + gh, w: gw, h: gh }];
       trend(ctx, boxes[0], "glu", MON.glu, [40, 200, 70], "혈당 mg/dL", function (v) { return Math.round(v); }, S.t, win);
       trend(ctx, boxes[1], "core", MON.core, [36, 41, 39.5], "심부 체온 °C", function (v) { return v.toFixed(2); }, S.t, win);
       trend(ctx, boxes[2], "cort", MON.cort, [0, 30], "코르티솔 µg/dL", function (v) { return v.toFixed(1); }, S.t, win);
@@ -719,15 +720,17 @@
       var tEnd = Math.max(R.end, O ? O.end : 0);
       var cx0 = 52, cx1 = narrow ? w - 14 : w * 0.66;
       // 트랙
-      var ty = 34, tx0 = cx0, tx1 = cx1;
+      var ty = 46, tx0 = cx0, tx1 = cx1;
       ctx.strokeStyle = p.border; ctx.lineWidth = 8; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(tx0, ty); ctx.lineTo(tx1, ty); ctx.stroke(); ctx.lineCap = "butt";
       ctx.font = BB.font(10, true); ctx.fillStyle = p.dim; ctx.textAlign = "center"; ctx.textBaseline = "top";
       for (var k = 0; k <= 10; k++) { var kx = tx0 + (tx1 - tx0) * k / 10; ctx.fillStyle = p.dim; ctx.fillRect(kx - 0.5, ty + 5, 1, 5); if (!narrow || k % 2 === 0) ctx.fillText(k + (k === 10 ? " km" : ""), kx, ty + 11); }
+      var mainX = tx0 + (tx1 - tx0) * at(R, "km", cur) / 10;
       var runner = function (Rr, col, ghost, lbl) {
         var km = at(Rr, "km", cur), x = tx0 + (tx1 - tx0) * km / 10;
+        var lift = ghost && Math.abs(x - mainX) < 56 ? 13 : 0;
         ctx.globalAlpha = ghost ? 0.45 : 1; ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, ty, ghost ? 6 : 8, 0, Math.PI * 2); ctx.fill();
         ctx.strokeStyle = p.bg; ctx.lineWidth = 2; ctx.stroke();
-        ctx.font = BB.font(10.5, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillStyle = col; ctx.fillText(lbl, BD.clamp(x, tx0 + 14, tx1 - 14), ty - (ghost ? 8 : 10));
+        ctx.font = BB.font(10.5, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillStyle = col; ctx.fillText(lbl, BD.clamp(x, tx0 + 20, tx1 - 20), ty - (ghost ? 8 + lift : 10));
         ctx.globalAlpha = 1;
       };
       var nameOf = function (k) { return k === "now" ? "오늘" : "12주 뒤"; };
@@ -744,7 +747,7 @@
         { key: "glu", y: [60, 160], label: "혈당 mg/dL", col: BB.color("glu"), fmt: function (v) { return Math.round(v); } },
         { key: "sweat", y: [0, 1.2], label: "누적 땀 L", col: BB.color("water"), fmt: function (v) { return v.toFixed(2); } },
       ];
-      var top = 62, rh = narrow ? 66 : (h - top - 34) / rows.length;
+      var top = 72, rh = narrow ? 66 : (h - top - 34) / rows.length;
       var X = null;
       rows.forEach(function (r, i) {
         var box = { x: cx0, y: top + i * rh + 4, w: cx1 - cx0, h: rh - 14 };
@@ -766,7 +769,7 @@
       ctx.strokeStyle = p.text; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(X(cur), top); ctx.lineTo(X(cur), top + rows.length * rh - 8); ctx.stroke();
       lay = { x0: cx0, x1: cx1, tEnd: tEnd };
       // 구간 기록표
-      var sx = narrow ? 14 : cx1 + 22, sy = narrow ? yAx + 34 : 64, sw = narrow ? w - 28 : w - cx1 - 30;
+      var sx = narrow ? 14 : cx1 + 22, sy = narrow ? yAx + 34 : 74, sw = narrow ? w - 28 : w - cx1 - 30;
       ctx.fillStyle = p.text; ctx.font = BB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
       ctx.fillText("구간 기록(" + nameOf(who()) + ")", sx, sy - 22);
       var cols = [0, 0.22, 0.55, 0.8].map(function (f) { return sx + f * sw; });
@@ -788,7 +791,7 @@
       ctx.strokeStyle = p.border; ctx.beginPath(); ctx.moveTo(sx, yy2 - 2); ctx.lineTo(sx + sw, yy2 - 2); ctx.stroke();
       ctx.fillStyle = p.text; ctx.font = BB.font(11.5, true, 700); ctx.textAlign = "left"; ctx.fillText("합계", sx, yy2 + 2); ctx.textAlign = "right"; ctx.fillText(mmss(R.raceTime), cols[1] + sw * 0.2 - 4, yy2 + 2);
       if (O) { ctx.fillStyle = p.dim; ctx.font = BB.font(10.5); ctx.textAlign = "left"; ctx.fillText(nameOf(who() === "now" ? "after" : "now") + ": " + mmss(O.raceTime) + " (차이 " + mmss(Math.abs(O.raceTime - R.raceTime)) + ")", sx, yy2 + 20); }
-    }, { get height() { return $("rc-cv").parentElement.clientWidth < 620 ? 660 : 470; } });
+    }, { get height() { return $("rc-cv").parentElement.clientWidth < 620 ? 670 : 480; } });
     BB.drag(cv.canvas, { move: function (x) { if (!lay) return; cur = BD.clamp((x - lay.x0) / (lay.x1 - lay.x0) * lay.tEnd, 0, lay.tEnd); playing = false; $("rc-play").textContent = "재생"; cv.redraw(); } });
     $("rc-play").addEventListener("click", function () { playing = !playing; if (playing && lay && cur >= lay.tEnd - 0.1) cur = 0; this.textContent = playing ? "일시정지" : "재생"; });
     $("rc-re").addEventListener("click", function () { cur = 0; playing = true; $("rc-play").textContent = "일시정지"; cv.redraw(); });
@@ -803,7 +806,7 @@
   /* ---------------------------------------------------------- 3. 고지대 */
   (function () {
     var lay = null, cv = null;
-    var MARKS = [{ h: 1947, k: "한라산" }, { h: 2400, k: "비행기 객실 기압" }, { h: 3640, k: "라파스(도시)" }, { h: 5364, k: "에베레스트 베이스캠프" }, { h: 8848, k: "에베레스트" }];
+    var MARKS = [{ h: 1947, k: "한라산" }, { h: 3640, k: "라파스(도시)" }, { h: 5364, k: "에베레스트 베이스캠프" }, { h: 8848, k: "에베레스트" }];
     var getH = BB.range("al-h", function (v) { return Math.round(v).toLocaleString() + " m"; }, function () { calc(); });
     var getD = BB.range("al-d", function (v) { return v + "일"; }, function () { calc(); });
     var exSel = BB.seg("al-ex", function () { calc(); });
@@ -857,7 +860,6 @@
       // 등반가: 오르막 위 위치
       var fx = 0; for (var i = 1; i < 7; i++) { if (H <= prof[i][1]) { fx = prof[i - 1][0] + (prof[i][0] - prof[i - 1][0]) * (H - prof[i - 1][1]) / (prof[i][1] - prof[i - 1][1]); break; } fx = prof[i][0]; }
       var cxp = Math.max(px(fx), ax + 150 * (narrow ? 0.9 : 0.6)), cyp = Y(H);
-      ctx.strokeStyle = p.text; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(ax, cyp); ctx.lineTo(cxp, cyp); ctx.stroke(); ctx.setLineDash([]);
       var col = A.sat < 0.8 ? p.bad : A.sat < 0.9 ? p.warn : p.ok;
       ctx.fillStyle = p.bg; ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(cxp, cyp, 9, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
       ctx.fillStyle = col; ctx.beginPath(); ctx.arc(cxp, cyp, 3.5, 0, Math.PI * 2); ctx.fill();
@@ -879,16 +881,17 @@
       });
       ctx.fillStyle = p.dim; ctx.font = BB.font(10.5); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("점선: 해수면", bx + bw - 4, by + 4);
       // 포화도 계기판 + 숫자
-      var gy = by + bh + 34, gr = Math.min(64, (narrow ? w * 0.22 : bw * 0.24));
-      var gcx = bx + gr + 4, gcy = gy + gr + 6;
+      var gy = by + bh + 34, gr = narrow ? 56 : Math.min(64, bw * 0.24);
+      var gcx = narrow ? w * 0.5 : bx + gr + 4, gcy = gy + gr + 6;
       BD.gauge(ctx, gcx, gcy, gr, A.sat * 100, { min: 0, max: 100, zones: [{ to: 80, color: BB.alpha(p.bad, 0.6) }, { to: 90, color: BB.alpha(p.warn, 0.6) }, { to: 100, color: BB.alpha(p.ok, 0.6) }], label: "산소 포화도", text: (A.sat * 100).toFixed(0) + "%" });
-      var lx = gcx + gr + 22, ly = gy + 2;
+      var lx = narrow ? 16 : gcx + gr + 22, ly = narrow ? gcy + 34 : gy + 2, rx = narrow ? w - 16 : Math.min(w - 8, lx + 220);
       var lines = [["PaCO₂", A.paco2.toFixed(1) + " mmHg", A.paco2 < 32 ? p.accent2 : p.text], ["pH", A.ph.toFixed(2), A.ph > 7.45 ? p.warn : p.text], ["헤모글로빈", A.hb.toFixed(1) + " g/dL", p.text], ["동맥 산소 함량", A.cao2.toFixed(1) + " mL/dL", p.text], ["심박 · 환기", Math.round(R.hr) + " bpm · " + R.ve.toFixed(1) + " L/min", p.text]];
       ctx.textAlign = "left"; ctx.textBaseline = "top";
-      lines.forEach(function (l, k) { ctx.font = BB.font(10.5); ctx.fillStyle = p.dim; ctx.fillText(l[0], lx, ly + k * 20); ctx.font = BB.font(12, true, 700); ctx.fillStyle = l[2]; ctx.textAlign = "right"; ctx.fillText(l[1], Math.min(w - 8, lx + (narrow ? w - lx - 10 : 220)), ly + k * 20); ctx.textAlign = "left"; });
+      lines.forEach(function (l, k) { ctx.font = BB.font(10.5); ctx.fillStyle = p.dim; ctx.fillText(l[0], lx, ly + k * 20); ctx.font = BB.font(12, true, 700); ctx.fillStyle = l[2]; ctx.textAlign = "right"; ctx.fillText(l[1], rx, ly + k * 20); ctx.textAlign = "left"; });
       var msg = R.x > 1 ? "이 높이에서는 걷기조차 최대 산소 섭취량을 넘는다" : A.sat < 0.6 && getD() < 3 ? "순응 없이 이 높이에 오면 몇 분 안에 의식을 잃을 수 있다" : A.sat < 0.85 ? "두통·구역·불면 같은 급성 고산병이 흔하다" : "";
-      if (msg) { ctx.fillStyle = A.sat < 0.6 || R.x > 1 ? p.bad : p.warn; ctx.font = BB.font(11.5, false, 700); ctx.textAlign = "left"; BB.wrapText(ctx, msg, bx, gcy + 18, w - bx - 10, 15, 2); }
-    }, { get height() { return $("al-cv").parentElement.clientWidth < 600 ? 640 : 420; } });
+      var my = narrow ? ly + 5 * 20 + 8 : Math.max(gcy + 30, ly + 5 * 20 + 6);
+      if (msg) { ctx.fillStyle = A.sat < 0.6 || R.x > 1 ? p.bad : p.warn; ctx.font = BB.font(11.5, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; BB.wrapText(ctx, msg, narrow ? 16 : bx, my, w - (narrow ? 32 : bx + 10), 15, 2); }
+    }, { get height() { return $("al-cv").parentElement.clientWidth < 600 ? 770 : 460; } });
     BB.drag(cv.canvas, { move: function (x, y) { if (!lay || x > lay.x1) return; var hh = (lay.Y0 - y) / (lay.Y0 - lay.Y1) * 9000; getH.set(Math.round(BD.clamp(hh, 0, 8848))); } });
   })();
 
@@ -896,6 +899,7 @@
   (function () {
     var cache = {}, res = null, tc = 0, lay = null, playing = true;
     var wave = WaveGen(5);
+    for (var wi = 0; wi < 50; wi++) wave.advance(0.1, 72, 120, 80, 14);
     var getP = BB.range("bl-p", function (v) { return v + "% (" + (v * 50).toLocaleString() + " mL)"; }, BB.debounce(run, 60));
     var getV = BB.range("bl-v", function (v) { return v.toLocaleString() + " mL"; }, BB.debounce(run, 60));
     var ft = BB.seg("bl-ft", run);
@@ -906,8 +910,8 @@
       var key = [loss, kind, amt, gain].join("|");
       if (!cache[key]) {
         var ev = [];
-        for (var i = 0; i < 24; i++) ev.push({ t: 30 + i * 5, kind: "bleed", value: loss / 24 });
-        for (var j = 0; j < 24 && amt > 0; j++) ev.push({ t: 300 + j * 5, kind: "infuse", value: amt * keep / 24 });
+        for (var i = 0; i < 120; i++) ev.push({ t: 30 + i, kind: "bleed", value: loss / 120 });
+        for (var j = 0; j < 120 && amt > 0; j++) ev.push({ t: 300 + j, kind: "infuse", value: amt * keep / 120 });
         var r = BD.baroLoop({ tstop: 600, baro: gain, events: ev });
         r.loss = loss; r.amt = amt; r.kind = kind; r.keep = keep;
         cache[key] = r;
@@ -935,7 +939,7 @@
         ],
       });
       // 추세: MAP·HR
-      var tb = { x: 40, y: monH + 22, w: w - 52, h: h - monH - 92 };
+      var tb = { x: 40, y: monH + 22, w: w - 52, h: h - monH - 116 };
       var X = function (t) { return tb.x + t / 600 * tb.w; };
       var Yp = function (v) { return tb.y + tb.h - BD.clamp(v, 0, 180) / 180 * tb.h; };
       ctx.fillStyle = "rgba(255,107,107,0.10)"; ctx.fillRect(X(30), tb.y, X(150) - X(30), tb.h);
@@ -951,12 +955,12 @@
       line(res.map, BB.trace(2)); line(res.hr, BB.trace(1));
       ctx.font = BB.font(10.5, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "top";
       ctx.fillStyle = BB.trace(2); ctx.fillText("평균 동맥압", tb.x + 4, tb.y + 3); ctx.fillStyle = BB.trace(1); ctx.fillText("심박수", tb.x + 80, tb.y + 3);
-      ctx.fillStyle = MON.bad; ctx.fillText("출혈", X(30) + 3, tb.y + 17); if (res.amt > 0) { ctx.fillStyle = "#66d9e8"; ctx.fillText(res.kind === "blood" ? "수혈" : "식염수", X(300) + 3, tb.y + 17); }
+      ctx.textBaseline = "bottom"; ctx.fillStyle = MON.bad; ctx.fillText("출혈", X(30) + 3, tb.y + tb.h - 3); if (res.amt > 0) { ctx.fillStyle = "#66d9e8"; ctx.fillText(res.kind === "blood" ? "수혈" : "식염수", X(300) + 3, tb.y + tb.h - 3); }
       ctx.strokeStyle = MON.txt; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(X(tc), tb.y); ctx.lineTo(X(tc), tb.y + tb.h); ctx.stroke();
       ctx.fillStyle = "#0b0d12"; ctx.strokeStyle = MON.txt; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(X(tc), tb.y + tb.h, 6, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
       lay = tb;
       // 혈액량 막대와 쇼크 분류
-      var vb = { x: 40, y: h - 40, w: w - 52, h: 14 };
+      var vb = { x: 40, y: h - 62, w: w - 52, h: 14 };
       var VX = function (v) { return vb.x + (v / 5500) * vb.w; };
       [[5000, 4250, "Ⅰ"], [4250, 3500, "Ⅱ"], [3500, 3000, "Ⅲ"], [3000, 0, "Ⅳ"]].forEach(function (z, k) {
         ctx.fillStyle = ["rgba(105,219,124,0.22)", "rgba(255,212,59,0.22)", "rgba(255,146,43,0.28)", "rgba(255,107,107,0.28)"][k];
@@ -971,7 +975,7 @@
       BB.stat("bl-o-cls", "분류 " + cls(lostAt(tc) / 50));
       BB.stat("bl-o-map", Math.round(map) + "<small>mmHg</small>");
       BB.stat("bl-o-hr", Math.round(hr) + " · " + si.toFixed(2));
-    }, { get height() { return $("bl-cv").parentElement.clientWidth < 560 ? 450 : 430; } });
+    }, { get height() { return $("bl-cv").parentElement.clientWidth < 560 ? 470 : 450; } });
     BB.drag(cv.canvas, { move: function (x, y) { if (!lay || y < lay.y - 10) return; tc = BD.clamp((x - lay.x) / lay.w * 600, 0, 599); playing = false; } , end: function () { playing = true; } });
     BB.loop($("sim-bleed"), function (dt) {
       if (playing) { tc += dt * 20; if (tc >= 600) tc = 0; }
@@ -1027,7 +1031,7 @@
         { key: "energy", label: "하루 에너지", txt: Math.round(c.tdee).toLocaleString() + " kcal/일" },
         { key: "lung", label: "예측 폐 부피", txt: "폐활량 " + c.lv.vc.toFixed(2) + " L · FEV₁ " + c.lv.fev1.toFixed(2) + " L" },
       ];
-      var rh = 54, y = 8;
+      var rh = (h - 34) / 8, y = 8;
       rowsLay = [];
       rows.forEach(function (r) {
         var on = sel === r.key;
@@ -1039,7 +1043,7 @@
           var X = function (v) { return L + (BD.clamp(v, r.rng[0], r.rng[1]) - r.rng[0]) / (r.rng[1] - r.rng[0]) * bw; };
           r.zones.forEach(function (z) {
             ctx.fillStyle = BB.alpha(z[2], 0.32); ctx.fillRect(X(z[0]), by, X(z[1]) - X(z[0]) - 1, bh);
-            if (z[3] && X(z[1]) - X(z[0]) > ctx.measureText(z[3]).width * 0.75 + 6) { ctx.font = BB.font(9.5); ctx.fillStyle = p.dim; ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(z[3], (X(z[0]) + X(z[1])) / 2, by + bh + 2); }
+            ctx.font = BB.font(9.5); if (z[3] && X(z[1]) - X(z[0]) > ctx.measureText(z[3]).width + 4) { ctx.fillStyle = p.dim; ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(z[3], (X(z[0]) + X(z[1])) / 2, by + bh + 2); }
           });
           var mx = X(r.val);
           ctx.fillStyle = p.text; ctx.beginPath(); ctx.moveTo(mx, by + bh + 1); ctx.lineTo(mx - 6, by - 6); ctx.lineTo(mx + 6, by - 6); ctx.closePath(); ctx.fill();
@@ -1062,7 +1066,7 @@
           ctx.fillText("기초대사 " + Math.round(c.bmr).toLocaleString(), L, by + bh + 2);
           ctx.textAlign = "right"; ctx.fillText("+ 활동·식사 " + Math.round(c.tdee - c.bmr).toLocaleString(), Xe(c.tdee), by + bh + 2);
         } else if (r.key === "lung") {
-          var lv = c.lv, Xl = function (v) { return L + v / 9 * bw; };
+          var lv = c.lv, Xl = function (v) { return L + v / (lv.tlc * 1.25) * bw; };
           var parts = [["잔기량", lv.rv, p.faint], ["날숨 예비", lv.erv, p.accent2], ["1회", lv.vt, ok], ["들숨 예비", lv.irv, BB.color("o2") || p.accent2]];
           var acc = 0;
           parts.forEach(function (q, k) {
@@ -1075,7 +1079,7 @@
         rowsLay.push({ key: r.key, y0: y - 4, y1: y + rh - 6 });
         y += rh;
       });
-    }, { get height() { return 8 * 54 + 12; } });
+    }, { get height() { return $("me-cv").parentElement.clientWidth < 560 ? 8 * 54 + 34 : 8 * 66 + 34; } });
     BB.drag(cv.canvas, { start: function (x, y) { var r = rowsLay.find(function (q) { return y >= q.y0 && y <= q.y1; }); if (r) { sel = r.key; $("me-info").innerHTML = INFO[r.key]; cv.redraw(); } } });
   })();
 
@@ -1086,7 +1090,7 @@
     $("lm-hyper").addEventListener("change", build); $("lm-after").addEventListener("change", build);
     var SYS = {
       heart: { name: "심장(최대 심박)", col: function () { return BB.color("art"); } },
-      vo2: { name: "산소 섭취(VO₂max)", col: function () { return BB.color("o2") || P().accent2; } },
+      vo2: { name: "산소 섭취(VO₂max)", col: function () { return BB.color("prot") || P().accent2; } },
       lac: { name: "젖산(8 mmol/L)", col: function () { return P().warn; } },
       ve: { name: "환기(140 L/min)", col: function () { return BB.segColor("resp"); } },
       core: { name: "체온(40 °C)", col: function () { return BB.color("heat"); } },
@@ -1158,7 +1162,7 @@
     build();
     cv = BB.canvas("#lm-cv", function (ctx, w, h) {
       var p = P(), D = data, narrow = w < 600;
-      var box = narrow ? { x: 48, y: 16, w: w - 62, h: 250 } : { x: 52, y: 16, w: w * 0.62 - 60, h: h - 60 };
+      var box = narrow ? { x: 56, y: 16, w: w - 70, h: 250 } : { x: 52, y: 16, w: w * 0.62 - 60, h: h - 60 };
       var x0 = D.xs[0], x1 = D.xs[D.xs.length - 1];
       var ser = D.keys.map(function (k) { return { data: D.xs.map(function (x, i) { return [x, Math.min(1.4, D.L[k][i]) * 100]; }), color: SYS[k].col(), width: k === D.best ? 3.2 : 2 }; });
       var c = BB.chart(ctx, box, { x: [x0, x1], y: [0, 140], xLabel: D.xl, yLabel: "한계까지(%)", series: ser, hlines: [{ y: 100, color: p.bad, label: "한계" }] });
@@ -1180,7 +1184,7 @@
       var top = vals.slice().sort(function (a, b) { return b.v - a.v; })[0];
       vals.forEach(function (q, i) {
         var yy = by + 22 + i * 34;
-        ctx.font = BB.font(11, false, q.k === top.k ? 700 : 500); ctx.fillStyle = q.k === top.k ? p.text : p.dim; ctx.textAlign = "left"; ctx.fillText(SYS[q.k].name, bx, yy);
+        ctx.fillStyle = SYS[q.k].col(); ctx.fillRect(bx, yy + 2, 10, 10); ctx.font = BB.font(11, false, q.k === top.k ? 700 : 500); ctx.fillStyle = q.k === top.k ? p.text : p.dim; ctx.textAlign = "left"; ctx.fillText(SYS[q.k].name, bx + 15, yy);
         ctx.font = BB.font(11, true, 700); ctx.textAlign = "right"; ctx.fillStyle = q.v >= 1 ? p.bad : p.text; ctx.fillText(Math.round(q.v * 100) + "%", bx + bw, yy);
         var yb = yy + 15;
         ctx.fillStyle = p.surface; ctx.fillRect(bx, yb, bw, 8);
