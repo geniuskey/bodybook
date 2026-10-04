@@ -760,7 +760,7 @@
     out();
     cv = BB.canvas("#kv-cv", function (ctx, w, h) {
       var p = P(), n = nums(), narrow = w < 560;
-      var top = 26, bot = h - 30, lo = 40, hi = 200;
+      var top = 26, bot = h - (narrow ? 52 : 30), lo = 40, hi = 200;
       var Y = function (v) { return bot - ((v - lo) / (hi - lo)) * (bot - top); };
       var x1 = narrow ? 60 : 110, cw = narrow ? 70 : 110, x2 = x1 + cw + (narrow ? 34 : 60), kw = narrow ? w - x2 - 70 : 170;
       // 눈금
