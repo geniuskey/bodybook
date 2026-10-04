@@ -150,7 +150,7 @@
       <div class="sim-readout">
         <div class="stat"><span class="k">지연</span><span class="v" id="dl-o-d">—</span></div>
         <div class="stat"><span class="k">이득</span><span class="v" id="dl-o-g">—</span></div>
-        <div class="stat"><span class="k">최대 지나침</span><span class="v" id="dl-o-o">—</span></div>
+        <div class="stat"><span class="k">최종값을 지나친 양</span><span class="v" id="dl-o-o">—</span></div>
         <div class="stat"><span class="k">판정</span><span class="v" id="dl-o-s" style="font-family:var(--font);font-size:16px">—</span></div>
       </div>
       <div class="sim-note">해볼 것: ① 지연 0.5초, 이득 4에 놓는다. 한 번 내려갔다 부드럽게 멈춘다. ② 이득은 그대로 두고 지연을 4초로 늘린다. 설정점을 지나쳐 몇 번 출렁인 뒤 가라앉는다. ③ 지연을 6초로 늘려 주황색(불안정) 영역에 들어간다. 출렁임이 점점 커지다가 효과기가 최대·최소를 오가는 진동이 된다. ④ 경계선을 따라가 보면 지연이 길수록 허용되는 이득이 작아진다. 느린 루프는 부드럽게 반응해야 한다. (경계선은 1차 지연 루프의 안정 조건을 계산한 것, 오른쪽 기록은 BD.feedback으로 돌린 것이다. 시정수 10초, 효과기 출력 ±40 제한.)</div>
@@ -533,8 +533,8 @@
     function run() { var k = D.toFixed(2) + "|" + G.toFixed(2); return cache[k] || (cache[k] = BD.feedback({ sp: 37, y0: 37, base: 37, gain: G, delay: D, tau: TAU, dist: function (t) { return t >= 10 ? -5 : 0; }, tstop: 150 })); }
     var cv = BB.canvas("#dl-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 600, r = run();
-      var b1 = narrow ? { x: 56, y: 14, w: w - 72, h: 220 } : { x: 52, y: 14, w: w * 0.42 - 64, h: h - 56 };
-      var b2 = narrow ? { x: 56, y: 310, w: w - 72, h: h - 356 } : { x: w * 0.42 + 48, y: 14, w: w * 0.58 - 62, h: h - 56 };
+      var b1 = narrow ? { x: 56, y: 14, w: w - 72, h: 220 } : { x: 52, y: 14, w: w * 0.42 - 64, h: h - 72 };
+      var b2 = narrow ? { x: 56, y: 310, w: w - 72, h: h - 376 } : { x: w * 0.42 + 48, y: 14, w: w * 0.58 - 62, h: h - 72 };
       var c1 = BB.chart(ctx, b1, { x: [0, 10], y: [0.5, 10], xLabel: "감지 지연(초)", yLabel: "이득 G" });
       // 영역 칠하기
       for (var px = 0; px < b1.w; px += 3) for (var py = 0; py < b1.h; py += 3) {
@@ -553,7 +553,7 @@
       var c2 = BB.chart(ctx, b2, { x: [0, 150], y: [lo, hi], xLabel: "시간(초)", yLabel: "조절 변수", hlines: [{ y: 37, color: p.accent2, label: "설정점" }],
         series: [{ data: pts(r.t, r.y, 2), color: D < dcrit(G) ? p.accent : p.bad, width: 2.3 }] });
       var over = 0, endV = r.y[r.y.length - 1], amp = 0;
-      r.t.forEach(function (t, i) { if (t > 10) over = Math.max(over, r.y[i] - 37); if (t > 110) amp = Math.max(amp, Math.abs(r.y[i] - endV)); });
+      r.t.forEach(function (t, i) { if (t > 10) over = Math.max(over, Math.abs(r.y[i] - 37) - Math.abs(endV - 37)); if (t > 110) amp = Math.max(amp, Math.abs(r.y[i] - endV)); });
       var stable = D < dcrit(G);
       if (!stable) { ctx.fillStyle = p.bad; ctx.font = BB.font(12.5, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("출렁임이 커지다 효과기 한계에서 진동", b2.x + 8, b2.y + 6); }
       lay = c1;
@@ -561,7 +561,7 @@
       BB.stat("dl-o-g", G.toFixed(1));
       BB.stat("dl-o-o", Math.max(0, over).toFixed(2) + "<small>°C</small>");
       BB.stat("dl-o-s", stable ? (over > 0.05 ? "출렁이다 안정" : "안정") : "<span style='color:var(--bad)'>불안정</span>");
-    }, { get height() { return narrowOf("dl-cv", 600) ? 580 : 340; } });
+    }, { get height() { return narrowOf("dl-cv", 600) ? 600 : 360; } });
     BB.drag(cv.canvas, { move: function (x, y) { if (!lay) return; var b = lay.box; if (x > b.x + b.w + 20 || y > b.y + b.h + 20) return; D = Math.round(BB.clamp((x - b.x) / b.w * 10, 0, 10) * 4) / 4; G = Math.round(BB.clamp(0.5 + (b.y + b.h - y) / b.h * 9.5, 0.5, 10) * 4) / 4; cv.redraw(); } });
   })();
 

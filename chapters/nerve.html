@@ -1251,8 +1251,8 @@
       poly(ctx, mot, BB.alpha(p.accent, 0.85), 2.2);
       poly(ctx, inh, BB.alpha(p.accent2, 0.75), 1.6, [4, 3]);
       ctx.fillStyle = p.ok; ctx.beginPath(); ctx.arc(drg[0], drg[1], 4.5, 0, Math.PI * 2); ctx.fill();
-      txt(ctx, "감각 신경 Ia", (spindle[0] + sc[0] + 1.3 * u) / 2, hip[1] - 1.75 * u - 6, { size: 10.5, color: p.ok, weight: 600, align: "center" });
-      txt(ctx, "운동 신경 α", sc[0] + 1.42 * u, sc[1] + 1.25 * u, { size: 10.5, color: p.accent, weight: 600 });
+      txt(ctx, "감각 신경 Ia", spindle[0] + 6, hip[1] - 1.45 * u, { size: 10.5, color: p.ok, weight: 600 });
+      txt(ctx, "운동 신경 α", sc[0] + 1.42 * u, hip[1] - 1.2 * u, { size: 10.5, color: p.accent, weight: 600 });
       txt(ctx, "억제", sc[0] - 0.4 * u, sc[1] + 1.8 * u, { size: 10, color: p.accent2, align: "right" });
       ctx.strokeStyle = p.warn; ctx.lineWidth = 2; ctx.beginPath(); for (var z = 0; z < 5; z++) { var zx = spindle[0] - 8 + z * 4; ctx.lineTo(zx, spindle[1] + (z % 2 ? -3 : 3)); } ctx.stroke();
       // 신호 점

@@ -68,12 +68,12 @@
         <path d="M282 110 L360 80" class="s-acc2" marker-end="url(#th-ar)" stroke-dasharray="3 4"/>
         <path d="M282 130 L360 130" class="s-acc2" marker-end="url(#th-ar)" stroke-dasharray="3 4"/>
         <text x="368" y="84" class="lbl-b">복사</text>
-        <text x="368" y="102" class="lbl-dim">적외선, 닿지 않아도</text>
+        <text x="368" y="102" class="lbl-dim">적외선</text>
         <path d="M198 120 C170 110 160 90 130 86" class="s-acc" fill="none" marker-end="url(#th-ar)"/>
         <path d="M198 150 C170 140 160 124 130 122" class="s-acc" fill="none" marker-end="url(#th-ar)"/>
         <text x="122" y="90" text-anchor="end" class="lbl-b">대류</text>
-        <text x="122" y="108" text-anchor="end" class="lbl-dim">데워진 공기가 흘러감</text>
-        <text x="122" y="124" text-anchor="end" class="lbl-dim">바람이 세면 커진다</text>
+        <text x="122" y="108" text-anchor="end" class="lbl-dim">공기가 데워져</text>
+        <text x="122" y="140" text-anchor="end" class="lbl-dim">바람에 커진다</text>
         <path d="M262 30 L280 8" class="s-line" marker-end="url(#th-ar)"/>
         <text x="288" y="20" class="lbl-dim">호흡(데워진 숨)</text>
         <circle cx="290" cy="180" r="4" class="f-water"/>
@@ -152,7 +152,7 @@
         <div class="stat"><span class="k">최대 증발 / 필요</span><span class="v" id="th-o-e">—</span></div>
         <div class="stat"><span class="k">1시간 달린 뒤 심부</span><span class="v" id="th-o-c">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 24 °C · 60 %(다온의 대회). 최대 증발량이 필요량보다 넉넉하다. ② 기온은 그대로 두고 습도만 90 %로 올린다. 파란 선이 내려와 주황 선과 만난다. 그 오른쪽(빨간 구간)에서는 땀을 아무리 흘려도 열이 쌓인다. ③ 32 °C · 80 %로 간다. 열지수가 40 °C를 훌쩍 넘고 1시간 뒤 체온이 39 °C에 가깝다. (열지수는 BD.heatIndex(미국 기상청 회귀식), 증발량은 BD.thermo로 다온이 대회 속도(804 W)로 1시간 달린 마지막 값. "필요량"은 실제 증발량에 쌓인 열을 더한 값이다. 열지수 구간은 미국 기상청 분류.)</div>
+      <div class="sim-note">해볼 것: ① 24 °C · 60 %(다온의 대회). 최대 증발량이 필요량보다 넉넉하다. ② 기온은 그대로 두고 습도만 90 %로 올린다. 파란 선이 내려와 주황 선과 만난다. 그 오른쪽(빨간 구간)에서는 땀을 아무리 흘려도 열이 쌓인다. ③ 32 °C · 80 %로 간다. 열지수가 44 °C, 1시간 뒤 체온이 40 °C에 닿는다. (열지수는 BD.heatIndex(미국 기상청 회귀식), 증발량은 BD.thermo로 다온이 대회 속도(804 W)로 1시간 달린 마지막 값. "필요량"은 실제 증발량에 쌓인 열을 더한 값이다. 열지수 구간은 미국 기상청 분류.)</div>
     </div>
 
     <p>열지수는 그늘·약한 바람을 기준으로 한 값이라 햇볕 아래에서는 실제 부담이 더 크다. 운동 경기나 야외 작업의 기준에는 햇볕과 바람까지 넣은 <span class="term">습구흑구온도</span><span class="en">(Wet-bulb globe temperature, WBGT)</span>를 쓰는 경우가 많다. 기준과 단계는 기관·나라에 따라 다르다.</p>
@@ -161,6 +161,36 @@
   <section id="effectors">
     <h2>두 개의 손잡이: 피부 혈류와 땀</h2>
     <p>체온을 재는 중심은 뇌의 <span class="term">시상하부</span><span class="en">(Hypothalamus)</span>다. 시상하부는 몸속 피의 온도와 피부의 온도 감지 신호를 함께 받아 <span class="term">설정점</span><span class="en">(Set point)</span>(약 37 °C)과 비교한다(<a href="homeostasis.html">2장</a>의 음성 되먹임). 더울 때 쓰는 손잡이는 둘이다.</p>
+    <figure class="diagram">
+      <svg viewBox="0 0 480 280" role="img" aria-label="체온 조절 되먹임 고리: 온도 감지기에서 시상하부, 효과기, 체온으로 이어진다">
+        <defs><marker id="th-ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="160" y="14" width="160" height="62" rx="12" class="f-acc-soft"/>
+        <text x="240" y="38" text-anchor="middle" class="lbl-b">시상하부</text>
+        <text x="240" y="58" text-anchor="middle" class="lbl-dim">설정점 약 37 °C와 비교</text>
+        <rect x="14" y="110" width="128" height="62" rx="12" class="f-surface"/>
+        <text x="78" y="134" text-anchor="middle" class="lbl-b">온도 감지기</text>
+        <text x="78" y="154" text-anchor="middle" class="lbl-dim">피의 온도 · 피부</text>
+        <rect x="300" y="96" width="166" height="70" rx="12" class="f-bad-soft"/>
+        <text x="383" y="118" text-anchor="middle" class="lbl-b">더울 때</text>
+        <text x="383" y="138" text-anchor="middle" class="lbl">피부 혈관 확장</text>
+        <text x="383" y="156" text-anchor="middle" class="lbl">땀</text>
+        <rect x="300" y="178" width="166" height="80" rx="12" class="f-acc2-soft"/>
+        <text x="383" y="200" text-anchor="middle" class="lbl-b">추울 때</text>
+        <text x="383" y="220" text-anchor="middle" class="lbl">피부 혈관 수축</text>
+        <text x="383" y="238" text-anchor="middle" class="lbl">떨림 · 행동(옷, 그늘)</text>
+        <rect x="140" y="214" width="120" height="48" rx="12" class="f-warn-soft"/>
+        <text x="200" y="244" text-anchor="middle" class="lbl-b">심부 체온</text>
+        <path d="M78 108 C78 60 110 45 156 45" class="s-line" fill="none" marker-end="url(#th-ar2)"/>
+        <path d="M322 45 C370 45 383 70 383 92" class="s-line" fill="none" marker-end="url(#th-ar2)"/>
+        <path d="M298 218 L264 232" class="s-line" marker-end="url(#th-ar2)"/>
+        <path d="M298 140 C280 160 272 190 252 210" class="s-line" fill="none" marker-end="url(#th-ar2)"/>
+        <path d="M138 238 C90 238 78 210 78 176" class="s-line" fill="none" marker-end="url(#th-ar2)"/>
+        <text x="40" y="216" text-anchor="middle" class="lbl-dim">되먹임</text>
+        <text x="258" y="98" class="lbl-dim">명령(자율 신경)</text>
+      </svg>
+      <figcaption><b>체온의 음성 되먹임.</b> 감지기가 잰 온도를 시상하부가 설정점과 비교하고, 차이를 줄이는 쪽으로 효과기를 움직인다. 효과기가 바꾼 체온은 다시 감지기로 돌아간다. 열이 나면 이 고리는 그대로이고 설정점만 올라간다.</figcaption>
+    </figure>
+
     <p>첫째는 <b>피부 혈류</b>다. 몸속의 열은 대부분 피가 실어 피부로 나른다. 피부 혈관을 넓히면 쉴 때 분당 0.3 L 남짓이던 피부 혈류가 더위 속 운동에서는 6~7 L까지 늘어난다. 피부가 붉어지는 것이 이것이다. 둘째는 <b>땀</b>이다. 교감 신경이 온몸의 땀샘(약 200~400만 개)을 움직여 시간당 1~2 L까지 땀을 낸다. 피부 혈류가 열을 피부까지 나르고, 땀이 그 열을 공기로 넘긴다. 둘 중 하나만으로는 안 된다.</p>
 
     <div class="sim" id="sim-th-nodes" data-desc="몸을 심부와 피부 두 칸으로 그려 피가 심부의 열을 피부로 나르고 땀이 증발로 가져가는 흐름을 움직이는 그림으로 보고, 땀샘을 끄거나 기온을 올리면 열이 어디에 쌓이는지 본다">
@@ -200,7 +230,7 @@
           <label class="ctrl"><span>옷 <output id="tc-c-out"></output></span><input type="range" id="tc-c" min="0.1" max="3" step="0.1" value="0.6"></label>
         </div>
       </div>
-      <div class="map-legend"><span><i style="background:var(--heat)"></i>심부 체온</span><span><i style="background:var(--water)"></i>평균 피부 온도</span><span><i style="background:var(--seg-musc)"></i>떨림</span></div>
+      <div class="map-legend"><span><i style="background:var(--heat)"></i>심부 체온</span><span><i style="background:var(--water)"></i>평균 피부 온도</span><span><i style="background:var(--nerve)"></i>떨림</span></div>
       <div class="sim-readout">
         <div class="stat"><span class="k">2시간 뒤 심부</span><span class="v" id="tc-o-c">—</span></div>
         <div class="stat"><span class="k">피부</span><span class="v" id="tc-o-s">—</span></div>
@@ -252,9 +282,9 @@
       <div class="map-legend"><span><i style="background:var(--text-faint)"></i>첫날(점선)</span><span><i style="background:var(--heat)"></i>심부 체온</span><span><i style="background:var(--water)"></i>땀(시간당)</span></div>
       <div class="sim-readout">
         <div class="stat"><span class="k">적응 정도</span><span class="v" id="ta-o-a">—</span></div>
-        <div class="stat"><span class="k">1시간 뒤 심부(첫날 → 지금)</span><span class="v" id="ta-o-c">—</span></div>
-        <div class="stat"><span class="k">땀(첫날 → 지금)</span><span class="v" id="ta-o-s">—</span></div>
-        <div class="stat"><span class="k">피부 혈류(첫날 → 지금)</span><span class="v" id="ta-o-b">—</span></div>
+        <div class="stat"><span class="k">심부 °C(첫날 → 지금)</span><span class="v" id="ta-o-c">—</span></div>
+        <div class="stat"><span class="k">땀 L/h</span><span class="v" id="ta-o-s">—</span></div>
+        <div class="stat"><span class="k">피부 혈류 L/min</span><span class="v" id="ta-o-b">—</span></div>
       </div>
       <div class="sim-note">해볼 것: ① 0일에서 14일까지 끈다. 처음 4~5일에 변화의 대부분이 일어난다. ② 건조한 더위에서는 땀이 늘고 체온이 낮아지며, 피부를 덜 데우게 되어 피부 혈류가 준다(그만큼 피가 근육으로 간다). ③ 습한 더위로 바꾼다. 땀은 더 늘지만 체온은 거의 그대로다. 증발이 이미 최대라 늘어난 땀이 흘러내리기만 한다. (BD.thermo acclim = 1 − e^(−일/4). 이 모델의 적응은 땀의 양만 바꾼다. 실제 적응에서 큰 몫인 혈장량 증가와 심박수 감소는 들어 있지 않다. 35 °C · 30 %, 32 °C · 80 %, 600 W로 1시간.)</div>
     </div>
@@ -475,8 +505,10 @@
     calc();
     var cv = BB.canvas("#tb-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 520, heat = BB.color("heat"), water = BB.color("water");
-      var cx = w / 2, fy = h - 46, beamY = fy - 120, half = Math.min(w * 0.36, 220);
-      var sc = Math.min(0.2, (beamY - 30) / 1100);
+      var cx = w / 2, fy = h - 30, beamY = 70, half = Math.min(w * 0.34, 200);
+      var drop = h - 70 - beamY - 50;
+      var lossTot = Math.max(0, L.rad) + Math.max(0, L.conv) + L.evap + Math.max(0, L.resp), prodTot = L.prod + Math.max(0, -L.rad) + Math.max(0, -L.conv);
+      var sc = (drop - 30) / Math.max(prodTot, lossTot, 150);
       // 받침
       ctx.fillStyle = BB.alpha(p.text, 0.2); ctx.beginPath(); ctx.moveTo(cx, beamY + 6); ctx.lineTo(cx - 30, fy); ctx.lineTo(cx + 30, fy); ctx.closePath(); ctx.fill();
       ctx.fillStyle = BB.alpha(p.text, 0.12); ctx.fillRect(cx - 70, fy, 140, 8);
@@ -487,7 +519,7 @@
       ctx.fillStyle = p.text; ctx.beginPath(); ctx.arc(cx, beamY, 6, 0, Math.PI * 2); ctx.fill();
       var pw = Math.min(half * 0.85, 120);
       function pan(x, y, items, title, side) {
-        var py = y + 40;
+        var py = y + drop;
         ctx.strokeStyle = BB.alpha(p.text, 0.5); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - pw / 2, py); ctx.moveTo(x, y); ctx.lineTo(x + pw / 2, py); ctx.stroke();
         ctx.strokeStyle = p.text; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x - pw / 2 - 6, py); ctx.lineTo(x + pw / 2 + 6, py); ctx.stroke();
         var yy = py - 2;
@@ -499,12 +531,12 @@
           yy -= hh;
         });
         // 작은 항목은 옆에
-        var sx = side < 0 ? x - pw / 2 - 10 : x + pw / 2 + 10, sy = py - 4;
-        items.forEach(function (it) { if (it.v > 0.5 && it.v * sc <= 13) { text(ctx, it.k + " " + Math.round(it.v), sx, sy, { align: side < 0 ? "right" : "left", size: 10, color: it.c, weight: 600 }); sy -= 13; } });
+        var sy = yy - 5;
+        items.forEach(function (it) { if (it.v > 0.5 && it.v * sc <= 13) { text(ctx, it.k + " " + Math.round(it.v), x, sy, { align: "center", size: 10.5, color: it.c, weight: 700 }); sy -= 13; } });
         text(ctx, title, x, py + 18, { align: "center", size: 12, weight: 700 });
       }
       var gain = [];
-      var prodItems = [{ k: "대사", v: L.met, c: heat }, { k: "떨림", v: L.shiv, c: BB.color("seg-musc") }];
+      var prodItems = [{ k: "대사", v: L.met, c: heat }, { k: "떨림", v: L.shiv, c: BB.color("nerve") }];
       if (L.rad < 0) prodItems.push({ k: "복사 유입", v: -L.rad, c: p.accent2 });
       if (L.conv < 0) prodItems.push({ k: "대류 유입", v: -L.conv, c: p.accent });
       var lossItems = [{ k: "복사", v: L.rad, c: p.accent2 }, { k: "대류", v: L.conv, c: p.accent }, { k: "증발", v: L.evap, c: water }, { k: "호흡", v: L.resp, c: p.faint }];
@@ -513,12 +545,12 @@
       // 열 입자(손실 쪽에서 날아감)
       var tot = Math.max(0, L.rad) + Math.max(0, L.conv) + L.evap;
       var nP = Math.round(tot / 40);
-      for (var k = 0; k < nP; k++) { var ph = (t * 0.35 + k * 0.173) % 1; ctx.fillStyle = BB.alpha(k % 3 === 0 ? water : heat, 1 - ph); ctx.beginPath(); ctx.arc(rx - pw / 2 + ((k * 37) % pw), ry + 30 - ph * 70, 2.2, 0, Math.PI * 2); ctx.fill(); }
+      for (var k = 0; k < nP; k++) { var ph = (t * 0.35 + k * 0.173) % 1; ctx.fillStyle = BB.alpha(k % 3 === 0 ? water : heat, 1 - ph); ctx.beginPath(); ctx.arc(rx - pw / 2 + ((k * 37) % pw), ry + drop - 40 - ph * 90, 2.2, 0, Math.PI * 2); ctx.fill(); }
       // 결론 문구
       var s = L.stored, msg = Math.abs(s) < 15 ? "균형: 체온이 그대로 유지된다" : s > 0 ? "열이 남는다(+" + Math.round(s) + " W): 체온이 계속 오른다" : "열이 모자란다(" + Math.round(s) + " W): 체온이 내려간다";
       text(ctx, msg, cx, 18, { align: "center", size: 12.5, weight: 700, color: Math.abs(s) < 15 ? p.ok : s > 40 ? p.bad : s > 0 ? p.warn : BB.color("ven") });
       text(ctx, "심부 " + L.core.toFixed(1) + " °C · 피부 " + L.skin.toFixed(1) + " °C", cx, h - 12, { align: "center", size: 11, mono: true, color: p.dim });
-    }, { get height() { return wOf("tb-cv") < 520 ? 380 : 360; } });
+    }, { get height() { return wOf("tb-cv") < 520 ? 420 : 400; } });
     BB.loop(document.getElementById("sim-th-balance"), function (dt) {
       t += dt;
       var target = BB.clamp(L.stored / 160, -1, 1) * 0.22;
@@ -532,21 +564,22 @@
     var WX = { mild: { ta: 24, rh: 60 }, hot: { ta: 30, rh: 70 }, cool: { ta: 12, rh: 50 } };
     var mets = BD.linspace(100, 1200, 23), cur = 804, lay = null;
     var wx = BB.seg("tm-wx", function () { cv.redraw(); });
-    function opt(m, k) { var W = WX[k]; return { met: Math.round(m), ta: W.ta, rh: W.rh, wind: m < 200 ? 0.3 : BB.clamp(m / 804 * 2.9, 0.5, 4.5), clo: m < 200 ? 0.5 : 0.3, minutes: 60 }; }
+    function opt(m, k) { var W = WX[k]; var f = BB.clamp((m - 100) / 300, 0, 1); return { met: Math.round(m), ta: W.ta, rh: W.rh, wind: +(0.3 + f * (BB.clamp(m / 804 * 2.9, 0.5, 4.5) - 0.3)).toFixed(2), clo: +(0.5 - 0.2 * f).toFixed(2), minutes: 60 }; }
     var cv = BB.canvas("#tm-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560, k = wx(), heat = BB.color("heat");
-      var box = narrow ? { x: 50, y: 18, w: w - 64, h: h * 0.55 - 46 } : { x: 54, y: 18, w: w * 0.6 - 66, h: h - 62 };
+      var box = narrow ? { x: 50, y: 18, w: w - 64, h: h * 0.55 - 46 } : { x: 54, y: 18, w: w * 0.6 - 66, h: h - 80 };
       var curves = Object.keys(WX).map(function (kk) { return { k: kk, d: mets.map(function (m) { return [m, last(run(opt(m, kk)), "core")]; }) }; });
       var c = BB.chart(ctx, box, { x: [100, 1200], y: [36.5, 41], xLabel: "대사량(W)", yLabel: "1시간 뒤 심부 체온(°C)", yTicks: [37, 38, 39, 40, 41],
         bands: [], hlines: [{ y: 40, color: p.bad, label: "40 °C" }],
         series: curves.map(function (cc) { return { data: cc.d, color: cc.k === k ? heat : BB.alpha(p.dim, 0.45), width: cc.k === k ? 2.8 : 1.4, dash: cc.k === k ? null : [4, 3] }; }) });
+      curves.forEach(function (cc) { if (cc.k === k) return; var e = cc.d[cc.d.length - 1], yy = Math.min(41, e[1]); text(ctx, WX[cc.k].ta + " °C", c.X(e[0]) - 4, c.Y(yy) + (yy >= 40.9 ? 14 : -6), { align: "right", size: 10, color: p.dim }); });
       [[100, "휴식"], [300, "걷기"], [600, "조깅"], [804, "대회"], [1150, "전력"]].forEach(function (q) { text(ctx, q[1], c.X(q[0]), box.y + box.h - 6, { align: "center", size: 10, color: p.dim }); });
       var r = run(opt(cur, k)), core = last(r, "core");
       handle(ctx, c.X(cur), c.Y(Math.min(41, core)), heat, 7);
       text(ctx, core.toFixed(2) + " °C", c.X(cur) + (cur > 900 ? -10 : 10), c.Y(Math.min(41, core)) - 10, { align: cur > 900 ? "right" : "left", mono: true, size: 11.5, weight: 700, color: core >= 40 ? p.bad : heat });
       lay = { c: c, box: box };
       // 오른쪽(아래): 시간 기록
-      var b2 = narrow ? { x: 50, y: box.y + box.h + 62, w: w - 64, h: h - box.y - box.h - 108 } : { x: w * 0.6 + 40, y: 18, w: w * 0.4 - 52, h: h - 62 };
+      var b2 = narrow ? { x: 50, y: box.y + box.h + 62, w: w - 64, h: h - box.y - box.h - 128 } : { x: w * 0.6 + 40, y: 18, w: w * 0.4 - 52, h: h - 80 };
       var c2 = BB.chart(ctx, b2, { x: [0, 60], y: [36.5, 41], xLabel: "시간(분)", yTicks: [37, 38, 39, 40, 41], xTicks: [0, 20, 40, 60],
         series: [{ data: r.t.map(function (tt, i) { return [tt, r.core[i]]; }), color: heat, width: 2.4 }, { data: r.t.map(function (tt, i) { return [tt, 36.5 + r.sweat[i] * 2]; }), color: BB.color("water"), width: 1.6, dash: [4, 3] }] });
       text(ctx, "심부 체온(실선) · 땀 L/h(점선, ×2 + 36.5)", b2.x, b2.y - 4, { size: 10, color: p.dim });
@@ -556,7 +589,7 @@
       BB.stat("tm-o-c", core.toFixed(2) + "<small>°C</small>");
       BB.stat("tm-o-s", last(r, "sweat").toFixed(2) + "<small>L/h</small>");
       BB.stat("tm-o-e", Math.round(ev) + " / " + Math.round(em) + "<small>W</small>");
-    }, { get height() { return wOf("tm-cv") < 560 ? 560 : 340; } });
+    }, { get height() { return wOf("tm-cv") < 560 ? 580 : 360; } });
     BB.drag(cv.canvas, { move: function (x, y) { if (!lay || y > lay.box.y + lay.box.h + 20) return; cur = BB.clamp(Math.round((100 + (x - lay.box.x) / lay.box.w * 1100) / 25) * 25, 100, 1200); cv.redraw(); } });
   })();
 
@@ -568,7 +601,7 @@
     function hiCat(hi) { var p = P(); return hi < 27 ? [p.ok, "괜찮음"] : hi < 32 ? [p.warn, "주의"] : hi < 41 ? [BB.color("heat"), "매우 주의"] : hi < 54 ? [p.bad, "위험"] : [p.bad, "매우 위험"]; }
     var cv = BB.canvas("#th-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 600, water = BB.color("water"), heat = BB.color("heat");
-      var b1 = narrow ? { x: 50, y: 22, w: w - 62, h: h * 0.46 - 50 } : { x: 54, y: 22, w: w * 0.52 - 64, h: h - 66 };
+      var b1 = narrow ? { x: 50, y: 22, w: w - 62, h: h * 0.46 - 50 } : { x: 54, y: 22, w: w * 0.52 - 64, h: h - 84 };
       var curve = RHs.map(function (rh) { var r = run(o(st.ta, rh)), n = r.t.length - 1; return { rh: rh, emax: r.emax[n], need: r.evap[n] + Math.max(0, r.stored[n]), core: r.core[n] }; });
       var ymax = 1000;
       var bands = [], firstBad = null;
@@ -583,8 +616,8 @@
       handle(ctx, c.X(st.rh), c.Y(Math.min(ymax, em)), water, 6);
       handle(ctx, c.X(st.rh), c.Y(Math.min(ymax, need)), heat, 5);
       // 오른쪽: 열지수 지도
-      var b2 = narrow ? { x: 50, y: b1.y + b1.h + 74, w: w - 62, h: h - b1.y - b1.h - 118 } : { x: w * 0.52 + 44, y: 22, w: w * 0.48 - 56, h: h - 66 };
-      var nx = 40, ny = 30, cw = b2.w / nx, ch = b2.h / ny;
+      var b2 = narrow ? { x: 50, y: b1.y + b1.h + 74, w: w - 62, h: h - b1.y - b1.h - 136 } : { x: w * 0.52 + 44, y: 22, w: w * 0.48 - 56, h: h - 84 };
+      var nx = 80, ny = 60, cw = b2.w / nx, ch = b2.h / ny;
       for (var i = 0; i < nx; i++) for (var j = 0; j < ny; j++) {
         var T = 20 + (i + 0.5) / nx * 20, RH = 100 - (j + 0.5) / ny * 90;
         var hi = BD.heatIndex(T, RH), col = hiCat(hi)[0];
@@ -607,7 +640,7 @@
       BB.stat("th-o-h", "<span style='color:" + cat[0] + "'>" + hiNow.toFixed(0) + "</span><small>°C " + cat[1] + "</small>");
       BB.stat("th-o-e", Math.round(em) + " / " + Math.round(need) + "<small>W</small>");
       BB.stat("th-o-c", cr.core[cn].toFixed(2) + "<small>°C</small>");
-    }, { get height() { return wOf("th-cv") < 600 ? 640 : 360; } });
+    }, { get height() { return wOf("th-cv") < 600 ? 660 : 380; } });
     BB.drag(cv.canvas, { move: function (x, y) {
       if (!lay) return; var b = lay.b2;
       if (x < b.x - 20 || y < b.y - 20) return;
@@ -637,7 +670,7 @@
     calc();
     var cv = BB.canvas("#tn-cv", function (ctx, w, h) {
       var p = P(), art = BB.color("art"), water = BB.color("water"), heat = BB.color("heat");
-      var cx = w / 2, cy = h * 0.52, Rs = Math.min(w * 0.3, h * 0.36), Rc = Rs * 0.58;
+      var Rs = Math.min(w * 0.26, h * 0.27), cx = w / 2, cy = 30 + 64 + Rs, Rc = Rs * 0.58;
       // 공기
       text(ctx, "공기 " + A.ta + " °C · 습도 50 %", 12, 18, { size: 11.5, weight: 600, color: p.dim });
       // 피부(고리)
@@ -666,7 +699,7 @@
         var x3 = cx - Math.cos(a) * (Rs + 6), x4 = cx - Math.cos(a) * (Rs + 52);
         if (dry >= 0) arrow(ctx, x3, y1, x4, y2, heat, wd); else arrow(ctx, x4, y2, x3, y1, p.bad, wd);
       });
-      text(ctx, (dry >= 0 ? "복사·대류 " : "주변에서 들어옴 ") + Math.round(Math.abs(dry)) + " W", cx + Rs + 8, cy + Rs * 0.62, { size: 11, weight: 600, color: dry >= 0 ? heat : p.bad });
+      text(ctx, (dry >= 0 ? "복사·대류 " : "주변에서 들어옴 ") + Math.round(Math.abs(dry)) + " W", w - 12, h - 30, { align: "right", size: 11, weight: 600, color: dry >= 0 ? heat : p.bad });
       // 증발: 위로 날아가는 물방울
       var nE = Math.round(L.evap / 30);
       for (var j = 0; j < nE; j++) { var ph = (t * 0.6 + j * 0.137) % 1, ax = cx + (((j * 53) % 100) / 100 - 0.5) * Rs * 1.5; ctx.fillStyle = BB.alpha(water, 1 - ph); ctx.beginPath(); ctx.arc(ax, cy - Rs * 0.85 - ph * 50, 2.4, 0, Math.PI * 2); ctx.fill(); }
@@ -675,12 +708,12 @@
       var ereq = L.sweat * 675, drip = Math.max(0, ereq - L.evap);
       var nD = Math.round(drip / 40);
       for (var d = 0; d < nD; d++) { var ph2 = (t * 0.8 + d * 0.21) % 1, dxp = cx + ((d * 41) % 60 - 30) / 30 * Rs * 0.5; ctx.fillStyle = BB.alpha(water, 0.9 - ph2 * 0.6); ctx.beginPath(); ctx.arc(dxp, cy + Rs + 4 + ph2 * 30, 2.4, 0, Math.PI * 2); ctx.fill(); }
-      if (nD > 0) text(ctx, "흘러내리는 땀(열을 못 가져감)", cx, h - 8, { align: "center", size: 10.5, color: p.dim });
-      text(ctx, "피 " + L.sbf.toFixed(1) + " L/min", cx - Rs - 8, cy - Rs * 0.62, { align: "right", size: 11, weight: 600, color: art });
-      text(ctx, "심부 → 피부 " + Math.round(L.qcs) + " W", cx - Rs - 8, cy - Rs * 0.62 + 15, { align: "right", size: 10.5, color: p.dim });
+      if (nD > 0) text(ctx, "흘러내리는 땀(열을 못 가져감)", cx, h - 10, { align: "center", size: 10.5, color: p.dim });
+      text(ctx, "피 " + L.sbf.toFixed(1) + " L/min", 12, h - 44, { size: 11, weight: 600, color: art });
+      text(ctx, "심부 → 피부 " + Math.round(L.qcs) + " W", 12, h - 30, { size: 10.5, color: p.dim });
       if (!sw.checked) text(ctx, "땀샘 꺼짐", w - 12, 18, { align: "right", size: 12, weight: 700, color: p.bad });
       if (L.core >= 40) text(ctx, "심부 " + L.core.toFixed(1) + " °C: 위험", w - 12, 36, { align: "right", size: 12, weight: 700, color: p.bad });
-    }, { get height() { return wOf("tn-cv") < 520 ? 380 : 360; } });
+    }, { get height() { return wOf("tn-cv") < 520 ? 400 : 400; } });
     BB.loop(document.getElementById("sim-th-nodes"), function (dt) { t += dt; cv.redraw(); });
   })();
 
@@ -711,20 +744,20 @@
       BD.body(ctx, cx + jit, top - H * k2 / 2, H * (1 + k2), { fill: BB.alpha(p.accent, 0.12 + clo * 0.08), stroke: BB.alpha(p.accent, 0.5) });
       BD.body(ctx, cx + jit, top, H, { fill: BB.alpha(tcol(L.skin), 0.75), stroke: BB.alpha(p.text, 0.4) });
       text(ctx, "피부 " + L.skin.toFixed(1) + " °C", cx, top + H * 0.36, { align: "center", size: 11, weight: 700, color: p.text });
-      if (L.shiv > 20) text(ctx, "떨림 " + Math.round(L.shiv) + " W", cx, top + H + 14, { align: "center", size: 11, weight: 700, color: BB.color("seg-musc") });
+      if (L.shiv > 20) text(ctx, "떨림 " + Math.round(L.shiv) + " W", cx, top + H + 14, { align: "center", size: 11, weight: 700, color: BB.color("nerve") });
       if (L.skin < 0) text(ctx, "피부가 어는 온도: 동상", cx, top + H + 28, { align: "center", size: 11, weight: 700, color: p.bad });
       // 시간 기록
       var box = narrow ? { x: 50, y: top + H + 50, w: w - 92, h: h - top - H - 96 } : { x: fw + 44, y: 18, w: w - fw - 92, h: h - 62 };
       var c = BB.chart(ctx, box, { x: [0, 120], y: [-10, 40], xLabel: "시간(분)", yLabel: "온도(°C)", xTicks: [0, 30, 60, 90, 120], yTicks: [-10, 0, 10, 20, 30, 40],
-        bands: [], hlines: [{ y: 35, color: p.bad, label: "저체온증 35" }],
+        bands: [], hlines: [{ y: 35, color: p.bad }],
         series: [{ data: r.t.map(function (tt, i) { return [tt, r.core[i]]; }), color: heat, width: 2.6 }, { data: r.t.map(function (tt, i) { return [tt, r.skin[i]]; }), color: water, width: 2.4 }] });
       // 떨림(오른쪽 축, 0~400 W)
       var Ys = function (v) { return box.y + box.h - v / 400 * box.h; };
-      ctx.strokeStyle = BB.color("seg-musc"); ctx.lineWidth = 1.8; ctx.setLineDash([4, 3]); ctx.beginPath();
+      ctx.strokeStyle = BB.color("nerve"); ctx.lineWidth = 1.8; ctx.setLineDash([4, 3]); ctx.beginPath();
       r.t.forEach(function (tt, i) { var X = c.X(tt), Y = Ys(r.shiver[i]); i ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }); ctx.stroke(); ctx.setLineDash([]);
-      ctx.font = BB.font(10, true); ctx.fillStyle = BB.color("seg-musc"); ctx.textAlign = "left"; ctx.textBaseline = "middle";
-      [0, 200, 400].forEach(function (v) { ctx.fillText(v, box.x + box.w + 5, Ys(v)); });
-      text(ctx, "떨림 W", box.x + box.w + 4, box.y - 6, { size: 10, color: BB.color("seg-musc") });
+      ctx.font = BB.font(10, true); ctx.fillStyle = BB.color("nerve"); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      [0, 200, 400].forEach(function (v) { ctx.fillText(v + (v === 400 ? " W" : ""), box.x + box.w + 5, Ys(v)); });
+      text(ctx, "저체온증 35 °C", c.X(45), c.Y(35) + 13, { size: 10, color: p.bad });
       text(ctx, "심부 " + L.core.toFixed(1), c.X(120) - 4, c.Y(L.core) - 6, { align: "right", size: 10.5, weight: 700, color: heat });
       text(ctx, "피부 " + L.skin.toFixed(1), c.X(120) - 4, c.Y(Math.max(-10, L.skin)) + 14, { align: "right", size: 10.5, weight: 700, color: water });
     }, { get height() { return wOf("tc-cv") < 520 ? 560 : 340; } });
@@ -748,7 +781,7 @@
     }
     var cv = BB.canvas("#tf-cv", function (ctx, w, h) {
       var p = P(), s = series(), heat = BB.color("heat"), ven = BB.color("ven"), water = BB.color("water");
-      var box = { x: 52, y: 20, w: w - 68, h: (h - 70) * 0.66 };
+      var box = { x: 52, y: 20, w: w - 68, h: (h - 96) * 0.64 };
       var c = BB.chart(ctx, box, { x: [0, 360], y: [36, 41], xLabel: "", yLabel: "온도(°C)", xTicks: [0, 60, 120, 180, 240, 300, 360], xFmt: function (v) { return v / 60 + "h"; }, yTicks: [36, 37, 38, 39, 40, 41] });
       // 사이 칠하기
       for (var i = 1; i < s.t.length; i++) {
@@ -765,14 +798,14 @@
       text(ctx, "설정점 " + sp.toFixed(1) + " °C", hx1, hy1 - 12, { align: "center", size: 11, weight: 700, color: p.dim });
       ctx.strokeStyle = p.text; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(c.X(tb), box.y); ctx.lineTo(c.X(tb), box.y + box.h); ctx.stroke();
       handle(ctx, c.X(tb), box.y + box.h - 10, p.text, 7.5);
-      text(ctx, "해열", c.X(tb) + 10, box.y + box.h - 22, { size: 11, weight: 700 });
+      text(ctx, "해열", c.X(tb) - 12, box.y + box.h - 6, { align: "right", size: 11, weight: 700 });
       text(ctx, "오한(춥다)", c.X(Math.min(40, tb / 3)), c.Y(36.3), { align: "center", size: 10.5, weight: 700, color: ven });
-      if (tb < 330) text(ctx, "땀(덥다)", c.X(Math.min(350, tb + 40)), c.Y(36.3), { align: "center", size: 10.5, weight: 700, color: p.bad });
+      if (tb < 320) text(ctx, "땀(덥다)", c.X(tb + (360 - tb) * 0.6), c.Y(36.3), { align: "center", size: 10.5, weight: 700, color: p.bad });
       // 아래: 떨림과 땀
-      var b2 = { x: 52, y: box.y + box.h + 30, w: w - 68, h: h - box.y - box.h - 64 };
+      var b2 = { x: 52, y: box.y + box.h + 34, w: w - 68, h: h - box.y - box.h - 108 };
       var c2 = BB.chart(ctx, b2, { x: [0, 360], y: [0, 120], xTicks: [0, 60, 120, 180, 240, 300, 360], xFmt: function (v) { return v / 60 + "h"; }, yTicks: [0, 60, 120], xLabel: "시간",
-        series: [{ data: s.t.map(function (tt, k) { return [tt, s.shiv[k]]; }), color: BB.color("seg-musc"), width: 2, fill: BB.alpha(BB.color("seg-musc"), 0.15) }, { data: s.t.map(function (tt, k) { return [tt, s.sweat[k] * 300]; }), color: water, width: 2, fill: BB.alpha(water, 0.15) }] });
-      text(ctx, "떨림 W · 땀(×300 L/h)", b2.x + 4, b2.y - 6, { size: 10.5, color: p.dim });
+        series: [{ data: s.t.map(function (tt, k) { return [tt, s.shiv[k]]; }), color: BB.color("nerve"), width: 2, fill: BB.alpha(BB.color("nerve"), 0.15) }, { data: s.t.map(function (tt, k) { return [tt, s.sweat[k] * 300]; }), color: water, width: 2, fill: BB.alpha(water, 0.15) }] });
+      text(ctx, "떨림(W, 보라) · 땀(L/h × 300, 파랑)", b2.x + b2.w, b2.y - 6, { align: "right", size: 10.5, color: p.dim });
       lay = { c: c, box: box };
       var mx = Math.max.apply(null, s.core), ms = 0, mw = 0;
       s.t.forEach(function (tt, k) { if (tt <= tb) ms = Math.max(ms, s.shiv[k]); else mw = Math.max(mw, s.sweat[k]); });
@@ -780,7 +813,7 @@
       BB.stat("tf-o-c", mx.toFixed(2) + "<small>°C</small>");
       BB.stat("tf-o-v", Math.round(ms) + "<small>W</small>");
       BB.stat("tf-o-w", mw.toFixed(2) + "<small>L/h</small>");
-    }, { get height() { return wOf("tf-cv") < 520 ? 440 : 400; } });
+    }, { get height() { return wOf("tf-cv") < 520 ? 480 : 440; } });
     BB.drag(cv.canvas, {
       start: function (x, y) { if (!lay) return; var c = lay.c, hx1 = c.X(Math.min(tb * 0.55, tb - 20)), hy1 = c.Y(sp); drag = Math.hypot(x - hx1, y - hy1) < 30 ? "sp" : Math.abs(x - c.X(tb)) < 30 ? "tb" : (y < lay.box.y + lay.box.h * 0.5 ? "sp" : "tb"); },
       move: function (x, y) {
@@ -818,9 +851,9 @@
       text(ctx, "적응 " + Math.round(a * 100) + " %", bx + bw, by - 4, { align: "right", size: 10.5, weight: 700, color: p.ok });
       BB.stat("ta-o-a", Math.round(a * 100) + "<small>%</small>");
       BB.stat("ta-o-c", r0.core[n].toFixed(2) + " → " + r1.core[n].toFixed(2));
-      BB.stat("ta-o-s", r0.sweat[n].toFixed(2) + " → " + r1.sweat[n].toFixed(2) + "<small>L/h</small>");
-      BB.stat("ta-o-b", r0.sbf[n].toFixed(1) + " → " + r1.sbf[n].toFixed(1) + "<small>L/min</small>");
-    }, { get height() { return wOf("ta-cv") < 520 ? 420 : 380; } });
+      BB.stat("ta-o-s", r0.sweat[n].toFixed(2) + " → " + r1.sweat[n].toFixed(2));
+      BB.stat("ta-o-b", r0.sbf[n].toFixed(1) + " → " + r1.sbf[n].toFixed(1));
+    }, { get height() { return wOf("ta-cv") < 520 ? 440 : 400; } });
   })();
 
   /* ---------------------------------------------------------- 8. 몸의 온도 지도 */
@@ -841,7 +874,7 @@
     calc();
     var SPOTS = [
       { k: "head", name: "머리", dx: 0, dy: 7, why: "뇌는 피가 많이 돌고 혈관 수축이 거의 없어 추워도 심부 가까이 유지된다. 그래서 추운 날 모자를 쓰지 않으면 머리로 열이 많이 나간다." },
-      { k: "trunk", name: "가슴·배(피부)", dx: 0, dy: 33, why: "몸통 피부는 바로 아래에 심부가 있어 비교적 따뜻하다. 피부 아래 지방층이 단열재다." },
+      { k: "trunk", name: "몸통 피부", dx: 0, dy: 33, why: "몸통 피부는 바로 아래에 심부가 있어 비교적 따뜻하다. 피부 아래 지방층이 단열재다." },
       { k: "hand", name: "손", dx: -14.5, dy: 54, why: "손가락에는 동맥과 정맥을 바로 잇는 지름길(동정맥 문합)이 많아, 더우면 활짝 열어 열을 버리고 추우면 닫아 열을 지킨다. 기온에 따라 가장 크게 바뀌는 곳이다." },
       { k: "thigh", name: "허벅지", dx: -6, dy: 70, why: "큰 근육이 있어 쉴 때는 피부 아래가 껍질 역할을 하고, 운동할 때는 열을 만드는 곳이 된다." },
       { k: "foot", name: "발", dx: -7, dy: 95, why: "심장에서 가장 멀고 넓이에 비해 근육이 적어 추우면 가장 먼저 식는다. 동상이 손발에서 잘 생기는 이유다." },
@@ -849,7 +882,7 @@
     function showInfo(sp) { info.innerHTML = "<h4>" + sp.name + " 약 " + T[sp.k].toFixed(1) + " °C</h4><p>" + sp.why + " 지금 심부는 약 " + T.core.toFixed(1) + " °C다.</p>"; }
     var tip;
     var cv = BB.canvas("#tp-cv", function (ctx, w, h) {
-      var p = P(), H = h - 30, cx = w * (w < 520 ? 0.42 : 0.4), top = 14;
+      var p = P(), H = h - 30, cx = w * (w < 520 ? 0.46 : 0.4), top = 14;
       var dpr = ctx.getTransform().a;
       off.width = ctx.canvas.width; off.height = ctx.canvas.height;
       var o = off.getContext("2d"); o.setTransform(dpr, 0, 0, dpr, 0, 0); o.clearRect(0, 0, w, h);
@@ -857,6 +890,7 @@
       o.globalCompositeOperation = "source-in";
       o.fillStyle = tcol((T.hand + T.foot) / 2); o.fillRect(0, 0, w, h);
       var ta = getTa(), size = BB.clamp(0.75 + (ta - 20) * 0.025, 0.45, 1.4);
+      o.globalCompositeOperation = "source-atop";
       o.save(); o.translate(cx, top + H * 0.34); o.scale(1, 2.3);
       var R = H * 0.19 * size, g = o.createRadialGradient(0, 0, 0, 0, 0, R);
       g.addColorStop(0, tcol(T.core)); g.addColorStop(0.45, tcol(T.core)); g.addColorStop(0.75, tcol(T.skin)); g.addColorStop(1, BB.alpha(tcol(T.skin), 0));
@@ -924,7 +958,7 @@
     var cv = null;
     upd();
     cv = BB.canvas("#ti-cv", function (ctx, w, h) {
-      var p = P(), tx = Math.min(80, w * 0.2), top = 26, bot = h - 60, tw = 22;
+      var p = P(), tx = Math.min(80, w * 0.2), top = 46, bot = h - 48, tw = 22;
       var Y = function (T) { return bot - (T - 33) / 10 * (bot - top); };
       // 구간 띠
       ZONES.forEach(function (z) {
@@ -949,10 +983,12 @@
       }
       // 손잡이
       handle(ctx, tx + tw / 2, Y(shown), p.text, 9);
-      text(ctx, shown.toFixed(1) + " °C", tx + tw + 16, Y(shown) - 10, { size: 13, weight: 700, mono: true, color: p.text });
+      ctx.strokeStyle = p.text; ctx.lineWidth = 1; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(tx + tw + 14, Y(shown)); ctx.lineTo(w - 12, Y(shown)); ctx.stroke(); ctx.setLineDash([]);
+      text(ctx, shown.toFixed(1) + " °C", w - 14, Y(shown) - 5, { align: "right", size: 13, weight: 700, mono: true, color: p.text });
+      text(ctx, "◂ 다온 대회 결승 38.3", w - 14, Y(38.3) + 14, { align: "right", size: 10, color: p.dim });
       var v = verdict();
       var blink = v[1] === "bad" && Math.floor(Date.now() / 450) % 2;
-      text(ctx, v[0], w / 2 + 20, h - 14, { align: "center", size: 13, weight: 700, color: blink ? BB.alpha(p.bad, 0.4) : p[v[1]] });
+      text(ctx, v[0], (tx + tw + 24 + w - 12) / 2, 22, { align: "center", size: 13.5, weight: 700, color: blink ? BB.alpha(p.bad, 0.4) : p[v[1]] });
       lay = { Y: Y, top: top, bot: bot };
     }, { get height() { return wOf("ti-cv") < 520 ? 420 : 380; } });
     BB.drag(cv.canvas, { move: function (x, y) { if (!lay) return; temp = BB.clamp(Math.round((33 + (lay.bot - y) / (lay.bot - lay.top) * 10) * 10) / 10, 33, 43); upd(); } });
@@ -998,7 +1034,7 @@
           { label: "심부 °C", color: alarm ? R : O, data: upto(r.core), range: [36.8, 41] },
           { label: "피부 °C", color: Yc, data: upto(r.skin), range: [30, 39] },
           { label: "땀 L/h", color: C, data: upto(r.sweat), range: [0, 2.2] },
-          { label: "남는 열 W", color: G, data: stored, range: [-50, 250] },
+          { label: "남는 열 W", color: G, data: stored, range: [-60, 720] },
         ],
         numerics: [
           { label: "심부", value: core.toFixed(1), unit: "°C", color: alarm ? R : O, alarm: alarm },

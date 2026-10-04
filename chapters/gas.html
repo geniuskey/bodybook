@@ -133,26 +133,29 @@
     <p>폐포의 공기와 모세혈관의 피 사이에는 폐포 벽 세포, 기저막, 모세혈관 벽 세포가 겹친 <span class="term">폐포-모세혈관 막</span><span class="en">(Alveolar–capillary membrane)</span>이 있다. 두께는 0.2~0.5 µm, 펼친 넓이는 50~100 m²로 테니스장 절반쯤이다. 확산량은 넓이와 분압 차에 비례하고 두께에 반비례한다(픽의 법칙, <a href="cell.html">3장</a>).</p>
 
     <figure class="diagram">
-      <svg viewBox="0 0 480 260" role="img" aria-label="폐포-모세혈관 막의 단면: 폐포 공기, 체액층, 상피, 기저막, 내피, 혈장, 적혈구, 산소와 이산화탄소의 이동 방향">
+      <svg viewBox="0 0 480 266" role="img" aria-label="폐포-모세혈관 막의 단면: 폐포 공기, 체액층, 상피, 기저막, 내피, 혈장, 적혈구, 산소와 이산화탄소의 이동 방향">
         <defs><marker id="gx-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <rect x="20" y="20" width="440" height="60" rx="6" class="f-surface"/>
+        <rect x="20" y="20" width="370" height="60" rx="6" class="f-surface"/>
         <text x="40" y="46" class="lbl-b">폐포 공기</text>
         <text x="40" y="66" class="lbl-dim">PO₂ 100 · PCO₂ 40 mmHg</text>
-        <rect x="20" y="80" width="440" height="8" class="f-acc2-soft"/>
-        <rect x="20" y="88" width="440" height="14" class="f-acc-soft"/>
-        <rect x="20" y="102" width="440" height="6" class="f-warn-soft"/>
-        <rect x="20" y="108" width="440" height="14" class="f-acc-soft"/>
-        <rect x="20" y="122" width="440" height="40" class="f-art-soft"/>
-        <text x="300" y="148" class="lbl-dim">혈장</text>
+        <rect x="20" y="80" width="370" height="8" class="f-acc2-soft"/>
+        <rect x="20" y="88" width="370" height="14" class="f-acc-soft"/>
+        <rect x="20" y="102" width="370" height="6" class="f-warn-soft"/>
+        <rect x="20" y="108" width="370" height="14" class="f-acc-soft"/>
+        <rect x="20" y="122" width="370" height="40" class="f-art-soft"/>
+        <text x="200" y="148" class="lbl-dim">혈장</text>
         <ellipse cx="200" cy="196" rx="86" ry="36" class="f-art-soft"/>
         <text x="200" y="200" text-anchor="middle" class="lbl">적혈구(헤모글로빈)</text>
-        <text x="40" y="240" class="lbl-dim">들어오는 피: PO₂ 40 · PCO₂ 46 mmHg</text>
-        <path d="M110 60 L110 186" class="s-art" marker-end="url(#gx-ar)"/>
-        <text x="118" y="176" class="lbl-acc">O₂</text>
-        <path d="M400 186 L400 60" class="s-ven" marker-end="url(#gx-ar)"/>
-        <text x="408" y="176" class="lbl-dim">CO₂</text>
-        <path d="M462 80 L470 80 L470 122 L462 122" class="s-line" fill="none"/>
-        <text x="456" y="104" text-anchor="end" class="lbl-dim">약 0.3 µm</text>
+        <text x="40" y="250" class="lbl-dim">들어오는 피: PO₂ 40 · PCO₂ 46 mmHg</text>
+        <path d="M80 60 L80 186" class="s-art" marker-end="url(#gx-ar)"/>
+        <text x="88" y="176" class="lbl-acc">O₂</text>
+        <path d="M330 186 L330 60" class="s-ven" marker-end="url(#gx-ar)"/>
+        <text x="338" y="176" class="lbl-dim">CO₂</text>
+        <path d="M394 80 L402 80 L402 122 L394 122" class="s-line" fill="none"/>
+        <text x="408" y="98" class="lbl-dim">막 두께</text>
+        <text x="408" y="116" class="lbl-b">0.3 µm</text>
+        <text x="408" y="150" class="lbl-dim">상피·기저막</text>
+        <text x="408" y="166" class="lbl-dim">·내피</text>
       </svg>
       <figcaption><b>공기와 피를 가르는 막.</b> 위에서부터 표면활성제가 덮인 얇은 체액층, 폐포 상피, 기저막, 모세혈관 내피, 혈장, 적혈구. 산소는 아래로, 이산화탄소는 위로 각자의 분압 차를 따라 움직인다. 이산화탄소는 물에 약 20배 잘 녹아 분압 차가 6 mmHg뿐이어도 충분히 빠져나간다.</figcaption>
     </figure>
@@ -206,7 +209,7 @@
         <div class="stat"><span class="k">내놓은 산소</span><span class="v" id="go-o-u">—</span></div>
         <div class="stat"><span class="k">보어 효과의 몫</span><span class="v" id="go-o-b">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "쉬는 근육"에서 동맥(PO2 100, 포화 97 %)과 조직(PO2 40, 약 75 %)의 차이, 피 1 dL당 약 5 mL를 내놓는 것을 확인한다. ② "달리는 근육"(pH 7.2, PCO2 60, 39.5 °C)을 누르고 점을 PO2 20으로 끈다. P50이 27에서 약 37 mmHg로 오르고, 표준 곡선이었다면 남았을 산소까지 더 내놓는다(보어 효과의 몫). ③ pH를 7.6, 체온을 34 °C로 바꾼다. 곡선이 왼쪽으로 밀려 헤모글로빈이 산소를 꽉 쥐고 잘 놓지 않는다. 과호흡이나 저체온에서 조직이 산소를 덜 받는 이유다. (Severinghaus 식 + Kelman 보정, BD.satO2·BD.p50. 동맥 쪽은 폐의 조건(pH 7.40, PCO2 40, 37 °C)으로 고정, 헤모글로빈 15 g/dL.)</div>
+      <div class="sim-note">해볼 것: ① "쉬는 근육"에서 동맥(PO2 100, 포화 97 %)과 조직(PO2 40, 약 73 %)의 차이, 피 1 dL당 약 5 mL를 내놓는 것을 확인한다. ② "달리는 근육"(pH 7.2, PCO2 60, 39.5 °C)을 누르고 점을 PO2 20으로 끈다. P50이 27에서 약 39 mmHg로 오르고, 표준 곡선이었다면 남았을 산소까지 더 내놓는다(보어 효과의 몫). ③ pH를 7.6, 체온을 34 °C로 바꾼다. 곡선이 왼쪽으로 밀려 헤모글로빈이 산소를 꽉 쥐고 잘 놓지 않는다. 과호흡이나 저체온에서 조직이 산소를 덜 받는 이유다. (Severinghaus 식 + Kelman 보정, BD.satO2·BD.p50. 동맥 쪽은 폐의 조건(pH 7.40, PCO2 40, 37 °C)으로 고정, 헤모글로빈 15 g/dL.)</div>
     </div>
     <p>보어 효과는 영리한 배달 장치다. 폐에서는 이산화탄소가 빠져나가며 pH가 올라 곡선이 왼쪽으로 가 산소를 꽉 쥐고, 일하는 근육에서는 산과 열이 곡선을 오른쪽으로 밀어 산소를 놓는다. 같은 PO2라도 어디에 있느냐에 따라 헤모글로빈의 손아귀 힘이 달라진다. 고지대에 며칠 머물면 적혈구 속 2,3-DPG가 늘어 곡선이 조금 오른쪽으로 가고, 태아의 헤모글로빈은 반대로 왼쪽에 있어 엄마의 피에서 산소를 끌어온다.</p>
   </section>
@@ -237,7 +240,7 @@
         <div class="stat"><span class="k">산소 운반량 DO2</span><span class="v" id="gv-o-d">—</span></div>
         <div class="stat"><span class="k">쉴 때 필요량(250)의 배수</span><span class="v" id="gv-o-x">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "빈혈(Hb 8)"을 고른다. 맥박 산소 측정기는 97 %로 정상인데 산소 함량은 약 10.6 mL/dL로 거의 반이다. 포화도는 자리가 몇 % 찼는지일 뿐이다. ② "저산소혈증(PaO2 50)"은 포화도가 약 85 %로 떨어지지만 함량은 빈혈보다 훨씬 많이 남는다. S자 곡선의 평평한 윗부분 덕분이다. ③ 동맥 PO2를 120까지 올려 본다. 포화도가 이미 거의 100 %여서 함량은 거의 늘지 않는다. 반대로 "다온 대회 속도"는 심박출량이 18 L/min으로 늘어 운반량이 세 배 넘게 는다. 산소를 더 보내는 진짜 손잡이는 심장이다. (BD.satO2, BD.o2Content, BD.o2Delivery. 몸이 쉴 때 쓰는 산소는 약 250 mL/min.)</div>
+      <div class="sim-note">해볼 것: ① "빈혈(Hb 8)"을 고른다. 맥박 산소 측정기는 98 %로 정상인데 산소 함량은 약 10.8 mL/dL로 거의 반이다. 포화도는 자리가 몇 % 찼는지일 뿐이다. ② "저산소혈증(PaO2 50)"은 포화도가 약 85 %로 떨어지지만 함량은 빈혈보다 훨씬 많이 남는다. S자 곡선의 평평한 윗부분 덕분이다. ③ 동맥 PO2를 120까지 올려 본다. 포화도가 이미 거의 100 %여서 함량은 거의 늘지 않는다. 반대로 "다온 대회 속도"는 심박출량이 18 L/min으로 늘어 운반량이 세 배 넘게 는다. 산소를 더 보내는 진짜 손잡이는 심장이다. (BD.satO2, BD.o2Content, BD.o2Delivery. 몸이 쉴 때 쓰는 산소는 약 250 mL/min.)</div>
     </div>
     <p>건강한 사람이 쉴 때 몸은 운반된 산소의 약 4분의 1만 쓰고 나머지는 정맥혈에 남겨 돌려보낸다. 이 여유 덕분에 운반량이 어느 정도 줄어도 조직은 더 많이 뽑아 쓰는 것으로 버틴다. 빈혈이 있는 사람이 쉴 때는 괜찮다가 계단을 오르면 숨이 차는 것은, 여유가 이미 줄어 운동의 수요를 감당하지 못하기 때문이다.</p>
   </section>
@@ -263,7 +266,7 @@
         <div class="stat"><span class="k">조직에 내놓는 산소: 빈혈</span><span class="v" id="gk-o-ua">—</span></div>
         <div class="stat"><span class="k">조직에 내놓는 산소: CO</span><span class="v" id="gk-o-uc">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① COHb 20 %(두통, 어지러움이 시작되는 수준)에서 빈혈 곡선(노랑)과 CO 곡선(빨강)의 꼭대기는 같지만 CO 곡선의 아랫부분이 왼쪽으로 밀린 것을 본다. 조직 PO2 40에서 CO 쪽이 내놓는 산소가 더 적다. ② COHb를 50 %로 올린다. 빈혈이라면 아직 쉴 때의 필요량을 내놓을 수 있지만, CO는 조직이 PO2를 20 가까이 떨어뜨려야 겨우 그만큼을 얻는다. ③ 맥박 산소 측정기를 본다. 흔한 두 파장 측정기는 CO가 붙은 헤모글로빈을 산소가 붙은 것으로 읽어 거의 정상으로 표시한다. (BD.satO2의 coHb 옵션: 남은 헴의 친화도를 높여 곡선을 왼쪽으로 민다. 빈혈 곡선은 Hb × (1 − COHb)로 계산했다.)</div>
+      <div class="sim-note">해볼 것: ① COHb 20 %(두통, 어지러움이 시작되는 수준)에서 빈혈 곡선(노랑)과 CO 곡선(빨강)의 꼭대기는 같지만 CO 곡선의 아랫부분이 왼쪽으로 밀린 것을 본다. 조직 PO2 40에서 CO 쪽이 내놓는 산소가 더 적다. ② COHb를 50 %로 올린다. 쉴 때 필요한 피 1 dL당 약 5 mL를 꺼내려면 빈혈은 조직 PO2를 약 27까지 낮추면 되지만, CO에서는 조직 PO2를 20까지 끌어내려도 2.5 mL밖에 꺼내지 못한다. ③ 맥박 산소 측정기를 본다. 흔한 두 파장 측정기는 CO가 붙은 헤모글로빈을 산소가 붙은 것으로 읽어 거의 정상으로 표시한다. (BD.satO2의 coHb 옵션: 남은 헴의 친화도를 높여 곡선을 왼쪽으로 민다. 빈혈 곡선은 Hb × (1 − COHb)로 계산했다.)</div>
     </div>
 
     <div class="callout warn">
@@ -281,7 +284,7 @@
     <div class="sim" id="sim-gx-vq" data-desc="두 무리의 폐포에 공기와 피를 나누는 손잡이를 끌어 션트(공기 없음)와 사강(피 없음), 부분 불균형을 만들고, 산소 농도를 올렸을 때 동맥 산소 분압이 회복되는지 비교한다">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>두 무리의 폐포: 션트와 사강</h3></div>
       <div class="sim-body side">
-        <div class="sim-view"><canvas id="gq-cv"></canvas><span class="hint">막대 위의 손잡이를 끈다</span></div>
+        <div class="sim-view"><canvas id="gq-cv"></canvas></div>
         <div class="sim-controls">
           <label class="ctrl"><span>흡입 산소 비율 FIO2 <output id="gq-f-out"></output></span><input type="range" id="gq-f" min="0.21" max="1" step="0.01" value="0.21"></label>
           <div class="seg" id="gq-pre"><button data-value="bal" class="on">고르게</button><button data-value="low">A 환기 부족</button><button data-value="shunt">A 션트</button><button data-value="dead">A 사강</button></div>
@@ -294,7 +297,7 @@
         <div class="stat"><span class="k">동맥 포화도</span><span class="v" id="gq-o-s">—</span></div>
         <div class="stat"><span class="k">동맥 PaCO2</span><span class="v" id="gq-o-c">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "A 션트"(A에 공기 0, 피 30 %)를 누른다. 동맥 PaO2가 약 64로 떨어진다. FIO2를 1.0까지 올려도 약 106에 그친다. 공기가 닿지 않는 폐포는 아무리 진한 산소도 만나지 못한다. ② "A 환기 부족"(공기 10 %, 피 50 %)은 공기에서는 PaO2가 약 67로 비슷하게 낮지만, FIO2 0.5만 되어도 200을 넘는다. 공기가 조금이라도 닿으면 산소 농도를 올려 메울 수 있다. ③ "A 사강"(피 0)은 PaO2는 정상에 가깝고 PaCO2가 조금 오른다. 헛도는 환기의 손해는 숨을 조금 더 쉬어 메운다. (총 폐포 환기 4.2 L/min, 심박출량 5 L/min, 혼합 정맥혈 PO2 40·PCO2 46 고정. 무리마다 산소 수지를 맞춰 폐포 PO2를 풀고, 피의 산소 함량을 섞어 동맥 PaO2를 구했다.)</div>
+      <div class="sim-note">두 막대의 손잡이를 끌어 나눈다. 해볼 것: ① "A 션트"(A에 공기 0, 피 30 %)를 누른다. 동맥 PaO2가 약 64로 떨어진다. FIO2를 1.0까지 올려도 약 106에 그친다. 공기가 닿지 않는 폐포는 아무리 진한 산소도 만나지 못한다. ② "A 환기 부족"(공기 10 %, 피 50 %)은 공기에서는 PaO2가 약 67로 비슷하게 낮지만, FIO2 0.5만 되어도 200을 넘는다. 공기가 조금이라도 닿으면 산소 농도를 올려 메울 수 있다. ③ "A 사강"(피 0)은 PaO2는 정상에 가깝고 PaCO2가 조금 오른다. 헛도는 환기의 손해는 숨을 조금 더 쉬어 메운다. (총 폐포 환기 4.2 L/min, 심박출량 5 L/min, 혼합 정맥혈 PO2 40·PCO2 46 고정. 무리마다 산소 수지를 맞춰 폐포 PO2를 풀고, 피의 산소 함량을 섞어 동맥 PaO2를 구했다.)</div>
     </div>
     <p>병원에서 산소를 줘도 포화도가 오르지 않는 환자를 보면 의료진은 션트를 떠올린다. 반대로 산소 몇 L만으로 쉽게 좋아지면 환기 부족이나 부분적인 V/Q 불균형 쪽이다. 건강한 사람의 폐에도 작은 불균형이 있다. 서 있으면 중력 때문에 피는 폐 아래쪽에 몰리고 공기는 상대적으로 위쪽이 많아, 폐 꼭대기의 V/Q는 3을 넘고 바닥은 0.6 안팎이다. 건강한 A-a 차이 5~15 mmHg의 상당 부분이 이 때문이다.</p>
   </section>
@@ -307,7 +310,7 @@
     <div class="sim" id="sim-gx-co2" data-desc="조직과 폐에서 이산화탄소가 적혈구로 들어가 중탄산으로 바뀌고 염소와 자리를 바꾸는 흐름을 움직이는 그림으로 보고, 산소를 놓은 피가 이산화탄소를 더 싣는 홀데인 효과를 곡선으로 비교한다">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>이산화탄소 운반과 홀데인 효과</h3></div>
       <div class="sim-body side">
-        <div class="sim-view"><canvas id="gh-cv"></canvas><span class="hint">곡선 위의 정맥 점을 끈다</span></div>
+        <div class="sim-view"><canvas id="gh-cv"></canvas></div>
         <div class="sim-controls">
           <div class="seg" id="gh-mode"><button data-value="tis" class="on">조직 모세혈관</button><button data-value="lung">폐 모세혈관</button></div>
           <label class="ctrl"><span>정맥혈 산소 포화도 <output id="gh-s-out"></output></span><input type="range" id="gh-s" min="0.3" max="0.95" step="0.01" value="0.75"></label>
@@ -320,7 +323,7 @@
         <div class="stat"><span class="k">동정맥 차이</span><span class="v" id="gh-o-d">—</span></div>
         <div class="stat"><span class="k">홀데인 효과의 몫</span><span class="v" id="gh-o-h">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "조직"에서 CO₂가 적혈구로 들어가 HCO₃⁻가 되어 나가고 Cl⁻가 들어오는 흐름을 본다. "폐"로 바꾸면 모든 화살표가 거꾸로 돈다. 같은 반응이 분압 차만으로 방향을 바꾼다. ② 정맥 점을 오른쪽 위로 끌어 PCO2를 올린다. 피 1 dL가 나르는 CO₂의 동정맥 차이는 쉴 때 약 4 mL다. ③ 정맥 포화도를 0.4로 내린다(격한 운동). 산소를 많이 놓은 피는 같은 PCO2에서 CO₂를 더 싣는다. 홀데인 효과의 몫이 커진다. (CO₂ 함량은 교과서 곡선을 흉내 낸 근사식(mL/dL) = (47.9 + 5 × (1 − 포화도)) × (PCO2/40)^0.38. 운반 비율 70/23/7 %은 동정맥 차이 기준의 대표값이다.)</div>
+      <div class="sim-note">해볼 것: ① "조직"에서 CO₂가 적혈구로 들어가 HCO₃⁻가 되어 나가고 Cl⁻가 들어오는 흐름을 본다. "폐"로 바꾸면 모든 화살표가 거꾸로 돈다. 같은 반응이 분압 차만으로 방향을 바꾼다. ② 오른쪽 그래프의 정맥 점(v)을 오른쪽 위로 끌어 PCO2를 올린다. 피 1 dL가 나르는 CO₂의 동정맥 차이는 쉴 때 약 4 mL다. ③ 정맥 포화도를 0.4로 내린다(격한 운동). 산소를 많이 놓은 피는 같은 PCO2에서 CO₂를 더 싣는다. 홀데인 효과의 몫이 커진다. (CO₂ 함량은 교과서 곡선을 흉내 낸 근사식(mL/dL) = (47.9 + 5 × (1 − 포화도)) × (PCO2/40)^0.38. 운반 비율 70/23/7 %은 동정맥 차이 기준의 대표값이다.)</div>
     </div>
     <p>이산화탄소 운반이 중탄산을 거친다는 사실은 다음 장의 열쇠다. 중탄산과 이산화탄소의 비율이 바로 피의 pH를 정하기 때문이다. 숨을 얼마나 쉬느냐가 산성도를 바꾸는 이유가 여기에 있다(<a href="breathing.html">10장</a>).</p>
   </section>
@@ -480,7 +483,7 @@
     }
     hv.addEventListener("change", calc);
     calc();
-    var MARKS = [[0, "해수면"], [1500, "대회 1,500 m"], [1947, "한라산"], [4808, "몽블랑"], [8849, "에베레스트"]];
+    var MARKS = [[1500, "대회 1,500 m"], [4808, "몽블랑"], [8849, "에베레스트"]];
     cv = BB.canvas("#gc-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560, o2 = BB.color("o2");
       // 산
@@ -499,11 +502,11 @@
       ctx.fillStyle = o2; ctx.beginPath(); ctx.arc(hx, hy - 20, 5, 0, Math.PI * 2); ctx.fill();
       ctx.strokeStyle = o2; ctx.lineWidth = 2.4; ctx.beginPath(); ctx.moveTo(hx, hy - 15); ctx.lineTo(hx, hy - 6); ctx.moveTo(hx - 5, hy); ctx.lineTo(hx, hy - 6); ctx.lineTo(hx + 5, hy); ctx.moveTo(hx - 6, hy - 12); ctx.lineTo(hx + 6, hy - 12); ctx.stroke();
       handle(ctx, hx + 18, hy - 10, o2, 6);
-      txt(ctx, Math.round(alt).toLocaleString("en-US") + " m · " + f0(BD.patm(alt)) + " mmHg", hx + 30, hy - 10, o2, 12, "left", "middle", 700);
+      txt(ctx, Math.round(alt).toLocaleString("en-US") + " m · " + f0(BD.patm(alt)) + " mmHg", hx - 6, hy - 30, o2, 12, "left", "bottom", 700);
       lay = { Yh: Yh, mtop: mtop, mbot: mbot, x0: mx, x1: mx + mw, narrow: narrow };
       // 계단(가로 막대)
       var gx = narrow ? 104 : w * 0.36 + 110, gy = narrow ? mbot + 30 : 30, gw = narrow ? w - gx - 16 : w - gx - 20, rows = casc.length;
-      var rh = ((narrow ? h - gy - 26 : h - gy - 30)) / rows;
+      var rh = ((narrow ? h - gy - 44 : h - gy - 44)) / rows;
       var X = function (v) { return gx + (v / 160) * gw; };
       txt(ctx, "산소 분압(mmHg)", gx, gy - 12, p.dim, 11, "left", "bottom", 600);
       [0, 40, 80, 120, 160].forEach(function (v) {
@@ -539,14 +542,14 @@
     cv = BB.canvas("#ga-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560, o2 = BB.color("o2"), f = getF();
       var ymax = Math.max(160, Math.ceil((BD.pio2(pb(), f) + 10) / 50) * 50);
-      var box = { x: narrow ? 44 : 56, y: 40, w: w - (narrow ? 58 : 76), h: h - 86 };
+      var box = { x: narrow ? 44 : 56, y: 40, w: w - (narrow ? 58 : 76), h: h - (narrow ? 118 : 100) };
       var xs = BD.linspace(20, 80, 61);
       var cur = xs.map(function (x) { return [x, BD.pao2(pb(), f, x)]; }), ref = xs.map(function (x) { return [x, BD.pao2(760, 0.21, x)]; });
-      var c = BB.chart(ctx, box, { x: [20, 80], y: [0, ymax], xLabel: "동맥 PaCO2(mmHg) · 오른쪽일수록 환기가 적다", yLabel: narrow ? null : "폐포 PAO2(mmHg)",
+      var c = BB.chart(ctx, box, { x: [20, 80], y: [0, ymax], xLabel: "동맥 PaCO2(mmHg)", yLabel: narrow ? null : "폐포 PAO2(mmHg)",
         bands: [], series: [{ data: ref, color: BB.alpha(p.dim, 0.6), width: 1.5, dash: [5, 4] }, { data: cur, color: o2, width: 2.8 }] });
       if (narrow) txt(ctx, "PAO2(mmHg)", box.x + 4, box.y + 2, p.dim, 11, "left", "top");
       ctx.fillStyle = BB.alpha(p.bad, 0.1); ctx.fillRect(box.x, c.Y(60), box.w, c.Y(0) - c.Y(60));
-      txt(ctx, "PAO2 < 60: 저산소혈증 위험", box.x + box.w - 4, c.Y(60) + 4, p.bad, 11, "right", "top", 600);
+      txt(ctx, "PAO2 < 60: 저산소혈증 위험", box.x + 6, c.Y(60) + 4, p.bad, 11, "left", "top", 600);
       // 위쪽 보조축: 폐포 환기
       [2, 3, 4.2, 6, 8].forEach(function (va) { var x = c.X(0.863 * 200 / va); ctx.strokeStyle = p.axis; ctx.beginPath(); ctx.moveTo(x, box.y); ctx.lineTo(x, box.y - 5); ctx.stroke(); txt(ctx, String(va), x, box.y - 7, p.dim, 10, "center", "bottom", 400, true); });
       txt(ctx, "폐포 환기 L/min", box.x, box.y - 22, p.dim, 10.5, "left", "bottom");
@@ -640,7 +643,7 @@
     document.getElementById("go-run").addEventListener("click", function () { getPH.set(7.2); getC.set(60); getT.set(39.5); getD.set(1.05); pt = 20; upd(); });
     cv = BB.canvas("#go-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560, o = opt(), o2 = BB.color("o2"), art = BB.color("art"), ven = BB.color("ven");
-      var box = { x: narrow ? 44 : 54, y: 18, w: w - (narrow ? 92 : 112), h: h - 62 };
+      var box = { x: narrow ? 44 : 54, y: 18, w: w - (narrow ? 92 : 112), h: h - 80 };
       var xs = BD.linspace(0.5, 120, 160);
       var c = BB.chart(ctx, box, { x: [0, 120], y: [0, 100], xLabel: "산소 분압 PO2(mmHg)", yLabel: narrow ? null : "포화도(%)", xTicks: [0, 20, 40, 60, 80, 100, 120],
         series: [{ data: xs.map(function (x) { return [x, BD.satO2(x) * 100]; }), color: BB.alpha(p.dim, 0.7), width: 1.6, dash: [5, 4] }, { data: xs.map(function (x) { return [x, BD.satO2(x, o) * 100]; }), color: o2, width: 2.8 }] });
@@ -656,7 +659,7 @@
       // 동맥 점과 조직 점
       var sa = BD.satO2(100) * 100, st = BD.satO2(pt, o) * 100, sn = BD.satO2(pt) * 100;
       ctx.fillStyle = art; ctx.beginPath(); ctx.arc(c.X(100), c.Y(sa), 6, 0, Math.PI * 2); ctx.fill();
-      txt(ctx, "동맥(폐)", c.X(100), c.Y(sa) + 10, art, 11.5, "center", "top", 700);
+      txt(ctx, "동맥(폐)", c.X(100) - 10, c.Y(sa) - 4, art, 11.5, "right", "bottom", 700);
       ctx.strokeStyle = BB.alpha(p.dim, 0.6); ctx.beginPath(); ctx.arc(c.X(pt), c.Y(sn), 4, 0, Math.PI * 2); ctx.stroke();
       handle(ctx, c.X(pt), c.Y(st), ven, 7);
       txt(ctx, "조직", c.X(pt) + 10, c.Y(st) + 8, ven, 11.5, "left", "top", 700);
@@ -706,7 +709,7 @@
       }
       txt(ctx, "적혈구 수 ∝ 헤모글로빈 · 색 = 포화도 · 속도 ∝ 심박출량", vx0 + 4, vy + vh / 2 + 6, p.faint, 10.5, "left", "top");
       // 넓이 = 운반량
-      var box = { x: narrow ? 44 : 54, y: vy + vh / 2 + 44, w: narrow ? w - 60 : w * 0.66 - 64, h: h - (vy + vh / 2 + 44) - 44 };
+      var box = { x: narrow ? 44 : 54, y: vy + vh / 2 + (narrow ? 130 : 44), w: narrow ? w - 60 : w * 0.66 - 64, h: h - (vy + vh / 2 + (narrow ? 130 : 44)) - 44 };
       var c = BB.chart(ctx, box, { x: [0, 25], y: [0, 28], xLabel: "심박출량(L/min)", yLabel: narrow ? null : "산소 함량(mL/dL)", xTicks: [0, 5, 10, 15, 20, 25], yTicks: [0, 10, 20] });
       if (narrow) txt(ctx, "산소 함량(mL/dL)", box.x + 4, box.y + 2, p.dim, 11, "left", "top");
       var o2 = BB.color("o2");
@@ -716,22 +719,21 @@
       // Hb 몫과 녹은 몫
       var dis = 0.003 * st.pa;
       ctx.fillStyle = BB.alpha(BB.color("water"), 0.5); ctx.fillRect(box.x, c.Y(dis), c.X(st.co) - box.x, c.Y(0) - c.Y(dis));
-      var lx = Math.min(c.X(st.co) + 8, box.x + box.w - 120);
-      txt(ctx, "DO2 = " + fmtK(st.d) + " mL/min", lx, Math.max(box.y + 14, c.Y(st.ca) - 8), p.text, 14, "left", "bottom", 700);
-      txt(ctx, "넓이 = 운반량 · 점선: 다온 안정", box.x + 6, box.y + 4, p.faint, 10.5, "left", "top");
+      var lx = Math.min(c.X(st.co) + 8, box.x + box.w - 150);
+      txt(ctx, "DO2 = " + fmtK(st.d) + " mL/min", lx, Math.max(box.y + 30, c.Y(st.ca) - 8), p.text, 14, "left", "bottom", 700);
+      txt(ctx, "넓이 = 운반량 · 점선: 다온 안정", box.x + box.w, box.y - 6, p.faint, 10.5, "right", "bottom");
       // 맥박 산소 측정기 카드
-      var px = narrow ? w - 128 : w * 0.66 + 4, py = narrow ? box.y + 22 : box.y + 6, pw = narrow ? 112 : Math.min(160, w * 0.3), ph = narrow ? 78 : 104;
+      var px = narrow ? 12 : w * 0.66 + 4, py = narrow ? vy + vh / 2 + 28 : box.y + 6, pw = narrow ? 130 : Math.min(160, w * 0.3), ph = narrow ? 72 : 104;
       ctx.fillStyle = "#0b0d12"; BB.rrect(ctx, px, py, pw, ph, 10); ctx.fill();
       txt(ctx, "맥박 산소 측정기", px + 10, py + 10, "#9aa6bf", 10.5, "left", "top", 600);
-      txt(ctx, pct(st.s), px + pw - 34, py + ph - 10, BB.trace(3), narrow ? 30 : 40, "right", "bottom", 700, true);
-      txt(ctx, "SpO2 %", px + pw - 8, py + ph - 14, "#9aa6bf", 10, "right", "bottom");
-      if (!narrow) {
-        txt(ctx, "실제로 실린 산소", px, py + ph + 22, p.dim, 11, "left", "top", 600);
-        txt(ctx, f1(st.ca) + " mL/dL", px, py + ph + 38, st.ca < 15 ? p.bad : p.text, 16, "left", "top", 700, true);
-        txt(ctx, "정상 약 20", px, py + ph + 60, p.faint, 10.5, "left", "top");
-      }
-      if (st.hb < 11 && st.s > 0.94) txt(ctx, "포화도는 정상인데 산소가 모자란다", box.x + 6, box.y + 22, p.bad, 12, "left", "top", 700);
-    }, { get height() { return wOf("gv-cv") < 560 ? 420 : 340; } });
+      txt(ctx, pct(st.s), px + pw - 10, py + ph - 8, BB.trace(3), narrow ? 30 : 40, "right", "bottom", 700, true);
+      txt(ctx, "SpO2 %", px + 10, py + ph - 10, "#9aa6bf", 10, "left", "bottom");
+      var qx = narrow ? px + pw + 14 : px, qy = narrow ? py + 4 : py + ph + 22;
+      txt(ctx, "실제로 실린 산소", qx, qy, p.dim, 11, "left", "top", 600);
+      txt(ctx, f1(st.ca) + " mL/dL", qx, qy + 16, st.ca < 15 ? p.bad : p.text, 16, "left", "top", 700, true);
+      txt(ctx, "정상 약 20", qx, qy + 38, p.faint, 10.5, "left", "top");
+      if (st.hb < 11 && st.s > 0.94) txt(ctx, "포화도는 정상인데 산소가 모자란다", box.x + 6, box.y + 4, p.bad, 12, "left", "top", 700);
+    }, { get height() { return wOf("gv-cv") < 560 ? 480 : 340; } });
     BB.loop(document.getElementById("sim-gx-del"), function (dt) { t += dt; cv.redraw(); });
   })();
 
@@ -756,7 +758,7 @@
     var getT = BB.range("gk-t", function (v) { return v + " mmHg"; }, upd);
     cv = BB.canvas("#gk-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560, co = getC(), tp = getT();
-      var box = { x: narrow ? 44 : 54, y: 20, w: w - (narrow ? 58 : 72), h: h - 104 };
+      var box = { x: narrow ? 44 : 54, y: 20, w: w - (narrow ? 58 : 72), h: h - 122 };
       var xs = BD.linspace(0.5, 110, 140);
       var c = BB.chart(ctx, box, { x: [0, 110], y: [0, 22], xLabel: "산소 분압 PO2(mmHg)", yLabel: narrow ? null : "산소 함량(mL/dL)",
         series: [{ data: xs.map(function (x) { return [x, cont(x, "n", co)]; }), color: BB.alpha(p.dim, 0.7), width: 1.6, dash: [5, 4] },
@@ -775,7 +777,7 @@
       // 쉴 때 필요량 기준 (5 mL/dL)
       txt(ctx, "쉴 때 몸은 피 1 dL에서 약 5 mL를 꺼내 쓴다", box.x + box.w - 4, box.y + box.h - 6, p.faint, 10.5, "right", "bottom");
       // COHb 단계 띠
-      var sy = h - 34, sx0 = box.x, sx1 = box.x + box.w, SX = function (v) { return sx0 + (v / 0.6) * (sx1 - sx0); };
+      var sy = h - 30, sx0 = box.x, sx1 = box.x + box.w, SX = function (v) { return sx0 + (v / 0.6) * (sx1 - sx0); };
       [[0, 0.1, p.ok, "흡연자 ~10"], [0.1, 0.3, p.warn, "두통·어지러움"], [0.3, 0.6, p.bad, "의식 저하·생명 위험"]].forEach(function (z) {
         ctx.fillStyle = BB.alpha(z[2], 0.25); ctx.fillRect(SX(z[0]), sy, SX(z[1]) - SX(z[0]), 10);
         txt(ctx, z[3], (SX(z[0]) + SX(z[1])) / 2, sy + 13, z[2], narrow ? 9.5 : 10.5, "center", "top", 600);
@@ -860,7 +862,7 @@
       txt(ctx, "섞인 동맥혈 PaO2 " + f0(res.pao2), sw / 2, ay + R + 50, satColor(BD.satO2(res.pao2)), 13, "center", "top", 700);
       lay = { vb: vb, qb: qb };
       // PaO2 대 FIO2
-      var gb = narrow ? { x: 46, y: 330, w: w - 62, h: h - 330 - 44 } : { x: sw + 48, y: 24, w: w - sw - 64, h: h - 70 };
+      var gb = narrow ? { x: 46, y: 330, w: w - 62, h: h - 330 - 64 } : { x: sw + 48, y: 24, w: w - sw - 64, h: h - 92 };
       var ideal = BD.linspace(0.21, 1, 17).map(function (f) { return [f, BD.pao2(760, f, 40) - 5]; });
       var c = BB.chart(ctx, gb, { x: [0.21, 1], y: [0, 700], xLabel: "흡입 산소 비율 FIO2", xTicks: [0.21, 0.4, 0.6, 0.8, 1.0], xFmt: function (v) { return v.toFixed(2); },
         series: [{ data: ideal, color: BB.alpha(p.dim, 0.6), width: 1.4, dash: [5, 4] }, { data: curve, color: BB.color("o2"), width: 2.6 }] });
@@ -892,8 +894,8 @@
     cv = BB.canvas("#gh-cv", function (ctx, w, h) {
       var p = P(), narrow = w < 560, lungMode = getM() === "lung", co2 = BB.color("co2"), dir = lungMode ? -1 : 1;
       // 왼쪽: 적혈구 그림
-      var dw = narrow ? w : w * 0.48, dh = narrow ? 230 : h;
-      var srcX = 18, srcW = dw * 0.2, rx = dw * 0.6, ry = dh * 0.5, RX = dw * 0.24, RY = dh * 0.26;
+      var dw = narrow ? w : w * 0.48, dh = narrow ? 260 : h;
+      var srcX = 14, srcW = dw * 0.18, rx = dw * 0.62, ry = dh * 0.5, RX = dw * 0.27, RY = dh * 0.27;
       ctx.fillStyle = BB.alpha(lungMode ? p.accent : p.dim, 0.15); BB.rrect(ctx, srcX, 20, srcW, dh - 40, 10); ctx.fill();
       txt(ctx, lungMode ? "폐포" : "조직 세포", srcX + srcW / 2, 30, p.text, 11.5, "center", "top", 700);
       txt(ctx, lungMode ? "PCO2 40" : "PCO2 46+", srcX + srcW / 2, 48, p.dim, 10.5, "center", "top", 400, true);
@@ -901,25 +903,24 @@
       ctx.fillStyle = BB.alpha(BB.color("art"), 0.18); ctx.strokeStyle = BB.color("art"); ctx.lineWidth = 1.6;
       ctx.beginPath(); ctx.ellipse(rx, ry, RX, RY, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
       txt(ctx, "적혈구", rx, ry - RY + 14, p.text, 11.5, "center", "top", 700);
-      txt(ctx, "CO₂ + H₂O ⇌ H⁺ + HCO₃⁻", rx, ry, p.text, narrow ? 10.5 : 11.5, "center", "middle", 600);
-      txt(ctx, "탄산탈수효소", rx, ry + 16, p.dim, 10.5, "center", "top");
+      txt(ctx, "CO₂ + H₂O ⇌ H⁺ + HCO₃⁻", rx, ry - 4, p.text, 10.5, "center", "middle", 600);
+      txt(ctx, "(탄산탈수효소)", rx, ry + 10, p.dim, 10, "center", "top");
       txt(ctx, "H⁺·CO₂ ↔ Hb", rx, ry + RY - 22, p.dim, 10.5, "center", "top", 600);
       // 움직이는 입자
-      function stream(path, col, label, k, rev) {
+      function stream(path, col, label, k, rev, lx, ly, al, bl) {
         var pts = rev ? path.slice().reverse() : path;
         BD.flowDots(ctx, pts, t * 30 + k * 5, { color: col, gap: 22, r: 3.2 });
-        var m = path[Math.floor(path.length / 2)];
-        txt(ctx, label, m[0], m[1] - 8, col, 10.5, "center", "bottom", 700);
+        txt(ctx, label, lx, ly, col, 10.5, al, bl, 700);
       }
       var sx = srcX + srcW;
-      stream([[sx, ry - 30], [rx - RX * 0.6, ry - 30], [rx - 30, ry - 10]], co2, "CO₂ 70%", 0, lungMode);
-      stream([[rx + 30, ry + 8], [rx + RX * 0.7, ry + RY * 0.4], [dw - 8, ry + RY * 0.9]], p.accent, "HCO₃⁻", 1, lungMode);
-      stream([[dw - 8, ry - RY * 0.9], [rx + RX * 0.7, ry - RY * 0.45], [rx + 30, ry - 18]], p.ok, "Cl⁻", 2, lungMode);
-      stream([[sx, ry + 40], [rx - RX * 0.5, ry + RY * 0.6]], co2, "카르바미노 23%", 3, lungMode);
-      stream([[sx, dh - 34], [sx + (rx - RX - sx) * 0.9, dh - 34]], co2, "녹은 CO₂ 7%", 4, lungMode);
+      stream([[sx, ry - 30], [rx - RX * 0.6, ry - 30], [rx - 30, ry - 10]], co2, "CO₂ 70%", 0, lungMode, sx + 4, ry - 38, "left", "bottom");
+      stream([[rx + 30, ry + 8], [rx + RX * 0.7, ry + RY * 0.4], [dw - 8, ry + RY * 0.9]], p.accent, "HCO₃⁻", 1, lungMode, dw - 6, ry + RY * 0.9 + 8, "right", "top");
+      stream([[dw - 8, ry - RY * 0.9], [rx + RX * 0.7, ry - RY * 0.45], [rx + 30, ry - 18]], p.ok, "Cl⁻", 2, lungMode, dw - 6, ry - RY * 0.9 - 8, "right", "bottom");
+      stream([[sx, ry + 40], [rx - RX * 0.5, ry + RY * 0.6]], co2, "카르바미노 23%", 3, lungMode, sx + 4, ry + 62, "left", "top");
+      stream([[sx, dh - 36], [sx + (rx - RX - sx) * 0.9, dh - 36]], co2, "녹은 CO₂ 7%", 4, lungMode, sx + 4, dh - 44, "left", "bottom");
       txt(ctx, lungMode ? "폐: 모든 흐름이 거꾸로" : "조직: CO₂가 피로 들어온다", 10, dh - 6, lungMode ? p.accent : p.warn, 11, "left", "bottom", 700);
       // 오른쪽: 홀데인 곡선
-      var gb = narrow ? { x: 46, y: dh + 30, w: w - 62, h: h - dh - 74 } : { x: dw + 50, y: 18, w: w - dw - 66, h: h - 62 };
+      var gb = narrow ? { x: 46, y: dh + 30, w: w - 62, h: h - dh - 92 } : { x: dw + 50, y: 18, w: w - dw - 66, h: h - 80 };
       var s = getS(), xs = BD.linspace(20, 70, 51);
       var c = BB.chart(ctx, gb, { x: [20, 70], y: [35, 62], xLabel: "PCO2(mmHg)", xTicks: [20, 30, 40, 50, 60, 70],
         series: [{ data: xs.map(function (x) { return [x, cont(x, SA)]; }), color: BB.color("art"), width: 2.4 }, { data: xs.map(function (x) { return [x, cont(x, s)]; }), color: BB.color("ven"), width: 2.4 }] });
@@ -936,7 +937,7 @@
       txt(ctx, "산소화된 피(S 97%)", gb.x + gb.w - 4, c.Y(cont(68, SA)) + 8, BB.color("art"), 10.5, "right", "top", 600);
       txt(ctx, "산소를 놓은 피(S " + Math.round(s * 100) + "%)", gb.x + gb.w - 4, c.Y(cont(68, s)) - 6, BB.color("ven"), 10.5, "right", "bottom", 600);
       lay = c;
-    }, { get height() { return wOf("gh-cv") < 560 ? 500 : 340; } });
+    }, { get height() { return wOf("gh-cv") < 560 ? 530 : 340; } });
     BB.drag(cv.canvas, { move: function (x, y) { if (!lay || x < lay.box.x - 10 || y < lay.box.y - 10) return; pv = Math.round(BB.clamp((x - lay.box.x) / lay.box.w * 50 + 20, 41, 66)); upd(); } });
     BB.loop(document.getElementById("sim-gx-co2"), function (dt) { t += dt; cv.redraw(); });
     upd();

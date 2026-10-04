@@ -64,7 +64,7 @@
         <ellipse cx="252" cy="196" rx="20" ry="5" class="seg-reg"/>
         <circle cx="222" cy="244" r="5" class="seg-reg"/><circle cx="258" cy="244" r="5" class="seg-reg"/>
         <line x1="236" y1="48" x2="150" y2="30" class="s-line"/><text x="146" y="26" text-anchor="end" class="lbl">시상하부</text><text x="146" y="42" text-anchor="end" class="lbl-dim">CRH, TRH (방출 호르몬)</text>
-        <line x1="244" y1="66" x2="330" y2="58" class="s-line"/><text x="334" y="56" class="lbl">뇌하수체</text><text x="334" y="72" class="lbl-dim">ACTH, TSH, 성장 호르몬, ADH</text>
+        <line x1="244" y1="66" x2="330" y2="58" class="s-line"/><text x="334" y="56" class="lbl">뇌하수체</text><text x="334" y="72" class="lbl-dim">ACTH, TSH, 성장 호르몬</text>
         <line x1="240" y1="100" x2="150" y2="104" class="s-line"/><text x="146" y="102" text-anchor="end" class="lbl">갑상선</text><text x="146" y="118" text-anchor="end" class="lbl-dim">T4, T3</text>
         <line x1="264" y1="172" x2="330" y2="150" class="s-line"/><text x="334" y="146" class="lbl">부신</text><text x="334" y="162" class="lbl-dim">겉질: 코르티솔</text><text x="334" y="178" class="lbl-dim">속질: 아드레날린</text>
         <line x1="252" y1="196" x2="330" y2="210" class="s-line"/><text x="334" y="212" class="lbl">이자</text><text x="334" y="228" class="lbl-dim">인슐린, 글루카곤</text>
@@ -568,9 +568,9 @@
       txt(ctx, "반감기 사다리(눌러서 고르기)", L.x, 16, { size: 11.5, weight: 700, color: p.text });
       ctx.strokeStyle = p.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(L.x, L.y + 18); ctx.lineTo(L.x + L.w, L.y + 18); ctx.stroke();
       [[1 / 60, "1분"], [1, "1시간"], [24, "1일"], [24 * 7, "1주"]].forEach(function (tk) { var x = LX(tk[0]); ctx.beginPath(); ctx.moveTo(x, L.y + 14); ctx.lineTo(x, L.y + 22); ctx.stroke(); txt(ctx, tk[1], x, L.y + (narrow ? 78 : 52), { size: 10, align: "center", color: p.faint }); });
-      var marks = [];
+      var marks = [], rowEnd = [-1e9, -1e9, -1e9];
       H.forEach(function (hm, i) {
-        var x = LX(hm.half), on = i === sel, row = narrow ? [0, 1, 2, 0, 1, 2, 0][i] : (i % 2 ? 1 : 0);
+        var x = LX(hm.half), on = i === sel; ctx.font = BB.font(narrow ? 9.5 : 10.5, false, on ? 700 : 400); var tw = ctx.measureText(hm.name).width, row = 0; while (row < 2 && rowEnd[row] > x - tw / 2 - 4) row++; rowEnd[row] = x + tw / 2;
         ctx.fillStyle = on ? p.accent : reg; ctx.beginPath(); ctx.arc(x, L.y + 18, on ? 7 : 5, 0, Math.PI * 2); ctx.fill();
         txt(ctx, hm.name, x, [L.y + 6, L.y + 36, L.y + 64][row], { size: narrow ? 9.5 : 10.5, align: "center", color: on ? p.accent : p.dim, weight: on ? 700 : 400 });
         marks.push(x);
@@ -940,10 +940,11 @@
         ctx.strokeStyle = BB.alpha(p.warn, 0.9); ctx.lineWidth = 1.4; ctx.setLineDash([3, 3]);
         [f1, f2].forEach(function (f) { ctx.beginPath(); ctx.moveTo(c.X(f), box.y + box.h); ctx.lineTo(c.X(f), c.Y(BD.pituitaryTSH(f))); ctx.lineTo(box.x, c.Y(BD.pituitaryTSH(f))); ctx.stroke(); });
         ctx.setLineDash([]);
-        txt(ctx, "FT4 ±1 → TSH ×" + (BD.pituitaryTSH(f1) / BD.pituitaryTSH(f2)).toFixed(2) + " 차이", box.x + 6, box.y + box.h - 8, { size: 11, color: p.warn, weight: 700 });
+        txt(ctx, "FT4 ±1 → TSH ×" + (BD.pituitaryTSH(f1) / BD.pituitaryTSH(f2)).toFixed(2) + " 차이", box.x + 6, box.y + box.h - (w < 480 ? 26 : 8), { size: 11, color: p.warn, weight: 700 });
       }
       handle(ctx, c.X(eq.ft4), c.Y(Math.max(0.006, eq.tsh)), p.text, 8);
       var d = dx(eq.tsh, eq.ft4);
+      ctx.font = BB.font(12, false, 700); var sw = ctx.measureText(d[0] + ": TSH 0.000, FT4 00.0").width + 8; ctx.fillStyle = BB.alpha(p.bg, 0.85); ctx.fillRect(box.x + box.w - sw, box.y + box.h - 22, sw, 18);
       txt(ctx, d[0] + ": TSH " + (eq.tsh < 0.1 ? eq.tsh.toFixed(3) : eq.tsh.toFixed(2)) + ", FT4 " + eq.ft4.toFixed(1), box.x + box.w - 4, box.y + box.h - 8, { size: 12, weight: 700, align: "right", color: p[d[1]] });
       lay = c;
     }, hopt("tp-cv", 380, 380, 480));
@@ -994,7 +995,7 @@
       txt(ctx, "TSH mU/L(로그, 정상 0.4~4)", b2.x + 6, b2.y + 13, { size: 11.5, weight: 700, color: p.accent });
       txt(ctx, "6~8주", c1.X(49), b1.y + b1.h - 6, { size: 10.5, align: "center", color: p.ok, weight: 700 });
       ctx.strokeStyle = BB.alpha(p.text, 0.25); ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(c1.X(0), b1.y); ctx.lineTo(c1.X(0), b2.y + b2.h); ctx.stroke(); ctx.setLineDash([]);
-      txt(ctx, "약 시작", c1.X(0) + 4, b1.y + 28, { size: 10.5 });
+      txt(ctx, "약 시작", c1.X(0) + 4, b1.y + 42, { size: 10.5 });
       if (bumpEl.checked) txt(ctx, "용량 ↑", c1.X(50) + 4, b1.y + 28, { size: 10.5, color: p.warn, weight: 700 });
       var i = idxOf(res.day, testDay), x = c1.X(testDay);
       ctx.strokeStyle = p.text; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(x, b1.y); ctx.lineTo(x, b2.y + b2.h); ctx.stroke();
