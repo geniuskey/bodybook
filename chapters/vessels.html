@@ -247,7 +247,7 @@
         <div class="stat"><span class="k">평균 동맥압</span><span class="v" id="bc-o-map">—</span></div>
         <div class="stat"><span class="k">맥압</span><span class="v" id="bc-o-pp">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "다온 128/82"를 누른다. 수축기만 보면 '주의 혈압'이지만 확장기 82가 80을 넘어 '고혈압 전단계'가 된다. ② "운동 효과 보기"는 규칙적 유산소 운동의 평균 효과(수축기 약 −5, 확장기 약 −3 mmHg)를 화살표로 보여 준다. ③ 75세 예를 고른다. 확장기는 정상인데 수축기만 높다. 뻣뻣한 동맥의 지문이다. (분류는 BD.bpClass: 국내 진료 지침에서 흔히 쓰는 경계값. 학회와 시기에 따라 기준과 이름이 다르다.)</div>
+      <div class="sim-note">해볼 것: ① "다온 128/82"를 누른다. 수축기만 보면 '주의 혈압'이지만 확장기 82가 80을 넘어 '고혈압 전단계'가 된다. ② "운동 효과 보기"는 규칙적 유산소 운동의 평균 효과(수축기 약 −5, 확장기 약 −3 mmHg)를 화살표로 보여 준다. ③ 75세 예를 고른다. 확장기는 정상인데 수축기만 높다. 뻣뻣한 동맥의 지문이다. (분류는 BD.bpClass: 대한고혈압학회 2026 진료실 혈압 분류. 학회와 시기에 따라 기준과 이름이 다르다.)</div>
     </div>
     <div class="table-wrap"><table>
       <thead><tr><th>분류</th><th class="num">수축기(mmHg)</th><th></th><th class="num">확장기(mmHg)</th></tr></thead>
@@ -259,7 +259,7 @@
         <tr><td>고혈압 2기</td><td class="num">160 이상</td><td>또는</td><td class="num">100 이상</td></tr>
       </tbody>
     </table></div>
-    <p>기준은 학회와 시기에 따라 다르다. 국내 지침은 위 표처럼 140/90부터 고혈압으로 보지만, 미국 심장학회 지침(2017)은 130/80부터 '1단계 고혈압'이라 부른다. 숫자 하나보다 여러 번 잰 평균과 다른 위험 요인(흡연, 당뇨, 콜레스테롤, 가족력)을 함께 본다.</p>
+    <p>기준은 학회와 시기에 따라 다르다. 국내 지침은 위 표처럼 140/90부터 고혈압으로 보지만, 미국 AHA/ACC 지침(2025)은 130/80부터 '1단계 고혈압'이라 부른다. 국내 표와 시뮬레이터에서 180/110도 2기에 포함하며, 혈압 등급만으로 응급 상황을 확정하지 않는다. 수축기 180 또는 확장기 120 mmHg를 넘는 매우 높은 혈압이 다시 측정해도 지속되면 신속히 의료진에게 연락하고, 흉통·호흡곤란·마비·말하기 어려움 등이 동반되면 119에 연락한다(<a href="https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/when-to-call-911-for-high-blood-pressure">AHA</a>). 숫자 하나보다 여러 번 잰 평균과 다른 위험 요인(흡연, 당뇨, 콜레스테롤, 가족력)을 함께 본다.</p>
     <p class="health-note">이 장의 수치와 시뮬레이터는 원리를 보여 주기 위한 교육용 모델입니다. 혈압이 반복해서 높게 나오거나, 일어설 때 자주 어지럽고 쓰러질 것 같거나, 다리가 계속 붓는다면 의료진과 상담하세요. 혈압약은 스스로 끊거나 양을 바꾸지 않습니다.</p>
   </section>
 
@@ -853,13 +853,13 @@
       var p = P();
       var box = { x: 54, y: 16, w: w - 70, h: h - 72 };
       var X = function (d) { return box.x + ((d - 40) / 80) * box.w; }, Y = function (s) { return box.y + box.h - ((s - 80) / 120) * box.h; };
-      var colOf = function (c) { return c.key === "normal" ? BB.alpha(p.ok, 0.22) : c.key === "elev" ? BB.alpha(p.warn, 0.14) : c.key === "pre" ? BB.alpha(p.warn, 0.32) : c.key === "h1" ? BB.alpha(p.bad, 0.2) : c.key === "h2" ? BB.alpha(p.bad, 0.36) : c.key === "crisis" ? BB.alpha(p.bad, 0.55) : BB.alpha(p.accent, 0.18); };
+      var colOf = function (c) { return c.key === "normal" ? BB.alpha(p.ok, 0.22) : c.key === "elev" ? BB.alpha(p.warn, 0.14) : c.key === "pre" ? BB.alpha(p.warn, 0.32) : c.key === "h1" ? BB.alpha(p.bad, 0.2) : c.key === "h2" ? BB.alpha(p.bad, 0.36) : BB.alpha(p.accent, 0.18); };
       for (var d = 40; d < 120; d += 1) for (var s = 80; s < 200; s += 1) {
         var c = BD.bpClass(s + 0.5, d + 0.5); ctx.fillStyle = colOf(c); ctx.fillRect(X(d), Y(s + 1), X(d + 1) - X(d) + 0.6, Y(s) - Y(s + 1) + 0.6);
       }
       BB.chart(ctx, box, { x: [40, 120], y: [80, 200], xLabel: "확장기 혈압(mmHg)", yLabel: "수축기 혈압(mmHg)", xTicks: [40, 60, 80, 90, 100, 110, 120], yTicks: [80, 100, 120, 140, 160, 180, 200] });
       // 영역 이름
-      var lab = [["정상", 60, 104], ["주의", 60, 125], ["전단계", 72, 134], ["1기", 74, 150], ["2기", 76, 172], ["3기 이상", 80, 192], ["저혈압", 48, 86]];
+      var lab = [["정상", 60, 104], ["주의", 60, 125], ["전단계", 72, 134], ["1기", 74, 150], ["2기", 76, 172], ["저혈압", 48, 86]];
       lab.forEach(function (L) { txt(ctx, L[0], X(L[1]), Y(L[2]), { size: 11, weight: 700, color: p.text, align: "center" }); });
       ctx.strokeStyle = BB.alpha(p.text, 0.25); ctx.setLineDash([2, 3]); ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(box.x, Y(sbp)); ctx.lineTo(X(dbp), Y(sbp)); ctx.lineTo(X(dbp), box.y + box.h); ctx.stroke(); ctx.setLineDash([]);

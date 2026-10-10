@@ -534,7 +534,7 @@
       { k: "hb", name: "헤모글로빈(남)", unit: "g/dL", min: 6, max: 20, step: 0.1, def: 15, ch: "gas", zones: [[6, 13, "warn", "빈혈 범위"], [13, 17, "ok", "정상"], [17, 20, "warn", "높음"]], note: "여성은 약 12~16 g/dL. 고지대에 살면 높다." },
       { k: "tsh", name: "TSH", unit: "mU/L", min: 0, max: 12, step: 0.1, def: 1.5, ch: "hormone", zones: [[0, 0.4, "warn", "낮음"], [0.4, 4.0, "ok", "정상"], [4.0, 12, "warn", "높음"]], note: "갑상선 호르몬이 모자라면 뇌하수체가 TSH를 올린다. 음성 피드백의 거울이다." },
       { k: "core", name: "심부 체온", unit: "°C", min: 33, max: 42, step: 0.1, def: 37, ch: "thermo", zones: [[33, 35, "bad", "저체온"], [35, 36.1, "warn", "낮음"], [36.1, 37.5, "ok", "정상"], [37.5, 40, "warn", "발열·운동"], [40, 42, "bad", "열사병 위험"]], note: "하루 중에도 0.5 °C 남짓 오르내린다(새벽에 가장 낮다)." },
-      { k: "gfr", name: "eGFR", unit: "mL/min/1.73m²", min: 0, max: 140, step: 1, def: 110, ch: "kidney", zones: [[0, 15, "bad", "5단계"], [15, 30, "bad", "4"], [30, 60, "warn", "3"], [60, 90, "warn", "2"], [90, 140, "ok", "정상 범위"]], note: "나이가 들면 자연히 조금씩 준다. 단백뇨 같은 다른 소견과 함께 본다." },
+      { k: "gfr", name: "eGFR", unit: "mL/min/1.73m²", min: 0, max: 140, step: 1, def: 110, ch: "kidney", zones: [[0, 15, "bad", "G5 범위"], [15, 30, "bad", "G4 범위"], [30, 45, "warn", "G3b 범위"], [45, 60, "warn", "G3a 범위"], [60, 90, "warn", "G2: 경도 감소"], [90, 140, "ok", "G1: 정상 또는 높음"]], note: "KDIGO 2024의 GFR 범주다. G1·G2는 신장 손상의 근거가 없으면 만성콩팥병을 뜻하지 않는다. 만성콩팥병은 신장 손상 소견 또는 eGFR 60 미만이 최소 3개월 지속되는지 확인해야 하며, 한 번의 값으로 진단하지 않는다." },
     ];
     var sel = $("rf-sel"), it = ITEMS[0], lay = null, cv = null;
     sel.innerHTML = ITEMS.map(function (q, i) { return '<option value="' + i + '">' + q.name + "</option>"; }).join("");

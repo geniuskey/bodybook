@@ -292,9 +292,8 @@
     }
     return out;
   };
-  /** 혈압 분류(대한고혈압학회·ACC/AHA 공통 골격, mmHg) */
+  /** 진료실 혈압 분류(대한고혈압학회 2026, mmHg; ACC/AHA 분류와 다름) */
   BD.bpClass = function (sbp, dbp) {
-    if (sbp >= 180 || dbp >= 110) return { key: "crisis", label: "고혈압 3기 이상(즉시 진료)", level: 4 };
     if (sbp >= 160 || dbp >= 100) return { key: "h2", label: "고혈압 2기", level: 3 };
     if (sbp >= 140 || dbp >= 90) return { key: "h1", label: "고혈압 1기", level: 2 };
     if (sbp >= 130 || dbp >= 80) return { key: "pre", label: "고혈압 전단계", level: 1 };
@@ -1219,9 +1218,10 @@
   BD.renalGlucose = function (plasma, o = {}) {
     const p = Object.assign({ gfr: 125, tm: 375, sd: 70 }, o);
     const F = (p.gfr * plasma) / 100;
+    if (p.sd <= 0) { const E = Math.max(0, F - p.tm); return { filtered: F, reabsorbed: F - E, excreted: E }; }
     const z = (F - p.tm) / p.sd;
     const Phi = 0.5 * (1 + erf(z / Math.SQRT2)), phi = Math.exp(-0.5 * z * z) / Math.sqrt(2 * Math.PI);
-    const exc = Math.max(0, (F - p.tm) * Phi + p.sd * phi);
+    const exc = clamp((F - p.tm) * Phi + p.sd * phi, 0, F);
     return { filtered: F, reabsorbed: F - exc, excreted: exc };
   };
   /** 청소율(mL/min) = U × V / P */
