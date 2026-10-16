@@ -19,7 +19,7 @@ TODAY = datetime.date.today().isoformat()
 src = (ROOT / "js/common.js").read_text(encoding="utf-8")
 CH = [dict(slug=m[0], num=m[1], title=m[2]) for m in re.findall(r'slug: "([\w-]+)",\s*num: "(\d+)",(?:\s*stage: \d+,)?\s*title: "([^"]+)"', src)]
 
-def head(c, meta):
+def head(c, meta, has3d=False):
     url = f"{SITE}chapters/{c['slug']}.html"
     title = f"{c['title']} · BodyBook"
     desc = meta["desc"]
@@ -59,6 +59,8 @@ def head(c, meta):
 '''
     if libs != ["none"]:
         out += '<script src="../js/body.js"></script>\n'
+    if has3d:  # 3D 해부 모델 뷰어(.sim.model3d)가 있는 장
+        out += '<script src="../js/anatomy3d.js" defer></script>\n'
     return out
 
 ONLY = sys.argv[1:]
@@ -77,7 +79,7 @@ for c in CH_RUN:
     if not m:
         print("no marker", p.name); continue
     meta = json.loads(m.group(2))
-    s = s[:m.start()] + m.group(1) + head(c, meta) + m.group(4) + s[m.end():]
+    s = s[:m.start()] + m.group(1) + head(c, meta, 'class="sim model3d"' in s) + m.group(4) + s[m.end():]
     p.write_text(s, encoding="utf-8")
     print("ok", p.name)
 

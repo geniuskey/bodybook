@@ -22,13 +22,14 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/glucose.html#chapter","name":"혈당과 인슐린","headline":"혈당과 인슐린 · BodyBook","description":"밥을 먹으면 혈당은 어떻게 오르내리는가. 식후 혈당과 인슐린, 최소 모델, 인슐린 감수성과 분비, 인슐린 저항성과 당뇨병, 식후 걷기, 신장 역치, 하루 혈당과 HbA1c를 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/glucose.html","position":15,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"15. 혈당과 인슐린","item":"https://bodybook.euiyun.com/chapters/glucose.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/glucose.html#chapter","name":"혈당과 인슐린","headline":"혈당과 인슐린 · BodyBook","description":"밥을 먹으면 혈당은 어떻게 오르내리는가. 식후 혈당과 인슐린, 최소 모델, 인슐린 감수성과 분비, 인슐린 저항성과 당뇨병, 식후 걷기, 신장 역치, 하루 혈당과 HbA1c를 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/glucose.html","position":15,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"15. 혈당과 인슐린","item":"https://bodybook.euiyun.com/chapters/glucose.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/common.js"></script>
 <script src="../js/body.js"></script>
+<script src="../js/anatomy3d.js" defer></script>
 <!--head:end-->
 <style>
   .gl-steps { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 18px 0; }
@@ -55,37 +56,22 @@
     <p><span class="term">혈당</span><span class="en">(Blood glucose)</span>은 혈액 속 포도당 농도로, 보통 mg/dL로 잰다. 밤새 굶은 아침의 <span class="term">공복 혈당</span><span class="en">(Fasting plasma glucose)</span>은 약 70~99 mg/dL다. 이때는 간이 저장해 둔 글리코겐을 풀고 새로 포도당을 만들어 뇌가 쓰는 만큼 내보낸다.</p>
     <p>탄수화물을 먹으면 장에서 흡수된 포도당이 혈액으로 쏟아진다. 혈당이 오르면 이자(췌장)의 <span class="term">베타 세포</span><span class="en">(β cell)</span>가 <span class="term">인슐린</span><span class="en">(Insulin)</span>을 내보낸다. 인슐린은 근육과 지방 세포에 포도당을 받아들이라고, 간에는 포도당을 그만 내보내고 글리코겐으로 저장하라고 신호한다. 병원에서는 포도당 75 g을 마시고 2시간 동안 혈당을 재는 <span class="term">경구 포도당 부하 검사</span><span class="en">(Oral glucose tolerance test, OGTT)</span>로 이 능력을 본다.</p>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 300" role="img" aria-label="혈당 조절 지도: 장에서 들어온 포도당이 혈액으로, 이자는 인슐린과 글루카곤을 내고, 간은 저장과 방출, 근육과 지방은 흡수, 뇌는 인슐린 없이도 쓴다">
-        <defs><marker id="gl-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <circle cx="240" cy="150" r="56" class="f-surface"/>
-        <text x="240" y="144" text-anchor="middle" class="lbl-b">혈액의 포도당</text>
-        <text x="240" y="164" text-anchor="middle" class="lbl-dim">약 5 g · 90 mg/dL</text>
-        <rect x="18" y="128" width="110" height="44" rx="10" class="f-carb"/>
-        <text x="73" y="155" text-anchor="middle" class="lbl-b">장(식사)</text>
-        <path d="M128 150 L180 150" class="s-glu" marker-end="url(#gl-ar)"/>
-        <rect x="186" y="14" width="108" height="44" rx="10" class="f-ins"/>
-        <text x="240" y="41" text-anchor="middle" class="lbl-b" style="fill:#fff">이자 β·α 세포</text>
-        <path d="M232 92 L232 62" class="s-glu" marker-end="url(#gl-ar)"/>
-        <text x="226" y="82" text-anchor="end" class="lbl-dim">감지</text>
-        <path d="M300 40 C360 40 380 70 384 104" class="s-ins" marker-end="url(#gl-ar)"/>
-        <text x="476" y="20" text-anchor="end" class="lbl-acc">인슐린 ↑ 글루카곤 ↓</text>
-        <rect x="336" y="110" width="128" height="44" rx="10" class="f-art-soft"/>
-        <text x="400" y="137" text-anchor="middle" class="lbl">간: 저장 ⇄ 방출</text>
-        <path d="M332 136 L298 140" class="s-glu" marker-start="url(#gl-ar)" marker-end="url(#gl-ar)"/>
-        <rect x="320" y="226" width="144" height="44" rx="10" class="seg-musc"/>
-        <text x="392" y="253" text-anchor="middle" class="lbl-b" style="fill:#fff">근육·지방: 흡수</text>
-        <path d="M282 188 L330 222" class="s-glu" marker-end="url(#gl-ar)"/>
-        <path d="M400 154 L400 220" class="s-ins s-dash" marker-end="url(#gl-ar)"/>
-        <text x="408" y="184" class="lbl-dim">인슐린이</text><text x="408" y="202" class="lbl-dim">문을 연다</text>
-        <rect x="24" y="226" width="140" height="44" rx="10" class="f-nerve"/>
-        <text x="94" y="253" text-anchor="middle" class="lbl-b" style="fill:#fff">뇌: 하루 약 120 g</text>
-        <path d="M198 188 L150 222" class="s-glu" marker-end="url(#gl-ar)"/>
-        <text x="150" y="292" text-anchor="middle" class="lbl-dim">인슐린 없이도 쓴다</text>
-        <text x="476" y="292" text-anchor="end" class="lbl-dim">운동 중엔 인슐린 없이도</text>
-      </svg>
-      <figcaption><b>혈당 조절의 지도.</b> 혈액 속 포도당은 겨우 5 g 남짓이라 한 끼 식사의 탄수화물이 들어오면 금방 넘친다. 이자는 혈당을 감지해 인슐린(내리는 쪽)과 글루카곤(올리는 쪽)을 조절하고, 간은 저장고와 공급원 두 역할을 오간다. 근육은 가장 큰 흡수처이고, 뇌는 인슐린과 상관없이 늘 포도당을 쓴다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-17-19.webp" width="1200" height="1686" loading="lazy" decoding="async" alt="고혈당에는 인슐린, 저혈당에는 글루카곤이 나와 혈당을 정상 범위로 되돌리는 조절 고리">
+      <figcaption><b>혈당 조절의 지도.</b> 가운데(START)가 정상 혈당 약 70~110 mg/dL이다. 혈당이 오르면(위) 이자의 베타세포가 인슐린을 내고, 인슐린은 몸 세포가 포도당을 받아들이게 하며 간이 포도당을 글리코겐으로 저장하게 한다. 혈당이 떨어지면(아래) 알파세포가 글루카곤을 내고, 글루카곤은 간이 글리코겐을 풀고(글리코겐 분해) 아미노산과 글리세롤로 새 포도당을 만들게(포도당 신생) 한다. 혈액 속 포도당은 겨우 5 g 남짓이라 한 끼 식사의 탄수화물이 들어오면 금방 넘친다. 근육은 가장 큰 흡수처이고, 뇌는 인슐린과 상관없이 늘 포도당을 쓴다.<span class="fig-words">Hyperglycemia 고혈당 · Hypoglycemia 저혈당 · Insulin/Glucagon release 인슐린/글루카곤 분비 · Beta/Alpha cells of pancreas 이자의 베타/알파 세포 · Glycogenolysis 글리코겐 분해 · Gluconeogenesis 포도당 신생 · Blood glucose concentration decreases/increases 혈당이 내려감/올라감</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/17-9-the-endocrine-pancreas">그림 17.19</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
+
+    <p>혈당 조절의 두 주인공인 이자와 간이 몸 속 어디에 있는지 보자. 이자는 위 뒤에 가로로 누워 있어 앞에서는 잘 보이지 않는다. 창자에서 흡수된 포도당은 문맥을 타고 간을 먼저 지난 뒤 온몸으로 간다.</p>
+
+    <div class="sim model3d" id="sim-gl-3d" data-model="digestive" data-orbit="0deg 82deg auto" data-desc="실제 인체 데이터로 만든 소화 기관 3D 모델을 돌리며 위 뒤에 숨은 이자와 간, 창자의 위치 관계를 본다.">
+      <div class="sim-head"><span class="sim-tag three">3D MODEL</span><h3>3D로 보는 이자와 간</h3></div>
+      <div class="sim-body">
+        <div class="sim-view model3d-view"><span class="hint">끌어서 돌리고, 휠·두 손가락으로 확대한다</span></div>
+      </div>
+      <div class="model3d-parts"><button type="button" data-part="liver" title="포도당을 글리코겐으로 저장하고 다시 푼다">간</button><button type="button" data-part="stomach">위</button><button type="button" data-part="pancreas" title="인슐린(베타세포)과 글루카곤(알파세포)">이자</button><button type="button" data-part="gallbladder">쓸개</button><button type="button" data-part="duodenum">샘창자</button><button type="button" data-part="smallint" title="포도당이 흡수되는 곳">작은창자</button><button type="button" data-part="largeint">큰창자</button><button type="button" data-part="spleen">지라</button><button type="button" data-part="esophagus">식도</button><span class="sep"></span><button type="button" data-rotate>자동 회전</button><button type="button" data-fade="liver,stomach,smallint,largeint">앞쪽 기관 반투명</button><button type="button" data-reset>처음 시점</button></div>
+      <div class="info-panel">모델을 누르면 그 부위의 이름이 여기에 나온다.</div>
+      <div class="sim-note">해볼 것: ① "앞쪽 기관 반투명"을 눌러 위 뒤의 이자를 찾는다. ② 이자의 머리가 샘창자의 C자 고리 안에 들어가 있는 것을 본다. ③ 간을 끄고 쓸개가 간 아래에 붙어 있던 자리를 본다. <span class="sim-credit">3D 모델: <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/">BodyParts3D</a>, © The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>. 부위별로 색을 입히고 면 수를 줄였다. 뷰어: model-viewer(Apache-2.0).</span></div>
+    </div>
 
     <p>아래에서 네 가지 몸에 포도당 75 g을 마시게 해 보자. 위는 혈당, 아래는 인슐린이다. 세로선을 끌면 그 순간의 값이 나온다.</p>
 

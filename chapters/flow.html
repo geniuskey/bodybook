@@ -22,7 +22,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/flow.html#chapter","name":"심박수와 혈류","headline":"심박수와 혈류 · BodyBook","description":"심박출량 = 심박수 × 1회 박출량. 심박수만 올리면 왜 심박출량이 꺾이는지, 이완기와 충만 시간, 픽 원리, 운동할 때 근육으로 옮겨 가는 혈류, 카르보넨 심박 구간과 심박수의 오르내림을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/flow.html","position":7,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"7. 심박수와 혈류","item":"https://bodybook.euiyun.com/chapters/flow.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/flow.html#chapter","name":"심박수와 혈류","headline":"심박수와 혈류 · BodyBook","description":"심박출량 = 심박수 × 1회 박출량. 심박수만 올리면 왜 심박출량이 꺾이는지, 이완기와 충만 시간, 픽 원리, 운동할 때 근육으로 옮겨 가는 혈류, 카르보넨 심박 구간과 심박수의 오르내림을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/flow.html","position":7,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"7. 심박수와 혈류","item":"https://bodybook.euiyun.com/chapters/flow.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -79,43 +79,9 @@
 
     <p>박자만 빨라진 심장은 약 120 bpm 근처에서 한계에 닿는다. 그런데 운동하는 사람의 심박출량은 180 bpm에서도 계속 오른다. 차이는 박자 말고도 바뀌는 것들이다. 교감 신경은 수축을 세게 하고 이완도 빠르게 하며, 다리 근육의 펌프와 정맥 수축이 피를 심장으로 밀어 넣고, 근육의 혈관이 열려 내보낼 때의 저항이 준다. 심박수만 올리는 것은 운동이 아니다. 빈맥으로 심장이 빨리 뛰는 사람이 오히려 어지러운 이유다.</p>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 270" role="img" aria-label="심박출량을 정하는 요인: 심박수(자율신경)와 1회 박출량(앞부하, 수축력, 후부하)">
-        <defs><marker id="fl-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <rect x="170" y="14" width="140" height="44" rx="10" class="f-acc-soft"/>
-        <text x="240" y="36" text-anchor="middle" class="lbl-b">심박출량</text>
-        <text x="240" y="52" text-anchor="middle" class="lbl-dim t-mono">CO = HR × SV</text>
-        <rect x="40" y="96" width="140" height="44" rx="10" class="f-surface"/>
-        <text x="110" y="118" text-anchor="middle" class="lbl-b">심박수(HR)</text>
-        <text x="110" y="134" text-anchor="middle" class="lbl-dim">동방결절의 박자</text>
-        <rect x="300" y="96" width="140" height="44" rx="10" class="f-surface"/>
-        <text x="370" y="118" text-anchor="middle" class="lbl-b">1회 박출량(SV)</text>
-        <text x="370" y="134" text-anchor="middle" class="lbl-dim">한 번에 짜내는 양</text>
-        <path d="M110 96 L200 60" class="s-axis" marker-end="url(#fl-ar)"/>
-        <path d="M370 96 L280 60" class="s-axis" marker-end="url(#fl-ar)"/>
-        <rect x="14" y="186" width="94" height="58" rx="8" class="f-ok-soft"/>
-        <text x="61" y="208" text-anchor="middle" class="lbl">교감 ↑</text>
-        <text x="61" y="228" text-anchor="middle" class="lbl-dim">부교감 ↓</text>
-        <rect x="114" y="186" width="94" height="58" rx="8" class="f-warn-soft"/>
-        <text x="161" y="208" text-anchor="middle" class="lbl">충만 시간</text>
-        <text x="161" y="228" text-anchor="middle" class="lbl-dim">빠를수록 ↓</text>
-        <rect x="236" y="186" width="74" height="58" rx="8" class="f-ok-soft"/>
-        <text x="273" y="208" text-anchor="middle" class="lbl">앞부하</text>
-        <text x="273" y="228" text-anchor="middle" class="lbl-dim">정맥 환류</text>
-        <rect x="316" y="186" width="74" height="58" rx="8" class="f-ok-soft"/>
-        <text x="353" y="208" text-anchor="middle" class="lbl">수축력</text>
-        <text x="353" y="228" text-anchor="middle" class="lbl-dim">교감 신경</text>
-        <rect x="396" y="186" width="74" height="58" rx="8" class="f-bad-soft"/>
-        <text x="433" y="208" text-anchor="middle" class="lbl">후부하</text>
-        <text x="433" y="228" text-anchor="middle" class="lbl-dim">말초 저항</text>
-        <path d="M61 186 L95 142" class="s-ok" marker-end="url(#fl-ar)"/>
-        <path d="M161 186 L290 142" class="s-bad" stroke-dasharray="4 3" marker-end="url(#fl-ar)"/>
-        <path d="M273 186 L335 142" class="s-ok" marker-end="url(#fl-ar)"/>
-        <path d="M353 186 L365 142" class="s-ok" marker-end="url(#fl-ar)"/>
-        <path d="M433 186 L400 142" class="s-bad" marker-end="url(#fl-ar)"/>
-        <text x="240" y="264" text-anchor="middle" class="lbl-dim">초록: 박출량을 키움 · 빨강: 줄임 · 점선: 심박수가 박출량을 깎는 길</text>
-      </svg>
-      <figcaption><b>심박출량을 정하는 다섯 손잡이.</b> 심박수는 자율신경이 정하고, 1회 박출량은 앞부하·수축력·후부하가 정한다(<a href="heart.html">4장</a>). 두 갈래는 독립적이지 않다. 심박수가 오르면 충만 시간이 줄어 박출량을 깎는다(점선). 운동은 교감 신경과 근육 펌프로 앞부하와 수축력을 함께 올려 이 손실을 메운다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-19-35.webp" width="1200" height="684" loading="lazy" decoding="async" alt="심박수와 1회 박출량을 거쳐 심박출량을 정하는 요인들의 흐름도">
+      <figcaption><b>심박출량을 정하는 다섯 손잡이.</b> 왼쪽 갈래(노랑)는 심박수로, 자율신경과 호르몬, 심방 반사가 정한다. 오른쪽 갈래(분홍)는 1회 박출량으로, 정맥 환류와 충만 시간이 앞부하(이완기말 부피)를, 자율신경과 호르몬이 수축력을, 혈관 수축·이완이 후부하를 바꿔 정한다(4장). 두 갈래는 독립적이지 않다. 심박수가 오르면 충만 시간이 줄어 박출량을 깎는다. 운동은 교감 신경과 근육 펌프로 앞부하와 수축력을 함께 올려 이 손실을 메운다.<span class="fig-words">Heart rate (HR) 심박수 · Stroke volume (SV) 1회 박출량 · Cardiac output (CO) 심박출량 · Venous return 정맥 환류 · Filling time 충만 시간 · Autonomic innervation 자율신경 · Preload 앞부하 · Contractility 수축력 · Afterload 후부하 · EDV/ESV 이완기말/수축기말 부피</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/19-4-cardiac-physiology">그림 19.35</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
   </section>
 

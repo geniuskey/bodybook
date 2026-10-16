@@ -22,13 +22,14 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/heart.html#chapter","name":"심장: 펌프의 한 박동","headline":"심장: 펌프의 한 박동 · BodyBook","description":"심장은 한 박동에 어떻게 피를 짜내는가. 심장 주기의 압력과 부피, 판막의 열림과 닫힘, 압력-부피 고리, 프랭크-스탈링 법칙, 수축력과 후부하를 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/heart.html","position":4,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"4. 심장: 펌프의 한 박동","item":"https://bodybook.euiyun.com/chapters/heart.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/heart.html#chapter","name":"심장: 펌프의 한 박동","headline":"심장: 펌프의 한 박동 · BodyBook","description":"심장은 한 박동에 어떻게 피를 짜내는가. 심장 주기의 압력과 부피, 판막의 열림과 닫힘, 압력-부피 고리, 프랭크-스탈링 법칙, 수축력과 후부하를 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/heart.html","position":4,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"4. 심장: 펌프의 한 박동","item":"https://bodybook.euiyun.com/chapters/heart.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/common.js"></script>
 <script src="../js/body.js"></script>
+<script src="../js/anatomy3d.js" defer></script>
 <!--head:end-->
 <style>
   .phase-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 18px 0; }
@@ -56,35 +57,9 @@
     <p>심장은 사실 두 개의 펌프다. 오른쪽 심장은 온몸을 돌고 온 산소가 적은 피를 받아 폐로 보내고, 왼쪽 심장은 폐에서 산소를 받아 온 피를 온몸으로 보낸다. 두 펌프는 한 몸에 붙어 같은 박자로 뛰고, 길게 보면 <b>정확히 같은 양</b>을 내보낸다. 이 장에서는 주로 일이 더 많은 왼쪽 펌프, 좌심실을 따라간다.</p>
     <p>각 펌프는 두 개의 방으로 되어 있다. 피를 잠깐 모아 두는 <span class="term">심방</span><span class="en">(Atrium)</span>과 실제로 힘을 써서 밀어내는 <span class="term">심실</span><span class="en">(Ventricle)</span>이다. 방과 방, 방과 혈관 사이에는 한쪽으로만 열리는 문인 <span class="term">판막</span><span class="en">(Valve)</span>이 있다. 판막에는 근육도 신경도 없다. 앞뒤의 <b>압력 차이</b>만이 문을 밀어 열고 닫는다. 이 단순한 규칙 하나로 심장 주기 전체가 설명된다.</p>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 300" role="img" aria-label="체순환과 폐순환: 우심방 우심실 폐 좌심방 좌심실 온몸으로 이어지는 8자 경로">
-        <defs><marker id="hp-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <rect x="170" y="14" width="140" height="54" rx="14" class="f-surface"/>
-        <text x="240" y="38" text-anchor="middle" class="lbl-b">폐</text>
-        <text x="240" y="58" text-anchor="middle" class="lbl-dim">산소를 싣고 CO₂를 버린다</text>
-        <rect x="170" y="232" width="140" height="54" rx="14" class="f-surface"/>
-        <text x="240" y="256" text-anchor="middle" class="lbl-b">온몸의 조직</text>
-        <text x="240" y="276" text-anchor="middle" class="lbl-dim">산소를 내주고 CO₂를 받는다</text>
-        <rect x="120" y="104" width="96" height="44" rx="10" class="f-ven-soft"/>
-        <text x="168" y="131" text-anchor="middle" class="lbl">우심방</text>
-        <rect x="120" y="160" width="96" height="52" rx="10" class="f-ven-soft"/>
-        <text x="168" y="191" text-anchor="middle" class="lbl">우심실</text>
-        <rect x="264" y="104" width="96" height="44" rx="10" class="f-art-soft"/>
-        <text x="312" y="131" text-anchor="middle" class="lbl">좌심방</text>
-        <rect x="264" y="160" width="96" height="52" rx="10" class="f-art-soft"/>
-        <text x="312" y="191" text-anchor="middle" class="lbl">좌심실</text>
-        <path d="M120 186 C70 186 70 41 166 41" class="s-ven" marker-end="url(#hp-ar)"/>
-        <path d="M312 68 L312 100" class="s-art" marker-end="url(#hp-ar)"/>
-        <path d="M360 186 C420 186 420 259 314 259" class="s-art" marker-end="url(#hp-ar)"/>
-        <path d="M166 259 C40 259 40 126 116 126" class="s-ven" marker-end="url(#hp-ar)"/>
-        <path d="M168 148 L168 156" class="s-ven" marker-end="url(#hp-ar)"/>
-        <path d="M312 148 L312 156" class="s-art" marker-end="url(#hp-ar)"/>
-        <text x="58" y="100" class="lbl-dim" text-anchor="middle">폐동맥</text>
-        <text x="436" y="226" class="lbl-dim" text-anchor="middle">대동맥</text>
-        <text x="40" y="230" class="lbl-dim" text-anchor="middle">대정맥</text>
-        <text x="322" y="90" class="lbl-dim" text-anchor="start">폐정맥</text>
-      </svg>
-      <figcaption><b>8자 모양의 두 고리.</b> 오른쪽 심장(파랑, 산소가 적은 피)은 폐순환을, 왼쪽 심장(빨강, 산소가 많은 피)은 체순환을 맡는다. 두 고리는 직렬로 이어져 있어 한쪽이 내보낸 피는 결국 다른 쪽으로 돌아온다. 그림에서 왼쪽·오른쪽은 해부도 관례대로 관찰자와 반대다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-19-4.webp" width="1200" height="1325" loading="lazy" decoding="async" alt="심장의 네 방과 큰 혈관, 그리고 폐순환과 체순환이 8자로 이어지는 순환 경로">
+      <figcaption><b>8자 모양의 두 고리.</b> 오른쪽 심장(파랑, 산소가 적은 피)은 피를 폐로 보내는 폐순환을, 왼쪽 심장(빨강, 산소가 많은 피)은 온몸으로 보내는 체순환을 맡는다. 두 고리는 직렬로 이어져 있어 한쪽이 내보낸 피는 결국 다른 쪽으로 돌아온다. 그림의 왼쪽·오른쪽은 해부도 관례대로 관찰자와 반대다.<span class="fig-words">Right/Left atrium 우/좌심방 · Right/Left ventricle 우/좌심실 · Pulmonary trunk 폐동맥 줄기 · Pulmonary veins 폐정맥 · Aorta 대동맥 · Superior/Inferior vena cava 위/아래 대정맥 · Pulmonary capillaries 폐 모세혈관 · Systemic capillaries 온몸 모세혈관</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/19-1-heart-anatomy">그림 19.4</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
 
     <p>먼저 한 박동을 느리게 돌려 보자. 아래 그림의 좌심실은 엔진(`BD.heart`)이 0.1 ms 단위로 푼 실제 압력과 부피를 따라 부풀었다 오그라든다. 재생 속도를 0.1배로 낮추면 판막이 열리고 닫히는 순간이 하나씩 보인다.</p>
@@ -110,6 +85,17 @@
     </div>
 
     <p>한 박동은 크게 둘로 나뉜다. 심실이 수축하는 <span class="term">수축기</span><span class="en">(Systole)</span>와 이완하며 피를 받는 <span class="term">이완기</span><span class="en">(Diastole)</span>다. 안정 시 심박수 72에서 한 주기는 약 0.83초이고, 그중 수축기가 약 0.3초, 이완기가 약 0.5초다. 심박수를 올리면 거의 이완기만 짧아진다는 점을 기억해 두자. 7장에서 "심박수를 무한히 올릴 수 없는 이유"의 열쇠가 된다.</p>
+    <p>그림의 네 방이 실제로는 어떻게 겹쳐 있는지 3D로 보자. 실제 심장에서 우심실은 앞쪽, 좌심실은 왼쪽 뒤쪽에 있고, 대동맥과 폐동맥 줄기는 서로 꼬이듯 엇갈려 나간다. 색은 이 책의 관례대로 산소가 적은 피를 담는 쪽을 파랑, 많은 쪽을 빨강으로 칠했다.</p>
+
+    <div class="sim model3d" id="sim-ht-3d" data-model="heart" data-orbit="0deg 80deg auto" data-desc="실제 인체 데이터로 만든 심장 3D 모델을 돌리며 네 방, 큰 혈관, 관상동맥을 보고, 벽을 반투명하게 해 판막과 유두근을 찾는다.">
+      <div class="sim-head"><span class="sim-tag three">3D MODEL</span><h3>3D로 보는 심장</h3></div>
+      <div class="sim-body">
+        <div class="sim-view model3d-view"><span class="hint">끌어서 돌리고, 휠·두 손가락으로 확대한다</span></div>
+      </div>
+      <div class="model3d-parts"><button type="button" data-part="ventricles" title="좌심실 벽이 우심실보다 약 3배 두껍다">심실 벽</button><button type="button" data-part="ratrium" title="온몸에서 돌아온 피를 받는다">우심방</button><button type="button" data-part="latrium" title="폐에서 돌아온 피를 받는다">좌심방</button><button type="button" data-part="aorta" title="좌심실에서 온몸으로">대동맥</button><button type="button" data-part="pulmart" title="우심실에서 폐로, 산소가 적은 피">폐동맥</button><button type="button" data-part="pulmvein" title="폐에서 좌심방으로, 산소가 많은 피">폐정맥</button><button type="button" data-part="venacava" title="온몸에서 우심방으로">위·아래 대정맥</button><button type="button" data-part="coronary" title="심장 근육 자신에게 피를 주는 동맥">관상동맥</button><button type="button" data-part="cardiacvein" title="관상정맥동으로 모여 우심방으로">심장 정맥</button><button type="button" data-part="valves" title="압력 차로만 열리고 닫히는 한 방향 문">판막·유두근</button><span class="sep"></span><button type="button" data-rotate>자동 회전</button><button type="button" data-fade="ventricles,ratrium,latrium">벽 반투명</button><button type="button" data-reset>처음 시점</button></div>
+      <div class="info-panel">모델을 누르면 그 부위의 이름이 여기에 나온다.</div>
+      <div class="sim-note">해볼 것: ① 모델을 뒤로 돌려 폐정맥 네 가닥이 좌심방으로 들어가는 것을 본다. ② "벽 반투명"을 눌러 방 안의 판막과 유두근을 찾는다. ③ 관상동맥만 남기고 끄면 심장 근육이 자기 피를 어떻게 받는지 보인다(막히면 심근경색). <span class="sim-credit">3D 모델: <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/">BodyParts3D</a>, © The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>. 부위별로 색을 입히고 면 수를 줄였다. 뷰어: model-viewer(Apache-2.0).</span></div>
+    </div>
   </section>
 
   <section id="wiggers">

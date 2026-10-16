@@ -22,13 +22,14 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/kidney.html#chapter","name":"콩팥과 체액","headline":"콩팥과 체액 · BodyBook","description":"콩팥은 하루 180 L를 걸러 1.5 L만 버린다. 사구체 여과와 스탈링 힘, 자동 조절, 청소율과 eGFR, 포도당 재흡수, 역류 증폭, 항이뇨 호르몬과 갈증, 체액 구획을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/kidney.html","position":18,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"18. 콩팥과 체액","item":"https://bodybook.euiyun.com/chapters/kidney.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/kidney.html#chapter","name":"콩팥과 체액","headline":"콩팥과 체액 · BodyBook","description":"콩팥은 하루 180 L를 걸러 1.5 L만 버린다. 사구체 여과와 스탈링 힘, 자동 조절, 청소율과 eGFR, 포도당 재흡수, 역류 증폭, 항이뇨 호르몬과 갈증, 체액 구획을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/kidney.html","position":18,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"18. 콩팥과 체액","item":"https://bodybook.euiyun.com/chapters/kidney.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/common.js"></script>
 <script src="../js/body.js"></script>
+<script src="../js/anatomy3d.js" defer></script>
 <!--head:end-->
 <style>
   .kd-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 18px 0; }
@@ -61,35 +62,9 @@
       <div><b>약 20 %</b><span>심박출량 중 콩팥으로 가는 몫</span></div>
     </div>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 320" role="img" aria-label="네프론의 구조: 사구체, 근위 세관, 헨레 고리, 원위 세관, 집합관과 피질·속질의 구분">
-        <defs><marker id="kd-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <rect x="10" y="10" width="460" height="104" rx="10" class="f-surface"/>
-        <rect x="10" y="114" width="460" height="196" rx="10" class="f-warn-soft"/>
-        <text x="460" y="30" text-anchor="end" class="lbl-dim">피질(겉질)</text>
-        <text x="460" y="134" text-anchor="end" class="lbl-dim">속질</text>
-        <text x="372" y="298" text-anchor="end" class="lbl-dim">깊을수록 진하다</text>
-        <path d="M14 52 L64 52" class="s-art" marker-end="url(#kd-ar)"/>
-        <text x="14" y="40" class="lbl-dim">들세동맥</text>
-        <circle cx="96" cy="58" r="24" class="f-art-soft"/>
-        <circle cx="96" cy="58" r="30" fill="none" class="s-line"/>
-        <path d="M110 34 C130 18 150 22 160 28" class="s-art" marker-end="url(#kd-ar)"/>
-        <text x="168" y="32" class="lbl-dim">날세동맥</text>
-        <text x="96" y="104" text-anchor="middle" class="lbl-b">사구체</text>
-        <path d="M120 72 C150 70 160 46 186 52 C210 58 196 84 220 86 C238 88 236 102 224 112" class="s-acc" fill="none"/>
-        <text x="172" y="134" text-anchor="middle" class="lbl">근위 세관</text>
-        <path d="M224 112 L224 280 C224 296 250 296 250 280 L250 104" class="s-acc2" fill="none"/>
-        <text x="216" y="200" text-anchor="end" class="lbl">하행각</text>
-        <text x="258" y="200" class="lbl">상행각</text>
-        <text x="237" y="304" text-anchor="middle" class="lbl-dim">헨레 고리</text>
-        <path d="M250 104 C256 76 290 92 300 70 C310 48 340 64 362 52 L384 52" class="s-acc" fill="none"/>
-        <text x="320" y="44" text-anchor="middle" class="lbl">원위 세관</text>
-        <path d="M384 40 L384 290" class="s-line" stroke-width="6" fill="none"/>
-        <path d="M384 270 L384 300" class="s-line" marker-end="url(#kd-ar)"/>
-        <text x="394" y="200" class="lbl">집합관</text>
-        <text x="394" y="218" class="lbl-dim">→ 소변</text>
-      </svg>
-      <figcaption><b>네프론 하나.</b> 피는 들세동맥으로 들어와 사구체에서 걸러지고 날세동맥으로 나간다. 걸러진 액체는 근위 세관 → 헨레 고리(속질로 내려갔다 올라옴) → 원위 세관 → 집합관을 지나 소변이 된다. 콩팥 안쪽(속질)은 깊이 들어갈수록 용질이 진하다. 이 진한 속질이 진한 소변을 만드는 열쇠다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-25-10.webp" width="1200" height="1566" loading="lazy" decoding="async" alt="네프론의 구조와 혈류: 들세동맥, 사구체, 날세동맥, 근위·원위 세관, 헨레 고리, 집합관, 세관 주위 모세혈관">
+      <figcaption><b>네프론 하나.</b> 피는 들세동맥으로 들어와 사구체에서 걸러지고 날세동맥으로 나가, 세관을 감싸는 세관 주위 모세혈관망을 지난다. 걸러진 액체는 사구체 주머니에서 근위 세관 → 헨레 고리(속질로 내려갔다 올라옴) → 원위 세관 → 집합관을 지나 소변이 된다. 콩팥 안쪽(속질)은 깊이 들어갈수록 용질이 진하다. 이 진한 속질이 진한 소변을 만드는 열쇠다.<span class="fig-words">Afferent/Efferent arteriole 들/날세동맥 · Glomerulus 사구체 · Glomerular capsule 사구체 주머니 · Proximal/Distal convoluted tubule 근위/원위 세관 · Loop of the nephron 헨레 고리 · Collecting duct 집합관 · Peritubular capillary network 세관 주위 모세혈관망 · Interlobular artery/vein 소엽 사이 동맥/정맥</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/25-3-gross-anatomy-of-the-kidney">그림 25.10</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
 
     <p>아래 지도에서 액체가 네프론을 따라 흐르는 모습을 보자. 점의 개수와 관의 굵기가 그 구간을 지나는 하루치 양이다. 구간을 누르면 거기서 무엇을 되찾는지가 나온다. 오른쪽 "항이뇨 호르몬" 단추를 바꾸면 마지막 집합관에서 되찾는 물의 양이 달라진다.</p>
@@ -115,6 +90,17 @@
     </div>
 
     <p>네프론의 일은 앞에서 대부분 끝난다. 근위 세관이 약 65 %, 헨레 고리가 약 20 %를 되찾고, 원위 세관과 집합관은 마지막 몇 %만 다룬다. 그런데 몸의 상태에 따라 <b>조절되는</b> 것은 바로 이 마지막 몇 %다. 180 L의 1 %는 1.8 L, 하루 소변 전체와 맞먹는다. 꼬리가 몸통을 흔드는 셈이다.</p>
+    <p>180 L를 거르는 기관을 실제 크기와 위치로 보자. 콩팥은 주먹만 한 크기로 등 쪽 허리 높이에 좌우로 붙어 있고, 대동맥에서 바로 갈라진 짧고 굵은 콩팥동맥으로 심박출량의 약 20 %를 받는다. 만든 소변은 요관을 타고 방광으로 내려간다.</p>
+
+    <div class="sim model3d" id="sim-kd-3d" data-model="urinary" data-orbit="0deg 82deg auto" data-desc="실제 인체 데이터로 만든 콩팥·요관·방광과 큰 혈관 3D 모델을 돌리며 콩팥이 대동맥에서 피를 받는 위치를 본다.">
+      <div class="sim-head"><span class="sim-tag three">3D MODEL</span><h3>3D로 보는 콩팥과 요로</h3></div>
+      <div class="sim-body">
+        <div class="sim-view model3d-view"><span class="hint">끌어서 돌리고, 휠·두 손가락으로 확대한다</span></div>
+      </div>
+      <div class="model3d-parts"><button type="button" data-part="kidneys" title="심박출량의 약 20 %를 받는다">콩팥</button><button type="button" data-part="adrenal">부신</button><button type="button" data-part="ureters">요관</button><button type="button" data-part="bladder">방광</button><button type="button" data-part="arteries">대동맥·콩팥동맥</button><button type="button" data-part="veins">대정맥·콩팥정맥</button><button type="button" data-part="spine">척추·갈비뼈</button><span class="sep"></span><button type="button" data-rotate>자동 회전</button><button type="button" data-reset>처음 시점</button></div>
+      <div class="info-panel">모델을 누르면 그 부위의 이름이 여기에 나온다.</div>
+      <div class="sim-note">해볼 것: ① 콩팥동맥이 대동맥에서 거의 직각으로 짧게 갈라지는 것을 본다. 압력이 크게 떨어지지 않은 채 사구체에 닿는 이유다. ② 뒤로 돌려 콩팥이 척추 양옆, 맨 아래 갈비뼈 높이에 있는 것을 본다. ③ 왼쪽 콩팥정맥이 대동맥 앞을 가로질러 대정맥으로 가는 것을 찾는다. <span class="sim-credit">3D 모델: <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/">BodyParts3D</a>, © The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>. 부위별로 색을 입히고 면 수를 줄였다. 뷰어: model-viewer(Apache-2.0).</span></div>
+    </div>
   </section>
 
   <section id="filtration">

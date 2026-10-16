@@ -14,7 +14,7 @@
 
 ## 최우선 원칙: 시뮬레이터가 주인공이다
 몸은 숫자로 돌아가는 기계지만 그 숫자들은 서로 묶여 있다. 심박수를 올리면 채울 시간이 줄고, 숨을 빨리 쉬면 이산화탄소가 빠져 혈관이 좁아지고, 덜 먹으면 몸이 덜 쓴다. 독자는 **손으로 돌려 보며** 그 묶임을 "본다". 그러므로:
-- **장마다 시뮬레이터 7~10개.** 정적 SVG 그림은 장마다 1~3개(해부 구조도, 경로도, 비교표 그림처럼 조작이 의미 없을 때만). 글을 읽지 않고 시뮬레이터만 쓰는 사람이 많다(상단 "시뮬레이터만" 버튼, `sims.html` 갤러리).
+- **장마다 시뮬레이터 7~10개.** 정적 그림은 장마다 1~3개(해부 구조도, 경로도, 비교표 그림처럼 조작이 의미 없을 때만). **해부 구조와 교과서식 경로도는 직접 그리지 않고 공개 자료를 먼저 찾는다**(아래 "그림과 3D 모델"). 직접 그리는 SVG는 이 책 고유의 숫자를 담은 도표처럼 공개 자료로 대신할 수 없을 때만. 글을 읽지 않고 시뮬레이터만 쓰는 사람이 많다(상단 "시뮬레이터만" 버튼, `sims.html` 갤러리).
 - **모든 시뮬레이터는 혼자서 이해되어야 한다.** 캔버스 안에 축 이름·단위·범례·핵심 숫자를 직접 그린다. `.sim-note`는 "해볼 것: ① … ② … ③ …"과 모델의 가정을 담는다.
 - 각 `.sim`에는 `id`와 `data-desc="갤러리 카드에 들어갈 한 문장"`이 반드시 있다. 장 끝의 큰 종합 시뮬레이터에는 `data-big`.
 - **몸다운 시각 언어를 쓴다.** 이 책의 시각적 무기:
@@ -96,6 +96,8 @@
 ```
   컨트롤이 없거나 캔버스를 직접 누르는 시뮬레이터는 `.sim-body`에서 `side`를 빼고 `.sim-view` 안에 `<span class="hint">끌어서 움직인다</span>`를 둔다. 범례는 `<div class="map-legend"><span><i style="background:var(--art)"></i>동맥혈</span></div>`(`.sim-body` 다음).
 - 그림: `<figure class="diagram"><svg viewBox="0 0 480 300" role="img" aria-label="…">…</svg><figcaption><b>그림 제목.</b> 설명</figcaption></figure>`. SVG viewBox 폭은 420~520 정도(720이면 360px 화면에서 글자가 너무 작아진다). SVG 안에서는 `.lbl .lbl-dim .lbl-b .lbl-acc .lbl-acc2 .lbl-bad .t-mono .s-line .s-axis .s-acc .s-acc2 .s-dash .s-bad .s-ok .f-surface .f-elev .f-acc .f-acc2 .f-acc-soft .f-acc2-soft .f-ok-soft .f-warn-soft .f-bad-soft .f-bad .f-ok .f-warn` 클래스와 몸 전용 `.f-art .f-ven .s-art .s-ven .f-art-soft .f-ven-soft .f-organ .f-glu .f-ins .s-glu .s-ins .f-fat .f-carb .f-prot .f-water .f-nerve .s-nerve .f-heat`, 계통 색 `.seg-base .seg-circ .seg-resp .seg-musc .seg-meta .seg-reg`를 쓴다. 색을 직접 적지 않는다(다크 모드). 화살표 머리는 `<marker>`에 `fill="context-stroke"`. SVG는 `viewBox`만 주고 width/height 생략.
+- 공개 그림: `<figure class="photo"><img src="../assets/figures/…webp" width="…" height="…" loading="lazy" decoding="async" alt="…"><figcaption><b>그림 제목.</b> 한국어 설명 <span class="fig-words">English 한국어 · …</span><span class="credit">그림: 원저작자, 출처 링크, 라이선스 링크.</span></figcaption></figure>`. 두 장을 나란히 놓을 때는 `<img>`들을 `<div class="fig-row">`로 감싼다. `fig-words`는 그림 속 영어 이름표를 한국어로 푸는 대응표다.
+- 3D 해부 모델: `<div class="sim model3d" id="…" data-model="heart" data-orbit="0deg 80deg auto" data-desc="…">` 안에 `.sim-head`(`<span class="sim-tag three">3D MODEL</span>`), `.sim-body > .sim-view.model3d-view`, `.model3d-parts`(부위 버튼 `<button type="button" data-part="재질 이름" title="한 줄 설명">한국어 이름</button>`, `data-fade="a,b"` 반투명 버튼, `data-rotate`, `data-reset`), `.info-panel`, `.sim-note`(해볼 것 + `<span class="sim-credit">` 출처)를 둔다. 부위 이름(재질 이름)은 `tools/bp3d_models.py`의 그룹 `key`다. 이런 블록이 있는 장은 `tools/head.py`가 `js/anatomy3d.js`를 자동으로 불러온다. 갤러리에도 시뮬레이터처럼 실린다.
 - 수식: `<div class="formula">$$…$$<div class="where">기호 설명</div></div>`, 문장 속은 `\(…\)`.
 - 강조 상자: `.callout`, `.callout.tip`, `.callout.warn`, `.callout.deep`(첫 `<strong>`이 제목).
 - 건강 안내: `<p class="health-note">이 장의 수치와 시뮬레이터는 원리를 보여 주기 위한 교육용 모델입니다. 증상이 있거나 검사 수치가 걱정되면 의료진과 상담하세요.</p>`
@@ -113,6 +115,13 @@
   <div class="clue"><div><b>이 장에서 확인한 것</b>…</div><div><b>아직 모르는 것</b>…</div><div><b>다음 단계</b>…</div></div>
 </div>
 ```
+
+## 그림과 3D 모델: 공개 자료 우선
+- **출처는 저작자 표시(CC BY) 또는 퍼블릭 도메인만.** 비영리(NC)·변경 금지(ND)·동일조건(SA) 조건이 붙은 자료는 이 책(CC BY 4.0, 상업적 이용 허용)에 넣을 수 없다. 같은 책이라도 판마다 라이선스가 다를 수 있으니(OpenStax *Anatomy and Physiology* 1판은 CC BY 4.0, 2판은 CC BY-NC-SA 4.0) 쓰는 판의 라이선스를 직접 확인한다.
+- 그림 하나 안에 제3자 저작물(캡션에 ©, "credit:", "Micrograph provided by …")이 섞여 있으면 그 그림을 쓰지 않거나 그 부분을 잘라 내고, 잘라 냈다고 캡션에 적는다.
+- 지금 쓰는 출처: 그림은 [OpenStax *Anatomy and Physiology* 1판](https://openstax.org/details/books/anatomy-and-physiology)(CC BY 4.0), 3D 모델은 [BodyParts3D](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/)(DBCLS, CC BY 4.0).
+- 파일은 `assets/figures/`(WebP, 폭 1200px 이하)와 `assets/3d/`(glTF 바이너리, 모델 하나 1.5 MB 이하)에 두고, 새 파일을 넣으면 [assets/CREDITS.md](assets/CREDITS.md)에 출처·원본 쪽·변경 사항을 한 줄 더한다. 캡션의 `.credit`(그림)과 `.sim-credit`(3D)에도 원저작자, 출처 링크, 라이선스를 쓴다.
+- 3D 모델을 새로 만들거나 고칠 때는 `tools/bp3d_models.py`의 `MODELS`에 그룹을 더하고 다시 생성한다(실행법은 파일 머리말). BodyParts3D에는 폐 실질, 갑상선 표면이 없다.
 
 ## 이어지는 케이스: 다온의 12주
 모든 장은 같은 가상의 인물 한 명의 몸을 한 걸음씩 들여다본다. 각 장 끝(핵심 정리 앞)에 `.casefile` 하나를 넣고, **아래 표에서 자기 장에 해당하는 내용만** 다룬다. 뒤 장의 결론을 미리 말하지 않는다. 숫자는 `BD.DAON`과 엔진으로 직접 계산해서 쓴다(`node`에서 확인하는 법은 아래 "점검").

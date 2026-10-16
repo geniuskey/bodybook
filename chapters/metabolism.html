@@ -22,7 +22,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/metabolism.html#chapter","name":"에너지 대사 계산","headline":"에너지 대사 계산 · BodyBook","description":"칼로리는 어디로 가는가. 기초대사량 공식, 장기별 대사, METs, 간접 열량 측정과 호흡 교환율, 영양소의 열 효과, 운동 강도별 연료, ATP 회전, 하루 에너지 장부를 시뮬레이터로 계산한다.","url":"https://bodybook.euiyun.com/chapters/metabolism.html","position":13,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"13. 에너지 대사 계산","item":"https://bodybook.euiyun.com/chapters/metabolism.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/metabolism.html#chapter","name":"에너지 대사 계산","headline":"에너지 대사 계산 · BodyBook","description":"칼로리는 어디로 가는가. 기초대사량 공식, 장기별 대사, METs, 간접 열량 측정과 호흡 교환율, 영양소의 열 효과, 운동 강도별 연료, ATP 회전, 하루 에너지 장부를 시뮬레이터로 계산한다.","url":"https://bodybook.euiyun.com/chapters/metabolism.html","position":13,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"13. 에너지 대사 계산","item":"https://bodybook.euiyun.com/chapters/metabolism.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -56,45 +56,9 @@
     <p><span class="term">킬로칼로리</span><span class="en">(Kilocalorie, kcal)</span>는 물 1 L의 온도를 1 °C 올리는 열이다. 국제 단위로는 약 4.18 kJ다. 음식 포장의 "칼로리"는 모두 킬로칼로리이고, 실험실에서 음식을 태워 나온 열을 재고 소화되지 않는 몫을 뺀 값이다. 몸은 음식을 불꽃 없이, 수십 단계에 걸쳐 천천히 태운다. 그래도 같은 연료를 같은 끝(이산화탄소와 물)까지 태우면 나오는 에너지의 총량은 같다.</p>
     <p>몸이 그 에너지를 바로 쓰지는 못한다. 세포는 먼저 연료의 에너지를 작은 충전지인 <span class="term">ATP</span><span class="en">(Adenosine triphosphate)</span>에 옮겨 담는다. 이 옮겨 담기의 효율은 40 % 안팎이고, 나머지는 그 자리에서 열이 된다. ATP는 이온 펌프, 단백질 합성, 근육 수축에 쓰이는데, 쓰고 난 에너지도 결국 열이 된다. 몸 밖으로 무거운 물건을 들어 올리거나 페달을 밟는 "바깥 일"만이 열이 되지 않고 나간다.</p>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 300" role="img" aria-label="세포 호흡의 경로: 탄수화물, 지방, 단백질이 아세틸 CoA로 모여 시트르산 회로와 전자 전달계를 거쳐 ATP와 열이 되고 산소를 쓰고 이산화탄소와 물을 낸다">
-        <defs><marker id="mt-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <rect x="14" y="18" width="104" height="38" rx="9" class="f-carb"/>
-        <text x="66" y="42" text-anchor="middle" class="lbl-b">탄수화물</text>
-        <rect x="14" y="72" width="104" height="38" rx="9" class="f-fat"/>
-        <text x="66" y="96" text-anchor="middle" class="lbl-b">지방</text>
-        <rect x="14" y="126" width="104" height="38" rx="9" class="f-prot"/>
-        <text x="66" y="150" text-anchor="middle" class="lbl-b">단백질</text>
-        <text x="14" y="206" class="lbl-dim">4 · 9 · 4 kcal/g</text>
-        <path d="M118 37 C160 37 160 80 190 86" class="s-line" marker-end="url(#mt-ar)"/>
-        <path d="M118 91 L188 91" class="s-line" marker-end="url(#mt-ar)"/>
-        <path d="M118 145 C160 145 160 102 190 96" class="s-line" marker-end="url(#mt-ar)"/>
-        <text x="152" y="30" text-anchor="middle" class="lbl-dim">해당 과정</text>
-        <text x="168" y="186" text-anchor="middle" class="lbl-dim">아미노산 분해</text>
-        <rect x="192" y="72" width="88" height="38" rx="9" class="f-surface"/>
-        <text x="236" y="96" text-anchor="middle" class="lbl">아세틸 CoA</text>
-        <circle cx="236" cy="168" r="38" class="f-acc-soft"/>
-        <text x="236" y="164" text-anchor="middle" class="lbl">시트르산</text>
-        <text x="236" y="181" text-anchor="middle" class="lbl">회로</text>
-        <path d="M236 110 L236 126" class="s-line" marker-end="url(#mt-ar)"/>
-        <path d="M200 182 C168 210 150 228 128 236" class="s-line" marker-end="url(#mt-ar)"/>
-        <text x="96" y="242" text-anchor="middle" class="lbl-b">CO₂</text>
-        <rect x="314" y="140" width="150" height="56" rx="10" class="f-acc2-soft"/>
-        <text x="389" y="163" text-anchor="middle" class="lbl">전자 전달계</text>
-        <text x="389" y="182" text-anchor="middle" class="lbl-dim">미토콘드리아 안쪽 막</text>
-        <path d="M274 168 L310 168" class="s-line" marker-end="url(#mt-ar)"/>
-        <text x="292" y="160" text-anchor="middle" class="lbl-dim">NADH</text>
-        <text x="389" y="110" text-anchor="middle" class="lbl-b">O₂</text>
-        <path d="M389 116 L389 136" class="s-line" marker-end="url(#mt-ar)"/>
-        <path d="M352 196 L330 238" class="s-acc" marker-end="url(#mt-ar)"/>
-        <path d="M426 196 L448 238" class="s-line" marker-end="url(#mt-ar)"/>
-        <rect x="270" y="242" width="96" height="36" rx="9" class="f-acc-soft"/>
-        <text x="318" y="265" text-anchor="middle" class="lbl-acc">ATP 약 40 %</text>
-        <rect x="392" y="242" width="80" height="36" rx="9" class="f-heat"/>
-        <text x="432" y="265" text-anchor="middle" class="lbl-b">열 약 60 %</text>
-        <text x="420" y="214" text-anchor="start" class="lbl-dim">H₂O</text>
-      </svg>
-      <figcaption><b>연료가 ATP와 열이 되는 길.</b> 세 영양소는 서로 다른 입구로 들어와 아세틸 CoA와 시트르산 회로에서 만난다. 탄소는 이산화탄소로 나가고, 떼어 낸 전자는 전자 전달계에서 산소에 넘겨져 물이 된다. 그 과정에서 생긴 에너지의 약 40 %가 ATP에 담기고 나머지는 열이 된다. 그래서 산소를 얼마나 쓰는지 알면 에너지를 얼마나 쓰는지 안다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-24-20.webp" width="1200" height="1509" loading="lazy" decoding="async" alt="글리코겐·포도당, 중성지방·지방산, 아미노산이 피루브산과 아세틸 CoA, 크레브스 회로, 전자 전달계로 모이는 대사 경로">
+      <figcaption><b>연료가 ATP와 열이 되는 길.</b> 탄수화물(글리코겐·포도당), 지방(중성지방·지방산·글리세롤), 단백질(아미노산)은 서로 다른 입구로 들어와 피루브산과 아세틸 CoA, 시트르산 회로(크레브스 회로)에서 만난다. 청록 화살표는 분해(이화), 연두 화살표는 합성(동화)이다. 탄소는 이산화탄소로 나가고, 떼어 낸 전자는 맨 아래 전자 전달계에서 산소에 넘겨져 물이 된다. 그 과정에서 생긴 에너지의 약 40 %가 ATP에 담기고 나머지는 열이 된다. 그래서 산소를 얼마나 쓰는지 알면 에너지를 얼마나 쓰는지 안다.<span class="fig-words">Glycogen 글리코겐 · Glucose 포도당 · Triglycerides 중성지방 · Fatty acids 지방산 · Glycerol 글리세롤 · Amino acids 아미노산 · Pyruvate 피루브산 · Acetyl CoA 아세틸 CoA · Krebs cycle 크레브스 회로 · Electron transport chain 전자 전달계 · Catabolic/Anabolic 이화/동화</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/24-4-protein-metabolism">그림 24.20</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
 
     <p>아래 시뮬레이터는 음식 100 kcal가 몸을 지나가는 길을 띠의 굵기로 그린다. 쉴 때와 운동할 때를 바꾸고, 근육의 효율을 밀어 보자.</p>

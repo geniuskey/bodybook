@@ -19,7 +19,13 @@
 ```bash
 python -m http.server 8000   # → http://localhost:8000
 ```
-`index.html`을 브라우저로 바로 열어도 동작합니다. KaTeX와 폰트는 CDN에서 불러오므로 인터넷 연결이 필요합니다.
+`index.html`을 브라우저로 바로 열어도 동작합니다(3D 모델만은 브라우저가 file://에서 모델 파일을 읽지 못해 웹 서버로 열어야 보입니다). KaTeX, model-viewer, 폰트는 CDN에서 불러오므로 인터넷 연결이 필요합니다.
+
+## 그림과 3D 모델
+해부 구조는 직접 그리지 않고 자유 라이선스로 공개된 자료를 씁니다.
+- **3D 해부 모델**: 일본 DBCLS의 [BodyParts3D](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/)(CC BY 4.0)에서 부위를 골라 색을 입히고 가볍게 만든 9개 모델을 9개 장에 넣었습니다. 돌리고, 부위를 켜고 끄고, 벽을 반투명하게 해 안을 볼 수 있습니다.
+- **해부·생리 그림**: [OpenStax *Anatomy and Physiology*](https://openstax.org/details/books/anatomy-and-physiology)(CC BY 4.0)의 그림 27개를 18개 장에 넣었습니다. 영어 이름표는 캡션의 "그림 속 영어"에서 한국어로 풉니다.
+- 직접 그린 정적 그림은 이 책 고유의 숫자를 담은 도표(다온의 하루 에너지, 체액 구획 수치, 에너지 장부 등)만 남겼습니다. 시뮬레이터 안의 그림은 값에 따라 움직여야 하므로 계속 캔버스로 그립니다.
 
 ## 구성
 
@@ -51,11 +57,15 @@ python -m http.server 8000   # → http://localhost:8000
 - `css/style.css` — 디자인 토큰(라이트/다크), 계통·모니터·생리 물질 색
 - `js/common.js` — 내비게이션, 검색, 시뮬레이터만 보기, 캔버스·차트·막대·도넛·끌기 헬퍼, 전역 `BB`
 - `js/body.js` — 생리 엔진, 전역 `BD`(참고값, 심장·순환·호흡·근육·운동·대사·혈당·신경·호르몬·콩팥·체온 모델, 환자 모니터·인체·심장 그림)
+- `js/anatomy3d.js` — 3D 해부 모델 뷰어(`.sim.model3d`, model-viewer를 지연 로딩)
 - `js/sims.js` — 시뮬레이터 갤러리 목록(자동 생성)
+- `assets/3d/` — 3D 해부 모델(BodyParts3D, CC BY 4.0) 9개: 몸 전체, 심장, 혈관, 기관지·폐혈관, 골격근, 소화 기관, 뇌, 내분비샘, 콩팥·요로
+- `assets/figures/` — 해부·생리 그림(OpenStax *Anatomy and Physiology*, CC BY 4.0). 출처는 [assets/CREDITS.md](assets/CREDITS.md)
 - `tools/head.py` — 챕터 `<head>`·사이트맵·JSON-LD 생성기
 - `tools/sims.py` — 갤러리 목록 생성기
 - `tools/check.py` — 페이지 점검기(콘솔 오류, 가로 넘침, 조작 중 예외)
 - `tools/shots.py` — 시뮬레이터·그림 스크린샷
+- `tools/bp3d_models.py` — BodyParts3D 원본에서 `assets/3d/*.glb`를 만드는 생성기
 
 챕터 작성 규칙과 엔진 API는 [CONTRIBUTING.md](CONTRIBUTING.md)를 참고하세요.
 시뮬레이터의 수치는 건강한 성인의 교과서 대표값과 교육용 근사 모델이며, 진단·치료·운동 처방 같은 의학적 조언이 아닙니다. 등장인물 다온은 가상의 인물입니다.
@@ -75,5 +85,6 @@ Copyright (c) 2026 geniuskey and BodyBook contributors
 |---|---|---|
 | JS·CSS·Python·HTML의 실행 코드 | [MIT](LICENSE-MIT) | 수정·재배포·상업적 이용 가능. 저작권 및 라이선스 고지 유지 |
 | 교재 본문·그림·문제·해설 | [CC BY 4.0](LICENSE-CC-BY-4.0) | 수정·번역·재배포·상업적 이용 가능. 저작자·출처·라이선스 표시 및 변경 사실 명시 |
+| `assets/`의 외부 그림·3D 모델 | CC BY 4.0(원저작자: OpenStax, DBCLS) | 위와 같고, 원저작자 표시를 함께 유지([assets/CREDITS.md](assets/CREDITS.md)) |
 
 자세한 내용은 [라이선스 안내](LICENSE.md)를 참고하세요.

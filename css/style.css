@@ -201,6 +201,14 @@ figure.diagram svg { display: block; width: 100%; height: auto; }
 figcaption { font-size: 14px; color: var(--text-dim); margin-top: 12px; line-height: 1.6; }
 figcaption b { color: var(--text); }
 .fig-row { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+/* 공개 라이선스 그림(OpenStax 등). 원본이 흰 바탕이라 다크 모드에서도 흰 종이 위에 둔다. */
+figure.photo { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+figure.photo img { display: block; width: 100%; height: auto; max-height: 620px; object-fit: contain; background: #fff; border-radius: var(--radius-sm); }
+figure.photo .fig-row img { max-height: 420px; }
+figcaption .fig-words { display: block; margin-top: 6px; font-size: 13px; color: var(--text-dim); }
+figcaption .fig-words::before { content: "그림 속 영어 "; font-weight: 700; color: var(--text-faint); }
+figcaption .credit, .sim-credit { display: block; margin-top: 6px; font-size: 12px; color: var(--text-faint); }
+figcaption .credit a, .sim-credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); }
 
 /* SVG helpers usable inside inline diagrams */
 svg .t { fill: var(--text); font-family: var(--font); font-size: 13px; }
@@ -573,3 +581,15 @@ body.sim-only .sim-only-banner { display: block; }
 .numbers div { background: var(--bg-elev); padding: 16px 18px; }
 .numbers b { display: block; font-family: var(--mono); font-size: 24px; letter-spacing: -0.02em; color: var(--text); }
 .numbers span { color: var(--text-dim); font-size: 14px; line-height: 1.5; display: block; }
+
+/* 3D 해부 모델 (js/anatomy3d.js, 모델: BodyParts3D) */
+.sim-view.model3d-view { height: 460px; cursor: grab; touch-action: pan-y; }
+@media (max-width: 560px) { .sim-view.model3d-view { height: 380px; } }
+.model3d-view model-viewer { display: block; width: 100%; height: 100%; background: transparent; --poster-color: transparent; }
+.model3d-msg { position: absolute; inset: 0; display: grid; place-items: center; padding: 20px; text-align: center; color: var(--text-faint); font-size: 14px; }
+.model3d-parts { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 12px 18px; border-top: 1px solid var(--border); }
+.model3d-parts button { font: inherit; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; }
+.model3d-parts button i { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+.model3d-parts button[data-part][aria-pressed="false"] { opacity: .45; text-decoration: line-through; }
+.model3d-parts button:not([data-part])[aria-pressed="true"] { border-color: var(--accent-2); color: var(--accent-2); font-weight: 600; }
+.model3d-parts .sep { flex-basis: 100%; height: 0; }

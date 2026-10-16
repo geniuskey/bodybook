@@ -22,13 +22,14 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/vessels.html#chapter","name":"혈관과 혈압","headline":"혈관과 혈압 · BodyBook","description":"혈압은 무엇이 정하는가. 반지름의 네제곱 법칙, 병렬로 이어진 장기, 순환을 따라 떨어지는 압력과 느려지는 피, 동맥의 탄성과 맥압, 커프 혈압 측정, 혈압 분류, 일어설 때의 중력과 압반사, 모세혈관의 스탈링 힘을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/vessels.html","position":6,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"6. 혈관과 혈압","item":"https://bodybook.euiyun.com/chapters/vessels.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/vessels.html#chapter","name":"혈관과 혈압","headline":"혈관과 혈압 · BodyBook","description":"혈압은 무엇이 정하는가. 반지름의 네제곱 법칙, 병렬로 이어진 장기, 순환을 따라 떨어지는 압력과 느려지는 피, 동맥의 탄성과 맥압, 커프 혈압 측정, 혈압 분류, 일어설 때의 중력과 압반사, 모세혈관의 스탈링 힘을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/vessels.html","position":6,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"6. 혈관과 혈압","item":"https://bodybook.euiyun.com/chapters/vessels.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/common.js"></script>
 <script src="../js/body.js"></script>
+<script src="../js/anatomy3d.js" defer></script>
 <!--head:end-->
 <style>
   .vs-note-row { display: flex; flex-wrap: wrap; gap: 6px 14px; }
@@ -78,37 +79,9 @@
 
     <p>네제곱 법칙은 몸에게 강력한 손잡이다. 혈관 벽의 <span class="term">민무늬근</span><span class="en">(Smooth muscle)</span>이 조금만 조이거나 풀어도 흐름이 몇 배씩 바뀐다. 이 손잡이가 가장 촘촘하게 달린 곳이 동맥의 마지막 가지인 <span class="term">세동맥</span><span class="en">(Arteriole)</span>이다. 반대로 동맥 경화반이 혈관 안쪽을 반만 막으면(반지름 50 %) 같은 압력에서 흐름은 1/16로 준다. 가슴 통증(협심증)이 증상으로 나타날 때쯤이면 관상동맥이 이미 꽤 좁아져 있는 이유다.</p>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 280" role="img" aria-label="혈관 종류별 벽 구조 비교: 대동맥, 작은 동맥, 세동맥, 모세혈관, 정맥의 지름과 벽 두께, 탄성 섬유와 민무늬근">
-        <text x="240" y="20" text-anchor="middle" class="lbl-b">혈관의 단면(크기는 같은 비율이 아니다)</text>
-        <circle cx="62" cy="110" r="44" class="f-art-soft"/><circle cx="62" cy="110" r="30" class="f-surface"/>
-        <circle cx="62" cy="110" r="38" fill="none" class="s-acc2" stroke-dasharray="3 3"/>
-        <circle cx="160" cy="110" r="32" class="f-art-soft"/><circle cx="160" cy="110" r="18" class="f-surface"/>
-        <circle cx="160" cy="110" r="25" fill="none" class="s-bad" stroke-width="5" opacity="0.5"/>
-        <circle cx="246" cy="110" r="16" class="f-art-soft"/><circle cx="246" cy="110" r="6" class="f-surface"/>
-        <circle cx="246" cy="110" r="11" fill="none" class="s-bad" stroke-width="6" opacity="0.6"/>
-        <circle cx="322" cy="110" r="8" class="f-surface" stroke="var(--text-dim)" stroke-width="1"/><circle cx="322" cy="110" r="6.5" fill="none" class="s-axis"/>
-        <ellipse cx="414" cy="110" rx="44" ry="28" class="f-ven-soft"/><ellipse cx="414" cy="110" rx="38" ry="22" class="f-surface"/>
-        <text x="62" y="178" text-anchor="middle" class="lbl">대동맥</text>
-        <text x="62" y="196" text-anchor="middle" class="lbl-dim t-mono">약 25 mm</text>
-        <text x="160" y="178" text-anchor="middle" class="lbl">작은 동맥</text>
-        <text x="160" y="196" text-anchor="middle" class="lbl-dim t-mono">약 4 mm</text>
-        <text x="246" y="178" text-anchor="middle" class="lbl">세동맥</text>
-        <text x="246" y="196" text-anchor="middle" class="lbl-dim t-mono">약 30 µm</text>
-        <text x="322" y="178" text-anchor="middle" class="lbl">모세혈관</text>
-        <text x="322" y="196" text-anchor="middle" class="lbl-dim t-mono">약 8 µm</text>
-        <text x="414" y="178" text-anchor="middle" class="lbl">정맥</text>
-        <text x="414" y="196" text-anchor="middle" class="lbl-dim t-mono">약 5 mm</text>
-        <text x="62" y="224" text-anchor="middle" class="lbl-acc2">탄성 섬유 많음</text>
-        <text x="62" y="242" text-anchor="middle" class="lbl-dim">압력을 저장</text>
-        <text x="203" y="224" text-anchor="middle" class="lbl-bad">민무늬근이 두꺼움</text>
-        <text x="203" y="242" text-anchor="middle" class="lbl-dim">저항을 조절</text>
-        <text x="322" y="224" text-anchor="middle" class="lbl">세포 한 겹</text>
-        <text x="322" y="242" text-anchor="middle" class="lbl-dim">물질 교환</text>
-        <text x="414" y="224" text-anchor="middle" class="lbl-acc">얇고 잘 늘어남</text>
-        <text x="414" y="242" text-anchor="middle" class="lbl-dim">피의 약 2/3를 담음</text>
-      </svg>
-      <figcaption><b>혈관마다 맡은 일이 벽에 쓰여 있다.</b> 대동맥은 탄성 섬유가 많아 수축기에 늘어나 압력을 저장하고, 세동맥은 벽에 비해 안이 좁고 민무늬근이 두꺼워 저항을 조절하는 꼭지가 된다. 모세혈관은 세포 한 겹이라 물질이 드나들고, 정맥은 벽이 얇아 잘 늘어나며 피의 저장고가 된다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-20-3.webp" width="1200" height="705" loading="lazy" decoding="async" alt="동맥과 정맥의 벽 구조: 외막, 중막, 내막, 민무늬근, 탄성막, 내피">
+      <figcaption><b>혈관마다 맡은 일이 벽에 쓰여 있다.</b> (a) 동맥은 민무늬근이 두꺼운 중막과 탄성막이 있어 수축기에 늘어나며 압력을 저장하고, 가는 동맥과 세동맥에서는 이 민무늬근이 저항을 조절하는 꼭지가 된다. (b) 정맥은 같은 굵기의 동맥보다 벽이 얇고 안이 넓어 잘 늘어나므로 피의 저장고가 된다. 모세혈관은 이 가운데 내피 한 겹만 남은 관이라 물질이 드나든다.<span class="fig-words">Tunica externa 외막 · Tunica media 중막 · Tunica intima 내막 · Smooth muscle 민무늬근 · Internal/External elastic membrane 속/바깥 탄성막 · Endothelium 내피 · Vasa vasorum 혈관벽의 혈관</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/20-1-structure-and-function-of-blood-vessels">그림 20.3</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>. 원본의 현미경 사진(c)은 다른 라이선스라 빼고 (a)(b)만 실었다.</span></figcaption>
     </figure>
   </section>
 
@@ -136,6 +109,17 @@
       <div class="sim-note">해볼 것: ① 근육의 꼭지를 오른쪽 끝까지 연다("근육 혈관 열기"). 근육 혈류만 크게 늘고 다른 장기는 그대로다. 대신 심장이 그만큼 더 내보내야 한다. ② "심장이 혈압을 지킨다"를 끄고 다시 근육을 연다. 심박출량이 그대로면 평균 동맥압이 떨어지고 뇌 혈류까지 준다. ③ "직렬"로 바꾼다. 모든 저항이 더해져 같은 압력으로 흐르는 피가 분당 0.1 L도 안 된다. (평균 동맥압 93, 중심 정맥압 3 mmHg, 안정 시 배분은 교과서 대표값. 각 장기의 저항 = 압력 차 ÷ 혈류.)</div>
     </div>
     <p>병렬 배치 덕분에 운동할 때 근육은 다른 장기와 다투지 않고 자기 꼭지를 열 수 있다. 하지만 꼭지를 연 만큼 전체 저항이 떨어지므로 심장이 더 내보내지 않으면 혈압이 떨어진다. 그래서 운동은 늘 심장과 혈관이 함께 하는 일이다(<a href="flow.html">7장</a>).</p>
+    <p>장기가 병렬로 이어져 있다는 말을 실제 혈관 지도로 보자. 대동맥에서 갈라진 동맥이 머리, 팔, 장기, 다리로 나란히 나뉘고, 정맥이 같은 길을 거슬러 위·아래 대정맥으로 모인다.</p>
+
+    <div class="sim model3d" id="sim-vs-3d" data-model="vessels" data-orbit="0deg 85deg auto" data-desc="실제 인체 데이터로 만든 동맥·정맥 3D 모델을 돌려 보며 대동맥에서 갈라진 동맥이 장기와 팔다리로 병렬로 나뉘는 모습을 본다.">
+      <div class="sim-head"><span class="sim-tag three">3D MODEL</span><h3>3D로 보는 온몸의 혈관</h3></div>
+      <div class="sim-body">
+        <div class="sim-view model3d-view"><span class="hint">끌어서 돌리고, 휠·두 손가락으로 확대한다</span></div>
+      </div>
+      <div class="model3d-parts"><button type="button" data-part="arteries" title="심장에서 나가는 피">동맥</button><button type="button" data-part="veins" title="심장으로 돌아오는 피">정맥</button><button type="button" data-part="heart">심장</button><button type="button" data-part="skin">피부</button><span class="sep"></span><button type="button" data-rotate>자동 회전</button><button type="button" data-reset>처음 시점</button></div>
+      <div class="info-panel">모델을 누르면 그 부위의 이름이 여기에 나온다.</div>
+      <div class="sim-note">해볼 것: ① 정맥을 끄고 대동맥에서 장기와 다리로 갈라지는 가지를 따라간다. ② 동맥을 끄고 정맥만 본다. 다리의 정맥이 심장까지 올라오려면 근육 펌프와 판막이 필요하다(일어서기 절). ③ 팔과 다리의 같은 자리에 동맥과 정맥이 나란히 달리는 것을 본다. <span class="sim-credit">3D 모델: <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/">BodyParts3D</a>, © The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>. 부위별로 색을 입히고 면 수를 줄였다. 뷰어: model-viewer(Apache-2.0).</span></div>
+    </div>
   </section>
 
   <section id="circuit">
@@ -163,23 +147,9 @@
   <section id="compliance">
     <h2>동맥의 탄성과 맥압</h2>
     <p>심장은 박출기(약 0.3초)에만 피를 내보내고 나머지 시간에는 쉰다. 그런데도 몸의 피는 끊기지 않고 흐른다. 대동맥이 고무풍선처럼 수축기에 늘어나 피 일부를 품었다가 이완기에 줄어들며 밀어내기 때문이다. 이것을 소방 펌프의 공기 탱크에 빗대 <span class="term">윈드케셀</span><span class="en">(Windkessel)</span> 효과라 한다.</p>
-    <figure class="diagram">
-      <svg viewBox="0 0 480 260" role="img" aria-label="동맥압 파형: 수축기 혈압, 확장기 혈압, 맥압, 평균 동맥압, 중복 패임">
-        <defs><marker id="vs-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <path d="M40 200 H440" class="s-axis"/>
-        <path d="M40 30 V200" class="s-axis"/>
-        <path d="M50 170 C70 170 80 60 110 52 C130 48 140 80 150 96 L156 104 L162 96 C180 108 230 150 270 170 C290 170 300 60 330 52 C350 48 360 80 370 96 L376 104 L382 96 C400 108 430 150 440 166" class="s-art" fill="none"/>
-        <path d="M40 52 H460" class="s-dash"/><text x="440" y="46" text-anchor="end" class="lbl-dim">수축기 혈압 128</text>
-        <path d="M40 170 H460" class="s-dash"/><text x="440" y="186" text-anchor="end" class="lbl-dim">확장기 혈압 82</text>
-        <path d="M40 131 H460" class="s-acc" stroke-dasharray="6 4"/><text x="450" y="125" text-anchor="end" class="lbl-acc">평균 동맥압 ≈ 97</text>
-        <path d="M222 56 V166" class="s-acc2" marker-start="url(#vs-ar)" marker-end="url(#vs-ar)"/>
-        <text x="228" y="100" class="lbl-acc2">맥압 46</text>
-        <text x="160" y="84" class="lbl-dim">중복 패임(대동맥판 닫힘)</text>
-        <text x="30" y="34" text-anchor="end" class="lbl-dim t-mono">mmHg</text>
-        <text x="240" y="226" text-anchor="middle" class="lbl-dim">시간(두 박동)</text>
-        <text x="240" y="248" text-anchor="middle" class="lbl t-mono">MAP ≈ DBP + (SBP − DBP)/3</text>
-      </svg>
-      <figcaption><b>동맥압 파형 읽기.</b> 혈압계가 알려 주는 두 숫자는 파형의 꼭대기(수축기 혈압)와 바닥(확장기 혈압)이다. 둘의 차이가 맥압이고, 한 주기 동안의 평균이 평균 동맥압이다. 이완기가 수축기보다 길어 평균은 확장기 쪽에 가깝다. 숫자는 다온의 검진 혈압이다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-20-10.webp" width="1200" height="836" loading="lazy" decoding="async" alt="대동맥에서 대정맥까지 혈관을 따라 수축기·확장기·평균 동맥압과 맥압이 바뀌는 그래프">
+      <figcaption><b>동맥압 파형 읽기.</b> 대동맥에서 혈압은 수축기 혈압(꼭대기)과 확장기 혈압(바닥) 사이를 오르내린다. 둘의 차이가 맥압이고, 한 주기 동안의 평균이 평균 동맥압이다. 이완기가 수축기보다 길어 평균은 확장기 쪽에 가깝다. 압력은 세동맥을 지나며 가장 크게 떨어지고, 모세혈관에 이르면 맥동이 거의 사라진다. 다온의 검진 혈압 128/82 mmHg는 맨 왼쪽 대동맥 근처의 꼭대기와 바닥에 해당한다.<span class="fig-words">Systolic/Diastolic pressure 수축기/확장기 혈압 · Mean arterial pressure 평균 동맥압 · Pulse pressure 맥압 · Elastic/Muscular arteries 탄성/근육 동맥 · Arterioles 세동맥 · Capillaries 모세혈관 · Venules 세정맥 · Venae cavae 대정맥</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/20-2-blood-flow-blood-pressure-and-resistance">그림 20.10</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
     <p>대동맥이 잘 늘어날수록(탄성, <span class="term">순응도</span><span class="en">(Compliance)</span>가 클수록) 같은 박출량을 받아도 압력이 덜 오르고, 이완기에 더 오래 밀어 준다. 나이가 들면 동맥벽의 탄성 섬유가 끊기고 콜라겐과 칼슘이 쌓여 동맥이 뻣뻣해진다. 아래에서 동맥의 나이를 올려 보자.</p>
 

@@ -22,13 +22,14 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/nerve.html#chapter","name":"신경: 전기로 말하기","headline":"신경: 전기로 말하기 · BodyBook","description":"신경은 어떻게 전기로 말하는가. 활동 전위와 이온 통로, 역치와 불응기, 수초와 전도 속도, 시냅스의 합산, 무릎 반사, 교감과 부교감을 호지킨-헉슬리 모델과 시뮬레이터로 직접 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/nerve.html","position":16,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"16. 신경: 전기로 말하기","item":"https://bodybook.euiyun.com/chapters/nerve.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/nerve.html#chapter","name":"신경: 전기로 말하기","headline":"신경: 전기로 말하기 · BodyBook","description":"신경은 어떻게 전기로 말하는가. 활동 전위와 이온 통로, 역치와 불응기, 수초와 전도 속도, 시냅스의 합산, 무릎 반사, 교감과 부교감을 호지킨-헉슬리 모델과 시뮬레이터로 직접 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/nerve.html","position":16,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"16. 신경: 전기로 말하기","item":"https://bodybook.euiyun.com/chapters/nerve.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/common.js"></script>
 <script src="../js/body.js"></script>
+<script src="../js/anatomy3d.js" defer></script>
 <!--head:end-->
 <style>
   .rt-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 18px 0; }
@@ -55,36 +56,9 @@
     <h2>뉴런: 신호를 받고, 더하고, 보낸다</h2>
     <p>신경계의 기본 단위는 <span class="term">뉴런</span><span class="en">(Neuron)</span>, 곧 신경 세포다. 사람의 뇌에만 약 860억 개가 있고, 척수에서 발끝까지 뻗은 운동 뉴런 하나는 길이가 1 m에 이른다. 생김새는 제각각이지만 하는 일은 같다. 여러 곳에서 신호를 <b>받고</b>, 그것을 <b>더해서</b> 보낼지 말지 <b>결정하고</b>, 결정했으면 먼 곳까지 <b>보낸다</b>.</p>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 230" role="img" aria-label="뉴런의 구조: 가지돌기, 세포체, 축삭 언덕, 수초로 싸인 축삭과 랑비에 결절, 축삭 말단과 시냅스">
-        <defs><marker id="nv-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <path d="M80 112 L40 70 M40 70 L22 58 M40 70 L36 48 M80 112 L30 112 M30 112 L14 100 M30 112 L16 124 M80 112 L44 156 M44 156 L24 168 M44 156 L42 180 M88 100 L74 56 M88 124 L80 168" class="s-nerve"/>
-        <circle cx="96" cy="112" r="22" class="f-nerve" opacity="0.35"/>
-        <circle cx="96" cy="112" r="22" class="s-nerve"/>
-        <circle cx="94" cy="110" r="7" class="f-nerve" opacity="0.7"/>
-        <path d="M117 104 L140 109 L140 115 L117 120 Z" class="f-nerve" opacity="0.6"/>
-        <line x1="140" y1="112" x2="392" y2="112" class="s-nerve"/>
-        <rect x="150" y="103" width="50" height="18" rx="9" class="f-surface" stroke="currentColor" stroke-opacity="0.3"/>
-        <rect x="208" y="103" width="50" height="18" rx="9" class="f-surface" stroke="currentColor" stroke-opacity="0.3"/>
-        <rect x="266" y="103" width="50" height="18" rx="9" class="f-surface" stroke="currentColor" stroke-opacity="0.3"/>
-        <rect x="324" y="103" width="50" height="18" rx="9" class="f-surface" stroke="currentColor" stroke-opacity="0.3"/>
-        <path d="M392 112 L428 84 M392 112 L436 112 M392 112 L428 140" class="s-nerve"/>
-        <circle cx="432" cy="81" r="6" class="f-nerve"/><circle cx="441" cy="112" r="6" class="f-nerve"/><circle cx="432" cy="143" r="6" class="f-nerve"/>
-        <text x="30" y="40" class="lbl-dim" text-anchor="middle">가지돌기</text>
-        <text x="96" y="150" class="lbl-dim" text-anchor="middle">세포체</text>
-        <text x="128" y="88" class="lbl-dim" text-anchor="middle">축삭 언덕</text>
-        <text x="233" y="96" class="lbl-dim" text-anchor="middle">수초</text>
-        <line x1="262" y1="126" x2="262" y2="142" class="s-dash"/>
-        <text x="262" y="156" class="lbl-dim" text-anchor="middle">랑비에 결절</text>
-        <text x="300" y="96" class="lbl-dim" text-anchor="middle">축삭</text>
-        <text x="440" y="172" class="lbl-dim" text-anchor="middle">축삭 말단</text>
-        <path d="M60 205 L420 205" class="s-acc" marker-end="url(#nv-ar)"/>
-        <text x="60" y="198" class="lbl-acc">받기</text>
-        <text x="128" y="198" class="lbl-acc" text-anchor="middle">더하기·결정</text>
-        <text x="270" y="198" class="lbl-acc" text-anchor="middle">보내기</text>
-        <text x="410" y="198" class="lbl-acc" text-anchor="end">전달</text>
-      </svg>
-      <figcaption><b>뉴런의 네 구역.</b> 가지돌기와 세포체가 다른 뉴런의 신호를 받고, 축삭 언덕이 더해진 전위가 역치를 넘었는지 판정한다. 넘으면 활동 전위가 축삭을 따라 말단까지 달리고, 말단은 화학 물질(신경 전달 물질)로 다음 세포에 신호를 넘긴다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-12-8.webp" width="825" height="552" loading="lazy" decoding="async" alt="뉴런의 구조: 가지돌기, 세포체, 축삭, 수초와 랑비에 결절, 희소돌기아교세포, 시냅스">
+      <figcaption><b>뉴런의 네 구역.</b> 가지돌기와 세포체가 다른 뉴런의 신호를 받고, 세포체에서 축삭이 시작되는 곳(축삭 언덕)이 더해진 전위가 역치를 넘었는지 판정한다. 넘으면 활동 전위가 축삭을 따라 말단까지 달린다. 중추신경계에서는 희소돌기아교세포가 축삭을 수초로 감싸고, 수초 사이 틈인 랑비에 결절에서만 신호가 다시 만들어져 뛰듯이 빨리 간다. 말단은 시냅스에서 화학 물질(신경 전달 물질)로 다음 세포에 신호를 넘긴다.<span class="fig-words">Dendrites 가지돌기 · Cell body (soma) 세포체 · Axon 축삭 · Myelin sheath 수초 · Node of Ranvier 랑비에 결절 · Oligodendrocyte 희소돌기아교세포 · Synapse 시냅스 · Cell membrane 세포막</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/12-2-nervous-tissue">그림 12.8</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
 
     <p>아래 뉴런에는 가지돌기 끝에서 작은 입력(초록 점)이 계속 들어온다. 입력 하나는 세포체 쪽 전위를 몇 mV만 올리고 금세 사라진다. 짧은 시간 안에 여러 개가 쌓여 <b>축삭 언덕</b>의 전위가 역치를 넘으면 그때 비로소 신호가 축삭을 따라 출발한다. 입력 빈도를 바꾸고, 부분을 눌러 이름과 역할을 확인해 보자.</p>
@@ -311,6 +285,17 @@
     </div>
 
     <p>반사는 생각보다 빠르지만 생각이 막을 수도 있다. 뇌에서 척수로 내려오는 신호가 반사의 크기를 늘 조절하기 때문이다. 검사할 때 두 손을 깍지 끼고 당기라고 하는 것은 그 조절을 다른 곳으로 돌려 반사를 잘 보이게 하려는 것이다. 반사가 사라지거나 지나치게 크면 신경의 어느 구간이 탈이 났는지 단서가 된다.</p>
+    <p>반사가 척수에서 끝나는 동안 뇌는 무엇을 하는지, 신호가 지나는 길을 실제 뇌 모델로 보자. 대뇌 겉질의 중심앞이랑(운동)은 근육에 명령을 내리고, 바로 뒤의 중심뒤이랑(감각)은 몸에서 올라온 신호를 받는다. 두 길 모두 뇌줄기와 척수를 지난다.</p>
+
+    <div class="sim model3d" id="sim-nv-3d" data-model="nervous" data-orbit="30deg 70deg auto" data-desc="실제 인체 데이터로 만든 뇌 3D 모델을 돌려 보며 운동 겉질, 감각 겉질, 소뇌, 뇌줄기, 척수의 위치를 찾는다.">
+      <div class="sim-head"><span class="sim-tag three">3D MODEL</span><h3>3D로 보는 뇌와 척수</h3></div>
+      <div class="sim-body">
+        <div class="sim-view model3d-view"><span class="hint">끌어서 돌리고, 휠·두 손가락으로 확대한다</span></div>
+      </div>
+      <div class="model3d-parts"><button type="button" data-part="frontal" title="계획과 판단">이마엽</button><button type="button" data-part="motor" title="중심앞이랑: 근육에 명령을 내린다">일차 운동 겉질</button><button type="button" data-part="sensory" title="중심뒤이랑: 몸의 감각을 받는다">일차 감각 겉질</button><button type="button" data-part="parietal">마루엽</button><button type="button" data-part="temporal" title="소리, 기억(해마)">관자엽·변연계</button><button type="button" data-part="occipital" title="시각">뒤통수엽</button><button type="button" data-part="white" title="수초로 싸인 축삭 다발">백질</button><button type="button" data-part="cerebellum" title="움직임을 다듬는다">소뇌</button><button type="button" data-part="brainstem" title="중간뇌·다리뇌·숨뇌: 호흡과 심박의 중추">뇌줄기</button><button type="button" data-part="spinalcord" title="반사궁이 닫히는 곳">척수(목 부분)</button><span class="sep"></span><button type="button" data-rotate>자동 회전</button><button type="button" data-fade="frontal,motor,sensory,parietal,temporal,occipital">겉질 반투명</button><button type="button" data-reset>처음 시점</button></div>
+      <div class="info-panel">모델을 누르면 그 부위의 이름이 여기에 나온다.</div>
+      <div class="sim-note">해볼 것: ① 위에서 내려다보아 빨간 운동 겉질과 파란 감각 겉질이 중심고랑을 사이에 두고 붙어 있는 것을 본다. ② "겉질 반투명"을 눌러 안쪽 백질을 본다. ③ 옆으로 돌려 뇌줄기가 척수로 이어지는 곳(숨뇌)을 찾는다. 10장의 호흡 중추가 여기 있다. <span class="sim-credit">3D 모델: <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/">BodyParts3D</a>, © The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>. 부위별로 색을 입히고 면 수를 줄였다. 뷰어: model-viewer(Apache-2.0).</span></div>
+    </div>
   </section>
 
   <section id="autonomic">

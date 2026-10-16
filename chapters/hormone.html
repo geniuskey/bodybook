@@ -22,13 +22,14 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/hormone.html#chapter","name":"호르몬과 피드백 루프","headline":"호르몬과 피드백 루프 · BodyBook","description":"호르몬은 피를 타고 온몸에 방송하는 느린 신호다. 반감기와 용량-반응, 시상하부-뇌하수체-부신 축의 피드백 루프, 코르티솔의 하루 리듬과 시차, 스트레스 반응, 갑상선과 TSH를 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/hormone.html","position":17,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"17. 호르몬과 피드백 루프","item":"https://bodybook.euiyun.com/chapters/hormone.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/hormone.html#chapter","name":"호르몬과 피드백 루프","headline":"호르몬과 피드백 루프 · BodyBook","description":"호르몬은 피를 타고 온몸에 방송하는 느린 신호다. 반감기와 용량-반응, 시상하부-뇌하수체-부신 축의 피드백 루프, 코르티솔의 하루 리듬과 시차, 스트레스 반응, 갑상선과 TSH를 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/hormone.html","position":17,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"17. 호르몬과 피드백 루프","item":"https://bodybook.euiyun.com/chapters/hormone.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/common.js"></script>
 <script src="../js/body.js"></script>
+<script src="../js/anatomy3d.js" defer></script>
 <!--head:end-->
 <style>
   .sim-view:has(> .hint) { padding-bottom: 26px; }
@@ -53,26 +54,22 @@
     <h2>전선과 방송: 신경과 호르몬</h2>
     <p><a href="nerve.html">16장</a>의 신경은 정해진 세포 하나에 수 밀리초 만에 신호를 꽂는다. <span class="term">호르몬</span><span class="en">(Hormone)</span>은 다르다. <span class="term">내분비샘</span><span class="en">(Endocrine gland)</span>이 피 속으로 내보내면 심장이 약 1분 만에 그것을 온몸에 돌린다. 신호를 받을지 말지는 세포가 정한다. 그 호르몬에 맞는 <span class="term">수용체</span><span class="en">(Receptor)</span>를 가진 세포만 반응한다.</p>
 
-    <figure class="diagram">
-      <svg viewBox="-30 0 540 300" role="img" aria-label="주요 내분비샘의 위치와 호르몬: 시상하부, 뇌하수체, 갑상선, 부신, 이자, 생식샘">
-        <ellipse cx="240" cy="50" rx="34" ry="38" class="f-surface" stroke="currentColor" stroke-opacity="0.25"/>
-        <path d="M206 92 L274 92 L300 120 L292 258 L188 258 L180 120 Z" class="f-surface" stroke="currentColor" stroke-opacity="0.25"/>
-        <circle cx="236" cy="48" r="7" class="seg-reg"/>
-        <circle cx="244" cy="66" r="5" class="seg-reg"/>
-        <ellipse cx="240" cy="100" rx="11" ry="5" class="seg-reg"/>
-        <ellipse cx="216" cy="172" rx="7" ry="4" class="seg-reg"/><ellipse cx="264" cy="172" rx="7" ry="4" class="seg-reg"/>
-        <ellipse cx="252" cy="196" rx="20" ry="5" class="seg-reg"/>
-        <circle cx="222" cy="244" r="5" class="seg-reg"/><circle cx="258" cy="244" r="5" class="seg-reg"/>
-        <line x1="236" y1="48" x2="150" y2="30" class="s-line"/><text x="146" y="26" text-anchor="end" class="lbl">시상하부</text><text x="146" y="42" text-anchor="end" class="lbl-dim">CRH, TRH (방출 호르몬)</text>
-        <line x1="244" y1="66" x2="330" y2="58" class="s-line"/><text x="334" y="56" class="lbl">뇌하수체</text><text x="334" y="72" class="lbl-dim">ACTH, TSH, 성장 호르몬</text>
-        <line x1="240" y1="100" x2="150" y2="104" class="s-line"/><text x="146" y="102" text-anchor="end" class="lbl">갑상선</text><text x="146" y="118" text-anchor="end" class="lbl-dim">T4, T3</text>
-        <line x1="264" y1="172" x2="330" y2="150" class="s-line"/><text x="334" y="146" class="lbl">부신</text><text x="334" y="162" class="lbl-dim">겉질: 코르티솔</text><text x="334" y="178" class="lbl-dim">속질: 아드레날린</text>
-        <line x1="252" y1="196" x2="330" y2="210" class="s-line"/><text x="334" y="212" class="lbl">이자</text><text x="334" y="228" class="lbl-dim">인슐린, 글루카곤</text>
-        <line x1="222" y1="244" x2="150" y2="240" class="s-line"/><text x="146" y="238" text-anchor="end" class="lbl">생식샘</text><text x="146" y="254" text-anchor="end" class="lbl-dim">테스토스테론, 에스트로겐</text>
-        <text x="240" y="290" text-anchor="middle" class="lbl-dim">보라색: 내분비샘</text>
-      </svg>
-      <figcaption><b>몸의 방송국들.</b> 시상하부와 뇌하수체가 지휘하고, 갑상선·부신·생식샘이 연주한다. 이자의 인슐린과 글루카곤은 <a href="glucose.html">15장</a>, 콩팥의 물을 조절하는 항이뇨 호르몬(ADH)은 <a href="kidney.html">18장</a>에서 본다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-17-2.webp" width="1200" height="1082" loading="lazy" decoding="async" alt="주요 내분비샘의 위치: 솔방울샘, 뇌하수체, 갑상선과 부갑상선, 가슴샘, 부신, 이자, 난소, 고환">
+      <figcaption><b>몸의 방송국들.</b> 시상하부와 뇌하수체가 지휘하고, 갑상선·부신·생식샘이 연주한다. 이자의 인슐린과 글루카곤은 15장, 콩팥의 물을 조절하는 항이뇨 호르몬(ADH)은 18장에서 본다.<span class="fig-words">Pineal gland 솔방울샘 · Thalamus 시상 · Pituitary gland 뇌하수체 · Thyroid gland 갑상선 · Parathyroid glands 부갑상선 · Thymus 가슴샘 · Adrenal glands 부신 · Pancreas 이자 · Ovaries 난소 · Testes 고환 · Uterus 자궁</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/17-1-an-overview-of-the-endocrine-system">그림 17.2</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
+
+    <p>방송국들의 실제 자리를 3D로 찾아보자. 시상하부와 뇌하수체는 뇌 한가운데 아래쪽에 붙어 있고, 부신은 콩팥 위에 모자처럼 얹혀 있다. 원본 데이터에 갑상선 모델이 없어 이 모델에서는 빠졌다(목 앞, 기관 양옆에 있다).</p>
+
+    <div class="sim model3d" id="sim-hm-3d" data-model="endocrine" data-orbit="0deg 85deg auto" data-desc="실제 인체 데이터로 만든 3D 모델에서 시상하부, 뇌하수체, 솔방울샘, 가슴샘, 부신, 이자, 고환의 위치를 돌려 보며 찾는다.">
+      <div class="sim-head"><span class="sim-tag three">3D MODEL</span><h3>3D로 보는 내분비샘</h3></div>
+      <div class="sim-body">
+        <div class="sim-view model3d-view"><span class="hint">끌어서 돌리고, 휠·두 손가락으로 확대한다</span></div>
+      </div>
+      <div class="model3d-parts"><button type="button" data-part="hypothalamus" title="CRH, TRH 등으로 뇌하수체를 지휘">시상하부</button><button type="button" data-part="pituitary" title="ACTH, TSH, ADH 등">뇌하수체</button><button type="button" data-part="pineal" title="멜라토닌">솔방울샘</button><button type="button" data-part="thymus">가슴샘</button><button type="button" data-part="adrenal" title="코르티솔(겉질), 아드레날린(속질)">부신</button><button type="button" data-part="pancreas" title="인슐린, 글루카곤">이자</button><button type="button" data-part="testes" title="테스토스테론">고환</button><button type="button" data-part="kidneys">콩팥</button><button type="button" data-part="brain">뇌</button><button type="button" data-part="skin">피부</button><span class="sep"></span><button type="button" data-rotate>자동 회전</button><button type="button" data-reset>처음 시점</button></div>
+      <div class="info-panel">모델을 누르면 그 부위의 이름이 여기에 나온다.</div>
+      <div class="sim-note">해볼 것: ① 머리 쪽으로 확대해 시상하부(분홍)와 그 아래 매달린 뇌하수체를 찾는다. 둘 사이의 짧은 줄기로 신호가 내려간다. ② 피부와 뇌를 끄고 부신이 콩팥 위에 얹힌 모습을 본다. HPA 축의 세 정거장이 머리와 배에 떨어져 있고, 그 사이를 피가 잇는다. <span class="sim-credit">3D 모델: <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/">BodyParts3D</a>, © The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>. 부위별로 색을 입히고 면 수를 줄였다. 뷰어: model-viewer(Apache-2.0).</span></div>
+    </div>
 
     <p>아래에서 신호의 종류를 고르고 "보내기"를 눌러 보자. 신경은 한 곳에만 닿고, 호르몬은 피를 타고 퍼지며 수용체가 있는 장기만 밝힌다. 오른쪽 시간 축은 1 ms부터 한 달까지를 한 줄에 담은 로그 눈금이다.</p>
 
@@ -95,31 +92,9 @@
 
     <p>호르몬이 느린 데는 이유가 있다. 피를 한 바퀴 도는 데 약 1분이 걸리고, 물에 녹는 <b>펩타이드·아민 호르몬</b>(아드레날린, 인슐린, ACTH)은 세포막의 수용체에 붙어 세포 안의 2차 전달자를 움직이니 수 초~수 분 안에 효과가 난다. 기름에 녹는 <b>스테로이드·갑상선 호르몬</b>(코르티솔, T4)은 막을 통과해 세포 안 수용체와 함께 유전자를 켜고 끄므로 새 단백질이 만들어질 때까지 몇 시간~며칠이 걸린다.</p>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 250" role="img" aria-label="물에 녹는 호르몬은 막 수용체와 2차 전달자로 빠르게, 기름에 녹는 호르몬은 세포 안 수용체와 유전자로 느리게 작용한다">
-        <defs><marker id="hm-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <rect x="14" y="60" width="210" height="170" rx="22" class="f-surface" stroke="currentColor" stroke-opacity="0.3"/>
-        <rect x="256" y="60" width="210" height="170" rx="22" class="f-surface" stroke="currentColor" stroke-opacity="0.3"/>
-        <text x="119" y="22" text-anchor="middle" class="lbl-b">물에 녹는 호르몬</text><text x="119" y="40" text-anchor="middle" class="lbl-dim">아드레날린, 인슐린, ACTH</text>
-        <text x="361" y="22" text-anchor="middle" class="lbl-b">기름에 녹는 호르몬</text><text x="361" y="40" text-anchor="middle" class="lbl-dim">코르티솔, T4·T3</text>
-        <circle cx="119" cy="50" r="7" class="f-acc"/>
-        <rect x="107" y="58" width="24" height="16" rx="4" class="f-acc2"/>
-        <path d="M119 78 L119 112" class="s-acc2" marker-end="url(#hm-ar)"/>
-        <text x="127" y="100" class="lbl-dim">cAMP 등 2차 전달자</text>
-        <path d="M119 124 L119 158" class="s-acc2" marker-end="url(#hm-ar)"/>
-        <text x="119" y="178" text-anchor="middle" class="lbl">있던 효소를 켜고 끔</text>
-        <text x="119" y="208" text-anchor="middle" class="lbl-acc">수 초 ~ 수 분</text>
-        <circle cx="361" cy="50" r="7" class="f-acc"/>
-        <path d="M361 58 L361 92" class="s-acc" marker-end="url(#hm-ar)"/>
-        <text x="370" y="80" class="lbl-dim">막을 그냥 통과</text>
-        <rect x="341" y="96" width="40" height="18" rx="5" class="f-acc2"/><text x="388" y="110" class="lbl-dim">세포 안 수용체</text>
-        <ellipse cx="361" cy="160" rx="62" ry="30" class="f-acc2-soft"/>
-        <path d="M361 116 L361 140" class="s-acc2" marker-end="url(#hm-ar)"/>
-        <text x="361" y="158" text-anchor="middle" class="lbl">핵: 유전자 켜기</text>
-        <text x="361" y="175" text-anchor="middle" class="lbl-dim">→ 새 단백질</text>
-        <text x="361" y="214" text-anchor="middle" class="lbl-acc">수 시간 ~ 며칠</text>
-      </svg>
-      <figcaption><b>두 가지 작용 방식.</b> 막을 통과하지 못하는 호르몬은 막 바깥의 수용체를 두드려 세포 안 신호를 증폭한다. 막을 통과하는 호르몬은 세포 안 수용체와 함께 핵으로 들어가 유전자를 조절한다. 앞쪽은 빠르고 짧게, 뒤쪽은 느리고 길게 작용한다.</figcaption>
+    <figure class="photo">
+      <div class="fig-row"><img src="../assets/figures/openstax-ap-17-5.webp" width="965" height="731" loading="lazy" decoding="async" alt="물에 녹는 호르몬이 막 수용체, G 단백질, cAMP, 단백질 인산화 효소를 거쳐 작용하는 과정"><img src="../assets/figures/openstax-ap-17-4.webp" width="937" height="621" loading="lazy" decoding="async" alt="기름에 녹는 호르몬이 막을 통과해 세포 안 수용체와 결합하고 핵에서 유전자 전사를 바꾸는 과정"></div>
+      <figcaption><b>두 가지 작용 방식.</b> 왼쪽: 물에 녹는 호르몬은 막을 통과하지 못해 막 바깥의 수용체를 두드린다. 수용체가 G 단백질을, G 단백질이 아데닐산 고리화 효소를 켜 ATP를 cAMP(2차 전달자)로 바꾸고, cAMP가 단백질 인산화 효소를 켜 세포 안 단백질을 바꾼다. 단계마다 신호가 불어나 빠르고 짧게 작용한다. 오른쪽: 기름에 녹는 호르몬은 막을 통과해 세포 안 수용체와 결합하고, 함께 핵으로 들어가 유전자 전사를 바꾼다. 새 단백질이 만들어져야 하므로 느리고 길게 작용한다.<span class="fig-words">Water-soluble/Lipid-soluble hormone 물/기름에 녹는 호르몬 · Cell membrane receptor 막 수용체 · G protein G 단백질 · Adenylyl cyclase 아데닐산 고리화 효소 · Protein kinase 단백질 인산화 효소 · Receptor–hormone complex 수용체-호르몬 복합체 · Transcription 전사 · Translation 번역</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/17-2-hormones">그림 17.5</a>, <a href="https://openstax.org/books/anatomy-and-physiology/pages/17-2-hormones">그림 17.4</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
   </section>
 

@@ -22,7 +22,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/exercise.html#chapter","name":"운동하는 몸","headline":"운동하는 몸 · BodyBook","description":"달리는 몸은 에너지를 어디서 얻는가. 세 가지 에너지 시스템, 산소 부족과 운동 뒤 산소 소비, 젖산 역치와 VO2max, 연료의 교차, 심박 구간, 훈련 적응과 체력-피로 모델을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/exercise.html","position":12,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"12. 운동하는 몸","item":"https://bodybook.euiyun.com/chapters/exercise.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/exercise.html#chapter","name":"운동하는 몸","headline":"운동하는 몸 · BodyBook","description":"달리는 몸은 에너지를 어디서 얻는가. 세 가지 에너지 시스템, 산소 부족과 운동 뒤 산소 소비, 젖산 역치와 VO2max, 연료의 교차, 심박 구간, 훈련 적응과 체력-피로 모델을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/exercise.html","position":12,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"12. 운동하는 몸","item":"https://bodybook.euiyun.com/chapters/exercise.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -52,33 +52,9 @@
     <p>근육이 쓰는 에너지 화폐는 단 하나, <span class="term">ATP</span><span class="en">(Adenosine triphosphate)</span>다. 교차다리가 한 번 당길 때, 칼슘을 다시 퍼 넣을 때, 나트륨-칼륨 펌프가 돌 때 모두 ATP를 쓴다(<a href="muscle.html">11장</a>). 문제는 근육 안의 ATP가 kg당 약 5 mmol, 전력 질주라면 2~3초면 바닥나는 양이라는 점이다. 그래서 ATP는 저장고가 아니라 <b>통로</b>다. 쓰는 만큼 거의 같은 속도로 다시 만들어진다.</p>
     <p>다시 만드는 길은 셋이다. 이미 만들어 둔 고에너지 인산을 바로 넘겨주는 <span class="term">인산크레아틴 시스템</span><span class="en">(Phosphocreatine, PCr)</span>, 포도당을 산소 없이 반쯤 쪼개는 <span class="term">해당 과정</span><span class="en">(Glycolysis)</span>, 그리고 미토콘드리아에서 산소로 연료를 끝까지 태우는 <span class="term">산화 과정</span><span class="en">(Oxidative phosphorylation)</span>이다. 빠를수록 용량이 작고, 느릴수록 용량이 크다.</p>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 290" role="img" aria-label="세 가지 에너지 시스템: 인산크레아틴, 해당 과정, 산화 과정이 ATP를 만드는 속도와 용량 비교">
-        <defs><marker id="ex-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <rect x="190" y="118" width="100" height="54" rx="27" class="f-acc-soft"/>
-        <text x="240" y="142" text-anchor="middle" class="lbl-b">ATP</text>
-        <text x="240" y="160" text-anchor="middle" class="lbl-dim">2~3초분</text>
-        <rect x="14" y="20" width="150" height="70" rx="10" class="f-warn-soft"/>
-        <text x="89" y="44" text-anchor="middle" class="lbl-b">인산크레아틴</text>
-        <text x="89" y="64" text-anchor="middle" class="lbl-dim">가장 빠름 · 약 10초분</text>
-        <text x="89" y="80" text-anchor="middle" class="lbl-dim">산소 필요 없음</text>
-        <rect x="14" y="200" width="150" height="70" rx="10" class="f-ok-soft"/>
-        <text x="89" y="224" text-anchor="middle" class="lbl-b">해당 과정</text>
-        <text x="89" y="244" text-anchor="middle" class="lbl-dim">빠름 · 수십 초~2분</text>
-        <text x="89" y="260" text-anchor="middle" class="lbl-dim">포도당 → 젖산</text>
-        <rect x="316" y="100" width="150" height="90" rx="10" class="f-acc2-soft"/>
-        <text x="391" y="126" text-anchor="middle" class="lbl-b">산화 과정</text>
-        <text x="391" y="146" text-anchor="middle" class="lbl-dim">느림 · 용량 거의 무한</text>
-        <text x="391" y="162" text-anchor="middle" class="lbl-dim">미토콘드리아 + 산소</text>
-        <text x="391" y="178" text-anchor="middle" class="lbl-dim">탄수화물 · 지방</text>
-        <path d="M150 90 L200 120" class="s-line" marker-end="url(#ex-ar)"/>
-        <path d="M150 200 L200 170" class="s-line" marker-end="url(#ex-ar)"/>
-        <path d="M316 145 L294 145" class="s-line" marker-end="url(#ex-ar)"/>
-        <path d="M164 235 C260 250 330 230 370 192" class="s-dash" marker-end="url(#ex-ar)"/>
-        <text x="300" y="262" text-anchor="middle" class="lbl-dim">젖산·피루브산도 산화 연료</text>
-        <text x="240" y="30" text-anchor="middle" class="lbl-dim">빠르다 ← → 오래간다</text>
-      </svg>
-      <figcaption><b>ATP를 다시 채우는 세 길.</b> 인산크레아틴은 한 단계 반응이라 순식간에 ATP를 채우지만 10초 남짓이면 바닥난다. 해당 과정은 몇 단계를 거쳐 조금 느리고, 젖산과 수소 이온을 남긴다. 산화 과정은 수십 단계를 거치고 산소 공급을 기다려야 해서 가장 느리지만, 연료(글리코겐·지방)가 있는 한 계속 돈다. 세 길은 차례로 켜지는 것이 아니라 <b>처음부터 함께</b> 켜지고 비율만 바뀐다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-10-12.webp" width="902" height="1014" loading="lazy" decoding="async" alt="근육이 ATP를 다시 채우는 세 길: 인산크레아틴, 해당 과정, 미토콘드리아의 세포 호흡">
+      <figcaption><b>ATP를 다시 채우는 세 길.</b> (a) 인산크레아틴은 한 단계 반응이라 순식간에 ATP를 채우지만 10초 남짓이면 바닥난다. (b) 해당 과정은 포도당과 글리코겐을 피루브산으로 쪼개며 ATP 2개를 얻고, 산소가 모자라면 젖산을 남긴다. (c) 산화 과정은 미토콘드리아에서 포도당·피루브산·지방산을 산소로 태워 가장 많은 ATP를 만들지만, 수십 단계를 거치고 산소 공급을 기다려야 해서 가장 느리다. 세 길은 차례로 켜지는 것이 아니라 처음부터 함께 켜지고 비율만 바뀐다.<span class="fig-words">Creatine phosphate 인산크레아틴 · Creatine kinase 크레아틴 인산화 효소 · Glycolysis 해당 과정 · Muscle glycogen 근육 글리코겐 · Pyruvate 피루브산 · Lactic acid 젖산 · Aerobic respiration 유산소 호흡 · Cellular respiration in mitochondria 미토콘드리아의 세포 호흡 · Fatty acids 지방산</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/10-3-muscle-fiber-contraction-and-relaxation">그림 10.12</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
 
     <p>아래는 전력을 다해 달릴 때 세 시스템이 매 순간 내는 ATP 공급 속도다. 세로선을 끌어 운동 시간을 정하면 그 시간 동안 쓴 에너지가 어디서 왔는지 나눠 보여 준다.</p>

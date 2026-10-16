@@ -22,7 +22,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/gas.html#chapter","name":"가스 교환과 산소 운반","headline":"가스 교환과 산소 운반 · BodyBook","description":"들이쉰 산소는 어떻게 세포까지 가는가. 분압의 계단, 폐포 가스식, 확산과 모세혈관 통과 시간, 헤모글로빈 해리 곡선과 보어 효과, 산소 운반량, 일산화탄소, 환기-관류 불균형, 이산화탄소 운반을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/gas.html","position":9,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"9. 가스 교환과 산소 운반","item":"https://bodybook.euiyun.com/chapters/gas.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/gas.html#chapter","name":"가스 교환과 산소 운반","headline":"가스 교환과 산소 운반 · BodyBook","description":"들이쉰 산소는 어떻게 세포까지 가는가. 분압의 계단, 폐포 가스식, 확산과 모세혈관 통과 시간, 헤모글로빈 해리 곡선과 보어 효과, 산소 운반량, 일산화탄소, 환기-관류 불균형, 이산화탄소 운반을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/gas.html","position":9,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"9. 가스 교환과 산소 운반","item":"https://bodybook.euiyun.com/chapters/gas.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -50,24 +50,9 @@
     <h2>분압의 계단</h2>
     <p>공기는 여러 기체의 혼합물이다. 해수면 대기압 760 mmHg 가운데 질소가 약 79 %, 산소가 약 21 %를 차지한다. 혼합 기체에서 한 기체가 맡는 압력을 <span class="term">분압</span><span class="en">(Partial pressure)</span>이라 하고, 전체 압력에 그 기체의 비율을 곱해 구한다(돌턴 법칙). 산소의 분압은 760 × 0.21 ≈ 160 mmHg다. 기체는 농도가 아니라 이 <b>분압의 차이</b>를 따라 확산한다.</p>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 250" role="img" aria-label="해수면 공기 760 mmHg의 구성: 질소 약 600, 산소 약 160 mmHg, 기도에서 수증기 47 mmHg가 더해진다">
-        <text x="20" y="28" class="lbl-b">마른 대기 760 mmHg</text>
-        <rect x="20" y="40" width="346" height="40" rx="6" class="f-surface"/>
-        <rect x="366" y="40" width="94" height="40" rx="6" class="f-art-soft"/>
-        <text x="193" y="66" text-anchor="middle" class="lbl">질소 약 600</text>
-        <text x="413" y="66" text-anchor="middle" class="lbl-b">O₂ 160</text>
-        <text x="20" y="122" class="lbl-b">기도에서 가습된 공기 760 mmHg</text>
-        <rect x="20" y="134" width="324" height="40" rx="6" class="f-surface"/>
-        <rect x="344" y="134" width="88" height="40" rx="6" class="f-art-soft"/>
-        <rect x="432" y="134" width="28" height="40" rx="6" class="f-acc2-soft"/>
-        <text x="182" y="160" text-anchor="middle" class="lbl">질소 약 563</text>
-        <text x="388" y="160" text-anchor="middle" class="lbl-b">O₂ 150</text>
-        <text x="446" y="196" text-anchor="middle" class="lbl-acc2">수증기 47</text>
-        <path d="M446 176 L446 182" class="s-acc2"/>
-        <text x="20" y="232" class="lbl-dim">PIO2 = 0.21 × (760 − 47) ≈ 150 mmHg</text>
-      </svg>
-      <figcaption><b>산소 분압은 비율 × 압력.</b> 들이쉰 공기는 기도를 지나며 체온의 수증기로 포화된다. 수증기 47 mmHg가 자리를 차지하므로 기도 속 산소 분압은 160에서 150 mmHg로 줄어든다. 고지대에서는 산소 비율(21 %)은 그대로인데 전체 압력이 낮아져 분압이 떨어진다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-22-21.webp" width="1200" height="408" loading="lazy" decoding="async" alt="산소만, 질소만, 둘을 섞은 용기의 압력: 159, 597, 756 mmHg">
+      <figcaption><b>산소 분압은 비율 × 압력.</b> 같은 용기에 산소만 넣으면 159 mmHg, 질소만 넣으면 597 mmHg, 둘을 함께 넣으면 압력이 더해져 756 mmHg가 된다(돌턴의 법칙). 해수면 공기에서 산소 분압은 전체 압력 760 mmHg × 산소 비율 21 % ≈ 160 mmHg다. 들이쉰 공기는 기도에서 체온의 수증기(47 mmHg)로 포화되므로 기도 속 산소 분압은 약 150 mmHg로 줄어든다. 고지대에서는 산소 비율(21 %)은 그대로인데 전체 압력이 낮아져 분압이 떨어진다.<span class="fig-words">Oxygen 산소 · Nitrogen 질소 · Pressure 압력</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/22-4-gas-exchange">그림 22.21</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
 
     <p>산소는 이 150 mmHg에서 출발해 계단을 내려간다. 폐포에서는 이산화탄소가 자리를 차지해 약 100, 동맥혈은 약 95, 조직의 모세혈관 끝은 약 40, 세포 안은 20 안팎, 미토콘드리아 곁에서는 몇 mmHg에 불과하다. 계단 아래쪽이 낮을수록 산소가 잘 흘러내린다. 아래에서 산을 올라가 보자. 산 그림 위의 사람을 위아래로 끈다.</p>
@@ -132,32 +117,9 @@
     <h2>확산: 0.3 µm의 막과 0.75초</h2>
     <p>폐포의 공기와 모세혈관의 피 사이에는 폐포 벽 세포, 기저막, 모세혈관 벽 세포가 겹친 <span class="term">폐포-모세혈관 막</span><span class="en">(Alveolar–capillary membrane)</span>이 있다. 두께는 0.2~0.5 µm, 펼친 넓이는 50~100 m²로 테니스장 절반쯤이다. 확산량은 넓이와 분압 차에 비례하고 두께에 반비례한다(픽의 법칙, <a href="cell.html">3장</a>).</p>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 266" role="img" aria-label="폐포-모세혈관 막의 단면: 폐포 공기, 체액층, 상피, 기저막, 내피, 혈장, 적혈구, 산소와 이산화탄소의 이동 방향">
-        <defs><marker id="gx-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <rect x="20" y="20" width="370" height="60" rx="6" class="f-surface"/>
-        <text x="40" y="46" class="lbl-b">폐포 공기</text>
-        <text x="40" y="66" class="lbl-dim">PO₂ 100 · PCO₂ 40 mmHg</text>
-        <rect x="20" y="80" width="370" height="8" class="f-acc2-soft"/>
-        <rect x="20" y="88" width="370" height="14" class="f-acc-soft"/>
-        <rect x="20" y="102" width="370" height="6" class="f-warn-soft"/>
-        <rect x="20" y="108" width="370" height="14" class="f-acc-soft"/>
-        <rect x="20" y="122" width="370" height="40" class="f-art-soft"/>
-        <text x="200" y="148" class="lbl-dim">혈장</text>
-        <ellipse cx="200" cy="196" rx="86" ry="36" class="f-art-soft"/>
-        <text x="200" y="200" text-anchor="middle" class="lbl">적혈구(헤모글로빈)</text>
-        <text x="40" y="250" class="lbl-dim">들어오는 피: PO₂ 40 · PCO₂ 46 mmHg</text>
-        <path d="M80 60 L80 186" class="s-art" marker-end="url(#gx-ar)"/>
-        <text x="88" y="176" class="lbl-acc">O₂</text>
-        <path d="M330 186 L330 60" class="s-ven" marker-end="url(#gx-ar)"/>
-        <text x="338" y="176" class="lbl-dim">CO₂</text>
-        <path d="M394 80 L402 80 L402 122 L394 122" class="s-line" fill="none"/>
-        <text x="408" y="98" class="lbl-dim">막 두께</text>
-        <text x="408" y="116" class="lbl-b">0.3 µm</text>
-        <text x="408" y="150" class="lbl-dim">상피·기저막</text>
-        <text x="408" y="166" class="lbl-dim">·내피</text>
-      </svg>
-      <figcaption><b>공기와 피를 가르는 막.</b> 위에서부터 표면활성제가 덮인 얇은 체액층, 폐포 상피, 기저막, 모세혈관 내피, 혈장, 적혈구. 산소는 아래로, 이산화탄소는 위로 각자의 분압 차를 따라 움직인다. 이산화탄소는 물에 약 20배 잘 녹아 분압 차가 6 mmHg뿐이어도 충분히 빠져나간다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-22-22.webp" width="1200" height="720" loading="lazy" decoding="async" alt="폐포와 모세혈관 속 적혈구 사이의 얇은 막을 지나 산소가 들어가고 이산화탄소가 나오는 외호흡">
+      <figcaption><b>공기와 피를 가르는 막.</b> 폐포(보라)와 모세혈관 속 적혈구(빨강) 사이에는 폐포 상피와 모세혈관 내피가 기저막을 함께 쓰는 얇은 막뿐이다. 산소는 분압 차를 따라 폐포에서 혈장으로, 다시 적혈구의 헤모글로빈으로 들어간다. 이산화탄소는 반대로 탄산수소 이온(HCO₃⁻)과 헤모글로빈에서 풀려나 폐포로 나온다. 이산화탄소는 물에 약 20배 잘 녹아 분압 차가 6 mmHg뿐이어도 충분히 빠져나간다.<span class="fig-words">Alveolus 폐포 · Fused basement membranes 붙은 기저막 · Blood plasma 혈장 · Red blood cell 적혈구 · Carbonic anhydrase 탄산 탈수 효소 · Converted from bicarbonate 탄산수소 이온에서 바뀜 · Detached from hemoglobin 헤모글로빈에서 떨어짐 · dissolved in plasma 혈장에 녹은</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/22-4-gas-exchange">그림 22.22</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
 
     <p>적혈구 하나가 폐 모세혈관을 지나는 데는 쉴 때 약 0.75초가 걸린다. 그런데 산소 분압은 처음 0.25초 만에 폐포와 거의 같아진다. 남은 3분의 2는 <b>여유</b>다. 운동하면 피가 빨리 흘러 통과 시간이 0.25~0.4초로 줄지만, 건강한 폐에서는 이 여유 덕분에 여전히 꽉 채워진다. 막이 두꺼워지는 병(폐섬유화)이나 산소가 희박한 고지대에서는 이야기가 다르다.</p>

@@ -12,7 +12,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 src = (ROOT / "js/common.js").read_text(encoding="utf-8")
 CH = [dict(slug=m[0], num=m[1], title=m[2]) for m in re.findall(r'slug: "([\w-]+)",\s*num: "(\d+)",(?:\s*stage: \d+,)?\s*title: "([^"]+)"', src)]
 
-sim_re = re.compile(r'<div class="sim"([^>]*)>(.*?)<h3>(.*?)</h3>', re.S)
+sim_re = re.compile(r'<div class="sim(?: [^"]*)?"([^>]*)>(.*?)<h3>(.*?)</h3>', re.S)
 attr = lambda a, k: (m.group(1) if (m := re.search(k + r'="([^"]*)"', a)) else "")
 out, missing = [], []
 for c in CH:

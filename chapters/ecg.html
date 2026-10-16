@@ -22,7 +22,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/ecg.html#chapter","name":"심장의 전기와 심전도","headline":"심장의 전기와 심전도 · BodyBook","description":"심장은 누가 뛰게 하는가. 동방결절의 자동 박동, 자율신경이 박자를 바꾸는 방법, 전도 경로와 방실결절 지연, 심전도 파형과 간격 읽기, 유도와 전기축, 심박 변이와 부정맥을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/ecg.html","position":5,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"5. 심장의 전기와 심전도","item":"https://bodybook.euiyun.com/chapters/ecg.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://bodybook.euiyun.com/chapters/ecg.html#chapter","name":"심장의 전기와 심전도","headline":"심장의 전기와 심전도 · BodyBook","description":"심장은 누가 뛰게 하는가. 동방결절의 자동 박동, 자율신경이 박자를 바꾸는 방법, 전도 경로와 방실결절 지연, 심전도 파형과 간격 읽기, 유도와 전기축, 심박 변이와 부정맥을 시뮬레이터로 돌려 본다.","url":"https://bodybook.euiyun.com/chapters/ecg.html","position":5,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://bodybook.euiyun.com/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://bodybook.euiyun.com/#book","name":"BodyBook · 몸의 원리 교과서","url":"https://bodybook.euiyun.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BodyBook","item":"https://bodybook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"5. 심장의 전기와 심전도","item":"https://bodybook.euiyun.com/chapters/ecg.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -87,39 +87,9 @@
     <p>동방결절에서 시작된 흥분은 심방 근육을 타고 퍼져 두 심방을 수축시킨다. 그런데 심방과 심실 사이에는 전기가 통하지 않는 섬유 고리(판막의 받침)가 있어서, 흥분이 심실로 넘어가는 문은 단 하나, <span class="term">방실결절</span><span class="en">(Atrioventricular node, AV node)</span>뿐이다. 방실결절은 일부러 느리게 전기를 전한다. 약 0.1초의 이 <b>지연</b> 덕분에 심방이 피를 다 밀어 넣은 다음에야 심실이 수축한다.</p>
     <p>방실결절을 지난 흥분은 <span class="term">히스 다발</span><span class="en">(Bundle of His)</span>과 좌우 다발 가지를 거쳐 심실 벽 안쪽에 그물처럼 깔린 <span class="term">푸르키네 섬유</span><span class="en">(Purkinje fibers)</span>로 초속 2~4 m의 빠른 속도로 퍼진다. 그래서 두 심실의 근육이 거의 동시에, 그것도 심첨(아래 끝)부터 위쪽으로 짜내듯 수축한다.</p>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 320" role="img" aria-label="심장의 전도 경로: 동방결절, 심방, 방실결절, 히스 다발, 좌우 다발 가지, 푸르키네 섬유와 각 지점에 흥분이 닿는 시각">
-        <defs><marker id="ec-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <path d="M150 60 C110 70 100 150 110 170 L118 180 C120 240 190 300 250 304 C320 300 372 236 368 176 L372 168 C380 130 360 70 320 60 Z" class="f-surface"/>
-        <ellipse cx="170" cy="100" rx="52" ry="36" class="f-ven-soft"/>
-        <ellipse cx="310" cy="100" rx="52" ry="36" class="f-art-soft"/>
-        <ellipse cx="185" cy="215" rx="50" ry="62" class="f-ven-soft"/>
-        <ellipse cx="300" cy="220" rx="58" ry="70" class="f-art-soft"/>
-        <text x="170" y="104" text-anchor="middle" class="lbl-dim">우심방</text>
-        <text x="310" y="104" text-anchor="middle" class="lbl-dim">좌심방</text>
-        <text x="180" y="236" text-anchor="middle" class="lbl-dim">우심실</text>
-        <text x="308" y="244" text-anchor="middle" class="lbl-dim">좌심실</text>
-        <path d="M150 72 L226 142" class="s-nerve" stroke-dasharray="4 4"/>
-        <path d="M150 72 C210 60 260 70 300 84" class="s-nerve" stroke-dasharray="4 4"/>
-        <path d="M226 142 L240 166 L240 270" class="s-nerve"/>
-        <path d="M240 172 L214 196 L200 280 L230 296" class="s-nerve"/>
-        <path d="M240 172 L272 196 L290 286 L330 270 L356 210" class="s-nerve"/>
-        <circle cx="150" cy="72" r="9" class="f-tr4"/>
-        <circle cx="226" cy="142" r="8" class="f-tr4"/>
-        <text x="138" y="50" text-anchor="middle" class="lbl-b">동방결절</text>
-        <text x="138" y="36" text-anchor="middle" class="lbl-acc t-mono">0 ms</text>
-        <text x="64" y="146" text-anchor="middle" class="lbl-b">방실결절</text>
-        <text x="64" y="162" text-anchor="middle" class="lbl-acc t-mono">약 40 → 130 ms</text>
-        <path d="M100 150 L214 144" class="s-axis" marker-end="url(#ec-ar)"/>
-        <text x="420" y="160" text-anchor="middle" class="lbl-b">히스 다발</text>
-        <text x="420" y="176" text-anchor="middle" class="lbl-acc t-mono">약 150 ms</text>
-        <path d="M384 166 L248 168" class="s-axis" marker-end="url(#ec-ar)"/>
-        <text x="420" y="262" text-anchor="middle" class="lbl-b">푸르키네 섬유</text>
-        <text x="420" y="278" text-anchor="middle" class="lbl-acc t-mono">약 160~220 ms</text>
-        <path d="M380 262 L340 262" class="s-axis" marker-end="url(#ec-ar)"/>
-        <text x="300" y="34" text-anchor="middle" class="lbl-dim">심방 근육으로 퍼짐(약 90 ms)</text>
-      </svg>
-      <figcaption><b>전도 경로와 도착 시각.</b> 흥분은 동방결절(0 ms)에서 시작해 약 40 ms 만에 방실결절에 닿고, 그곳에서 약 0.1초 머문 뒤 히스 다발과 푸르키네 섬유를 따라 수십 ms 안에 심실 전체로 퍼진다. 점선은 심방 근육을 지나는 길, 실선은 특수 전도 섬유다. 시각은 교과서의 대표값을 반올림했다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-19-18.webp" width="1200" height="804" loading="lazy" decoding="async" alt="심장의 전도 경로: 동방결절, 결절 사이 경로, 방실결절, 히스 다발, 좌우 다발 가지, 푸르키네 섬유">
+      <figcaption><b>전도 경로와 도착 시각.</b> 흥분은 동방결절(0 ms)에서 시작해 심방 근육과 결절 사이 경로를 따라 약 40 ms 만에 방실결절에 닿는다. 방실결절에서 약 0.1초 머문 뒤 히스 다발과 좌우 다발 가지, 푸르키네 섬유를 따라 수십 ms 안에 심실 전체로 퍼진다. 시각은 교과서의 대표값을 반올림했다.<span class="fig-words">Sinoatrial (SA) node 동방결절 · Internodal 결절 사이 경로 · Bachmann's bundle 바흐만 다발 · Atrioventricular (AV) node 방실결절 · AV bundle (bundle of His) 히스 다발 · Right and left bundle branches 좌우 다발 가지 · Purkinje fibers 푸르키네 섬유</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/19-2-cardiac-muscle-and-electrical-activity">그림 19.18</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
 
     <p>아래에서 흥분(노란 점)이 길을 따라 움직이는 동안 오른쪽 심전도가 한 박동씩 그려진다. 방실결절 지연을 늘려 보면 P파와 QRS파 사이가 벌어진다.</p>
@@ -160,32 +130,9 @@
       </tbody>
     </table></div>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 480 250" role="img" aria-label="심전도 종이의 눈금: 작은 칸 1 mm는 0.04초와 0.1 mV, 큰 칸 5 mm는 0.2초와 0.5 mV, 큰 칸 5개는 1초">
-        <defs>
-          <pattern id="ec-small" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0H0V10" fill="none" class="s-bad" stroke-width="0.5" opacity="0.35"/></pattern>
-          <pattern id="ec-big" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="url(#ec-small)"/><path d="M50 0H0V50" fill="none" class="s-bad" stroke-width="1.3" opacity="0.6"/></pattern>
-          <marker id="ec-ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker>
-        </defs>
-        <rect x="40" y="30" width="300" height="150" fill="url(#ec-big)"/>
-        <rect x="40" y="30" width="300" height="150" fill="none" class="s-bad" stroke-width="1.3" opacity="0.6"/>
-        <path d="M40 140 H70 Q80 128 90 140 H110 L114 146 L120 70 L126 152 L130 140 H150 Q170 116 190 140 H340" class="s-line" stroke-width="2.2" fill="none"/>
-        <rect x="190" y="130" width="10" height="10" class="f-acc-soft"/>
-        <rect x="240" y="80" width="50" height="50" fill="none" class="s-acc" stroke-width="2.2"/>
-        <path d="M240 196 H290" class="s-acc" marker-start="url(#ec-ar2)" marker-end="url(#ec-ar2)"/>
-        <text x="265" y="214" text-anchor="middle" class="lbl-acc t-mono">0.2 s</text>
-        <path d="M302 80 V130" class="s-acc" marker-start="url(#ec-ar2)" marker-end="url(#ec-ar2)"/>
-        <text x="308" y="110" class="lbl-acc t-mono">0.5 mV</text>
-        <path d="M40 228 H290" class="s-axis" marker-start="url(#ec-ar2)" marker-end="url(#ec-ar2)"/>
-        <text x="165" y="244" text-anchor="middle" class="lbl-dim">큰 칸 5개 = 1초</text>
-        <text x="360" y="128" class="lbl">작은 칸(1 mm)</text>
-        <text x="360" y="146" class="lbl-dim t-mono">0.04 s · 0.1 mV</text>
-        <path d="M356 136 L204 136" class="s-axis" marker-end="url(#ec-ar2)"/>
-        <text x="360" y="62" class="lbl">큰 칸(5 mm)</text>
-        <text x="360" y="80" class="lbl-dim t-mono">0.2 s · 0.5 mV</text>
-        <text x="40" y="20" class="lbl-dim">종이 속도 25 mm/s · 감도 10 mm/mV</text>
-      </svg>
-      <figcaption><b>심전도 종이의 눈금.</b> 표준 기록에서 종이는 1초에 25 mm 지나가므로 작은 칸(1 mm) 하나가 0.04초, 굵은 선으로 묶인 큰 칸(5 mm) 하나가 0.2초다. 세로로는 1 mV가 10 mm다. 칸을 세면 시간과 전압을 바로 읽을 수 있다.</figcaption>
+    <figure class="photo">
+      <img src="../assets/figures/openstax-ap-19-23.webp" width="1200" height="779" loading="lazy" decoding="async" alt="심전도 종이의 눈금 위에 그린 정상 파형: P파, QRS 복합체, T파와 PR·QT 간격">
+      <figcaption><b>심전도 종이의 눈금.</b> 표준 기록에서 종이는 1초에 25 mm 지나가므로 작은 칸(1 mm) 하나가 0.04초, 굵은 선으로 묶인 큰 칸(5 mm) 하나가 0.2초, 큰 칸 5개가 1초다. 세로로는 1 mV가 10 mm다. 아래 확대 그림에서 P파(심방 탈분극), QRS 복합체(심실 탈분극), T파(심실 재분극)와 PR·QT 간격을 칸을 세어 읽는다.<span class="fig-words">P wave P파 · QRS complex QRS 복합체 · T wave T파 · PR/QT interval PR/QT 간격 · P-R/S-T segment PR/ST 분절 · Millivolts 밀리볼트</span><span class="credit">그림: OpenStax, <i>Anatomy and Physiology</i>(Rice University) <a href="https://openstax.org/books/anatomy-and-physiology/pages/19-2-cardiac-muscle-and-electrical-activity">그림 19.23</a>, <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>.</span></figcaption>
     </figure>
 
     <p>아래는 다온의 검진 심전도에서 한 박동을 확대한 것이다. 파형이나 분절을 누르면 설명이 나오고, 두 개의 세로 자(캘리퍼)를 끌어 간격을 직접 잴 수 있다.</p>
